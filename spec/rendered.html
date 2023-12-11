@@ -1,0 +1,1579 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><script type="text/javascript" src="chrome-extension://mdnleldcmiljblolnjhpnblkcekpdkpa/libs/customElements.js" class="__REQUESTLY__SCRIPT"></script><head>
+<meta charset="utf-8">
+<meta name="generator" content="ReSpec 34.2.2">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+span.example-title{text-transform:none}
+:is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
+div.illegal-example{color:red}
+div.illegal-example p{color:#000}
+:is(aside,div).example{border-left-width:.5em;border-left-style:solid;border-color:#e0cb52;background:#fcfaee}
+aside.example div.example{border-left-width:.1em;border-color:#999;background:#fff}
+.example pre{background-color:rgba(0,0,0,.03)}
+</style>
+<style>
+.issue-label{text-transform:initial}
+.warning>p:first-child{margin-top:0}
+.warning{padding:.5em;border-left-width:.5em;border-left-style:solid}
+span.warning{padding:.1em .5em .15em}
+.issue.closed span.issue-number{text-decoration:line-through}
+.issue.closed span.issue-number::after{content:" (Closed)";font-size:smaller}
+.warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9}
+.warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
+li.task-list-item{list-style:none}
+input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
+.issue a.respec-gh-label{padding:5px;margin:0 2px 0 2px;font-size:10px;text-transform:none;text-decoration:none;font-weight:700;border-radius:4px;position:relative;bottom:2px;border:none;display:inline-block}
+</style>
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;margin-top:.25em}
+.dfn-panel ul a[href]{color:#333}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+    
+<title>RML Fields</title>
+    
+    
+<link rel="stylesheet" type="text/css" href="./resources/css/extras.css">
+    
+    
+<style type="text/css">
+
+        /* Adapted from R2RML */
+        aside.ex-input,
+        aside.ex-mapping,
+        aside.ex-output,
+        aside.ex-intermediate {
+            word-wrap:normal;
+            margin-top: 1.5em;
+            padding: 1em;
+            font-size: 80%;
+        }
+        aside.ex-input:before,
+        aside.ex-mapping:before,
+        aside.ex-output:before,
+        aside.ex-intermediate:before {
+            background: white;
+            display: block;
+            font-family: sans-serif;
+            font-size: 90%;
+            margin: -1.5em 0 0.5em 0;
+            padding: 0.4em 0.4em;
+            width: 18em;
+        }
+        /* Input data example */
+        aside.ex-input {
+            background: #cee;
+        }
+        aside.ex-input,
+        aside.ex-input:before {
+            border: 1px solid #acc;
+            overflow: auto;
+        }
+        aside.ex-input:before {
+            content: "Example input data";
+        }
+        /* RML mapping example */
+        aside.ex-mapping {
+            background: #eeb;
+        }
+        aside.ex-mapping,
+        aside.ex-mapping:before {
+            border: 1px solid #cc9;
+            overflow: auto;
+        }
+        aside.ex-mapping:before {
+            content: "Example RML fields mapping";
+        }
+        /* Output RDF example */
+        aside.ex-output {
+            background: #cfc;
+        }
+        aside.ex-output,
+        aside.ex-output:before {
+            border: 1px solid #aca;
+            overflow: auto;
+        }
+        aside.ex-output:before {
+            content: "Example RDF output";
+        }
+        /* Intermediate representation example */
+        aside.ex-intermediate {
+            background: #ffc8d4;
+        }
+        aside.ex-intermediate,
+        aside.ex-intermediate:before {
+            border: 1px solid #aca;
+            overflow: auto;
+        }
+        aside.ex-intermediate:before {
+            content: "Example record sequence";
+        }
+        table, th, td {
+          background: white;
+          border-collapse: collapse;
+          border: 1px solid;
+        }
+        th, td {
+          padding: 5px;
+          text-align: left;
+        }
+        th {
+          font-weight: bold;
+        }
+    
+</style>
+    
+    
+    
+<script data-goatcounter="https://rml-fields.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
+    
+<noscript>
+        &lt;img src="https://rml-fields.goatcounter.com/count?p=/test-noscript"&gt;
+    </noscript>
+
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
+dfn{font-weight:700}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+cite .bibref{font-style:normal}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+.toc a,.tof a{text-decoration:none}
+a .figno,a .secno{color:#000}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
+.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
+.simple th a{color:#fff;padding:3px 5px;text-align:left}
+.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
+.simple td{padding:3px 10px;border-top:1px solid #ddd}
+.simple tr:nth-child(even){background:#f0f6ff}
+.section dd>p:first-child{margin-top:0}
+.section dd>p:last-child{margin-bottom:0}
+.section dd{margin-bottom:1em}
+.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none;display:inline-block}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+.self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+aside.example .marker>a.self-link{color:inherit}
+.header-wrapper{display:flex;align-items:baseline}
+:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2){position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.5}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3)+a.self-link{top:-.2em}
+:is(h4,h5,h6)+a.self-link::before{color:#000}
+@media (max-width:767px){
+dd{margin-left:0}
+}
+@media print{
+.removeOnSave{display:none}
+}
+</style>
+<script src="chrome-extension://nngceckbapebfimnlniiiahkandclblb/content/fido2/page-script.js"></script>
+<meta name="description" content="RML fields is an extension of the RDF Mapping Language (RML) that increases the language’s capability to construct RDF datasets from nested input data.">
+<style>
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}
+.hljs-comment,.hljs-quote{color:#717277;font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;font-weight:700}
+.hljs-literal{color:#0b76c5}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3}
+.hljs-emphasis{font-style:italic}
+.hljs-strong{font-weight:700}
+.hljs-link{text-decoration:underline}
+</style>
+<style>
+var{position:relative;cursor:pointer}
+var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
+var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
+var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
+var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "preProcess": [
+    null
+  ],
+  "localBiblio": {
+    "RDF11-Concepts": {
+      "title": "RDF 1.1 Concepts and Abstract Syntax",
+      "href": "https://www.w3.org/TR/rdf11-concepts/",
+      "status": "W3C Recommendation",
+      "publisher": "W3C",
+      "date": "25 February 2014"
+    },
+    "Turtle": {
+      "title": "RDF 1.1 Turtle",
+      "href": "https://www.w3.org/TR/turtle/",
+      "status": "W3C Recommendation",
+      "publisher": "W3C",
+      "date": "25 February 2014",
+      "id": "turtle"
+    },
+    "RML": {
+      "title": "RDF Mapping Language",
+      "href": "https://rml.io/specs/rml/",
+      "status": "Unofficial draft",
+      "publisher": "https://rml.io",
+      "date": "06 October 2020"
+    }
+  },
+  "doRdfa": "true",
+  "processVersion": 2021,
+  "specStatus": "CG-DRAFT",
+  "shortName": "rml-fields",
+  "copyrightStart": "2021",
+  "edDraftURI": "https://w3id.org/kg-construct/rml-fields",
+  "editors": [
+    {
+      "name": "Thomas Delva",
+      "mailto": "thomas.delva@ugent.be",
+      "company": "Ghent University &ndash; imec &ndash; IDLab",
+      "orcidid": "0000-0001-9521-2185",
+      "companyURL": "https://idlab.technology/",
+      "url": "mailto:thomas.delva@ugent.be"
+    },
+    {
+      "name": "Anastasia Dimou",
+      "mailto": "anastasia.dimou@ugent.be",
+      "company": "Ghent University &ndash; imec &ndash; IDLab",
+      "orcidid": "0000-0003-2138-7972",
+      "companyURL": "https://idlab.technology/",
+      "url": "mailto:anastasia.dimou@ugent.be"
+    }
+  ],
+  "group": "kg-construct",
+  "latestVersion": null,
+  "issueBase": "https://github.com/kg-construct/rml-fields-spec/issues",
+  "noRecTrack": "true",
+  "otherLinks": [
+    {
+      "key": "This Version",
+      "data": [
+        {
+          "value": "https://kg-construct.github.io/rml-fields-spec/%thisDate%/",
+          "href": "https://kg-construct.github.io/rml-fields-spec/%thisDate%/"
+        }
+      ]
+    },
+    {
+      "key": "Previous Version",
+      "data": [
+        {
+          "value": "https://kg-construct.github.io/rml-fields-spec/%prevDate%/",
+          "href": "https://kg-construct.github.io/rml-fields-spec/%prevDate%/"
+        }
+      ]
+    },
+    {
+      "key": "Website",
+      "data": [
+        {
+          "value": "https://rml.io/",
+          "href": "https://rml.io/"
+        }
+      ]
+    }
+  ],
+  "publishISODate": "2023-12-09T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 09 December 2023"
+}</script>
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
+<body class="h-entry"><div class="head">
+    
+    <h1 id="title" class="title">RML Fields</h1> 
+    <p id="w3c-state">
+      <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
+      <time class="dt-published" datetime="2023-12-09">09 December 2023</time>
+    </p>
+    <dl>
+      
+      <dt>Latest published version:</dt><dd>
+              none
+            </dd>
+      <dt>Latest editor's draft:</dt><dd><a href="https://w3id.org/kg-construct/rml-fields">https://w3id.org/kg-construct/rml-fields</a></dd>
+      
+      
+      
+      
+      <dt>Editors:</dt><dd class="editor p-author h-card vcard">
+    <a class="ed_mailto u-email email p-name" href="mailto:thomas.delva@ugent.be">Thomas Delva</a> (<a class="p-org org h-org" href="https://idlab.technology/">Ghent University – imec – IDLab</a>)
+  </dd><dd class="editor p-author h-card vcard">
+    <a class="ed_mailto u-email email p-name" href="mailto:anastasia.dimou@ugent.be">Anastasia Dimou</a> (<a class="p-org org h-org" href="https://idlab.technology/">Ghent University – imec – IDLab</a>)
+  </dd>
+      
+      
+      
+      <dt>This Version</dt><dd>
+    <a href="https://kg-construct.github.io/rml-fields-spec/%thisDate%/">https://kg-construct.github.io/rml-fields-spec/%thisDate%/</a>
+  </dd><dt>Previous Version</dt><dd>
+    <a href="https://kg-construct.github.io/rml-fields-spec/%prevDate%/">https://kg-construct.github.io/rml-fields-spec/%prevDate%/</a>
+  </dd><dt>Website</dt><dd>
+    <a href="https://rml.io/">https://rml.io/</a>
+  </dd>
+    </dl>
+    
+    <p class="copyright">
+          <a href="https://www.w3.org/policies/#copyright">Copyright</a>
+          ©
+          2021-2023
+          
+          the Contributors to the RML Fields
+          Specification, published by the
+          <a href="https://www.w3.org/groups/cg/kg-construct">Knowledge Graph Construction Community Group</a> under the
+          <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>. A human-readable
+                <a href="https://www.w3.org/community/about/agreements/cla-deed/">summary</a>
+                is available.
+              
+        </p>
+    <hr title="Separator for header">
+  </div>
+<section id="abstract" class="introductory"><h2 id="abstract">Abstract</h2><p>RML fields is an extension of the RDF Mapping Language (RML) that increases the language’s capability to construct RDF datasets from nested input data.</p>
+<p>This document describes RML fields through definitions and examples.</p>
+<p>The version of this document is <em>Unreleased</em>.</p>
+</section>
+
+<section id="sotd" class="introductory"><h2>Status of This Document</h2><p>
+      This specification was published by the
+      <a href="https://www.w3.org/groups/cg/kg-construct">Knowledge Graph Construction Community Group</a>. It is not a W3C Standard nor is it
+      on the W3C Standards Track.
+      
+            Please note that under the
+            <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>
+            there is a limited opt-out and other conditions apply.
+          
+      Learn more about
+      <a href="https://www.w3.org/community/">W3C Community and Business Groups</a>.
+    </p>
+    <p data-format="markdown"><p>This is an early draft,
+yet efforts are made to keep things stable.</p>
+</p>
+</section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">1. </bdi>Overview</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#conventions"><bdi class="secno">1.1 </bdi>Document conventions</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1.2 </bdi>Conformance</a></li></ol></li><li class="tocline"><a class="tocxref" href="#fields"><bdi class="secno">2. </bdi>RML Fields</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#records"><bdi class="secno">2.1 </bdi>Records</a></li><li class="tocline"><a class="tocxref" href="#extending-the-logical-source"><bdi class="secno">2.2 </bdi>Extending the logical source</a></li><li class="tocline"><a class="tocxref" href="#fields-and-record-sequences"><bdi class="secno">2.3 </bdi>Fields and record sequences</a></li><li class="tocline"><a class="tocxref" href="#using-field-names-in-triples-maps"><bdi class="secno">2.4 </bdi>Using field names in triples maps</a></li></ol></li><li class="tocline"><a class="tocxref" href="#mixed"><bdi class="secno">3. </bdi>Fields for mixed-format data</a></li><li class="tocline"><a class="tocxref" href="#collections"><bdi class="secno">4. </bdi>Generating collections with RML fields</a></li><li class="tocline"><a class="tocxref" href="#joins"><bdi class="secno">5. </bdi>RML fields and referencing object maps</a></li><li class="tocline"><a class="tocxref" href="#sugar"><bdi class="secno">6. </bdi>Relationship with non-fields RML syntax</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">A.1 </bdi>Normative references</a></li></ol></li></ol></nav>
+
+<section id="overview-0"><div class="header-wrapper"><h2 id="overview"><bdi class="secno">1. </bdi>Overview</h2><a class="self-link" href="#overview" aria-label="Permalink for Section 1."></a></div><p><em>This section is non-normative.</em></p>
+<p>TODO</p>
+<section id="document-conventions"><div class="header-wrapper"><h3 id="conventions"><bdi class="secno">1.1 </bdi>Document conventions</h3><a class="self-link" href="#conventions" aria-label="Permalink for Section 1.1"></a></div><p>We assume readers have basic familiarity with RDF and RML concepts.</p>
+<p>In this document, examples assume 
+the following namespace prefix bindings unless otherwise stated:</p>
+<table>
+<thead>
+<tr>
+<th>Prefix</th>
+<th>Namespace</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>rml:</code></td>
+<td><a href="http://w3id.org/rml/">http://w3id.org/rml/</a></td>
+</tr>
+<tr>
+<td><code>xsd:</code></td>
+<td><a href="http://www.w3.org/2001/XMLSchema#">http://www.w3.org/2001/XMLSchema#</a></td>
+</tr>
+<tr>
+<td><code>ex:</code></td>
+<td><a href="http://example.org/">http://example.org/</a></td>
+</tr>
+<tr>
+<td><code>:</code></td>
+<td><a href="http://example.org/">http://example.org/</a></td>
+</tr>
+</tbody></table>
+<p>The examples are contained in color-coded boxes. We use the Turtle syntax [<cite><a class="bibref" data-link-type="biblio" href="#bib-turtle" title="RDF 1.1 Turtle">Turtle</a></cite>] to write RDF.</p>
+<aside class="ex-input">
+# This box contains an example input
+</aside>
+
+<aside class="ex-mapping">
+# This box contains an example mapping
+</aside>
+
+<aside class="ex-intermediate">
+# This box contains the example intermediate representation
+</aside>
+
+<aside class="ex-output">
+# This box contains the example output
+</aside></section><section id="conformance"><div class="header-wrapper"><h3 id="x1-2-conformance"><bdi class="secno">1.2 </bdi>Conformance</h3><a class="self-link" href="#conformance" aria-label="Permalink for Section 1.2"></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
+        The key words <em class="rfc2119">MAY</em> and <em class="rfc2119">MUST</em> in this document
+        are to be interpreted as described in
+        <a href="https://datatracker.ietf.org/doc/html/bcp14">BCP 14</a>
+        [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">RFC2119</a></cite>] [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8174" title="Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words">RFC8174</a></cite>]
+        when, and only when, they appear in all capitals, as shown here.
+      </p> </section>
+
+
+</section>
+
+<section id="rml-fields"><div class="header-wrapper"><h2 id="fields"><bdi class="secno">2. </bdi>RML Fields</h2><a class="self-link" href="#fields" aria-label="Permalink for Section 2."></a></div><p>TODO blurb</p>
+<section id="records"><div class="header-wrapper"><h3 id="x2-1-records"><bdi class="secno">2.1 </bdi>Records</h3><a class="self-link" href="#records" aria-label="Permalink for Section 2.1"></a></div>
+<p>A <dfn data-plurals="records" id="dfn-record" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">record</dfn> is created using an <a href="http://w3id.org/rml/core/spec#dfn-iterator">iterator</a> or an <a href="http://w3id.org/rml/core/spec#dfn-expressions">expression</a>. Depending on the source type, <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-1">records</a> might take different forms: for tabular data sources, a <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-2">record</a> might be a row or a cell; for tree-structured sources like XML, a <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-3">record</a> might be a node; for document-structured sources like JSON, a <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-4">record</a> might be a document or attribute value.</p>
+<p>A <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-5">record</a> <em class="rfc2119">MUST</em> have a string representation. It <em class="rfc2119">MAY</em> be possible to derive other <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-6">records</a> from a <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-7">record</a> using an <a href="http://w3id.org/rml/core/spec#dfn-expressions">expression</a>.</p>
+<aside class="example" id="csviterator"><div class="marker">
+    <a class="self-link" href="#csviterator">Example<bdi> 1</bdi></a>
+  </div>
+
+<aside class="ex-input">
+
+<pre><code class="csv hljs" aria-busy="false">name,birthyear
+alice,1995
+bob,1999
+</code></pre>
+</aside>
+
+<aside class="ex-mapping">
+
+<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:csvSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:logicalSource</span> ;
+  <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:csvFile</span> ;
+  <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:CSV</span> .
+</code></pre>
+</aside>
+
+<p>The default iterator for CSV files is row-based iteration, skipping the header row. Therefore, in this example, the iterator of the logical source <code>:csvSource</code> defines two <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-8">records</a>:</p>
+<pre><code class="csv hljs" aria-busy="false">alice,1995
+</code></pre>
+<p>and</p>
+<pre><code class="csv hljs" aria-busy="false">bob,1999
+</code></pre>
+<p>.</p>
+</aside>
+
+<aside class="example" id="xpathiterator"><div class="marker">
+    <a class="self-link" href="#xpathiterator">Example<bdi> 2</bdi></a>
+  </div>
+
+<aside class="ex-input">
+
+<pre><code class="xml hljs" aria-busy="false"><span class="hljs-tag">&lt;<span class="hljs-name">People</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">Person</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"cindy"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Friends</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Person</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"dave"</span> /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">Person</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"edmund"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Friends</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">Person</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">Person</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"fred"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Friends</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Friends</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">Person</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">People</span>&gt;</span>
+</code></pre>
+</aside>
+
+<aside class="ex-mapping">
+
+<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:xmlSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:logicalSource</span> ;
+  <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:xmlFile</span> ;
+  <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:XPath</span> ;
+  <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"/People/Person"</span> .
+</code></pre>
+</aside>
+
+<p>In this example, the XPath expression <code>/People/Person</code> is used as <a href="http://w3id.org/rml/core/spec#dfn-iterator">iterator</a>. The sequence of records it defines are the <code>Person</code> nodes on the first level in the document that have string representations</p>
+<pre><code class="xml hljs" aria-busy="false"><span class="hljs-tag">&lt;<span class="hljs-name">Person</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"cindy"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">Friends</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Person</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"dave"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Person</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"edmund"</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">Friends</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">Person</span>&gt;</span>
+</code></pre>
+<p>and</p>
+<pre><code class="xml hljs" aria-busy="false"><span class="hljs-tag">&lt;<span class="hljs-name">Person</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"fred"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">Friends</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">Friends</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">Person</span>&gt;</span>
+</code></pre>
+<p>.</p>
+</aside>
+
+<aside class="example" id="jsonpathiterator"><div class="marker">
+    <a class="self-link" href="#jsonpathiterator">Example<bdi> 3</bdi></a>
+  </div>
+
+<aside class="ex-input">
+
+<pre><code class="json hljs" aria-busy="false">{
+  <span class="hljs-attr">"people"</span>: [
+    {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"alice"</span>,
+      <span class="hljs-attr">"items"</span>: [
+        {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"sword"</span>,
+          <span class="hljs-attr">"weight"</span>: <span class="hljs-number">1500</span>
+        },
+        {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"shield"</span>,
+          <span class="hljs-attr">"weight"</span>: <span class="hljs-number">2500</span>
+        }
+      ]
+    },
+    {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"bob"</span>,
+      <span class="hljs-attr">"items"</span>: [
+        {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"flower"</span>,
+          <span class="hljs-attr">"weight"</span>: <span class="hljs-number">15</span>
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+</aside>
+
+<aside class="ex-mapping">
+
+<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:logicalSource</span> ;
+  <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:jsonFile</span> ;
+  <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:JSONPath</span> ;
+  <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.people[*]"</span> .
+</code></pre>
+</aside>
+
+<p>In this example, the JSONPath expression <code>$.people[*]</code> is used as <a href="http://w3id.org/rml/core/spec#dfn-iterator">iterator</a>. The sequence of <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-9">records</a> it defines are the elements of the <code>people</code> array in the document that have string representations</p>
+<pre><code class="json hljs" aria-busy="false">{
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"alice"</span>,
+  <span class="hljs-attr">"items"</span>: [
+    {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"sword"</span>,
+      <span class="hljs-attr">"weight"</span>: <span class="hljs-number">1500</span>
+    },
+    {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"shield"</span>,
+      <span class="hljs-attr">"weight"</span>: <span class="hljs-number">2500</span>
+    }
+  ]
+}
+</code></pre>
+<p>and</p>
+<pre><code class="json hljs" aria-busy="false">{
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"bob"</span>,
+  <span class="hljs-attr">"items"</span>: [
+    {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"flower"</span>,
+      <span class="hljs-attr">"weight"</span>: <span class="hljs-number">15</span>
+    }
+  ]
+}
+</code></pre>
+<p>.</p>
+</aside>
+
+<p>For a given <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-10">record</a>, the evaluation of an <a href="http://w3id.org/rml/core/spec#dfn-expressions">expression</a> against it <em class="rfc2119">MUST</em> either result in an ordered sequence of <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-11">records</a>, called the <dfn id="dfn-expression-values" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;expression values&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">expression values</dfn>, or throw an error. An <a href="http://w3id.org/rml/core/spec#dfn-expressions">expression</a> <em class="rfc2119">MUST</em> be valid for the given <a href="http://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a>.</p>
+<div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="4"><span>Note</span></div><aside class="">
+
+<p>This definition of expression <em>is</em> different from <a href="http://w3id.org/rml/core/spec#dfn-expressions">the definition</a> given in the RML Core specification on two points. Firstly, the RML Core specification defines the result of an expression evaluation as being a set of values, while here an ordered sequence of values is defined. Secondly, we consider expression values that might themselves be <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-12">records</a>.</p>
+</aside></div>
+
+<aside class="example" id="csvreference"><div class="marker">
+    <a class="self-link" href="#csvreference">Example<bdi> 4</bdi></a>
+  </div>
+
+<p>Continuing <a href="#csviterator" data-matched-text="[[[#csviterator]]]" class="box-ref">Example<bdi> 1</bdi></a>, the reference <code>name</code> would define the length-one sequence <code>alice</code> from the record <code>alice,1995</code> and the length-one sequence <code>bob</code> from the record <code>bob,1999</code>.</p>
+<p>The reference <code>nonsense</code> would give an error, since it is not in the header of the CSV file. Note the reference <code>nonsense</code> is not malformed. The reference <code>bad,ref</code> would <em>also</em> throw an error, as it is malformed: it contains the unescaped <code>,</code> separator.</p>
+</aside>
+
+<aside class="example" id="xpathreference"><div class="marker">
+    <a class="self-link" href="#xpathreference">Example<bdi> 5</bdi></a>
+  </div>
+
+<p>Continuing <a href="#xpathiterator" data-matched-text="[[[#xpathiterator]]]" class="box-ref">Example<bdi> 2</bdi></a>, the reference <code>Friends/Person/@name</code> would define the length-two sequence <code>dave</code>, <code>edmund</code> from the record <code>&amp;lt;Person name="cindy"&gt;&amp;lt;Friends&gt;&amp;lt;Person name="dave"/&gt;&amp;lt;Person name="edmund"/&gt;&amp;lt;/Friends&gt;&amp;lt;/Person&gt;</code> and the empty sequence from the record <code>&amp;lt;Person name="fred"&gt;&amp;lt;Friends&gt;&amp;lt;/Friends&gt;&amp;lt;/Person&gt;</code>.</p>
+<p>The reference <code>Siblings/Person/@name</code> would also define empty sequences of record. The reference <code>[unbalanced</code> would give an error, since it is not a valid relative XPath expression.</p>
+</aside>
+
+<aside class="example" id="jsonpathreference"><div class="marker">
+    <a class="self-link" href="#jsonpathreference">Example<bdi> 6</bdi></a>
+  </div>
+
+<p>Continuing <a href="#jsonpathiterator" data-matched-text="[[[#jsonpathiterator]]]" class="box-ref">Example<bdi> 3</bdi></a>, the reference <code>$.items[*]</code> would define the length-two sequence <code>{"type": "sword", "weight": 1500}</code>, <code>{"type": "shield", "weight": 2500}</code> from the record <code>{ "name": "alice", "items": [{"type": "sword", "weight": 1500}, {"type": "shield", "weight": 2500}]}</code> and the length-one sequence <code>{"type": "flower", "weight": 15}</code> from the record <code>{ "name": "bob", "items": [{"type": "flower", "weight": 15}]}</code>.</p>
+<p>The references <code>$.type</code> can be used to refer to data inside the records in the sequences defined by <code>$.items[*]</code>. Doing so would define the three length-one sequences <code>"sword"</code>, <code>"shield"</code> and <code>"flower"</code>.</p>
+<p>The reference <code>$.nonsense</code> would define empty sequences of record since the <code>nonsense</code> attribute does not occur in the data. The reference <code>[unbalanced</code> would give an error, since it is not a valid relative JSONPath expression.</p>
+</aside>
+
+
+</section><section id="extending-the-logical-source"><div class="header-wrapper"><h3 id="x2-2-extending-the-logical-source"><bdi class="secno">2.2 </bdi>Extending the logical source</h3><a class="self-link" href="#extending-the-logical-source" aria-label="Permalink for Section 2.2"></a></div>
+<p>A <a href="http://w3id.org/rml/core/spec#dfn-logical-iteration">logical iteration</a> <em class="rfc2119">MUST</em> have a string representation.</p>
+<div class="issue" id="issue-container-number-1"><div role="heading" class="issue-title marker" id="h-issue" aria-level="4"><span>Issue 1</span></div><aside class="">
+Describe how logical iteration relates to records.
+</aside></div>
+
+</section><section id="fields-and-record-sequences"><div class="header-wrapper"><h3 id="x2-3-fields-and-record-sequences"><bdi class="secno">2.3 </bdi>Fields and record sequences</h3><a class="self-link" href="#fields-and-record-sequences" aria-label="Permalink for Section 2.3"></a></div>
+<p>A <dfn id="dfn-record-sequence" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">record sequence</dfn> is an ordered sequence of sets of key-value pairs, where each key is a string and each value a <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-13">record</a>. A record sequence <em class="rfc2119">MUST</em> have a finite set of keys that appear in each set in the sequence. In any particular set in a record sequence, the value of a key <em class="rfc2119">MAY</em> be a null value.</p>
+<p>An <a data-link-type="dfn|abstract-op" class="respec-offending-element" title="No matching definition found." id="respec-offender-no-matching-definition-found">iterator</a> defines a <a data-link-type="dfn|abstract-op" href="#dfn-record-sequence" class="internalDFN" id="ref-for-dfn-record-sequence-1">record sequence</a> from the iterator's <a data-link-type="dfn|abstract-op" class="respec-offending-element" title="No matching definition found." id="respec-offender-no-matching-definition-found-0">logical source</a>, called the <dfn id="dfn-iterator-record-sequence" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;iterator record sequence&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">iterator record sequence</dfn>. This record sequence has two keys:</p>
+<ul>
+<li>An index key <code>#</code> with as corresponding values the position of the current entry in the sequence defined by the iterator.</li>
+<li>A key <code>&lt;it&gt;</code> with as corresponding values the records in the sequence defined by the iterator.</li>
+</ul>
+<aside class="example" id="ex-record-sequence"><div class="marker">
+    <a class="self-link" href="#ex-record-sequence">Example<bdi> 7</bdi></a>
+  </div>
+
+<aside class="ex-input">
+
+<pre><code class="json hljs" aria-busy="false">{
+  <span class="hljs-attr">"people"</span>: [
+    {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"alice"</span>,
+      <span class="hljs-attr">"items"</span>: [
+        {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"sword"</span>,
+          <span class="hljs-attr">"weight"</span>: <span class="hljs-number">1500</span>
+        },
+        {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"shield"</span>,
+          <span class="hljs-attr">"weight"</span>: <span class="hljs-number">2500</span>
+        }
+      ]
+    },
+    {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"bob"</span>,
+      <span class="hljs-attr">"items"</span>: [
+        {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"flower"</span>,
+          <span class="hljs-attr">"weight"</span>: <span class="hljs-number">15</span>
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+</aside>
+
+<aside class="ex-mapping">
+
+<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:logicalSource</span> ;
+  <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:jsonFile</span> ;
+  <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:JSONPath</span> ;
+  <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.people[*]"</span> .
+</code></pre>
+</aside>
+
+<aside class="ex-intermediate">
+<table>
+<tbody><tr><th>
+
+<p><code>#</code></p>
+</th>
+<th>
+
+<p><code>&lt;it&gt;</code></p>
+</th>
+</tr><tr>
+<td>
+0
+</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">{
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"alice"</span>,
+  <span class="hljs-attr">"items"</span>: [
+    {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"sword"</span>,
+      <span class="hljs-attr">"weight"</span>: <span class="hljs-number">1500</span>
+    },
+    {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"shield"</span>,
+      <span class="hljs-attr">"weight"</span>: <span class="hljs-number">2500</span>
+    }
+  ]
+}
+</code></pre>
+</td>
+</tr>
+<tr>
+<td>
+1
+</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">{
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"bob"</span>,
+  <span class="hljs-attr">"items"</span>: [
+    {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"flower"</span>,
+      <span class="hljs-attr">"weight"</span>: <span class="hljs-number">15</span>
+    }
+  ]
+}
+</code></pre>
+</td>
+</tr>
+</tbody></table>
+</aside>
+
+</aside>
+
+<p>A <dfn data-plurals="fields" id="dfn-field" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">field</dfn> is an <a href="http://w3id.org/rml/core/spec#dfn-expression-map">ExpressionMap</a> that gives a name to an <a href="http://w3id.org/rml/core/spec#dfn-expressions">expression</a>. A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-1">field</a> <em class="rfc2119">MUST</em> have a <dfn data-lt="field-parent|parent" id="dfn-field-parent" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">parent</dfn> that is either a <a data-link-type="dfn|abstract-op" class="respec-offending-element" title="No matching definition found." id="respec-offender-no-matching-definition-found-1">logical source</a> or another <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-2">field</a>. The parent relation <em class="rfc2119">MUST</em> not contain cycles: it is tree-shaped with a logical source as its root. The transitive parents of a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-3">field</a>, i.e., the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-4">field</a>'s parent, the parent of the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-5">field</a>'s parent, etcetera, are fittingly called the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-6">field</a>'s <dfn id="dfn-ancestors" tabindex="0" aria-haspopup="dialog" class="respec-offending-element" title="Found definition for &quot;ancestors&quot;, but nothing links to it. This is usually a spec bug!" data-dfn-type="dfn">ancestors</dfn>. A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-7">field</a> <em class="rfc2119">MUST</em> have a <dfn id="dfn-declared-name" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">declared name</dfn> that is an alphanumerical string. <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-8">Fields</a> with the same parent <em class="rfc2119">MUST</em> have different declared names. If a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-9">field</a>'s parent is another <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-10">field</a>, we distinguish between the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-11">field</a>'s declared name and the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-12">field</a>'s name. A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-13">field</a>'s <dfn data-lt="field name|name" id="dfn-field-name" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">name</dfn> is the concatentation of the name of the parent <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-14">field</a>, a dot <code>.</code>, and the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-15">field</a>'s declared name. A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-16">field</a> <em class="rfc2119">MUST</em> have an <a href="http://w3id.org/rml/core/spec#dfn-expressions">expression</a> and a <a data-link-type="dfn|abstract-op" class="respec-offending-element" title="No matching definition found." id="respec-offender-no-matching-definition-found-4">reference formulation</a>. If no reference formulation is explicitly declared, the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-17">field</a> has the same <a data-link-type="dfn|abstract-op" class="respec-offending-element" title="No matching definition found." id="respec-offender-no-matching-definition-found-5">reference formulation</a> as its parent.</p>
+<aside class="example" id="ex-field"><div class="marker">
+    <a class="self-link" href="#ex-field">Example<bdi> 8</bdi></a>
+  </div>
+
+<p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-18">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-1">declared name</a> "name" is declared on the <a data-link-type="dfn|abstract-op" class="respec-offending-element" title="No matching definition found." id="respec-offender-no-matching-definition-found-2">logical source</a> from <a href="#ex-record-sequence" data-matched-text="[[[#ex-record-sequence]]]" class="box-ref">Example<bdi> 7</bdi></a>.</p>
+<aside class="ex-mapping">
+
+<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:logicalSource</span> ;
+  <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:jsonFile</span> ;
+  <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:JSONPath</span> ;
+  <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.people[*]"</span> .
+  <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-symbol">rml:name</span> <span class="hljs-string">"name"</span> ;
+    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.name"</span> ;
+  ] .
+</code></pre>
+</aside>
+
+<aside class="ex-intermediate">
+<table>
+<tbody><tr><th>#</th>
+<th>
+
+<p><code>&lt;it&gt;</code></p>
+</th>
+<th>name.#</th>
+<th>name</th>
+</tr><tr>
+<td>0</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">{
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"alice"</span>,
+  <span class="hljs-attr">"items"</span>: [
+    {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"sword"</span>,
+      <span class="hljs-attr">"weight"</span>: <span class="hljs-number">1500</span>
+    },
+    {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"shield"</span>,
+      <span class="hljs-attr">"weight"</span>: <span class="hljs-number">2500</span>
+    }
+  ]
+}
+</code></pre>
+</td>
+<td>0</td>
+<td>alice</td>
+</tr>
+<tr>
+<td>1</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">{
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"bob"</span>,
+  <span class="hljs-attr">"items"</span>: [
+    {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"flower"</span>,
+      <span class="hljs-attr">"weight"</span>: <span class="hljs-number">15</span>
+    }
+  ]
+}
+</code></pre>
+</td>
+<td>0</td>
+<td>bob</td>
+</tr>
+</tbody></table>
+</aside>
+
+</aside>
+
+<p>A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-19">field</a> defines a <a data-link-type="dfn|abstract-op" href="#dfn-record-sequence" class="internalDFN" id="ref-for-dfn-record-sequence-2">record sequence</a>, called the <dfn id="dfn-field-record-sequence" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">field record sequence</dfn>, that is obtained by consecutively applying the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-20">field</a>'s <a href="http://w3id.org/rml/core/spec#dfn-expressions">expression</a> on the <a data-link-type="dfn|abstract-op" href="#dfn-parent-records" class="internalDFN" id="ref-for-dfn-parent-records-1">parent records</a>, the <dfn data-plurals="parent record" id="dfn-parent-records" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">parent records</dfn> being the records in the record sequence defined by the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-21">field</a>'s <a data-link-type="dfn|abstract-op" href="#dfn-field-parent" class="internalDFN" id="ref-for-dfn-field-parent-1">parent</a>. For a given <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-22">field</a>, the <a data-link-type="dfn|abstract-op" href="#dfn-field-record-sequence" class="internalDFN" id="ref-for-dfn-field-record-sequence-1">field record sequence</a> has these keys and corresponding values:</p>
+<ul>
+<li>A key that with the same name as the parent's index key that has as value the position of the <a data-link-type="dfn|abstract-op" href="#dfn-parent-records" class="internalDFN" id="ref-for-dfn-parent-records-2">parent record</a> in the parent's <a data-link-type="dfn|abstract-op" href="#dfn-record-sequence" class="internalDFN" id="ref-for-dfn-record-sequence-3">record sequence</a>.</li>
+<li>An index key <code>{fieldName}.#</code> with as values the position of the current entry in the sequence defined by the <a data-link-type="dfn|abstract-op" href="#dfn-parent-records" class="internalDFN" id="ref-for-dfn-parent-records-3">parent record</a> and the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-23">field</a>'s <a href="http://w3id.org/rml/core/spec#dfn-expressions">expression</a>.</li>
+<li>A key <code>{fieldName}</code> with as values the records in the sequence defined by the <a data-link-type="dfn|abstract-op" href="#dfn-parent-records" class="internalDFN" id="ref-for-dfn-parent-records-4">parent record</a> and the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-24">field</a>'s <a href="http://w3id.org/rml/core/spec#dfn-expressions">expression</a>.</li>
+</ul>
+<aside class="example" id="ex-field-record-sequence"><div class="marker">
+    <a class="self-link" href="#ex-field-record-sequence">Example<bdi> 9</bdi></a>
+  </div>
+
+<p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-25">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-2">declared name</a> "item" is added to the <a data-link-type="dfn|abstract-op" class="respec-offending-element" title="No matching definition found." id="respec-offender-no-matching-definition-found-3">logical source</a> from <a href="#ex-field" data-matched-text="[[[#ex-field]]]" class="box-ref">Example<bdi> 8</bdi></a>. Additionally a nested <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-26">field</a> "type" is added to the "item" <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-27">field</a>.</p>
+<aside class="ex-mapping">
+
+<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:logicalSource</span> ;
+  <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:jsonFile</span> ;
+  <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:JSONPath</span> ;
+  <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.people[*]"</span> .
+  <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-symbol">rml:name</span> <span class="hljs-string">"name"</span> ;
+    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.name"</span> ;
+  ] ;
+  <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-symbol">rml:name</span> <span class="hljs-string">"item"</span> ;
+    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.items[*]"</span> ;
+    <span class="hljs-symbol">rml:field</span> [
+      <span class="hljs-symbol">rml:name</span> <span class="hljs-string">"type"</span> ;
+      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.type"</span> ;
+    ] ;
+    <span class="hljs-symbol">rml:field</span> [
+      <span class="hljs-symbol">rml:name</span> <span class="hljs-string">"weight"</span> ;
+      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.weight"</span> ;
+    ] ;
+  ] .
+</code></pre>
+</aside>
+
+<aside class="ex-intermediate">
+<table>
+<tbody><tr><th>#</th>
+<th>
+
+<p><code>&lt;it&gt;</code></p>
+</th>
+<th>name.#</th>
+<th>name</th>
+<th>item.#</th>
+<th>item</th>
+<th>item.type.#</th>
+<th>item.type</th>
+
+</tr><tr>
+<td>0</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">{
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"alice"</span>,
+  <span class="hljs-attr">"items"</span>: [
+    {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"sword"</span>,
+      <span class="hljs-attr">"weight"</span>: <span class="hljs-number">1500</span>
+    },
+    {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"shield"</span>,
+      <span class="hljs-attr">"weight"</span>: <span class="hljs-number">2500</span>
+    }
+  ]
+}
+</code></pre>
+</td>
+<td>0</td>
+<td>alice</td>
+<td>0</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">{
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"sword"</span>,
+  <span class="hljs-attr">"weight"</span>: <span class="hljs-number">1500</span>
+}
+</code></pre>
+</td>
+<td>0</td>
+<td>sword</td>
+
+</tr>
+<tr>
+<td>0</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">{
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"alice"</span>,
+  <span class="hljs-attr">"items"</span>: [
+    {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"sword"</span>,
+      <span class="hljs-attr">"weight"</span>: <span class="hljs-number">1500</span>
+    },
+    {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"shield"</span>,
+      <span class="hljs-attr">"weight"</span>: <span class="hljs-number">2500</span>
+    }
+  ]
+}
+</code></pre>
+</td>
+<td>0</td>
+<td>alice</td>
+<td>1</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">{
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"shield"</span>,
+  <span class="hljs-attr">"weight"</span>: <span class="hljs-number">2500</span>
+}
+</code></pre>
+</td>
+<td>1</td>
+<td>shield</td>
+
+</tr>
+<tr>
+<td>1</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">{
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"bob"</span>,
+  <span class="hljs-attr">"items"</span>: [
+    {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"flower"</span>,
+      <span class="hljs-attr">"weight"</span>: <span class="hljs-number">15</span>
+    }
+  ]
+}
+</code></pre>
+</td>
+<td>0</td>
+<td>bob</td>
+<td>0</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">{
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"flower"</span>,
+  <span class="hljs-attr">"weight"</span>: <span class="hljs-number">15</span>
+}
+</code></pre>
+</td>
+<td>0</td>
+<td>flower</td>
+
+</tr>
+</tbody></table>
+
+</aside>
+
+</aside>
+
+<div class="note" role="note" id="issue-container-generatedID-0"><div role="heading" class="note-title marker" id="h-note-0" aria-level="4"><span>Note</span></div><aside class="">
+Note that the tabular representation of the <a data-link-type="dfn|abstract-op" href="#dfn-field-record-sequence" class="internalDFN" id="ref-for-dfn-field-record-sequence-2">field record sequence</a> in <a href="#ex-field-record-sequence" data-matched-text="[[[#ex-field-record-sequence]]]" class="box-ref">Example<bdi> 9</bdi></a> is just one possible way of representing fields.
+</aside></div>
+
+</section><section id="using-field-names-in-triples-maps"><div class="header-wrapper"><h3 id="x2-4-using-field-names-in-triples-maps"><bdi class="secno">2.4 </bdi>Using field names in triples maps</h3><a class="self-link" href="#using-field-names-in-triples-maps" aria-label="Permalink for Section 2.4"></a></div>
+<p>A <dfn id="dfn-field-reference" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">field reference</dfn> is a <a href="http://w3id.org/rml/core/spec#dfn-reference-expression">reference expression</a> that references a defined <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-28">field</a>. A <a data-link-type="dfn|abstract-op" href="#dfn-field-reference" class="internalDFN" id="ref-for-dfn-field-reference-1">field reference</a> <em class="rfc2119">MUST</em> be a defined <a data-link-type="dfn|abstract-op" href="#dfn-field-name" class="internalDFN" id="ref-for-dfn-field-name-1">field name</a>. A <a data-link-type="dfn|abstract-op" href="#dfn-field-reference" class="internalDFN" id="ref-for-dfn-field-reference-2">field reference</a> is a special type of <a href="http://w3id.org/rml/core/spec#dfn-reference-expression">reference expression</a> for which no reference formulation need be defined.</p>
+<p>A <a data-link-type="dfn|abstract-op" href="#dfn-field-reference" class="internalDFN" id="ref-for-dfn-field-reference-3">field reference</a> can be used in <a href="http://w3id.org/rml/core/spec#dfn-expression-map">expression maps</a> just as any other <a href="http://w3id.org/rml/core/spec#dfn-reference-expression">reference expression</a>.</p>
+<aside class="example" id="ex-field-in-triples-map"><div class="marker">
+    <a class="self-link" href="#ex-field-in-triples-map">Example<bdi> 10</bdi></a>
+  </div>
+
+<aside class="ex-mapping">
+
+<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:logicalSource</span> ;
+  <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:jsonFile</span> ;
+  <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:JSONPath</span> ;
+  <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.people[*]"</span> .
+  <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-symbol">rml:name</span> <span class="hljs-string">"name"</span> ;
+    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.name"</span> ;
+  ] ;
+  <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-symbol">rml:name</span> <span class="hljs-string">"item"</span> ;
+    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.items[*]"</span> ;
+    <span class="hljs-symbol">rml:field</span> [
+      <span class="hljs-symbol">rml:name</span> <span class="hljs-string">"type"</span> ;
+      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.type"</span> ;
+    ] ;
+    <span class="hljs-symbol">rml:field</span> [
+      <span class="hljs-symbol">rml:name</span> <span class="hljs-string">"weight"</span> ;
+      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.weight"</span> ;
+    ] ;
+  ] .
+</code></pre>
+</aside>
+
+<p>Note some columns in the table below have been shortened for brevity.</p>
+<aside class="ex-intermediate">
+<table>
+<tbody><tr><th>#</th>
+<th>
+
+<p><code>&lt;it&gt;</code></p>
+</th>
+<th>name.#</th>
+<th>name</th>
+<th>item.#</th>
+<th>item</th>
+<th>item.type.#</th>
+<th>item.type</th>
+<th>item.weight#</th>
+<th>item.weight</th>
+</tr><tr>
+<td>0</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">{...}
+</code></pre>
+</td>
+<td>0</td>
+<td>alice</td>
+<td>0</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">{
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"sword"</span>,
+  <span class="hljs-attr">"weight"</span>: <span class="hljs-number">1500</span>
+}
+</code></pre>
+</td>
+<td>0</td>
+<td>sword</td>
+<td>0</td>
+<td>1500</td>
+</tr>
+<tr>
+<td>0</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">{...}
+</code></pre>
+</td>
+<td>0</td>
+<td>alice</td>
+<td>1</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">{
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"shield"</span>,
+  <span class="hljs-attr">"weight"</span>: <span class="hljs-number">2500</span>
+}
+</code></pre>
+</td>
+<td>1</td>
+<td>shield</td>
+<td>0</td>
+<td>2500</td>
+</tr>
+<tr>
+<td>1</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">{...}
+</code></pre>
+</td>
+<td>0</td>
+<td>bob</td>
+<td>0</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">{
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"flower"</span>,
+  <span class="hljs-attr">"weight"</span>: <span class="hljs-number">15</span>
+}
+</code></pre>
+</td>
+<td>0</td>
+<td>flower</td>
+<td>0</td>
+<td>15</td>
+</tr>
+</tbody></table>
+
+</aside>
+
+<aside class="ex-mapping">
+
+<pre><code class="turtle hljs" aria-busy="false">:triplesMapPerson a rml:TriplesMap ;
+  rml:logicalSource :jsonSource ;
+  rml:subjectMap [
+    rml:template "http://example.org/person/{name}" ;
+  ] ;
+  rml:predicateObjectMap [
+    rml:predicate :hasName ;
+    rml:objectMap [
+      rml:reference "name" ;
+    ] ;
+  ] ;
+  rml:predicateObjectMap [
+    rml:predicate :hasItem ;
+    rml:objectMap [
+      rml:parentTriplesMap :triplesMapItem ;
+    ] ;
+  ] .
+
+:triplesMapItem a rml:TriplesMap ;
+  rml:logicalSource :jsonSource ;
+  rml:subjectMap [
+    rml:template ""http://example.org/person/{name}/item/{item.type}" ;
+  ] ;
+  rml:predicateObjectMap [
+    rml:predicate :hasName ;
+    rml:objectMap [
+      rml:reference "item.type" ;
+    ] ;
+  ] ;
+  rml:predicateObjectMap [
+    rml:predicate :hasWeight ;
+    rml:objectMap [
+      rml:reference "item.weight" ;
+    ] ;
+  ] .
+</code></pre>
+</aside>
+
+<aside class="ex-output">
+
+<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-literal">&lt;http://example.org/person/alice&gt;</span> <span class="hljs-symbol">:hasName</span> <span class="hljs-string">"alice"</span> ;
+  <span class="hljs-symbol">:hasItem</span> <span class="hljs-literal">&lt;http://example.org/person/alice/item/sword&gt;</span> ,
+           <span class="hljs-literal">&lt;http://example.org/person/alice/item/shield&gt;</span> .
+
+<span class="hljs-literal">&lt;http://example.org/person/bob&gt;</span> <span class="hljs-symbol">:hasName</span> <span class="hljs-string">"bob"</span> ;
+  <span class="hljs-symbol">:hasItem</span> <span class="hljs-literal">&lt;http://example.org/person/bob/item/flower&gt;</span> .
+
+<span class="hljs-literal">&lt;http://example.org/person/alice/item/sword&gt;</span> <span class="hljs-symbol">:hasName</span> <span class="hljs-string">"sword"</span> ;
+  <span class="hljs-symbol">:hasWeight</span> <span class="hljs-number">1500</span> .
+
+<span class="hljs-literal">&lt;http://example.org/person/alice/item/shield&gt;</span> <span class="hljs-symbol">:hasName</span> <span class="hljs-string">"shield"</span> ;
+  <span class="hljs-symbol">:hasWeight</span> <span class="hljs-number">2500</span> .
+
+<span class="hljs-literal">&lt;http://example.org/person/bob/item/flower&gt;</span> <span class="hljs-symbol">:hasName</span> <span class="hljs-string">"flower"</span> ;
+  <span class="hljs-symbol">:hasWeight</span> <span class="hljs-number">15</span> .
+</code></pre>
+</aside>
+
+</aside></section></section>
+
+<section id="fields-for-mixed-format-data"><div class="header-wrapper"><h2 id="mixed"><bdi class="secno">3. </bdi>Fields for mixed-format data</h2><a class="self-link" href="#mixed" aria-label="Permalink for Section 3."></a></div></section>
+
+<section id="generating-collections-with-rml-fields"><div class="header-wrapper"><h2 id="collections"><bdi class="secno">4. </bdi>Generating collections with RML fields</h2><a class="self-link" href="#collections" aria-label="Permalink for Section 4."></a></div></section>
+
+<section id="rml-fields-and-referencing-object-maps"><div class="header-wrapper"><h2 id="joins"><bdi class="secno">5. </bdi>RML fields and referencing object maps</h2><a class="self-link" href="#joins" aria-label="Permalink for Section 5."></a></div></section>
+
+<section id="relationship-with-non-fields-rml-syntax"><div class="header-wrapper"><h2 id="sugar"><bdi class="secno">6. </bdi>Relationship with non-fields RML syntax</h2><a class="self-link" href="#sugar" aria-label="Permalink for Section 6."></a></div></section>
+
+
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+<section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-references"><bdi class="secno">A. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="a-1-normative-references"><bdi class="secno">A.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix A.1"></a></div>
+    
+    <dl class="bibliography"><dt id="bib-rfc2119">[RFC2119]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>
+    </dd><dt id="bib-rfc8174">[RFC8174]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc8174"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>
+    </dd><dt id="bib-turtle">[Turtle]</dt><dd>
+      <a href="https://www.w3.org/TR/turtle/"><cite>RDF 1.1 Turtle</cite></a>.  W3C. 25 February 2014. W3C Recommendation. URL: <a href="https://www.w3.org/TR/turtle/">https://www.w3.org/TR/turtle/</a>
+    </dd></dl>
+  </section></section><p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-record" aria-label="Links in this document to definition: record">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-record" aria-label="Permalink for definition: record. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-record-1" title="§ 2.1 Records">§ 2.1 Records</a> <a href="#ref-for-dfn-record-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-record-3" title="Reference 3">(3)</a> <a href="#ref-for-dfn-record-4" title="Reference 4">(4)</a> <a href="#ref-for-dfn-record-5" title="Reference 5">(5)</a> <a href="#ref-for-dfn-record-6" title="Reference 6">(6)</a> <a href="#ref-for-dfn-record-7" title="Reference 7">(7)</a> <a href="#ref-for-dfn-record-8" title="Reference 8">(8)</a> <a href="#ref-for-dfn-record-9" title="Reference 9">(9)</a> <a href="#ref-for-dfn-record-10" title="Reference 10">(10)</a> <a href="#ref-for-dfn-record-11" title="Reference 11">(11)</a> <a href="#ref-for-dfn-record-12" title="Reference 12">(12)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-record-13" title="§ 2.3 Fields and record sequences">§ 2.3 Fields and record sequences</a> 
+    </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-expression-values" aria-label="Links in this document to definition: expression values">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-expression-values" aria-label="Permalink for definition: expression values. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-record-sequence" aria-label="Links in this document to definition: record sequence">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-record-sequence" aria-label="Permalink for definition: record sequence. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-record-sequence-1" title="§ 2.3 Fields and record sequences">§ 2.3 Fields and record sequences</a> <a href="#ref-for-dfn-record-sequence-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-record-sequence-3" title="Reference 3">(3)</a> 
+    </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-iterator-record-sequence" aria-label="Links in this document to definition: iterator record sequence">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-iterator-record-sequence" aria-label="Permalink for definition: iterator record sequence. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-field" aria-label="Links in this document to definition: field">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-field" aria-label="Permalink for definition: field. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-field-1" title="§ 2.3 Fields and record sequences">§ 2.3 Fields and record sequences</a> <a href="#ref-for-dfn-field-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-3" title="Reference 3">(3)</a> <a href="#ref-for-dfn-field-4" title="Reference 4">(4)</a> <a href="#ref-for-dfn-field-5" title="Reference 5">(5)</a> <a href="#ref-for-dfn-field-6" title="Reference 6">(6)</a> <a href="#ref-for-dfn-field-7" title="Reference 7">(7)</a> <a href="#ref-for-dfn-field-8" title="Reference 8">(8)</a> <a href="#ref-for-dfn-field-9" title="Reference 9">(9)</a> <a href="#ref-for-dfn-field-10" title="Reference 10">(10)</a> <a href="#ref-for-dfn-field-11" title="Reference 11">(11)</a> <a href="#ref-for-dfn-field-12" title="Reference 12">(12)</a> <a href="#ref-for-dfn-field-13" title="Reference 13">(13)</a> <a href="#ref-for-dfn-field-14" title="Reference 14">(14)</a> <a href="#ref-for-dfn-field-15" title="Reference 15">(15)</a> <a href="#ref-for-dfn-field-16" title="Reference 16">(16)</a> <a href="#ref-for-dfn-field-17" title="Reference 17">(17)</a> <a href="#ref-for-dfn-field-18" title="Reference 18">(18)</a> <a href="#ref-for-dfn-field-19" title="Reference 19">(19)</a> <a href="#ref-for-dfn-field-20" title="Reference 20">(20)</a> <a href="#ref-for-dfn-field-21" title="Reference 21">(21)</a> <a href="#ref-for-dfn-field-22" title="Reference 22">(22)</a> <a href="#ref-for-dfn-field-23" title="Reference 23">(23)</a> <a href="#ref-for-dfn-field-24" title="Reference 24">(24)</a> <a href="#ref-for-dfn-field-25" title="Reference 25">(25)</a> <a href="#ref-for-dfn-field-26" title="Reference 26">(26)</a> <a href="#ref-for-dfn-field-27" title="Reference 27">(27)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-field-28" title="§ 2.4 Using field names in triples maps">§ 2.4 Using field names in triples maps</a> 
+    </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-field-parent" aria-label="Links in this document to definition: parent">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-field-parent" aria-label="Permalink for definition: parent. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-field-parent-1" title="§ 2.3 Fields and record sequences">§ 2.3 Fields and record sequences</a> 
+    </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-ancestors" aria-label="Links in this document to definition: ancestors">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-ancestors" aria-label="Permalink for definition: ancestors. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-declared-name" aria-label="Links in this document to definition: declared name">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-declared-name" aria-label="Permalink for definition: declared name. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-declared-name-1" title="§ 2.3 Fields and record sequences">§ 2.3 Fields and record sequences</a> <a href="#ref-for-dfn-declared-name-2" title="Reference 2">(2)</a> 
+    </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-field-name" aria-label="Links in this document to definition: name">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-field-name" aria-label="Permalink for definition: name. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-field-name-1" title="§ 2.4 Using field names in triples maps">§ 2.4 Using field names in triples maps</a> 
+    </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-field-record-sequence" aria-label="Links in this document to definition: field record sequence">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-field-record-sequence" aria-label="Permalink for definition: field record sequence. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-field-record-sequence-1" title="§ 2.3 Fields and record sequences">§ 2.3 Fields and record sequences</a> <a href="#ref-for-dfn-field-record-sequence-2" title="Reference 2">(2)</a> 
+    </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-parent-records" aria-label="Links in this document to definition: parent records">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-parent-records" aria-label="Permalink for definition: parent records. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-parent-records-1" title="§ 2.3 Fields and record sequences">§ 2.3 Fields and record sequences</a> <a href="#ref-for-dfn-parent-records-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-parent-records-3" title="Reference 3">(3)</a> <a href="#ref-for-dfn-parent-records-4" title="Reference 4">(4)</a> 
+    </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-field-reference" aria-label="Links in this document to definition: field reference">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-field-reference" aria-label="Permalink for definition: field reference. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-field-reference-1" title="§ 2.4 Using field names in triples maps">§ 2.4 Using field names in triples maps</a> <a href="#ref-for-dfn-field-reference-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-reference-3" title="Reference 3">(3)</a> 
+    </li>
+  </ul>
+    </div><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement} */
+  let panel = null;
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (type === "keydown" && event.key !== "Enter") return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = target.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        const coords = deriveCoordinates(event);
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+    const panel = target.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>

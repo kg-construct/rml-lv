@@ -5,6 +5,7 @@
 
 var fs = require('fs');
 var path = require('path');
+var copydir = require('copy-dir')
 
 var dateString = (new Date()).toISOString().split('T')[0].replace(/-/g, '');
 
@@ -44,7 +45,7 @@ if (dirs.length == 0) {
 var html = fs.readFileSync ('./rendered.html', 'utf8');
 html = html.replace (/%thisDate%/g, dateString);
 html = html.replace (/%prevDate%/g, dirs[0]);
+html = html.replace (/\.\/resources/g, './' + dateString + '/resources');
 fs.writeFileSync (path.resolve (__dirname, 'docs', 'index.html'), html);
-html = html.replace (/\.\/resources/g, '../resources');
 fs.writeFileSync (path.resolve(__dirname, 'docs', dateString, 'index.html'), html);
-
+copydir.sync(path.resolve(__dirname, 'resources'), path.resolve(__dirname, 'docs', dateString, 'resources'));
