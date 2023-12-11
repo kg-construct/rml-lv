@@ -1,4 +1,4 @@
-# RML star specification
+# RML Fields specification
 
 Specification of RML fields
 
