@@ -11,9 +11,9 @@ A [=Logical View=] (`rml:LogicalView`) MAY contain:
 - one or more join properties (`rml:leftJoin`, `rml:innerJoin`) to describe a [=join=] operation (`rml:Join`) with another [=Logical View=].
 
 
-| Property        | Domain             | Range               |
-|-----------------|--------------------|---------------------|
-| `rml:source`    | `rml:LogicalView`  | `rml:LogicalSource` |
-| `rml:field`     | `rml:LogicalView`  | `rml:Field`         |
-| `rml:leftJoin`  | `rml:LogicalView`  | `rml:Join`          |
-| `rml:innerJoin` | `rml:LogicalView`  | `rml:Join`          |
+| Property             | Domain             | Range               |
+|----------------------|--------------------|---------------------|
+| `rml:logicalSource`  | `rml:LogicalView`  | `rml:LogicalSource` |
+| `rml:field`          | `rml:LogicalView`  | `rml:Field`         |
+| `rml:leftJoin`       | `rml:LogicalView`  | `rml:Join`          |
+| `rml:innerJoin`      | `rml:LogicalView`  | `rml:Join`          |

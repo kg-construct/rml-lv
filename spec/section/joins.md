@@ -1,17 +1,17 @@
 ## RML Joins {#joins}
 
-A <dfn>join</dfn> (`rml:Join`) is an operation that extend one logical view (the child logical view) with fields from another logical view (the parent logical view).
+A <dfn>join</dfn> (`rml:Join`) is an operation that extends the logical iteration of one logical view (the child logical view) with fields from another logical view (the parent logical view).
 
 A [=join=] (`rml:Join`) MUST contain:
 - exactly one parent logical view property (`rml:parentLogicalView`), whose value is a [=logical view=] (`rml:LogicalView`) that supplies the additional fields.
 - at least one join condition property (`rml:joinCondition`), whose value is a [=join condition=] that describe which values are compared to join the two logical views.
 - at least one field property (`rml:field`), whose value is a [=field=] (`rml:Field`) . This field MAY only contain references to fields that exists in the parent logical view. 
 
-| Property                  | Domain     | Range               |
-|---------------------------|------------|---------------------|
-| `rml:parentLogicalSource` | `rml:Join` | `rml:LogicalSource` |
-| `rml:joinCondition`       | `rml:Join` | `rml:JoinCondition` |
-| `rml:field`               | `rml:Join` | `rml:Field`         |
+| Property                | Domain     | Range               |
+|-------------------------|------------|---------------------|
+| `rml:parentLogicalView` | `rml:Join` | `rml:LogicalView`   |
+| `rml:joinCondition`     | `rml:Join` | `rml:JoinCondition` |
+| `rml:field`             | `rml:Join` | `rml:Field`         |
 
 
 ### Join conditions
