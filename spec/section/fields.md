@@ -16,6 +16,7 @@ A [=record=] MUST have a string representation. It MAY be possible to derive oth
 name,birthyear
 alice,1995
 bob,1999
+tobias,2005
 ```
 
 </aside>
@@ -29,7 +30,7 @@ bob,1999
 ```
 </aside>
 
-The default iterator for CSV files is row-based iteration, skipping the header row. Therefore, in this example, the iterator of the logical source `:csvSource` defines two [=records=]:
+The default iterator for CSV files is row-based iteration, skipping the header row. Therefore, in this example, the iterator of the logical source `:csvSource` defines three [=records=]:
 
 ```csv
 alice,1995
@@ -39,6 +40,12 @@ and
 
 ```csv
 bob,1999
+```
+
+and
+
+```csv
+tobias,2005
 ```
 .
 
@@ -342,15 +349,13 @@ A <dfn>field</dfn> is an [ExpressionMap](http://w3id.org/rml/core/spec#dfn-expre
 
 <aside class=example id=ex-field>
 
-In this example a [=field=] with [=declared name=] "name" is declared on the [=logical source=] from [[[#ex-record-sequence]]].
+In this example a [=field=] with [=declared name=] "name" is declared on the [=logical source=] from [[[#ex-record-sequence]]] and added to the [=logical view=].
 
 <aside class=ex-mapping>
 
 ```turtle
-:jsonSource a rml:logicalSource ;
-  rml:source :jsonFile ;
-  rml:referenceFormulation rml:JSONPath ;
-  rml:iterator "$.people[*]" .
+:jsonView a rml:LogicalView ;
+  rml:logicalSource :jsonSource ;
   rml:field [
     rml:name "name" ;
     rml:reference "$.name" ;
@@ -426,15 +431,13 @@ A [=field=] defines a [=record sequence=], called the <dfn>field record sequence
 
 <aside class=example id=ex-field-record-sequence>
 
-In this example a [=field=] with [=declared name=] "item" is added to the [=logical source=] from [[[#ex-field]]]. Additionally a nested [=field=] "type" is added to the "item" [=field=].
+In this example a [=field=] with [=declared name=] "item" is added to the [=logical view=] from [[[#ex-field]]]. Additionally a nested [=field=] "type" and a nested [=field=] "weight" are added to the "item" [=field=], .
 
 <aside class=ex-mapping>
 
 ```turtle
-:jsonSource a rml:logicalSource ;
-  rml:source :jsonFile ;
-  rml:referenceFormulation rml:JSONPath ;
-  rml:iterator "$.people[*]" .
+:jsonView a rml:LogicalView ;
+  rml:logicalSource :jsonSource ;
   rml:field [
     rml:name "name" ;
     rml:reference "$.name" ;
@@ -605,10 +608,8 @@ A [=field reference=] can be used in [expression maps](http://w3id.org/rml/core/
 <aside class=ex-mapping>
 
 ```turtle
-:jsonSource a rml:logicalSource ;
-  rml:source :jsonFile ;
-  rml:referenceFormulation rml:JSONPath ;
-  rml:iterator "$.people[*]" .
+:jsonView a rml:LogicalView ;
+  rml:logicalSource :jsonSource ;
   rml:field [
     rml:name "name" ;
     rml:reference "$.name" ;
@@ -736,7 +737,7 @@ Note some columns in the table below have been shortened for brevity.
 
 ```turtle
 :triplesMapPerson a rml:TriplesMap ;
-  rml:logicalSource :jsonSource ;
+  rml:logicalSource :jsonView ;
   rml:subjectMap [
     rml:template "http://example.org/person/{name}" ;
   ] ;
@@ -754,7 +755,7 @@ Note some columns in the table below have been shortened for brevity.
   ] .
 
 :triplesMapItem a rml:TriplesMap ;
-  rml:logicalSource :jsonSource ;
+  rml:logicalSource :jsonView ;
   rml:subjectMap [
     rml:template ""http://example.org/person/{name}/item/{item.type}" ;
   ] ;
@@ -796,4 +797,9 @@ Note some columns in the table below have been shortened for brevity.
 
 </aside>
 
+</aside>
+
+
+<aside class="issue">
+Els: add the additional optional properties, i.e. structural annotations (datatype, unique, non-nullable, ...)
 </aside>

@@ -98,7 +98,7 @@
         const action = "highlight-load-lang";
         const langURL =
           "https://cdn.jsdelivr.net/gh/redmer/highlightjs-turtle/src/languages/turtle.js";
-        const propName = "hljsDefineTurtle"; // This funtion is defined in the highlighter being loaded 
+        const propName = "hljsDefineTurtle"; // This funtion is defined in the highlighter being loaded
         const lang = "turtle"; // this is the class you use to identify the language
         worker.postMessage({ action, langURL, propName, lang });
         return new Promise(resolve => {
@@ -236,13 +236,15 @@
 
 <section data-include="section/overview.md" data-include-format="markdown"></section>
 
+<section data-include="section/views.md" data-include-format="markdown"></section>
+
 <section data-include="section/fields.md" data-include-format="markdown"></section>
+
+<section data-include="section/joins.md" data-include-format="markdown"></section>
 
 <section data-include="section/mixed.md" data-include-format="markdown"></section>
 
 <section data-include="section/collections.md" data-include-format="markdown"></section>
-
-<section data-include="section/joins.md" data-include-format="markdown"></section>
 
 <section data-include="section/sugar.md" data-include-format="markdown"></section>
 
