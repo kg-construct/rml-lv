@@ -192,7 +192,7 @@ This definition of expression _is_ different from [the definition](http://w3id.o
 
 <aside class=example id=csvreference>
 
-Continuing [[[#csviterator]]], the reference `name` would define the length-one sequence `alice` from the record `alice,1995` and the length-one sequence `bob` from the record `bob,1999`.
+Continuing [[[#csviterator]]], the reference `name` would define the length-one sequence `alice` from the record `alice,1995`, the length-one sequence `bob` from the record `bob,1999` and the length-one sequence `tobias` from the record `tobias,2005`.
 
 The reference `nonsense` would give an error, since it is not in the header of the CSV file. Note the reference `nonsense` is not malformed. The reference `bad,ref` would *also* throw an error, as it is malformed: it contains the unescaped `,` separator.
 
