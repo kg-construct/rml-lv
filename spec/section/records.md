@@ -200,7 +200,7 @@ The reference `nonsense` would give an error, since it is not in the header of t
 
 <aside class=example id=xpathreference>
 
-Continuing [[[#xpathiterator]]], the reference `Friends/Person/@name` would define the length-two sequence `dave`, `edmund` from the record `&lt;Person name="cindy">&lt;Friends>&lt;Person name="dave"/>&lt;Person name="edmund"/>&lt;/Friends>&lt;/Person>` and the empty sequence from the record `&lt;Person name="fred">&lt;Friends>&lt;/Friends>&lt;/Person>`.
+Continuing [[[#xpathiterator]]], the reference `Friends/Person/@name` would define the length-two sequence `dave`, `edmund` from the record `<Person name="cindy"><Friends><Person name="dave"/><Person name="edmund"/></Friends></Person>` and the empty sequence from the record `<Person name="fred"><Friends></Friends></Person>`.
 
 The reference `Siblings/Person/@name` would also define empty sequences of record. The reference `[unbalanced` would give an error, since it is not a valid relative XPath expression.
 
