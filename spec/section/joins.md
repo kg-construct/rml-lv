@@ -1,4 +1,4 @@
-## RML Joins {#joins}
+## Joins {#joins}
 
 A <dfn>join</dfn> (`rml:Join`) is an operation that extends the logical iteration of one logical view (the child logical view) with fields from another logical view (the parent logical view).
 
@@ -84,6 +84,7 @@ Pano please verify what I did with the iterator and # key from the parent logica
 <aside class="issue">
 Els: TODO add example with 2 joins???
 </aside>
+
 ### Left join
 <aside class=example id=ex-leftjoin>
 
