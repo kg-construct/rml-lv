@@ -98,11 +98,11 @@ If an inner joins would have been used, the logical view would have only 3 logic
 :csvView a rml:LogicalView ;
   rml:logicalSource :csvSource ;
   rml:field [
-    rml:name "name" ;
+    rml:fieldName "name" ;
     rml:reference "name" ;
   ] ;
   rml:field [
-    rml:name "birthyear" ;
+    rml:fieldName "birthyear" ;
     rml:reference "birthyear" ;
   ] ;
   rml:leftJoin [
@@ -112,11 +112,11 @@ If an inner joins would have been used, the logical view would have only 3 logic
       rml:child "name" ;
     ] ; 
     rml:field [
-      rml:name "item_type" ;
+      rml:fieldName "item_type" ;
       rml:reference "item.type" ;
     ] ;
     rml:field [
-      rml:name "item_weight" ;
+      rml:fieldName "item_weight" ;
       rml:reference "item.weight" ;
     ] ;
   ] .
@@ -212,11 +212,11 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
 :csvView a rml:LogicalView ;
   rml:logicalSource :csvSource ;
   rml:field [
-    rml:name "name" ;
+    rml:fieldName "name" ;
     rml:reference "name" ;
   ] ;
   rml:field [
-    rml:name "birthyear" ;
+    rml:fieldName "birthyear" ;
     rml:reference "birthyear" ;
   ] ;
   rml:leftJoin [
@@ -226,11 +226,11 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
       rml:child "name" ;
     ] ; 
     rml:field [
-      rml:name "item_type" ;
+      rml:fieldName "item_type" ;
       rml:reference "item.type" ;
     ] ;
     rml:field [
-      rml:name "item_weight" ;
+      rml:fieldName "item_weight" ;
       rml:reference "item.weight" ;
     ] ;
   ] .

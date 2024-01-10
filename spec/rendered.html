@@ -44,13 +44,13 @@ dfn{cursor:pointer}
 .dfn-panel li{margin-left:1em}
 .dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
 </style>
-    
+
 <title>RML Fields</title>
-    
-    
+
+
 <link rel="stylesheet" type="text/css" href="./resources/css/extras.css">
-    
-    
+
+
 <style type="text/css">
 
         /* Adapted from R2RML */
@@ -135,13 +135,13 @@ dfn{cursor:pointer}
         th {
           font-weight: bold;
         }
-    
+
 </style>
-    
-    
-    
+
+
+
 <script data-goatcounter="https://rml-fields.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
-    
+
 <noscript>
         &lt;img src="https://rml-fields.goatcounter.com/count?p=/test-noscript"&gt;
     </noscript>
@@ -317,30 +317,30 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
 <body class="h-entry"><div class="head">
-    
-    <h1 id="title" class="title">RML Fields</h1> 
+
+    <h1 id="title" class="title">RML Fields</h1>
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
       <time class="dt-published" datetime="2023-12-09">09 December 2023</time>
     </p>
     <dl>
-      
+
       <dt>Latest published version:</dt><dd>
               none
             </dd>
       <dt>Latest editor's draft:</dt><dd><a href="https://w3id.org/kg-construct/rml-fields">https://w3id.org/kg-construct/rml-fields</a></dd>
-      
-      
-      
-      
+
+
+
+
       <dt>Editors:</dt><dd class="editor p-author h-card vcard">
     <a class="ed_mailto u-email email p-name" href="mailto:thomas.delva@ugent.be">Thomas Delva</a> (<a class="p-org org h-org" href="https://idlab.technology/">Ghent University – imec – IDLab</a>)
   </dd><dd class="editor p-author h-card vcard">
     <a class="ed_mailto u-email email p-name" href="mailto:anastasia.dimou@ugent.be">Anastasia Dimou</a> (<a class="p-org org h-org" href="https://idlab.technology/">Ghent University – imec – IDLab</a>)
   </dd>
-      
-      
-      
+
+
+
       <dt>This Version</dt><dd>
     <a href="https://kg-construct.github.io/rml-fields-spec/%thisDate%/">https://kg-construct.github.io/rml-fields-spec/%thisDate%/</a>
   </dd><dt>Previous Version</dt><dd>
@@ -349,19 +349,19 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <a href="https://rml.io/">https://rml.io/</a>
   </dd>
     </dl>
-    
+
     <p class="copyright">
           <a href="https://www.w3.org/policies/#copyright">Copyright</a>
           ©
           2021-2023
-          
+
           the Contributors to the RML Fields
           Specification, published by the
           <a href="https://www.w3.org/groups/cg/kg-construct">Knowledge Graph Construction Community Group</a> under the
           <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>. A human-readable
                 <a href="https://www.w3.org/community/about/agreements/cla-deed/">summary</a>
                 is available.
-              
+
         </p>
     <hr title="Separator for header">
   </div>
@@ -374,11 +374,11 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       This specification was published by the
       <a href="https://www.w3.org/groups/cg/kg-construct">Knowledge Graph Construction Community Group</a>. It is not a W3C Standard nor is it
       on the W3C Standards Track.
-      
+
             Please note that under the
             <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>
             there is a limited opt-out and other conditions apply.
-          
+
       Learn more about
       <a href="https://www.w3.org/community/">W3C Community and Business Groups</a>.
     </p>
@@ -390,7 +390,7 @@ yet efforts are made to keep things stable.</p>
 <section id="overview-0"><div class="header-wrapper"><h2 id="overview"><bdi class="secno">1. </bdi>Overview</h2><a class="self-link" href="#overview" aria-label="Permalink for Section 1."></a></div><p><em>This section is non-normative.</em></p>
 <p>TODO</p>
 <section id="document-conventions"><div class="header-wrapper"><h3 id="conventions"><bdi class="secno">1.1 </bdi>Document conventions</h3><a class="self-link" href="#conventions" aria-label="Permalink for Section 1.1"></a></div><p>We assume readers have basic familiarity with RDF and RML concepts.</p>
-<p>In this document, examples assume 
+<p>In this document, examples assume
 the following namespace prefix bindings unless otherwise stated:</p>
 <table>
 <thead>
@@ -752,7 +752,7 @@ Describe how logical iteration relates to records.
   <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:JSONPath</span> ;
   <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.people[*]"</span> .
   <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-symbol">rml:name</span> <span class="hljs-string">"name"</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span> ;
     <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.name"</span> ;
   ] .
 </code></pre>
@@ -830,18 +830,18 @@ Describe how logical iteration relates to records.
   <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:JSONPath</span> ;
   <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.people[*]"</span> .
   <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-symbol">rml:name</span> <span class="hljs-string">"name"</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span> ;
     <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.name"</span> ;
   ] ;
   <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-symbol">rml:name</span> <span class="hljs-string">"item"</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"item"</span> ;
     <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.items[*]"</span> ;
     <span class="hljs-symbol">rml:field</span> [
-      <span class="hljs-symbol">rml:name</span> <span class="hljs-string">"type"</span> ;
+      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"type"</span> ;
       <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.type"</span> ;
     ] ;
     <span class="hljs-symbol">rml:field</span> [
-      <span class="hljs-symbol">rml:name</span> <span class="hljs-string">"weight"</span> ;
+      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"weight"</span> ;
       <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.weight"</span> ;
     ] ;
   ] .
@@ -984,18 +984,18 @@ Note that the tabular representation of the <a data-link-type="dfn|abstract-op" 
   <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:JSONPath</span> ;
   <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.people[*]"</span> .
   <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-symbol">rml:name</span> <span class="hljs-string">"name"</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span> ;
     <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.name"</span> ;
   ] ;
   <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-symbol">rml:name</span> <span class="hljs-string">"item"</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"item"</span> ;
     <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.items[*]"</span> ;
     <span class="hljs-symbol">rml:field</span> [
-      <span class="hljs-symbol">rml:name</span> <span class="hljs-string">"type"</span> ;
+      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"type"</span> ;
       <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.type"</span> ;
     ] ;
     <span class="hljs-symbol">rml:field</span> [
-      <span class="hljs-symbol">rml:name</span> <span class="hljs-string">"weight"</span> ;
+      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"weight"</span> ;
       <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.weight"</span> ;
     ] ;
   ] .
@@ -1202,7 +1202,7 @@ Note that the tabular representation of the <a data-link-type="dfn|abstract-op" 
 
 
 <section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-references"><bdi class="secno">A. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="a-1-normative-references"><bdi class="secno">A.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix A.1"></a></div>
-    
+
     <dl class="bibliography"><dt id="bib-rfc2119">[RFC2119]</dt><dd>
       <a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>
     </dd><dt id="bib-rfc8174">[RFC8174]</dt><dd>
@@ -1216,21 +1216,21 @@ Note that the tabular representation of the <a data-link-type="dfn|abstract-op" 
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-record" aria-label="Permalink for definition: record. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-record-1" title="§ 2.1 Records">§ 2.1 Records</a> <a href="#ref-for-dfn-record-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-record-3" title="Reference 3">(3)</a> <a href="#ref-for-dfn-record-4" title="Reference 4">(4)</a> <a href="#ref-for-dfn-record-5" title="Reference 5">(5)</a> <a href="#ref-for-dfn-record-6" title="Reference 6">(6)</a> <a href="#ref-for-dfn-record-7" title="Reference 7">(7)</a> <a href="#ref-for-dfn-record-8" title="Reference 8">(8)</a> <a href="#ref-for-dfn-record-9" title="Reference 9">(9)</a> <a href="#ref-for-dfn-record-10" title="Reference 10">(10)</a> <a href="#ref-for-dfn-record-11" title="Reference 11">(11)</a> <a href="#ref-for-dfn-record-12" title="Reference 12">(12)</a> 
+      <a href="#ref-for-dfn-record-1" title="§ 2.1 Records">§ 2.1 Records</a> <a href="#ref-for-dfn-record-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-record-3" title="Reference 3">(3)</a> <a href="#ref-for-dfn-record-4" title="Reference 4">(4)</a> <a href="#ref-for-dfn-record-5" title="Reference 5">(5)</a> <a href="#ref-for-dfn-record-6" title="Reference 6">(6)</a> <a href="#ref-for-dfn-record-7" title="Reference 7">(7)</a> <a href="#ref-for-dfn-record-8" title="Reference 8">(8)</a> <a href="#ref-for-dfn-record-9" title="Reference 9">(9)</a> <a href="#ref-for-dfn-record-10" title="Reference 10">(10)</a> <a href="#ref-for-dfn-record-11" title="Reference 11">(11)</a> <a href="#ref-for-dfn-record-12" title="Reference 12">(12)</a>
     </li><li>
-      <a href="#ref-for-dfn-record-13" title="§ 2.3 Fields and record sequences">§ 2.3 Fields and record sequences</a> 
+      <a href="#ref-for-dfn-record-13" title="§ 2.3 Fields and record sequences">§ 2.3 Fields and record sequences</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-expression-values" aria-label="Links in this document to definition: expression values">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-expression-values" aria-label="Permalink for definition: expression values. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -1240,19 +1240,19 @@ Note that the tabular representation of the <a data-link-type="dfn|abstract-op" 
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-record-sequence" aria-label="Permalink for definition: record sequence. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-record-sequence-1" title="§ 2.3 Fields and record sequences">§ 2.3 Fields and record sequences</a> <a href="#ref-for-dfn-record-sequence-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-record-sequence-3" title="Reference 3">(3)</a> 
+      <a href="#ref-for-dfn-record-sequence-1" title="§ 2.3 Fields and record sequences">§ 2.3 Fields and record sequences</a> <a href="#ref-for-dfn-record-sequence-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-record-sequence-3" title="Reference 3">(3)</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-iterator-record-sequence" aria-label="Links in this document to definition: iterator record sequence">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-iterator-record-sequence" aria-label="Permalink for definition: iterator record sequence. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -1262,33 +1262,33 @@ Note that the tabular representation of the <a data-link-type="dfn|abstract-op" 
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-field" aria-label="Permalink for definition: field. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-field-1" title="§ 2.3 Fields and record sequences">§ 2.3 Fields and record sequences</a> <a href="#ref-for-dfn-field-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-3" title="Reference 3">(3)</a> <a href="#ref-for-dfn-field-4" title="Reference 4">(4)</a> <a href="#ref-for-dfn-field-5" title="Reference 5">(5)</a> <a href="#ref-for-dfn-field-6" title="Reference 6">(6)</a> <a href="#ref-for-dfn-field-7" title="Reference 7">(7)</a> <a href="#ref-for-dfn-field-8" title="Reference 8">(8)</a> <a href="#ref-for-dfn-field-9" title="Reference 9">(9)</a> <a href="#ref-for-dfn-field-10" title="Reference 10">(10)</a> <a href="#ref-for-dfn-field-11" title="Reference 11">(11)</a> <a href="#ref-for-dfn-field-12" title="Reference 12">(12)</a> <a href="#ref-for-dfn-field-13" title="Reference 13">(13)</a> <a href="#ref-for-dfn-field-14" title="Reference 14">(14)</a> <a href="#ref-for-dfn-field-15" title="Reference 15">(15)</a> <a href="#ref-for-dfn-field-16" title="Reference 16">(16)</a> <a href="#ref-for-dfn-field-17" title="Reference 17">(17)</a> <a href="#ref-for-dfn-field-18" title="Reference 18">(18)</a> <a href="#ref-for-dfn-field-19" title="Reference 19">(19)</a> <a href="#ref-for-dfn-field-20" title="Reference 20">(20)</a> <a href="#ref-for-dfn-field-21" title="Reference 21">(21)</a> <a href="#ref-for-dfn-field-22" title="Reference 22">(22)</a> <a href="#ref-for-dfn-field-23" title="Reference 23">(23)</a> <a href="#ref-for-dfn-field-24" title="Reference 24">(24)</a> <a href="#ref-for-dfn-field-25" title="Reference 25">(25)</a> <a href="#ref-for-dfn-field-26" title="Reference 26">(26)</a> <a href="#ref-for-dfn-field-27" title="Reference 27">(27)</a> 
+      <a href="#ref-for-dfn-field-1" title="§ 2.3 Fields and record sequences">§ 2.3 Fields and record sequences</a> <a href="#ref-for-dfn-field-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-3" title="Reference 3">(3)</a> <a href="#ref-for-dfn-field-4" title="Reference 4">(4)</a> <a href="#ref-for-dfn-field-5" title="Reference 5">(5)</a> <a href="#ref-for-dfn-field-6" title="Reference 6">(6)</a> <a href="#ref-for-dfn-field-7" title="Reference 7">(7)</a> <a href="#ref-for-dfn-field-8" title="Reference 8">(8)</a> <a href="#ref-for-dfn-field-9" title="Reference 9">(9)</a> <a href="#ref-for-dfn-field-10" title="Reference 10">(10)</a> <a href="#ref-for-dfn-field-11" title="Reference 11">(11)</a> <a href="#ref-for-dfn-field-12" title="Reference 12">(12)</a> <a href="#ref-for-dfn-field-13" title="Reference 13">(13)</a> <a href="#ref-for-dfn-field-14" title="Reference 14">(14)</a> <a href="#ref-for-dfn-field-15" title="Reference 15">(15)</a> <a href="#ref-for-dfn-field-16" title="Reference 16">(16)</a> <a href="#ref-for-dfn-field-17" title="Reference 17">(17)</a> <a href="#ref-for-dfn-field-18" title="Reference 18">(18)</a> <a href="#ref-for-dfn-field-19" title="Reference 19">(19)</a> <a href="#ref-for-dfn-field-20" title="Reference 20">(20)</a> <a href="#ref-for-dfn-field-21" title="Reference 21">(21)</a> <a href="#ref-for-dfn-field-22" title="Reference 22">(22)</a> <a href="#ref-for-dfn-field-23" title="Reference 23">(23)</a> <a href="#ref-for-dfn-field-24" title="Reference 24">(24)</a> <a href="#ref-for-dfn-field-25" title="Reference 25">(25)</a> <a href="#ref-for-dfn-field-26" title="Reference 26">(26)</a> <a href="#ref-for-dfn-field-27" title="Reference 27">(27)</a>
     </li><li>
-      <a href="#ref-for-dfn-field-28" title="§ 2.4 Using field names in triples maps">§ 2.4 Using field names in triples maps</a> 
+      <a href="#ref-for-dfn-field-28" title="§ 2.4 Using field names in triples maps">§ 2.4 Using field names in triples maps</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-field-parent" aria-label="Links in this document to definition: parent">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-field-parent" aria-label="Permalink for definition: parent. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-field-parent-1" title="§ 2.3 Fields and record sequences">§ 2.3 Fields and record sequences</a> 
+      <a href="#ref-for-dfn-field-parent-1" title="§ 2.3 Fields and record sequences">§ 2.3 Fields and record sequences</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-ancestors" aria-label="Links in this document to definition: ancestors">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-ancestors" aria-label="Permalink for definition: ancestors. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -1298,60 +1298,60 @@ Note that the tabular representation of the <a data-link-type="dfn|abstract-op" 
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-declared-name" aria-label="Permalink for definition: declared name. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-declared-name-1" title="§ 2.3 Fields and record sequences">§ 2.3 Fields and record sequences</a> <a href="#ref-for-dfn-declared-name-2" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-declared-name-1" title="§ 2.3 Fields and record sequences">§ 2.3 Fields and record sequences</a> <a href="#ref-for-dfn-declared-name-2" title="Reference 2">(2)</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-field-name" aria-label="Links in this document to definition: name">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-field-name" aria-label="Permalink for definition: name. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-field-name-1" title="§ 2.4 Using field names in triples maps">§ 2.4 Using field names in triples maps</a> 
+      <a href="#ref-for-dfn-field-name-1" title="§ 2.4 Using field names in triples maps">§ 2.4 Using field names in triples maps</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-field-record-sequence" aria-label="Links in this document to definition: field record sequence">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-field-record-sequence" aria-label="Permalink for definition: field record sequence. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-field-record-sequence-1" title="§ 2.3 Fields and record sequences">§ 2.3 Fields and record sequences</a> <a href="#ref-for-dfn-field-record-sequence-2" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-field-record-sequence-1" title="§ 2.3 Fields and record sequences">§ 2.3 Fields and record sequences</a> <a href="#ref-for-dfn-field-record-sequence-2" title="Reference 2">(2)</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-parent-records" aria-label="Links in this document to definition: parent records">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-parent-records" aria-label="Permalink for definition: parent records. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-parent-records-1" title="§ 2.3 Fields and record sequences">§ 2.3 Fields and record sequences</a> <a href="#ref-for-dfn-parent-records-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-parent-records-3" title="Reference 3">(3)</a> <a href="#ref-for-dfn-parent-records-4" title="Reference 4">(4)</a> 
+      <a href="#ref-for-dfn-parent-records-1" title="§ 2.3 Fields and record sequences">§ 2.3 Fields and record sequences</a> <a href="#ref-for-dfn-parent-records-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-parent-records-3" title="Reference 3">(3)</a> <a href="#ref-for-dfn-parent-records-4" title="Reference 4">(4)</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-field-reference" aria-label="Links in this document to definition: field reference">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-field-reference" aria-label="Permalink for definition: field reference. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-field-reference-1" title="§ 2.4 Using field names in triples maps">§ 2.4 Using field names in triples maps</a> <a href="#ref-for-dfn-field-reference-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-reference-3" title="Reference 3">(3)</a> 
+      <a href="#ref-for-dfn-field-reference-1" title="§ 2.4 Using field names in triples maps">§ 2.4 Using field names in triples maps</a> <a href="#ref-for-dfn-field-reference-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-reference-3" title="Reference 3">(3)</a>
     </li>
   </ul>
     </div><script id="respec-dfn-panel">(() => {

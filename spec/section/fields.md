@@ -94,18 +94,18 @@ In this example a [=field=] with [=declared name=] "item" is added to the [=logi
 :jsonView a rml:LogicalView ;
   rml:logicalSource :jsonSource ;
   rml:field [
-    rml:name "name" ;
+    rml:fieldName "name" ;
     rml:reference "$.name" ;
   ] ;
   rml:field [
-    rml:name "item" ;
+    rml:fieldName "item" ;
     rml:reference "$.items[*]" ;
     rml:field [
-      rml:name "type" ;
+      rml:fieldName "type" ;
       rml:reference "$.type" ;
     ] ;
     rml:field [
-      rml:name "weight" ;
+      rml:fieldName "weight" ;
       rml:reference "$.weight" ;
     ] ;
   ] .
@@ -266,18 +266,18 @@ A [=field reference=] can be used in [expression maps](http://w3id.org/rml/core/
 :jsonView a rml:LogicalView ;
   rml:logicalSource :jsonSource ;
   rml:field [
-    rml:name "name" ;
+    rml:fieldName "name" ;
     rml:reference "$.name" ;
   ] ;
   rml:field [
-    rml:name "item" ;
+    rml:fieldName "item" ;
     rml:reference "$.items[*]" ;
     rml:field [
-      rml:name "type" ;
+      rml:fieldName "type" ;
       rml:reference "$.type" ;
     ] ;
     rml:field [
-      rml:name "weight" ;
+      rml:fieldName "weight" ;
       rml:reference "$.weight" ;
     ] ;
   ] .

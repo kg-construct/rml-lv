@@ -1,14 +1,14 @@
 ## Structural Annotations {#annotations}
 
-A [=field=] (`rml:field`) MAY contain one or more [=structural annotations=]. 
+A [=field=] (`rml:field`) MUST contain zero or more [=structural annotations=]. 
 <dfn>Structural annotations</dfn> give additional information about the [=field=] (`rml:field`) and its relation to the structure of its [=logical view=] (`rml:LogicalView`).
 
-Following [=structural annotations=] can be defined: 
+Following [=structural annotations=] MAY be defined: 
 - unique 
 - foreignKey
 - nonNullable
-- iriSafe
 - otherFunctionalDependency
+- iriSafe
 - (datatype also?)
 
 <aside class="issue">
