@@ -1,6 +1,6 @@
 ## Logical views {#logicalviews}
 
-A <dfn>logical view</dfn> (`rml:LogicalView`) is a logical source whose contents are the result of creating fields with data from its logical source.
+A <dfn>logical view</dfn> (`rml:LogicalView`) is a type of logical source that is derived from another logical source by defining fields with data from said logical source.
 
 A [=logical view=] (`rml:LogicalView`) is represented by a resource that MUST contain:
 - exactly one logical source property (`rml:logicalSource`), whose value is a [logical source](https://kg-construct.github.io/rml-io/spec/docs/#source-vocabulary) (`rml:LogicalSource`),
