@@ -7,7 +7,7 @@ A [=logical view=] (`rml:LogicalView`) is represented by a resource that MUST co
 - at least one field property (`rml:field`), whose value is a [=field=] (`rml:Field`).
 
 A [=logical view=] (`rml:LogicalView`) MAY contain:
-- one or more join properties (`rml:leftJoin`, `rml:innerJoin`) to describe a [=join=] operation (`rml:Join`) with another [=Logical View=].
+- zero or more join properties (`rml:leftJoin`, `rml:innerJoin`) to describe a [=join=] operation (`rml:Join`) with another [=Logical View=].
 
 A [=logical view=] (`rml:LogicalView`) has an implicit default reference formulation (`rml:referenceFormulation`) and logical iterator (`rml:iterator`), which MUST not be overwritten. 
 
