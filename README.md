@@ -1,6 +1,6 @@
-# RML Fields specification
+# RML logical View specification
 
-Specification of RML fields
+Specification of RML logical view
 
 ## Quickstart
 
