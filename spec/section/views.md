@@ -9,9 +9,9 @@ A [=logical view=] (`rml:LogicalView`) is represented by a resource that MUST co
 
 A [=logical view=] (`rml:LogicalView`) has an implicit default reference formulation (`rml:referenceFormulation`) and logical iterator (`rml:iterator`), which MUST not be overwritten. 
 
-| Property               | Domain             | Range               |
-|------------------------|--------------------|---------------------|
-| `rml:onLogicalSource` | `rml:LogicalView`  | `rml:LogicalSource` |
-| `rml:field`            | `rml:LogicalView`  | `rml:Field`         |
-| `rml:leftJoin`         | `rml:LogicalView`  | `rml:LogicalViewJoin`      |
-| `rml:innerJoin`        | `rml:LogicalView`  | `rml:LogicalViewJoin`      |
+| Property              | Domain             | Range                 |
+|-----------------------|--------------------|-----------------------|
+| `rml:onLogicalSource` | `rml:LogicalView`  | `rml:LogicalSource`   |
+| `rml:field`           |                    | `rml:Field`           |
+| `rml:leftJoin`        | `rml:LogicalView`  | `rml:LogicalViewJoin` |
+| `rml:innerJoin`       | `rml:LogicalView`  | `rml:LogicalViewJoin` |

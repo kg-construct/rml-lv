@@ -1,0 +1,64 @@
+@prefix rml: <http://w3id.org/rml/> .
+@prefix : <http://example.org/> .
+
+@base <http://example.com/base/> .
+
+:jsonSource a rml:LogicalSource ;
+  rml:source [] ; # TODO
+  rml:referenceFormulation rml:JSONPath ;
+  rml:iterator "$.people[*]" .
+
+:jsonView a rml:LogicalView ;
+  rml:onLogicalSource :jsonSource ;
+  rml:field [
+    rml:fieldName "name" ;
+    rml:reference "$.name" ;
+  ] ;
+  rml:field [
+    rml:fieldName "item" ;
+    rml:reference "$.items[*]" ;
+    rml:field [
+      rml:fieldName "type" ;
+      rml:reference "$.type" ;
+    ] ;
+    rml:field [
+      rml:fieldName "weight" ;
+      rml:reference "$.weight" ;
+    ] ;
+  ] .
+
+:triplesMapPerson a rml:TriplesMap ;
+  rml:logicalView :jsonView ;
+  rml:subjectMap [
+    rml:template "http://example.org/person/{name}" ;
+  ] ;
+  rml:predicateObjectMap [
+    rml:predicate :hasName ;
+    rml:objectMap [
+      rml:reference "name" ;
+    ] ;
+  ] ;
+  rml:predicateObjectMap [
+    rml:predicate :hasItem ;
+    rml:objectMap [
+      rml:parentTriplesMap :triplesMapItem ;
+    ] ;
+  ] .
+
+:triplesMapItem a rml:TriplesMap ;
+  rml:logicalView :jsonView ;
+  rml:subjectMap [
+    rml:template "http://example.org/person/{name}/item/{item.type}" ;
+  ] ;
+  rml:predicateObjectMap [
+    rml:predicate :hasName ;
+    rml:objectMap [
+      rml:reference "item.type" ;
+    ] ;
+  ] ;
+  rml:predicateObjectMap [
+    rml:predicate :hasWeight ;
+    rml:objectMap [
+      rml:reference "item.weight" ;
+    ] ;
+  ] .

@@ -1,0 +1,74 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rml: <http://w3id.org/rml/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+<http://w3id.org/rml/lv/> a owl:Ontology ;
+    owl:imports <http://w3id.org/rml/core> ; # TODO check https://github.com/kg-construct/rml-core/issues/73 for resolution
+    owl:imports <http://w3id.org/rml/io/> ;
+    sh:suggestedShapesGraph <http://w3id.org/rml/lv/shapes> ;
+.
+
+############# TODO this should be part of core ###############
+rml:LogicallyIterable a owl:Class ;
+    rdfs:isDefinedBy <http://w3id.org/rml/core> ;
+.
+############## TODO this should be part of io@ ###############
+rml:LogicalSource rdfs:subClassOf rml:LogicallyIterable .
+##############################################################
+
+
+# rml:LogicalView
+rml:LogicalView a owl:Class ;
+    rdfs:subClassOf rml:LogicallyIterable ;
+    rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+.
+
+rml:onLogicalsource a owl:ObjectProperty ;
+    rdfs:domain rml:LogicalView ;
+    rdfs:range rml:LogicalSource ;
+    rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+.
+
+rml:leftJoin a owl:ObjectProperty ;
+    rdfs:domain rml:LogicalView ;
+    rdfs:range rml:LogicalViewJoin ;
+    rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+.
+
+rml:innerJoin a owl:ObjectProperty ;
+    rdfs:domain rml:LogicalView ;
+    rdfs:range rml:LogicalViewJoin ;
+    rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+.
+
+# rml:Field
+rml:Field a owl:Class ;
+    rdfs:subClassOf rml:ExpressionMap ;
+    rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+.
+
+rml:fieldName a owl:DatatypeProperty ;
+    rdfs:domain rml:Field ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+.
+
+# rml:LogicalViewJoin
+rml:LogicalViewJoin a owl:Class ;
+    rdfs:subClassOf rml:Join ;
+    rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+.
+
+rml:parentLogicalView a owl:DatatypeProperty ;
+    rdfs:domain rml:LogicalViewJoin ;
+    rdfs:range rml:LogicalView ;
+    rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+.
+
+# rml:field
+rml:field a owl:ObjectProperty ;
+    rdfs:range rml:Field ;
+    rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+.

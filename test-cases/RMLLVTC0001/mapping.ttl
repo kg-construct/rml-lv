@@ -1,0 +1,25 @@
+@prefix rml: <http://w3id.org/rml/> .
+@prefix : <http://example.org/> .
+
+@base <http://example.com/base/> .
+
+:jsonSource a rml:LogicalSource ;
+  rml:source [] ; # TODO
+  rml:referenceFormulation rml:JSONPath ;
+  rml:iterator "$.people[*]" .
+
+:jsonView a rml:LogicalView ;
+  rml:onLogicalSource :jsonSource ;
+  rml:field [
+    rml:fieldName "name" ;
+    rml:reference "$.name" ;
+  ] .
+
+# TODO
+<#TriplesMap> a rml:TriplesMap ;
+  rml:logicalView :jsonView ;
+  rml:subjectMap [
+    rml:constant :sub ;
+    rml:class :Any ;
+  ] .
+

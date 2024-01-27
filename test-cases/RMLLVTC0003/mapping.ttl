@@ -1,0 +1,66 @@
+@prefix rml: <http://w3id.org/rml/> .
+@prefix : <http://example.org/> .
+
+@base <http://example.com/base/> .
+
+:jsonSource a rml:LogicalSource ;
+  rml:source [] ; # TODO
+  rml:referenceFormulation rml:JSONPath ;
+  rml:iterator "$.people[*]" .
+
+:jsonView a rml:LogicalView ;
+  rml:onLogicalSource :jsonSource ;
+  rml:field [
+    rml:fieldName "name" ;
+    rml:reference "$.name" ;
+  ] ;
+  rml:field [
+    rml:fieldName "item" ;
+    rml:reference "$.items[*]" ;
+    rml:field [
+      rml:fieldName "type" ;
+      rml:reference "$.type" ;
+    ] ;
+    rml:field [
+      rml:fieldName "weight" ;
+      rml:reference "$.weight" ;
+    ] ;
+  ] .
+
+:csvSource a rml:LogicalSource ;
+  rml:source [] ; # TODO
+  rml:referenceFormulation rml:CSV .
+
+:csvView a rml:LogicalView ;
+  rml:onLogicalSource :csvSource ;
+  rml:field [
+    rml:fieldName "name" ;
+    rml:reference "name" ;
+  ] ;
+  rml:field [
+    rml:fieldName "birthyear" ;
+    rml:reference "birthyear" ;
+  ] ;
+  rml:leftJoin [
+    rml:parentLogicalView :jsonView ;
+    rml:joinCondition [
+      rml:parent "name" ;
+      rml:child "name" ;
+    ] ; 
+    rml:field [
+      rml:fieldName "item_type" ;
+      rml:reference "item.type" ;
+    ] ;
+    rml:field [
+      rml:fieldName "item_weight" ;
+      rml:reference "item.weight" ;
+    ] ;
+  ] .
+
+# TODO
+<#TriplesMap> a rml:TriplesMap ;
+  rml:logicalView :csvView ;
+  rml:subjectMap [
+    rml:constant :sub ;
+    rml:class :Any ;
+  ] .

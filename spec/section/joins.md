@@ -106,7 +106,7 @@ If an inner joins would have been used, the logical view would have only 3 logic
     rml:reference "birthyear" ;
   ] ;
   rml:leftJoin [
-    rml:parentLogicalView :jsonView
+    rml:parentLogicalView :jsonView ;
     rml:joinCondition [
       rml:parent "name" ;
       rml:child "name" ;

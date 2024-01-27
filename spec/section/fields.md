@@ -412,7 +412,7 @@ Note some columns in the table below have been shortened for brevity.
 :triplesMapItem a rml:TriplesMap ;
   rml:logicalSource :jsonView ;
   rml:subjectMap [
-    rml:template ""http://example.org/person/{name}/item/{item.type}" ;
+    rml:template "http://example.org/person/{name}/item/{item.type}" ;
   ] ;
   rml:predicateObjectMap [
     rml:predicate :hasName ;
