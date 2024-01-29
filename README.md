@@ -1,4 +1,4 @@
-# RML logical View specification
+# RML logical Views specification
 
 Specification of RML logical view
 
