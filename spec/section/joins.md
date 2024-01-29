@@ -1,17 +1,17 @@
-## Joins {#joins}
+## Logical view joins {#viewjoins}
 
-A <dfn>join</dfn> (`rml:Join`) is an operation that extends the logical iteration of one logical view (the child logical view) with fields from another logical view (the parent logical view).
+A <dfn>logical view join</dfn> (`rml:LogicalViewJoin`) is an operation that extends the logical iteration of one logical view (the child logical view) with fields from another logical view (the parent logical view).
 
-A [=join=] (`rml:Join`) MUST contain:
+A [=logical view join=] (`rml:LogicalViewJoin`) MUST contain:
 - exactly one parent logical view property (`rml:parentLogicalView`), whose value is a [=logical view=] (`rml:LogicalView`) that supplies the additional fields.
 - at least one join condition property (`rml:joinCondition`), whose value is a [=join condition=] that describe which values are compared to join the two logical views.
 - at least one field property (`rml:field`), whose value is a [=field=] (`rml:Field`) . This field MAY only contain references to fields that exists in the parent logical view. 
 
-| Property                | Domain     | Range               |
-|-------------------------|------------|---------------------|
-| `rml:parentLogicalView` | `rml:Join` | `rml:LogicalView`   |
-| `rml:joinCondition`     | `rml:Join` | `rml:JoinCondition` |
-| `rml:field`             | `rml:Join` | `rml:Field`         |
+| Property                | Domain                | Range               |
+|-------------------------|-----------------------|---------------------|
+| `rml:parentLogicalView` | `rml:LogicalViewJoin` | `rml:LogicalView`   |
+| `rml:joinCondition`     | `rml:LogicalViewJoin` | `rml:JoinCondition` |
+| `rml:field`             | `rml:LogicalViewJoin` | `rml:Field`         |
 
 
 ### Join conditions
@@ -77,7 +77,7 @@ The logical iterations from the child logical view are extended with values from
 When more than one logical iteration in the parent logical view matches with a logical iteration in the child logical view, each match leads to an additional extended logical iteration.
 If no match is found for a logical iteration, the logical iteration is removed from the child logical view.
 
-### Join examples
+### Logical view join examples
 <aside class="issue">
 Pano please verify what I did with the iterator and # key from the parent logical view. Is this ok? This should still be described somewhere?
 </aside>
