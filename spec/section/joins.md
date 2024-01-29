@@ -1,4 +1,4 @@
-## View joins {#viewjoins}
+## Logical view joins {#viewjoins}
 
 A <dfn>logical view join</dfn> (`rml:LogicalViewJoin`) is an operation that extends the logical iteration of one logical view (the child logical view) with fields from another logical view (the parent logical view).
 
