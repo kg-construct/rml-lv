@@ -1,1 +1,1 @@
-## Generating collections with RML logical view {#collections}
+## Generating collections with RML logical views {#collections}
