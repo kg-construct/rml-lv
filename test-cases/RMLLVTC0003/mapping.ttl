@@ -9,7 +9,7 @@
   rml:iterator "$.people[*]" .
 
 :jsonView a rml:LogicalView ;
-  rml:onLogicalSource :jsonSource ;
+  rml:source :jsonSource ;
   rml:field [
     rml:fieldName "name" ;
     rml:reference "$.name" ;
@@ -32,7 +32,7 @@
   rml:referenceFormulation rml:CSV .
 
 :csvView a rml:LogicalView ;
-  rml:onLogicalSource :csvSource ;
+  rml:source :csvSource ;
   rml:field [
     rml:fieldName "name" ;
     rml:reference "name" ;
@@ -59,7 +59,7 @@
 
 # TODO
 <#TriplesMap> a rml:TriplesMap ;
-  rml:logicalView :csvView ;
+  rml:logicalSource :csvView ;
   rml:subjectMap [
     rml:constant :sub ;
     rml:class :Any ;

@@ -9,7 +9,7 @@
   rml:iterator "$.people[*]" .
 
 :jsonView a rml:LogicalView ;
-  rml:onLogicalSource :jsonSource ;
+  rml:source :jsonSource ;
   rml:field [
     rml:fieldName "name" ;
     rml:reference "$.name" ;
@@ -28,7 +28,7 @@
   ] .
 
 :triplesMapPerson a rml:TriplesMap ;
-  rml:logicalView :jsonView ;
+  rml:logicalSource :jsonView ;
   rml:subjectMap [
     rml:template "http://example.org/person/{name}" ;
   ] ;
@@ -46,7 +46,7 @@
   ] .
 
 :triplesMapItem a rml:TriplesMap ;
-  rml:logicalView :jsonView ;
+  rml:logicalSource :jsonView ;
   rml:subjectMap [
     rml:template "http://example.org/person/{name}/item/{item.type}" ;
   ] ;

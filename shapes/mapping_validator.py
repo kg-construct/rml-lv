@@ -10,7 +10,7 @@ class MappingValidator:
         sg.parse(shape, format='turtle')
         self._shape = sg
         og = Graph()
-        og.parse(shape, format='turtle')
+        og.parse(ontology, format='turtle')
         self._ont = og
 
     def validate(self, rules: Graph, print_report: bool = True) -> None:

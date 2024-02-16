@@ -45,7 +45,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Execute tests for SHACL '
                                      'shapes on RML mapping rules.')
     parser.add_argument('--verbose', '-v', action='count', default=1,
-                        help='Set verbosity level of messages. Example: -vvv')
+                        help='Set verbosity level of messages. Example: -vvvv')
     args = parser.parse_args()
 
     args.verbose = 70 - (10 * args.verbose) if args.verbose > 0 else 0

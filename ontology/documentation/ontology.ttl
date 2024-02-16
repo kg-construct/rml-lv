@@ -2,32 +2,21 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rml: <http://w3id.org/rml/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
 
 
 <http://w3id.org/rml/lv/> a owl:Ontology ;
-    owl:imports <http://w3id.org/rml/core> ; # TODO check https://github.com/kg-construct/rml-core/issues/73 for resolution
-    owl:imports <http://w3id.org/rml/io/> ;
+    # TODO check https://github.com/kg-construct/rml-core/issues/73 for resolution
+    # owl:imports <http://w3id.org/rml/core> ; # TODO not dereferencable?
+    owl:imports <https://raw.githubusercontent.com/kg-construct/rml-core/main/ontology/rml-core.owl> ;
+    # owl:imports <http://w3id.org/rml/io/> ; # TODO not dereferencable?
+    owl:imports <https://raw.githubusercontent.com/kg-construct/rml-io/main/ontology/rml-io.owl> ;
     sh:suggestedShapesGraph <http://w3id.org/rml/lv/shapes> ;
 .
 
-############# TODO this should be part of core ###############
-rml:LogicallyIterable a owl:Class ;
-    rdfs:isDefinedBy <http://w3id.org/rml/core> ;
-.
-############## TODO this should be part of io@ ###############
-rml:LogicalSource rdfs:subClassOf rml:LogicallyIterable .
-##############################################################
-
-
 # rml:LogicalView
 rml:LogicalView a owl:Class ;
-    rdfs:subClassOf rml:LogicallyIterable ;
-    rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
-.
-
-rml:onLogicalsource a owl:ObjectProperty ;
-    rdfs:domain rml:LogicalView ;
-    rdfs:range rml:LogicalSource ;
+    rdfs:subClassOf rml:LogicalSource ;
     rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
 .
 
