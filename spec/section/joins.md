@@ -77,7 +77,12 @@ The logical iterations from the child logical view are extended with values from
 When more than one logical iteration in the parent logical view matches with a logical iteration in the child logical view, each match leads to an additional extended logical iteration.
 If no match is found for a logical iteration, the logical iteration is removed from the child logical view.
 
+<aside class="issue">
+Pano: If there are more than one join, what is the order of execution?
+</aside>
+
 ### Logical view join examples
+
 <aside class="issue">
 Pano please verify what I did with the iterator and # key from the parent logical view. Is this ok? This should still be described somewhere?
 </aside>
@@ -86,6 +91,7 @@ Els: TODO add example with 2 joins???
 </aside>
 
 ### Left join
+
 <aside class=example id=ex-leftjoin>
 
 In this example a [=logical view=] with fields built with data from the logical source form [[[#csviterator]]] is joined with the logical view from [[[#ex-field-record-sequence]]]. 
@@ -106,7 +112,7 @@ If an inner joins would have been used, the logical view would have only 3 logic
     rml:reference "birthyear" ;
   ] ;
   rml:leftJoin [
-    rml:parentLogicalView :jsonView
+    rml:parentLogicalView :jsonView ;
     rml:joinCondition [
       rml:parent "name" ;
       rml:child "name" ;
@@ -133,8 +139,6 @@ If an inner joins would have been used, the logical view would have only 3 logic
         <td>name</td>
         <td>birthyear.#</td>
         <td>birthyear</td>
-        <td>parent.#</td>
-        <td>parent.&lt;it&gt;</td>
         <td>item_type.#</td>
         <td>item_type</td>
         <td>item_weight#</td>
@@ -148,8 +152,6 @@ If an inner joins would have been used, the logical view would have only 3 logic
         <td>0</td>
         <td>1995</td>
         <td>0</td>
-        <td>(fields)</td>
-        <td>0</td>
         <td>sword</td>
         <td>0</td>
         <td>1500 </td>
@@ -161,8 +163,6 @@ If an inner joins would have been used, the logical view would have only 3 logic
         <td>alice</td>
         <td>0</td>
         <td>1995</td>
-        <td>0</td>
-        <td>(fields)</td>
         <td>1</td>
         <td>shield</td>
         <td>1</td>
@@ -175,8 +175,6 @@ If an inner joins would have been used, the logical view would have only 3 logic
         <td>bob</td>
         <td>1</td>
         <td>1999</td>
-        <td>1</td>
-        <td>(fields)</td>
         <td>2</td>
         <td>flower</td>
         <td>2</td>
@@ -189,8 +187,6 @@ If an inner joins would have been used, the logical view would have only 3 logic
         <td>tobias</td>
         <td>2</td>
         <td>2005</td>
-        <td>null</td>
-        <td>null</td>
         <td>null</td>
         <td>null</td>
         <td>null</td>
@@ -247,8 +243,6 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
         <td>name</td>
         <td>birthyear.#</td>
         <td>birthyear</td>
-        <td>parent.#</td>
-        <td>parent.&lt;it&gt;</td>
         <td>item_type.#</td>
         <td>item_type</td>
         <td>item_weight#</td>
@@ -262,8 +256,6 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
         <td>0</td>
         <td>1995</td>
         <td>0</td>
-        <td>(fields)</td>
-        <td>0</td>
         <td>sword</td>
         <td>0</td>
         <td>1500 </td>
@@ -275,8 +267,6 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
         <td>alice</td>
         <td>0</td>
         <td>1995</td>
-        <td>0</td>
-        <td>(fields)</td>
         <td>1</td>
         <td>shield</td>
         <td>1</td>
@@ -289,8 +279,6 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
         <td>bob</td>
         <td>1</td>
         <td>1999</td>
-        <td>1</td>
-        <td>(fields)</td>
         <td>2</td>
         <td>flower</td>
         <td>2</td>

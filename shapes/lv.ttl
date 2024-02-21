@@ -1,0 +1,149 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rml: <http://w3id.org/rml/> .
+@prefix rmlsh: <http://w3id.org/rml/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://w3id.org/rml/lv/shapes> a owl:Ontology ;
+    owl:imports <http://w3id.org/rml/core/shapes> ;
+    owl:imports <http://w3id.org/rml/io/shapes> ; 
+.
+
+# rml:LogicalView
+rmlsh:LogicalViewShape a sh:NodeShape ;
+    sh:name "LogicalView" ;
+    sh:description """
+    A logical view (rml:LogicalView) is a type of logical source that is derived from another logical source by defining field with data from said logical source.
+    """ ;
+    sh:message """
+    Node must have a valid rml:LogicalView description.
+    rml:LogicalView requires
+    - exactly one rml:source property, with a rml:LogicalSource as its value.
+    - at least one rml:field property, with a rml:Field as its value.
+    """ ;
+    sh:targetClass rml:LogicalView ;
+    sh:targetObjectsOf rml:parentLogicalView ;
+    sh:property [
+        sh:description """
+        The source of the logical view. This is the logical source from which the logical view is derived.
+        """ ;
+        sh:message """
+        Exactly one rml:source property must be specified for a rml:LogicalView, with a rml:LogicalSource as its value.
+        """ ;
+        sh:path rml:source ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:node rmlsh:LogicalSource ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
+    ] , [
+        sh:description """
+        A field of the logical view.
+        """ ;
+        sh:message """
+        At least one rml:field property must be specified for a rml:LogicalView, with a resource as its value.
+        """ ;
+        sh:path rml:field ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
+    ] , [
+        sh:description """
+        A left join of the logical view.
+        """ ;
+        sh:message """
+        The value of a rml:leftJoin property for a rml:LogicalView must be a resource.
+        """ ;
+        sh:path rml:leftJoin ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
+    ] , [
+        sh:description """
+        An inner join of the logical view.
+        """ ;
+        sh:message """
+        The value of a rml:innerJoin property for a rml:LogicalView must be a resource.
+        """ ;
+        sh:path rml:innerJoin ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
+    ] .
+
+rmlsh:FieldShape a sh:NodeShape ;
+    sh:name "Field" ;
+    sh:description """
+    A field is an expression map that gives a name to an expression.
+    """ ;
+    sh:message """
+    Node must have a valid rml:Field description.
+    rml:Field requires a rml:fieldName and may have zero or more rml:field properties.
+    Furthermore, rml:Field requires what an rml:ExpressionMap requires.
+    """ ;
+    sh:targetClass rml:Field ;
+    sh:targetObjectOf rml:field ;
+    sh:property [
+        sh:description """
+        The name of the field.
+        """ ;
+        sh:message """
+        Exactly one rml:fieldName property must be specified for a rml:Field, with a string as its value.
+        """ ;
+        sh:path rml:fieldName ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:nodeKind sh:Literal ;
+    ] , [
+        sh:description """
+        A child field of the field.
+        """ ;
+        sh:message """
+        The value of a rml:field property for a rml:Field must be a resource.
+        """ ;
+        sh:path rml:field ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
+    ] .
+
+rmlsh:LogicalViewJoinShape a sh:NodeShape ;
+    sh:name "LogicalViewJoin" ;
+    sh:description """
+    A LogicalViewJoin is an operation that adapts the logical iterations of one logical view (the child logical view) with fields from another logical view (the parent logical view).
+    """ ;
+    sh:message """
+    Node must have a valid rml:LogicalViewJoin description.
+    rml:LogicalViewJoin requires:
+    - exactly one rml:parentLogicalView property.
+    - one or more rml:joinCondition properties.
+    - one or more rml:field properties.
+    Furthermore, rml:Field requires what an rml:ExpressionMap requires.
+    """ ;
+    sh:targetClass rml:LogicalViewJoin ;
+    sh:targetObjectOf rml:leftJoin , rml:innerJoin ;
+    sh:property [
+        sh:description """
+        The parent logical view of the logical view join.
+        """ ;
+        sh:message """
+        Exactly one rml:parentLogicalView property must be specified for a rml:LogicalViewJoin, with a resource as its value.
+        """ ;
+        sh:path rml:parentLogicalView ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
+    ] , [
+        sh:description """
+        A join condition of the logical view join.
+        """ ;
+        sh:message """
+        At least one rml:parentLogicalView property must be specified for a rml:LogicalViewJoin, with a resource as its value.
+        """ ;
+        sh:path rml:joinCondition ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
+    ] , [
+        sh:description """
+        A join condition of the logical view join.
+        """ ;
+        sh:message """
+        At least one rml:field property must be specified for a rml:LogicalViewJoin, with a resource as its value.
+        """ ;
+        sh:path rml:field ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
+    ] .
