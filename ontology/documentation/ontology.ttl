@@ -50,7 +50,7 @@ rml:LogicalViewJoin a owl:Class ;
     rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
 .
 
-rml:parentLogicalView a owl:DatatypeProperty ;
+rml:parentLogicalView a owl:ObjectProperty ;
     rdfs:domain rml:LogicalViewJoin ;
     rdfs:range rml:LogicalView ;
     rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;

@@ -16,7 +16,8 @@ rmlsh:LogicalViewShape a sh:NodeShape ;
     A logical view (rml:LogicalView) is a type of logical source that is derived from another logical source by defining field with data from said logical source.
     """ ;
     sh:message """
-    rml:LogicalView requires requires
+    Node must have a valid rml:LogicalView description.
+    rml:LogicalView requires
     - exactly one rml:source property, with a rml:LogicalSource as its value.
     - at least one rml:field property, with a rml:Field as its value.
     """ ;
@@ -70,6 +71,7 @@ rmlsh:FieldShape a sh:NodeShape ;
     A field is an expression map that gives a name to an expression.
     """ ;
     sh:message """
+    Node must have a valid rml:Field description.
     rml:Field requires a rml:fieldName and may have zero or more rml:field properties.
     Furthermore, rml:Field requires what an rml:ExpressionMap requires.
     """ ;
@@ -101,10 +103,14 @@ rmlsh:FieldShape a sh:NodeShape ;
 rmlsh:LogicalViewJoinShape a sh:NodeShape ;
     sh:name "LogicalViewJoin" ;
     sh:description """
-    A LogicalViewJoin is an operation that extends the logical iteration of one logical view (the child logical view) with fields from another logical view (the parent logical view).
+    A LogicalViewJoin is an operation that adapts the logical iterations of one logical view (the child logical view) with fields from another logical view (the parent logical view).
     """ ;
     sh:message """
-    rml:LogicalViewJoin requires a rml:fieldName and may have zero or more rml:field properties.
+    Node must have a valid rml:LogicalViewJoin description.
+    rml:LogicalViewJoin requires:
+    - exactly one rml:parentLogicalView property.
+    - one or more rml:joinCondition properties.
+    - one or more rml:field properties.
     Furthermore, rml:Field requires what an rml:ExpressionMap requires.
     """ ;
     sh:targetClass rml:LogicalViewJoin ;
