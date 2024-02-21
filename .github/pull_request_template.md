@@ -5,6 +5,7 @@
 - [ ] updated ontology, where necessary
 - [ ] updated shapes, where necessary
 - [ ] added or updated test cases, where necessary
+- [ ] any TODOs have been turned into trackable issues and referenced where necessary
 
 ## Issue reference
 <!-- For example: -->
