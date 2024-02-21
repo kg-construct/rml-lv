@@ -72,38 +72,53 @@ var respecConfig = {
   // only "name" is required
   editors: [
     {
-      name: "Thomas Delva"
-      , mailto: "thomas.delva@ugent.be"
-      , company: "Ghent University &ndash; imec &ndash; IDLab",
-      orcidid: "0000-0001-9521-2185",
-      companyURL: "https://idlab.technology/"
+      name: "Pano Maria",
+      mailto: "pano@skemu.com",
+      url: "https://panomaria.com",
+      company: "Skemu",
+      companyURL: "https://skemu.com"
     },
     {
-      name: "Anastasia Dimou"
-      , mailto: "anastasia.dimou@ugent.be"
-      , company: "Ghent University &ndash; imec &ndash; IDLab",
-      orcidid: "0000-0003-2138-7972",
+      name: "Els de Vleeschauwer",
+      mailto: "els.devleeschauwer@ugent.be",
+      company: "Ghent University &ndash; imec &ndash; IDLab",
+      orcidid: "0000-0002-8630-3947",
+      companyURL: "https://idlab.technology/"
+    }
+  ],
+  authors: [
+    {
+      name: "Pano Maria",
+      mailto: "pano@skemu.com",
+      company: "Skemu",
+      companyURL: "https://skemu.com"
+    },
+    {
+      name: "Els de Vleeschauwer",
+      mailto: "els.devleeschauwer@ugent.be",
+      company: "Ghent University &ndash; imec &ndash; IDLab",
+      orcidid: "0000-0002-8630-3947",
       companyURL: "https://idlab.technology/"
     }
   ],
   // name of the WG, should be listed at https://respec.org/w3c/groups/
   group: "kg-construct",
   latestVersion: null,
-  issueBase: "https://github.com/kg-construct/rml-fields-spec/issues",
+  issueBase: "https://github.com/kg-construct/rml-lv/issues",
   noRecTrack: "true",
   otherLinks: [
     {
       key: "This Version",
       data: [{
-        value: "https://kg-construct.github.io/rml-fields-spec/%thisDate%/",
-        href: "https://kg-construct.github.io/rml-fields-spec/%thisDate%/"
+        value: "https://kg-construct.github.io/rml-lv/%thisDate%/",
+        href: "https://kg-construct.github.io/rml-lv/%thisDate%/"
       }]
     },
     {
       key: "Previous Version",
       data: [{
-        value: "https://kg-construct.github.io/rml-fields-spec/%prevDate%/",
-        href: "https://kg-construct.github.io/rml-fields-spec/%prevDate%/"
+        value: "https://kg-construct.github.io/rml-lv/%prevDate%/",
+        href: "https://kg-construct.github.io/rml-lv/%prevDate%/"
       }]
     },
     {
@@ -123,4 +138,20 @@ var respecConfig = {
   // Team Contact.
   //wgPatentURI: "http://www.w3.org/2004/01/pp-impl/64149/status",
   // !!!! IMPORTANT !!!! MAKE THE ABOVE BLINK IN YOUR HEAD
+  localBiblio: {
+    "RML-Core": {
+      title: "RML-Core",
+      href: "https://w3id.org/rml/core/spec",
+      status: "Draft Community Group Report",
+      publisher: "W3C",
+      date: "16 February 2024",
+    },
+    "RML-IO": {
+      title: "RML-IO",
+      href: "https://w3id.org/rml/io/spec",
+      status: "Draft Community Group Report",
+      publisher: "W3C",
+      date: "27 September 2023",
+    },
+  }
 };

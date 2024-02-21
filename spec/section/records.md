@@ -1,8 +1,8 @@
 ## Records {#records}
 
-A <dfn>record</dfn> is created using an [iterator](http://w3id.org/rml/core/spec#dfn-iterator) or an [expression](http://w3id.org/rml/core/spec#dfn-expressions). Depending on the source type, [=records=] might take different forms: for tabular data sources, a [=record=] might be a row or a cell; for tree-structured sources like XML, a [=record=] might be a node; for document-structured sources like JSON, a [=record=] might be a document or property value.
+A <dfn>record</dfn> is created using an <!-- TODO core or io, dependent on https://github.com/kg-construct/rml-lv/issues/7 and https://github.com/kg-construct/rml-lv/issues/14-->[iterator](http://w3id.org/rml/core/spec#dfn-iterator) or an <a data-cite="RML-Core#dfn-expressions">expression</a>. Depending on the source type, [=records=] might take different forms: for tabular data sources, a [=record=] might be a row or a cell; for tree-structured sources like XML, a [=record=] might be a node; for document-structured sources like JSON, a [=record=] might be a document or property value.
 
-A [=record=] MUST have a string representation. It MAY be possible to derive other [=records=] from a [=record=] using an [expression](http://w3id.org/rml/core/spec#dfn-expressions).
+A [=record=] MUST have a string representation. It MAY be possible to derive other [=records=] from a [=record=] using an <a data-cite="RML-Core#dfn-expressions">expression</a>.
 
 <aside class=example id=csviterator>
 
@@ -79,7 +79,7 @@ tobias,2005
 
 </aside>
 
-In this example, the XPath expression `/People/Person` is used as [iterator](http://w3id.org/rml/core/spec#dfn-iterator). The sequence of records it defines are the `Person` nodes on the first level in the document that have string representations
+In this example, the XPath expression `/People/Person` is used as <!-- TODO core or io, dependent on https://github.com/kg-construct/rml-lv/issues/7 and https://github.com/kg-construct/rml-lv/issues/14-->[iterator](http://w3id.org/rml/core/spec#dfn-iterator). The sequence of [=records=] it defines are the `Person` nodes on the first level in the document that have string representations
 
 ```xml
 <Person name="cindy">
@@ -149,7 +149,7 @@ and
 
 </aside>
 
-In this example, the JSONPath expression `$.people[*]` is used as [iterator](http://w3id.org/rml/core/spec#dfn-iterator). The sequence of [=records=] it defines are the elements of the `people` array in the document that have string representations
+In this example, the JSONPath expression `$.people[*]` is used as <!-- TODO core or io, dependent on https://github.com/kg-construct/rml-lv/issues/7 and https://github.com/kg-construct/rml-lv/issues/14-->[iterator](http://w3id.org/rml/core/spec#dfn-iterator). The sequence of [=records=] it defines are the elements of the `people` array in the document that have string representations.
 
 ```json
 {
@@ -182,11 +182,11 @@ and
 
 </aside>
 
-For a given [=record=], the evaluation of an [expression](http://w3id.org/rml/core/spec#dfn-expressions) against it MUST either result in an ordered sequence of [=records=], called the <dfn>expression values</dfn>, or throw an error. An [expression](http://w3id.org/rml/core/spec#dfn-expressions) MUST be valid for the given [reference formulation](http://w3id.org/rml/core/spec#dfn-reference-formulation).
+For a given [=record=], the evaluation of an <a data-cite="RML-Core#dfn-expressions">expression</a> against it MUST either result in an ordered sequence of [=records=], called the <dfn>expression values</dfn>, or throw an error. An <a data-cite="RML-Core#dfn-expressions">expression</a> MUST be valid for the given <!-- TODO core or io, dependent on https://github.com/kg-construct/rml-lv/issues/7 and https://github.com/kg-construct/rml-lv/issues/14-->[reference formulation](http://w3id.org/rml/core/spec#dfn-reference-formulation).
 
 <aside class=note>
 
-This definition of expression _is_ different from [the definition](http://w3id.org/rml/core/spec#dfn-expressions) given in the RML Core specification on two points. Firstly, the RML Core specification defines the result of an expression evaluation as being a set of values, while here an ordered sequence of values is defined. Secondly, we consider expression values that might themselves be [=records=].
+This definition of expression _is_ different from <a data-cite="RML-Core#dfn-expressions">the definition</a> given in the RML Core specification on two points. Firstly, the RML Core specification defines the result of an expression evaluation as being a set of values, while here an ordered sequence of values is defined. Secondly, we consider expression values that might themselves be [=records=].
 
 </aside>
 
@@ -219,7 +219,7 @@ The reference `$.nonsense` would define empty sequences of record since the `non
 
 ### Extending the logical source
 
-A [logical iteration](http://w3id.org/rml/core/spec#dfn-logical-iteration) MUST have a string representation.
+A <a data-cite="RML-Core#dfn-logical-iteration">logical iteration</a> MUST have a string representation.
 
 <aside class="issue">
 Describe how logical iteration relates to records.
@@ -229,7 +229,7 @@ Describe how logical iteration relates to records.
 
 A <dfn>record sequence</dfn> is an ordered sequence of sets of key-value pairs, where each key is a string and each value a [=record=]. A record sequence MUST have a finite set of keys that appear in each set in the sequence. In any particular set in a record sequence, the value of a key MAY be a null value.
 
-An [=iterator=] defines a [=record sequence=] from the iterator's [=logical source=], called the <dfn>iterator record sequence</dfn>. This record sequence has two keys:
+An <!-- TODO core or io, dependent on https://github.com/kg-construct/rml-lv/issues/7 and https://github.com/kg-construct/rml-lv/issues/14-->[iterator]() defines a [=record sequence=] from the iterator's <!-- TODO core or io, dependent on https://github.com/kg-construct/rml-lv/issues/7 and https://github.com/kg-construct/rml-lv/issues/14-->[logical source], called the <dfn>iterator record sequence</dfn>. This record sequence has two keys:
 
 - An index key `#` with as corresponding values the position of the current entry in the sequence defined by the iterator.
 - A key `<it>` with as corresponding values the records in the sequence defined by the iterator.
