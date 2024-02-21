@@ -10,9 +10,9 @@ In this example a [=field=] with [=declared name=] "name" is declared on the [=l
 
 ```turtle
 :jsonView a rml:LogicalView ;
-  rml:logicalSource :jsonSource ;
+  rml:onLogicalSource :jsonSource ;
   rml:field [
-    rml:name "name" ;
+    rml:fieldName "name" ;
     rml:reference "$.name" ;
   ] .
 ```
@@ -92,7 +92,7 @@ In this example a [=field=] with [=declared name=] "item" is added to the [=logi
 
 ```turtle
 :jsonView a rml:LogicalView ;
-  rml:logicalSource :jsonSource ;
+  rml:onLogicalSource :jsonSource ;
   rml:field [
     rml:fieldName "name" ;
     rml:reference "$.name" ;
@@ -264,7 +264,7 @@ A [=field reference=] can be used in [expression maps](http://w3id.org/rml/core/
 
 ```turtle
 :jsonView a rml:LogicalView ;
-  rml:logicalSource :jsonSource ;
+  rml:onLogicalSource :jsonSource ;
   rml:field [
     rml:fieldName "name" ;
     rml:reference "$.name" ;
