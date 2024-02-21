@@ -6,10 +6,10 @@
 
 
 <http://w3id.org/rml/lv/> a owl:Ontology ;
-    #  check https://github.com/kg-construct/rml-core/issues/73 for resolution
-    # owl:imports <http://w3id.org/rml/core> ; # TODO not dereferencable?
+    # check https://github.com/kg-construct/rml-core/issues/73 for resolution of correct core ontology IRI
+    # owl:imports <http://w3id.org/rml/core> ; # not yet dereferencable - see https://github.com/kg-construct/rml-resources/issues/4
     owl:imports <https://kg-construct.github.io/rml-core/ontology/documentation/ontology.ttl> ;
-    # owl:imports <http://w3id.org/rml/io/> ; # TODO not dereferencable?
+    # owl:imports <http://w3id.org/rml/io/> ; # not yet dereferencable - see https://github.com/kg-construct/rml-resources/issues/4
     owl:imports <https://kg-construct.github.io/rml-io/ontology/documentation/ontology.ttl> ;
     sh:suggestedShapesGraph <http://w3id.org/rml/lv/shapes> ;
 .
