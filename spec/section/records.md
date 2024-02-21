@@ -1,6 +1,6 @@
 ## Records {#records}
 
-A <dfn>record</dfn> is created using an [iterator](http://w3id.org/rml/core/spec#dfn-iterator) or an [expression](http://w3id.org/rml/core/spec#dfn-expressions). Depending on the source type, [=records=] might take different forms: for tabular data sources, a [=record=] might be a row or a cell; for tree-structured sources like XML, a [=record=] might be a node; for document-structured sources like JSON, a [=record=] might be a document or attribute value.
+A <dfn>record</dfn> is created using an [iterator](http://w3id.org/rml/core/spec#dfn-iterator) or an [expression](http://w3id.org/rml/core/spec#dfn-expressions). Depending on the source type, [=records=] might take different forms: for tabular data sources, a [=record=] might be a row or a cell; for tree-structured sources like XML, a [=record=] might be a node; for document-structured sources like JSON, a [=record=] might be a document or property value.
 
 A [=record=] MUST have a string representation. It MAY be possible to derive other [=records=] from a [=record=] using an [expression](http://w3id.org/rml/core/spec#dfn-expressions).
 
