@@ -8,9 +8,9 @@
 <http://w3id.org/rml/lv/> a owl:Ontology ;
     #  check https://github.com/kg-construct/rml-core/issues/73 for resolution
     # owl:imports <http://w3id.org/rml/core> ; # TODO not dereferencable?
-    owl:imports <https://raw.githubusercontent.com/kg-construct/rml-core/main/ontology/rml-core.owl> ;
+    owl:imports <https://kg-construct.github.io/rml-core/ontology/documentation/ontology.ttl> ;
     # owl:imports <http://w3id.org/rml/io/> ; # TODO not dereferencable?
-    owl:imports <https://raw.githubusercontent.com/kg-construct/rml-io/main/ontology/rml-io.owl> ;
+    owl:imports <https://kg-construct.github.io/rml-io/ontology/documentation/ontology.ttl> ;
     sh:suggestedShapesGraph <http://w3id.org/rml/lv/shapes> ;
 .
 
