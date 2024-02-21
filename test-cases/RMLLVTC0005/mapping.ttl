@@ -48,12 +48,12 @@
     rml:fieldName "birthyear" ;
     rml:reference "birthyear" ;
   ] ;
-  rml:leftJoin [
+  rml:innerJoin [
     rml:parentLogicalView :jsonView ;
     rml:joinCondition [
       rml:parent "name" ;
       rml:child "name" ;
-    ] ; 
+    ] ;
     rml:field [
       rml:fieldName "item_type" ;
       rml:reference "item.type" ;
@@ -63,7 +63,6 @@
       rml:reference "item.weight" ;
     ] ;
   ] .
-
 
 :triplesMapPerson a rml:TriplesMap ;
   rml:logicalSource :csvView ;
@@ -93,7 +92,8 @@
 :triplesMapItem a rml:TriplesMap ;
   rml:logicalSource :csvView ;
   rml:subjectMap [
-    rml:template "http://example.org/person/{name}/item/{item_type}" ;
+    rml:template "item_{#}_{item_type.#}" ;
+    rml:termType rml:BlankNode ;
   ] ;
   rml:predicateObjectMap [
     rml:predicate :hasType ;

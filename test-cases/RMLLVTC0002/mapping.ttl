@@ -1,10 +1,12 @@
 @prefix rml: <http://w3id.org/rml/> .
 @prefix : <http://example.org/> .
 
-@base <http://example.com/base/> .
-
 :jsonSource a rml:LogicalSource ;
-  rml:source [] ; # TODO
+  rml:source [
+    a rml:RelativePathSource , rml:Source ;
+    rml:root rml:MappingDirectory ;
+    rml:path "people.json" ;
+  ] ;
   rml:referenceFormulation rml:JSONPath ;
   rml:iterator "$.people[*]" .
 

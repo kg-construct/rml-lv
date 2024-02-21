@@ -48,12 +48,12 @@
     rml:fieldName "birthyear" ;
     rml:reference "birthyear" ;
   ] ;
-  rml:leftJoin [
+  rml:innerJoin [
     rml:parentLogicalView :jsonView ;
     rml:joinCondition [
       rml:parent "name" ;
       rml:child "name" ;
-    ] ; 
+    ] ;
     rml:field [
       rml:fieldName "item_type" ;
       rml:reference "item.type" ;

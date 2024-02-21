@@ -6,7 +6,7 @@
 
 
 <http://w3id.org/rml/lv/> a owl:Ontology ;
-    # TODO check https://github.com/kg-construct/rml-core/issues/73 for resolution
+    #  check https://github.com/kg-construct/rml-core/issues/73 for resolution
     # owl:imports <http://w3id.org/rml/core> ; # TODO not dereferencable?
     owl:imports <https://raw.githubusercontent.com/kg-construct/rml-core/main/ontology/rml-core.owl> ;
     # owl:imports <http://w3id.org/rml/io/> ; # TODO not dereferencable?

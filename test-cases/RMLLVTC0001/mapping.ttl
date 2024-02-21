@@ -1,10 +1,11 @@
 @prefix rml: <http://w3id.org/rml/> .
 @prefix : <http://example.org/> .
 
-@base <http://example.com/base/> .
-
 :jsonSource a rml:LogicalSource ;
   rml:source [
+    a rml:RelativePathSource , rml:Source ;
+    rml:root rml:MappingDirectory ;
+    rml:path "people.json" ;
   ] ;
   rml:referenceFormulation rml:JSONPath ;
   rml:iterator "$.people[*]" .
@@ -16,11 +17,15 @@
     rml:reference "$.name" ;
   ] .
 
-# TODO
-<#TriplesMap> a rml:TriplesMap ;
+:triplesMapPerson a rml:TriplesMap ;
   rml:logicalSource :jsonView ;
   rml:subjectMap [
-    rml:constant :sub ;
-    rml:class :Any ;
+    rml:template "https://example.org/people/{name}" ;
+  ] ;
+  rml:predicateObjectMap [
+    rml:predicate :hasName ;
+    rml:objectMap [
+      rml:reference "name" ;
+    ] ;
   ] .
 

@@ -77,6 +77,10 @@ The logical iterations from the child logical view are extended with values from
 When more than one logical iteration in the parent logical view matches with a logical iteration in the child logical view, each match leads to an additional extended logical iteration.
 If no match is found for a logical iteration, the logical iteration is removed from the child logical view.
 
+<aside class="issue">
+Pano: If there are more than one join, what is the order of execution?
+</aside>
+
 ### Join examples
 <aside class="issue">
 Pano please verify what I did with the iterator and # key from the parent logical view. Is this ok? This should still be described somewhere?
@@ -199,6 +203,11 @@ If an inner joins would have been used, the logical view would have only 3 logic
 </table>
 
 </aside>
+</aside>
+
+<aside class="issue">
+We cannot just use the term `parent.#` as a field, since there may be multiple parents and `parent` could also be a declared field.
+Do we need this as a field at all?
 </aside>
 
 ### Inner join
