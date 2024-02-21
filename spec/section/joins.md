@@ -139,8 +139,6 @@ If an inner joins would have been used, the logical view would have only 3 logic
         <td>name</td>
         <td>birthyear.#</td>
         <td>birthyear</td>
-        <td>parent.#</td>
-        <td>parent.&lt;it&gt;</td>
         <td>item_type.#</td>
         <td>item_type</td>
         <td>item_weight#</td>
@@ -154,8 +152,6 @@ If an inner joins would have been used, the logical view would have only 3 logic
         <td>0</td>
         <td>1995</td>
         <td>0</td>
-        <td>(fields)</td>
-        <td>0</td>
         <td>sword</td>
         <td>0</td>
         <td>1500 </td>
@@ -167,8 +163,6 @@ If an inner joins would have been used, the logical view would have only 3 logic
         <td>alice</td>
         <td>0</td>
         <td>1995</td>
-        <td>0</td>
-        <td>(fields)</td>
         <td>1</td>
         <td>shield</td>
         <td>1</td>
@@ -181,8 +175,6 @@ If an inner joins would have been used, the logical view would have only 3 logic
         <td>bob</td>
         <td>1</td>
         <td>1999</td>
-        <td>1</td>
-        <td>(fields)</td>
         <td>2</td>
         <td>flower</td>
         <td>2</td>
@@ -198,18 +190,11 @@ If an inner joins would have been used, the logical view would have only 3 logic
         <td>null</td>
         <td>null</td>
         <td>null</td>
-        <td>null</td>
-        <td>null</td>
         <td>null </td>
     </tr>
 </table>
 
 </aside>
-</aside>
-
-<aside class="issue">
-We cannot just use the term `parent.#` as a field, since there may be multiple parents and `parent` could also be a declared field.
-Do we need this as a field at all?
 </aside>
 
 ### Inner join
@@ -258,8 +243,6 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
         <td>name</td>
         <td>birthyear.#</td>
         <td>birthyear</td>
-        <td>parent.#</td>
-        <td>parent.&lt;it&gt;</td>
         <td>item_type.#</td>
         <td>item_type</td>
         <td>item_weight#</td>
@@ -273,8 +256,6 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
         <td>0</td>
         <td>1995</td>
         <td>0</td>
-        <td>(fields)</td>
-        <td>0</td>
         <td>sword</td>
         <td>0</td>
         <td>1500 </td>
@@ -286,8 +267,6 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
         <td>alice</td>
         <td>0</td>
         <td>1995</td>
-        <td>0</td>
-        <td>(fields)</td>
         <td>1</td>
         <td>shield</td>
         <td>1</td>
@@ -300,8 +279,6 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
         <td>bob</td>
         <td>1</td>
         <td>1999</td>
-        <td>1</td>
-        <td>(fields)</td>
         <td>2</td>
         <td>flower</td>
         <td>2</td>
