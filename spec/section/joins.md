@@ -16,12 +16,16 @@ A [=logical view join=] (`rml:LogicalViewJoin`) MUST contain:
 
 ### Join conditions
 
+<aside class="issue">
+Pano: We are redefining joins here. This is already defined in core. I think it would be enough to just point to that definition. This section can be removed or some parts added to core if necessary.
+</aside>
+
 A <dfn>join condition</dfn> is represented by a resource that MUST contain exactly one value for each of the following two properties:
 
-- a <dfn>child map</dfn> (`rml:childMap`), whose value is an [Expression Map](https://kg-construct.github.io/rml-core/spec/docs/#expression-map-rml-expressionmap) (`rml:ExpressionMap`),
+- a <dfn>child map</dfn> (`rml:childMap`), whose value is an <a data-cite="RML-Core#dfn-expression-map">expression map</a> (`rml:ExpressionMap`),
   which MUST include references that exist in the child logical view, or it should have a constant value.
 
-- a <dfn>parent map</dfn> (`rml:parentMap`), whose value is an [Expression Map](https://kg-construct.github.io/rml-core/spec/docs/#expression-map-rml-expressionmap) (`rml:ExpressionMap`),
+- a <dfn>parent map</dfn> (`rml:parentMap`), whose value is an <a data-cite="RML-Core#dfn-expression-map">expression map</a> (`rml:ExpressionMap`),
   which, as the join condition's parent map, MUST include references that exist in the logical view specified by the parent logical view property, or it should have a constant value.
 
 The [=join condition=] returns true when values produced by the child map and the parent map during the iteration are equal.
