@@ -202,7 +202,7 @@ In this example a [=field=] with [=declared name=] "item" is added to the [=logi
 ```
 
 </td>
-<td>1</td>
+<td>0</td>
 <td>shield</td>
 <!-- <td>0</td>
 <td>2500</td> -->
@@ -352,7 +352,7 @@ Note some columns in the table below have been shortened for brevity.
 ```
 
 </td>
-<td>1</td>
+<td>0</td>
 <td>shield</td>
 <td>0</td>
 <td>2500</td>
