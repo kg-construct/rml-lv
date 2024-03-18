@@ -14,6 +14,10 @@ Following [=structural annotations=] MAY be defined:
 
 ### Primary and Foreign Key
 
+<aside class="issue">
+Davide Lanti: I started to throw in a bit of content (examples). Missing formal definitions!
+</aside>
+
 Example of foreign key.
 
 <aside class=example id=foreign-key>
