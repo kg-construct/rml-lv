@@ -80,6 +80,7 @@ We can exploit the mechanism of structural annotations to inform the RML engine 
 First, we need to specify the logical sources. The logical source corresponding to the CSV:
 
 <aside class=ex-mapping>
+
 ```turtle
 :csvSource a rml:logicalSource ;
   rml:source :csvFile ;
@@ -90,6 +91,7 @@ First, we need to specify the logical sources. The logical source corresponding 
 The logical source corresponding to the JSON:
 
 <aside class=ex-mapping>
+
 ```turtle
 :jsonSource a rml:logicalSource ;
   rml:source :jsonFile ;
@@ -101,6 +103,7 @@ The logical source corresponding to the JSON:
 We are now ready to specify our logical views, and associated structural annotations. The first logical view is the one corresponding to `:csvSource`.
 
 <aside class=ex-mapping>
+
 ```turtle
 :csvSource a rml:LogicalView ;
   rml:onLogicalSource :csvSource ;
@@ -122,6 +125,7 @@ We are now ready to specify our logical views, and associated structural annotat
 Now, we declare the logical view corresponding to `:jsonSource`. Note that this view contains a `rml:ForeignKeyAnnotation`:
 
 <aside class=ex-mapping>
+
 ```turtle
 :jsonView a rml:LogicalView ;
   rml:onLogicalSource :jsonSource ;
@@ -146,7 +150,7 @@ Now, we declare the logical view corresponding to `:jsonSource`. Note that this 
     rml:onFields ("name");
     rml:targetView :csvView;
     rml:targetFields ("name")
-   ].
+  ].
 ```
 </aside>
 
