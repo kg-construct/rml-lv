@@ -1,7 +1,32 @@
 ## Structural Annotations {#annotations}
 
-A [=field=] (`rml:field`) contains zero or more [=structural annotations=].
-<dfn>Structural annotations</dfn> give additional information about the [=field=] (`rml:field`) and its relation to the structure of its [=logical view=] (`rml:LogicalView`).
+
+<s>A [=field=] (`rml:field`) contains zero or more [=structural annotations=].</s>
+
+<aside class="issue">
+Davide Lanti:
+
+I have a problem with definition above. While for certain annotations this might work (e.g., iriSafe and notNullable), for annotations possibly spanning across multiple fields (e.g., foreignKey and primaryKey) this won't suffice.
+
+My proposals:
+
+1) SQL way, having both variants: annotations for fields AND annotations for logical views;
+2) only having annotations at the level of the logical view
+
+In the remainder of this section, I try pursuing 1.
+</aside>
+
+<s>Structural annotations give additional information about fields [=field=] (`rml:field`) and their relations to the structure of their [=Logical View=] (`rml:LogicalView`).</s>
+
+<aside class="issue">
+Davide Lanti: The sentence above is a bit reductive. I have included it into the paragraph below.
+</aside>
+
+Logical views provide a way of organizing (and, eventually, flatten) data from the sources in relational format. Therefore, there is a natural correspondence between logical views and relational databases. This natural correspondence allows us exploit, when writing mappings, standard operations from the relational world like [=inner join=] (`rml:innerJoin`) and [=left join=] (`rml:leftJoin`).
+
+One could think of inheriting not only operations, but also the ability to specify properties of fields (e.g., uniqueness) as well as relationships across logical views (e.g., inclusion dependencies). This ability would be useful in a number of scenarios, and particularly in the virtual one, where <i>integrity constraints</i> are essentially a requirement.
+
+<dfn>Structural annotations</dfn> provide a mechanism to express relationships between logical views (`rml:LogicalView`), as well as additional information about fields (`rml:field`) and their relations to the structure of their [=logical view=] (`rml:LogicalView`).
 
 Following [=structural annotations=] MAY be defined:
 - unique
@@ -10,7 +35,22 @@ Following [=structural annotations=] MAY be defined:
 - otherFunctionalDependency
 - iriSafe
 - (datatype also?)
-- primary key (i.e., UNIQUE and NOT NULL)
+- primaryKey (i.e., UNIQUE and NOT NULL)
+- inclusionDependency
+
+Intuitively, semantics for the annotations above is the same as for relational databases.
+
+### Invariance Principle
+
+Differently from integrity constraints in databases, structural annotations are intended to be <i>annotations</i>. That is, the following invariant principle should be satisfied:
+
+<i>For any source instances, the RDF graph produced by the RML engine over an RML file with annotations, and the same file where annotations have been removed, MUST be the same.</i>
+
+RML engines might exploit structural annotations, as they could totally ignore them. It is responsibility of the user to make sure that the annotations provided are indeed correct. Sanity checks MAY be provided by the RML engines themselves, but this is not mandatory. Note that providing wrong annotations could violate the invariance principle, with unpredictable results.
+
+### iriSafe
+
+The <dfn>IRI safe</dfn> (`rml:iriSafe`) structural annotation indicates that the content of a certain field is [IRI safe](), that is, that it does not contain any character that is not in the [`iunreserved` production](http://tools.ietf.org/html/rfc3987#section-2.2) in [[RFC3987](https://www.w3.org/TR/r2rml/#RFC3987)].
 
 ### Primary and Foreign Key
 
