@@ -1,4 +1,5 @@
 @prefix rml: <http://w3id.org/rml/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://example.org/> .
 
 :jsonSource a rml:LogicalSource ;
@@ -62,5 +63,6 @@
     rml:predicate :hasWeight ;
     rml:objectMap [
       rml:reference "item.weight" ;
+      rml:datatype xsd:integer ;
     ] ;
   ] .

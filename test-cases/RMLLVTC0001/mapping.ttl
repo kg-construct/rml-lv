@@ -20,7 +20,7 @@
 :triplesMapPerson a rml:TriplesMap ;
   rml:logicalSource :jsonView ;
   rml:subjectMap [
-    rml:template "https://example.org/people/{name}" ;
+    rml:template "http://example.org/people/{name}" ;
   ] ;
   rml:predicateObjectMap [
     rml:predicate :hasName ;
