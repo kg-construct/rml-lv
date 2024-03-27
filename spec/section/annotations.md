@@ -52,14 +52,27 @@ RML engines might exploit structural annotations, as they could totally ignore t
 
 The <dfn>iriSafe</dfn> structural annotation (`rml:iriSafeAnnotation`) indicates that the content of a certain field is [IRI safe](https://www.w3.org/TR/r2rml/#dfn-iri-safe), that is, it does not contain any character that is not in the [`iunreserved` production](http://tools.ietf.org/html/rfc3987#section-2.2) in [RFC3987](http://tools.ietf.org/html/rfc3987).
 
-### primaryKey
+### PrimaryKey
 
-The <dfn>primaryKey</dfn> structural annotation (`rml:primaryKeyAnnotation`) is analogous to the notion of primary key for databases. Specifically, a list _(f_1, ..., f_n)_ of fields declared as primary key imposes two conditions:
+The <dfn>PrimaryKey</dfn> structural annotation (`rml:PrimaryKeyAnnotation`) is analogous to the notion of primary key for databases. Intuitively, a [=PrimaryKey=] annotation over a list  _(f_1, ..., f_n)_ of fields imposes two conditions:
 
 - no duplicate record sequences are present over the list _(f_1, ..., f_n)_;
 - No `NULL` value is admitted in any of the field _f1, ..., f_n_.
 
-Syntactically, each primaryKey MUST have a property `rml:onFields`, specifying a list of names of the fields to be declared as primary key.
+Syntactically, the specification of a PrimaryKey annotation is as follows:
+
+- Each [=logical view=] CAN have ZERO OR MORE [=structural annotation=] properties (`rml:structuralAnnotation`).
+- Among the [=structural annotation=] properties of the [=logical view=], AT MOST ONE can refer to an object of type [=PrimaryKey=] annotation (`rml:PrimaryKeyAnnotation`).
+
+A [=PrimaryKey=] annotation MUST specify:
+
+- one onFields property (`rml:onFields`), whose value is an ordered RDF list of field names, where such names MUST belong to the [=Logical View=] referring the [=PrimaryKey=] annotation object.
+
+| Property                | Domain                | Range               |
+|-------------------------|-----------------------|---------------------|
+| `rml:structuralAnnotation`     | `rml:LogicalView` | `rml:StructuralAnnotation` |
+| `rml:onFields`             | `rml:PrimaryKeyAnnotation` | `rdf:List` |
+
 
 <aside class=example id=primary-key>
 
@@ -118,7 +131,7 @@ We are now ready to specify our logical view and associated `rml:primaryKeyAnnot
 </aside>
 </aside>
 
-### foreignKey
+### Foreign Key
 
 <aside class=example id=foreign-key>
 
