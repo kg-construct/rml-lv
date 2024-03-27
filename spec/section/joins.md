@@ -20,6 +20,22 @@ A [=logical view join=] (`rml:LogicalViewJoin`) MUST contain:
 Pano: We are redefining joins here. This is already defined in core. I think it would be enough to just point to that definition. This section can be removed or some parts added to core if necessary.
 </aside>
 
+<aside class="issue">
+Davide L: Adding to the comment by Pano, join conditions for logical views cannot insist over expression maps. See example:
+
+~~~
+  rml:leftJoin [
+    rml:parentLogicalView :jsonView ;
+    rml:joinCondition [
+      rml:parent "name" ;
+      rml:child "name" ;
+    ] ;
+~~~
+
+`joinCondition` above is referring to fields in two logical views, whereas `rml:joinCondition` in `core` refers to `rml:ExpressionMap`.
+</aside>
+
+
 A <dfn>join condition</dfn> is represented by a resource that MUST contain exactly one value for each of the following two properties:
 
 - a <dfn>child map</dfn> (`rml:childMap`), whose value is an <a data-cite="RML-Core#dfn-expression-map">expression map</a> (`rml:ExpressionMap`),
