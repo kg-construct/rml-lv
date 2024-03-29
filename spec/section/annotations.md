@@ -28,17 +28,29 @@ One could think of inheriting not only operations, but also the ability to speci
 
 <dfn>Structural annotations</dfn> provide a mechanism to express relationships between logical views, as well as additional information about fields.
 
+Each [=logical view=] MAY have zero or more [=structural annotation=] properties (`rml:structuralAnnotation`), connecting the logical view to a structural annotation object (i.e., of type `rml:StructuralAnnotation`).
+
+| Property                | Domain                | Range               |
+|-------------------------|-----------------------|---------------------|
+| `rml:structuralAnnotation`     | `rml:LogicalView` | `rml:StructuralAnnotation` |
+
 Following [=structural annotations=] MAY be defined:
-- unique
-- foreignKey (`rml:foreignKeyAnnotation`)
-- nonNullable
-- otherFunctionalDependency
-- [=iriSafe=] (`rml:iriSafeAnnotation`)
+- [=Unique=] (`rml:UniqueAnnotation`)
+- [=ForeignKey=] (`rml:ForeignKeyAnnotation`)
+- [=NotNull=] (`rml:NotNullAnnotation`)
+- OtherFunctionalDependency
+- [=IriSafe=] (`rml:IriSafeAnnotation`)
 - (datatype also?)
-- [=primaryKey=] (`rml:primaryKeyAnnotation`)
-- inclusionDependency
+- [=PrimaryKey=] (`rml:PrimaryKeyAnnotation`)
+- [=Inclusion=]
 
 Intuitively, semantics for the annotations above is the same as for relational databases.
+
+All structural annotations of a logical view <i>lv</i> MUST have an <dfn>on fields</dfn> property (`rml:onFields`), linking the structural annotation to a list of field names occurring in <i>lv</i>. Intuitively, property [=on fields=] specifies the fields in <i>lv</i> that are involved by the structural annotation. The semantics of this involvement depends on the specific annotation.
+
+| Property                | Domain                | Range               |
+|-------------------------|-----------------------|---------------------|
+| `rml:onFields`             | `rml:PrimaryKeyAnnotation` | `rdf:List` |
 
 ### Invariance Principle
 
@@ -48,31 +60,18 @@ Differently from integrity constraints in databases, structural annotations are 
 
 RML engines might exploit structural annotations, as they could totally ignore them. It is responsibility of the user to make sure that the annotations provided are indeed correct. Sanity checks MAY be provided by the RML engines themselves, but this is not mandatory. Note that providing wrong annotations to an engine that takes into account for annotations, for instance for applying optimizations, could result in a violation of the invariance principle, with unpredictable results.
 
-### iriSafe
+### IriSafe
 
-The <dfn>iriSafe</dfn> structural annotation (`rml:iriSafeAnnotation`) indicates that the content of a certain field is [IRI safe](https://www.w3.org/TR/r2rml/#dfn-iri-safe), that is, it does not contain any character that is not in the [`iunreserved` production](http://tools.ietf.org/html/rfc3987#section-2.2) in [RFC3987](http://tools.ietf.org/html/rfc3987).
+An <dfn>IriSafe</dfn> structural annotation (`rml:IriSafeAnnotation`) [=on fields=] _F_ indicates that the content of each field in _F_ is [IRI safe](https://www.w3.org/TR/r2rml/#dfn-iri-safe), that is, each field in _F_ does not contain any character that is not in the [`iunreserved` production](http://tools.ietf.org/html/rfc3987#section-2.2) in [RFC3987](http://tools.ietf.org/html/rfc3987).
 
 ### PrimaryKey
 
-The <dfn>PrimaryKey</dfn> structural annotation (`rml:PrimaryKeyAnnotation`) is analogous to the notion of primary key for databases. Intuitively, a [=PrimaryKey=] annotation over a list  _(f_1, ..., f_n)_ of fields imposes two conditions:
+The <dfn>PrimaryKey</dfn> structural annotation (`rml:PrimaryKeyAnnotation`) is analogous to the notion of primary key for databases. Specifically, a [=PrimaryKey=] annotation [=on fields=]  _(f1, ..., fn)_  imposes two conditions:
 
-- no duplicate record sequences are present over the list _(f_1, ..., f_n)_;
-- No `NULL` value is admitted in any of the field _f1, ..., f_n_.
+- no duplicate record sequences are present over the list of fields _(f1, ..., fn)_;
+- No `NULL` value is admitted in any of the field _f1, ..., fn_.
 
-Syntactically, the specification of a PrimaryKey annotation is as follows:
-
-- Each [=logical view=] CAN have ZERO OR MORE [=structural annotation=] properties (`rml:structuralAnnotation`).
-- Among the [=structural annotation=] properties of the [=logical view=], AT MOST ONE can refer to an object of type [=PrimaryKey=] annotation (`rml:PrimaryKeyAnnotation`).
-
-A [=PrimaryKey=] annotation MUST specify:
-
-- one onFields property (`rml:onFields`), whose value is an ordered RDF list of field names, where such names MUST belong to the [=Logical View=] referring the [=PrimaryKey=] annotation object.
-
-| Property                | Domain                | Range               |
-|-------------------------|-----------------------|---------------------|
-| `rml:structuralAnnotation`     | `rml:LogicalView` | `rml:StructuralAnnotation` |
-| `rml:onFields`             | `rml:PrimaryKeyAnnotation` | `rdf:List` |
-
+Each [=logical view=] MAY specify AT MOST ONE [=PrimaryKey=] annotation.
 
 <aside class=example id=primary-key>
 
@@ -118,35 +117,48 @@ We are now ready to specify our logical view and associated `rml:primaryKeyAnnot
   rml:field [
     rml:fieldName "name";
     rml:reference "name"
- ].
+ ];
  rml:field [
     rml:fieldName "birthday";
     rml:reference "birthday"
- ].
+ ];
  rml:structuralAnnotation [
     a rml:primaryKeyAnnotation;
-    rml:onFields ("name");
+    rml:onFields ("name")
  ].
 ```
 </aside>
 </aside>
 
-### Foreign Key
+### Unique
+
+The <dfn>Unique</dfn> structural annotation (`rml:UniqueAnnotation`) is analogous to the notion of <i>UNIQUE constraints</i> in databases. Specifically, a [=Unique=] annotation [=on fields=]  _(f1, ..., fn)_  imposes the following condition:
+
+- no duplicate record sequences are present over the list of fields _(f1, ..., fn)_.
+
+Note that every [=PrimaryKey=] annotation is, as a matter of fact, also a [=Unique=] annotation.
+
+### NotNull
+
+The <dfn>NotNull</dfn> structural annotation (`rml:NotNullAnnotation`) is analogous to the notion of <i>NOT NULL constraints</i> in databases. Specifically, a [=NotNull=] annotation [=on fields=]  _F_  imposes that each field in _F_ does not contain NULL values.
+
+Note that every [=PrimaryKey=] annotation is, as a matter of fact, also a [=NotNull=] annotation.
+
+### ForeignKey
+
+The <dfn>ForeignKey</dfn> structural annotation (`rml:ForeignKeyAnnotation`) is analogous to the notion of <i>foreign key constraint</i> in databases. Specifically, a [=ForeignKey=] annotation [=on fields=]  _(f1, ..., fn)_ , [=target view=] <i>lv</i>, and [=target fields=] _(tf1,...,tfn)_ imposes the following conditions:
+
+- each NULL-free record sequence over the list of fields _(f1, ..., fn)_ occurs also as a record sequence in _(tf1,...,tfn)_;
+- Target view <i>lv</i> defines a [=Unique=] annotation [=on fields=] _(tf1,...,tfn)_.
+
+The <def>target view</def> is a [=logical view=] specified through the property `rml:targetView`, whereas the <def>target fields</def> are an RDF list of field names specified through the property `rml:targetFields`. These two properties are specified as follows:
+
+| Property                | Domain                | Range               |
+|-------------------------|-----------------------|---------------------|
+| `rml:targetView`     | `rml:InclusionAnnotation`| `rml:LogicalView` |
+| `rml:targetFields`     | `rml:InclusionAnnotation`| `rdf:List` |
 
 <aside class=example id=foreign-key>
-
- Consider the following CSV file containing birthdays of people:
-
-<aside class="ex-input">
-
-```csv
-name,birthyear
-alice,1995
-bob,1999
-tobias,2005
-lukas, 1986
-```
-</aside>
 
 Consider the following XML file containing information about warriors.
 
@@ -227,11 +239,11 @@ We are now ready to specify our logical views, and associated structural annotat
   rml:field [
     rml:fieldName "name";
     rml:reference "name"
- ].
+ ];
  rml:field [
     rml:fieldName "birthday";
     rml:reference "birthday"
- ].
+ ];
  rml:structuralAnnotation [
     a rml:PrimaryKeyAnnotation;
     rml:onFields ("name");
@@ -260,8 +272,8 @@ Now, we declare the logical view corresponding to `:jsonSource`. Note that this 
     rml:field [
       rml:fieldName "weight" ;
       rml:reference "$.weight" ;
-    ] ;
-  ] .
+    ]
+  ] ;
   rml:structuralAnnotation [
     a rml:ForeignKeyAnnotation;
     rml:onFields ("name");
@@ -270,7 +282,13 @@ Now, we declare the logical view corresponding to `:jsonSource`. Note that this 
   ].
 ```
 </aside>
-
-<aside class="issue">
-To be elaborated
 </aside>
+
+### Inclusion
+
+
+The <dfn>Inclusion</dfn> structural annotation (`rml:InclusionAnnotation`) is analogous to the notion of <i>inclusion dependency</i> in databases. Specifically, an [=Inclusion=] annotation [=on fields=]  _(f1, ..., fn)_ , [=target view=] <i>lv</i>, and [=target fields=] _(tf1,...,tfn)_ imposes the following condition:
+
+- each NULL-free record sequence over the list of fields _(f1, ..., fn)_ occurs also as a record sequence in _(tf1,...,tfn)_;
+
+Note that every [=Foreignkey=] annotation is also an [=Inclusion=] annotation.
