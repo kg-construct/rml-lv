@@ -1,28 +1,12 @@
 ## Structural Annotations {#annotations}
 
-
-<s>A [=field=] (`rml:field`) contains zero or more [=structural annotations=].</s>
-
-<aside class="issue">
-Davide Lanti:
-
-I have a problem with definition above. While for certain annotations this might work (e.g., iriSafe and notNullable), for annotations possibly spanning across multiple fields (e.g., foreignKey and primaryKey) this won't suffice.
-
-My proposals:
-
-1) SQL way, having both variants: annotations for fields AND annotations for logical views;
-2) only having annotations at the level of the logical view
-
-In the remainder of this section, I try pursuing 1.
-</aside>
-
 <s>Structural annotations give additional information about fields [=field=] (`rml:field`) and their relations to the structure of their [=Logical View=] (`rml:LogicalView`).</s>
 
 <aside class="issue">
 Davide Lanti: The sentence above is a bit reductive. I have included it into the paragraph below.
 </aside>
 
-Logical views provide a way of organizing (and, sometimes, flatten) data from the sources into a relational format. Therefore, there is a natural correspondence between logical views and relational databases. This natural correspondence allows us exploit, when writing mappings, standard operations from the relational world like [=inner join=] (`rml:innerJoin`) and [=left join=] (`rml:leftJoin`).
+Logical views provide a way of organizing (and, sometimes, flatten) data from the sources into a tabular format. Therefore, there is a natural correspondence between logical views and relational databases. This natural correspondence allows us exploit, when writing mappings, standard operations from the relational world like [=inner join=] (`rml:innerJoin`) and [=left join=] (`rml:leftJoin`).
 
 One could think of inheriting not only operations, but also the ability to specify properties of fields (e.g., uniqueness) as well as relationships across logical views (e.g., inclusion dependencies). This ability would be useful in a number of scenarios, and particularly in the virtual one, where <i>integrity constraints</i> are essentially a requirement.
 
@@ -66,7 +50,7 @@ An <dfn>IriSafe</dfn> structural annotation (`rml:IriSafeAnnotation`) [=on field
 
 ### PrimaryKey
 
-The <dfn>PrimaryKey</dfn> structural annotation (`rml:PrimaryKeyAnnotation`) is analogous to the notion of primary key for databases. Specifically, a [=PrimaryKey=] annotation [=on fields=]  _(f1, ..., fn)_  imposes two conditions:
+A <dfn>PrimaryKey</dfn> structural annotation (`rml:PrimaryKeyAnnotation`) [=on fields=]  _(f1, ..., fn)_  imposes two conditions:
 
 - no duplicate record sequences are present over the list of fields _(f1, ..., fn)_;
 - No `NULL` value is admitted in any of the field _f1, ..., fn_.
