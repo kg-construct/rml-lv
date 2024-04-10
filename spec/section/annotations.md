@@ -28,8 +28,6 @@ Following [=structural annotations=] MAY be defined:
 - [=PrimaryKey=] (`rml:PrimaryKeyAnnotation`)
 - [=Inclusion=]
 
-Intuitively, semantics for the annotations above is the same as for relational databases.
-
 All structural annotations of a logical view <i>lv</i> MUST have an <dfn>on fields</dfn> property (`rml:onFields`), linking the structural annotation to a list of field names occurring in <i>lv</i>. Intuitively, property [=on fields=] specifies the fields in <i>lv</i> that are involved by the structural annotation. The semantics of this involvement depends on the specific annotation.
 
 | Property                | Domain                | Range               |
