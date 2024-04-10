@@ -273,4 +273,4 @@ The <dfn>Inclusion</dfn> structural annotation (`rml:InclusionAnnotation`) is an
 
 - each NULL-free record sequence over the list of fields _(f1, ..., fn)_ occurs also as a record sequence in _(tf1,...,tfn)_;
 
-Note that every [=Foreignkey=] annotation is also an [=Inclusion=] annotation.
+Note that every [=ForeignKey annotation=] is also an [=Inclusion annotation=].
