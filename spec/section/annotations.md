@@ -6,7 +6,7 @@
 Davide Lanti: The sentence above is a bit reductive. I have included it into the paragraph below.
 </aside>
 
-Logical views provide a way of organizing (and, sometimes, flatten) data from the sources into a tabular format. Therefore, there is a natural correspondence between logical views and relational databases. This natural correspondence allows us exploit, when writing mappings, standard operations from the relational world like [=inner join=] (`rml:innerJoin`) and [=left join=] (`rml:leftJoin`).
+Logical views provide a way of organizing (and, sometimes, flattening) data from data sources into a relational format. Therefore, there is a natural correspondence between logical views and relational databases. This natural correspondence allows us exploit standard operations from the relational world, like [=inner join=] (`rml:innerJoin`) and [=left join=] (`rml:leftJoin`), when writing mappings.
 
 One could think of inheriting not only operations, but also the ability to specify properties of fields (e.g., uniqueness) as well as relationships across logical views (e.g., inclusion dependencies). This ability would be useful in a number of scenarios, and particularly in the virtual one, where <i>integrity constraints</i> are essentially a requirement.
 
