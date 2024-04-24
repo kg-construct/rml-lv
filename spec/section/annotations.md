@@ -36,11 +36,12 @@ All structural annotations of a logical view <i>lv</i> MUST have an <dfn>on fiel
 
 ### Invariance Principle
 
-Differently from integrity constraints in databases, structural annotations are intended to be <i>annotations</i>. That is, the following invariant principle should be satisfied:
+Differently from integrity constraints in databases, structural annotations are intended to be <i>annotations</i>.
+Structural annotations provide additional information about the datathat might be used by the RML processor to optimize the KG construction process. If this additional information is incorrect, then the RML processor might either fail or produce wrong results. When using structural annotations, users should make sure that the following invariance principle is satisfied:
 
 <i>For any source instances, the RDF graph produced by the RML engine over an RML file with annotations, and the same file where annotations have been removed, MUST be the same.</i>
 
-RML engines might exploit structural annotations, as they could totally ignore them. It is responsibility of the user to make sure that the annotations provided are indeed correct. Sanity checks MAY be provided by the RML engines themselves, but this is not mandatory. Note that providing wrong annotations to an engine that takes into account for annotations, for instance for applying optimizations, could result in a violation of the invariance principle, with unpredictable results.
+We emphasize that RML engines might exploit structural annotations, as they could totally ignore them. It is responsibility of the user to make sure that the annotations provided are indeed correct. Sanity checks MAY be provided by the RML engines themselves, but this is not mandatory. Note that providing wrong annotations to an engine that takes into account for annotations, for instance for applying optimizations, could result in a violation of the invariance principle, with unpredictable results.
 
 ### IriSafe
 
@@ -124,11 +125,13 @@ Note that every [=PrimaryKey=] annotation is, as a matter of fact, also a [=Uniq
 
 The <dfn>NotNull</dfn> structural annotation (`rml:NotNullAnnotation`) is analogous to the notion of <i>NOT NULL constraints</i> in databases. Specifically, a [=NotNull=] annotation [=on fields=]  _F_  imposes that each field in _F_ does not contain NULL values.
 
+<aside class="note">
 Note that every [=PrimaryKey=] annotation is, as a matter of fact, also a [=NotNull=] annotation.
+</aside>
 
 ### ForeignKey
 
-The <dfn>ForeignKey</dfn> structural annotation (`rml:ForeignKeyAnnotation`) is analogous to the notion of <i>foreign key constraint</i> in databases. Specifically, a [=ForeignKey=] annotation [=on fields=]  _(f1, ..., fn)_ , [=target view=] <i>lv</i>, and [=target fields=] _(tf1,...,tfn)_ imposes the following conditions:
+The <dfn>ForeignKey annotation</dfn> (`rml:ForeignKeyAnnotation`) is analogous to the notion of <i>foreign key constraint</i> in databases. Specifically, a [=ForeignKey=] annotation [=on fields=]  _(f1, ..., fn)_ , [=target view=] <i>lv</i>, and [=target fields=] _(tf1,...,tfn)_ imposes the following conditions:
 
 - each NULL-free record sequence over the list of fields _(f1, ..., fn)_ occurs also as a record sequence in _(tf1,...,tfn)_;
 - Target view <i>lv</i> defines a [=Unique=] annotation [=on fields=] _(tf1,...,tfn)_.
@@ -269,8 +272,10 @@ Now, we declare the logical view corresponding to `:jsonSource`. Note that this 
 ### Inclusion
 
 
-The <dfn>Inclusion</dfn> structural annotation (`rml:InclusionAnnotation`) is analogous to the notion of <i>inclusion dependency</i> in databases. Specifically, an [=Inclusion=] annotation [=on fields=]  _(f1, ..., fn)_ , [=target view=] <i>lv</i>, and [=target fields=] _(tf1,...,tfn)_ imposes the following condition:
+The <dfn>Inclusion annotation</dfn> annotation (`rml:InclusionAnnotation`) is analogous to the notion of <i>inclusion dependency</i> in databases. Specifically, an [=Inclusion=] annotation [=on fields=]  _(f1, ..., fn)_ , [=target view=] <i>lv</i>, and [=target fields=] _(tf1,...,tfn)_ imposes the following condition:
 
 - each NULL-free record sequence over the list of fields _(f1, ..., fn)_ occurs also as a record sequence in _(tf1,...,tfn)_;
 
+<aside class="note">
 Note that every [=ForeignKey annotation=] is also an [=Inclusion annotation=].
+</aside>
