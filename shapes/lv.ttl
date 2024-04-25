@@ -215,7 +215,7 @@ rmlsh:InclusionAnnotationShape a sh:NodeShape;
         sh:message """
         Exactly one rml:targetFields property must be specified for each rml:InclusionAnnotation.
         """ ;
-        sh:path rml:targetView ;
+        sh:path rml:targetFields ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:nodeKind sh:BlankNodeOrIRI ;
