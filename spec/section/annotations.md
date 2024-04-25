@@ -32,12 +32,12 @@ All structural annotations of a logical view <i>lv</i> MUST have an <dfn>on fiel
 
 | Property                | Domain                | Range               |
 |-------------------------|-----------------------|---------------------|
-| `rml:onFields`             | `rml:PrimaryKeyAnnotation` | `rdf:List` |
+| `rml:onFields`             | `rml:StructuralAnnotation` | `rdf:List` |
 
 ### Invariance Principle
 
 Differently from integrity constraints in databases, structural annotations are intended to be <i>annotations</i>.
-Structural annotations provide additional information about the datathat might be used by the RML processor to optimize the KG construction process. If this additional information is incorrect, then the RML processor might either fail or produce wrong results. When using structural annotations, users should make sure that the following invariance principle is satisfied:
+Structural annotations provide additional information about the data that might be used by the RML processor to optimize the KG construction process. If this additional information is incorrect, then the RML processor might either fail or produce wrong results. When using structural annotations, users should make sure that the following invariance principle is satisfied:
 
 <i>For any source instances, the RDF graph produced by the RML engine over an RML file with annotations, and the same file where annotations have been removed, MUST be the same.</i>
 
@@ -142,6 +142,11 @@ The <def>target view</def> is a [=logical view=] specified through the property 
 |-------------------------|-----------------------|---------------------|
 | `rml:targetView`     | `rml:InclusionAnnotation`| `rml:LogicalView` |
 | `rml:targetFields`     | `rml:InclusionAnnotation`| `rdf:List` |
+
+Therefore, each ForeignKey annotation MUST specify (additionally to the inherited `rml:onFields` property):
+
+- Exactly one `rml:targetView` property
+- Exactly one `rml:targetFields` property.
 
 <aside class=example id=foreign-key>
 
