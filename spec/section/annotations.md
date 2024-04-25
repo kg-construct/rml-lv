@@ -276,10 +276,21 @@ Now, we declare the logical view corresponding to `:jsonSource`. Note that this 
 
 ### Inclusion
 
-
-The <dfn>Inclusion annotation</dfn> annotation (`rml:InclusionAnnotation`) is analogous to the notion of <i>inclusion dependency</i> in databases. Specifically, an [=Inclusion=] annotation [=on fields=]  _(f1, ..., fn)_ , [=target view=] <i>lv</i>, and [=target fields=] _(tf1,...,tfn)_ imposes the following condition:
+The <dfn data-lt="Inclusion annotation">Inclusion structural annotation</dfn> (`rml:InclusionAnnotation`) is analogous to the notion of <i>inclusion dependency</i> in databases. Specifically, an [=Inclusion annotation=] [=on fields=]  _(f1, ..., fn)_ , [=target view=] <i>lv</i>, and [=target fields=] _(tf1,...,tfn)_ imposes the following condition:
 
 - each NULL-free record sequence over the list of fields _(f1, ..., fn)_ occurs also as a record sequence in _(tf1,...,tfn)_;
+
+The <def>target view</def> is a [=logical view=] specified through the property `rml:targetView`, whereas the <def>target fields</def> are an RDF list of field names specified through the property `rml:targetFields`. These two properties are specified as follows:
+
+| Property                | Domain                | Range               |
+|-------------------------|-----------------------|---------------------|
+| `rml:targetView`     | `rml:InclusionAnnotation`| `rml:LogicalView` |
+| `rml:targetFields`     | `rml:InclusionAnnotation`| `rdf:List` |
+
+Therefore, each InclusionAnnotation MUST specify (additionally to the inherited `rml:onFields` property):
+
+- Exactly one `rml:targetView` property
+- Exactly one `rml:targetFields` property.
 
 <aside class="note">
 Note that every [=ForeignKey annotation=] is also an [=Inclusion annotation=].
