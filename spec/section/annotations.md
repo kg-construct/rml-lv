@@ -1,15 +1,5 @@
 ## Structural Annotations {#annotations}
 
-<s>Structural annotations give additional information about fields [=field=] (`rml:field`) and their relations to the structure of their [=Logical View=] (`rml:LogicalView`).</s>
-
-<aside class="issue">
-Davide Lanti: The sentence above is a bit reductive. I have included it into the paragraph below.
-</aside>
-
-Logical views provide a way of organizing (and, sometimes, flattening) data from data sources into a relational format. Therefore, there is a natural correspondence between logical views and relational databases. This natural correspondence allows us exploit standard operations from the relational world, like [=inner join=] (`rml:innerJoin`) and [=left join=] (`rml:leftJoin`), when writing mappings.
-
-One could think of inheriting not only operations, but also the ability to specify properties of fields (e.g., uniqueness) as well as relationships across logical views (e.g., inclusion dependencies). This ability would be useful in a number of scenarios, and particularly in the virtual one, where <i>integrity constraints</i> are essentially a requirement.
-
 <dfn>Structural annotations</dfn> provide a mechanism to express relationships between logical views, as well as additional information about fields.
 
 Each [=logical view=] MAY have zero or more [=structural annotation=] properties (`rml:structuralAnnotation`), connecting the logical view to a structural annotation object (i.e., of type `rml:StructuralAnnotation`).
@@ -22,11 +12,9 @@ Following [=structural annotations=] MAY be defined:
 - [=Unique=] (`rml:UniqueAnnotation`)
 - [=ForeignKey=] (`rml:ForeignKeyAnnotation`)
 - [=NotNull=] (`rml:NotNullAnnotation`)
-- OtherFunctionalDependency
 - [=IriSafe=] (`rml:IriSafeAnnotation`)
-- (datatype also?)
 - [=PrimaryKey=] (`rml:PrimaryKeyAnnotation`)
-- [=Inclusion=]
+- [=Inclusion=](`rml:InclusionAnnotation`)
 
 All structural annotations of a logical view <i>lv</i> MUST have an <dfn>on fields</dfn> property (`rml:onFields`), linking the structural annotation to a list of field names occurring in <i>lv</i>. Intuitively, property [=on fields=] specifies the fields in <i>lv</i> that are involved by the structural annotation. The semantics of this involvement depends on the specific annotation.
 
@@ -36,7 +24,6 @@ All structural annotations of a logical view <i>lv</i> MUST have an <dfn>on fiel
 
 ### Invariance Principle
 
-Differently from integrity constraints in databases, structural annotations are intended to be <i>annotations</i>.
 Structural annotations provide additional information about the data that might be used by the RML processor to optimize the KG construction process. If this additional information is incorrect, then the RML processor might either fail or produce wrong results. When using structural annotations, users should make sure that the following invariance principle is satisfied:
 
 <i>For any source instances, the RDF graph produced by the RML engine over an RML file with annotations, and the same file where annotations have been removed, MUST be the same.</i>
@@ -280,14 +267,9 @@ The <dfn data-lt="Inclusion annotation">Inclusion structural annotation</dfn> (`
 
 - each NULL-free record sequence over the list of fields _(f1, ..., fn)_ occurs also as a record sequence in _(tf1,...,tfn)_;
 
-The <def>target view</def> is a [=logical view=] specified through the property `rml:targetView`, whereas the <def>target fields</def> are an RDF list of field names specified through the property `rml:targetFields`. These two properties are specified as follows:
+As for [=ForeignKey annotation=], the <def>target view</def> MUST be a [=logical view=] specified through the property `rml:targetView`, whereas the <def>target fields</def> MUST be an RDF list of field names specified through the property `rml:targetFields`.
 
-| Property                | Domain                | Range               |
-|-------------------------|-----------------------|---------------------|
-| `rml:targetView`     | `rml:InclusionAnnotation`| `rml:LogicalView` |
-| `rml:targetFields`     | `rml:InclusionAnnotation`| `rdf:List` |
-
-Therefore, each InclusionAnnotation MUST specify (additionally to the inherited `rml:onFields` property):
+Therefore, each inclusion annotation MUST specify (additionally to the inherited `rml:onFields` property):
 
 - Exactly one `rml:targetView` property
 - Exactly one `rml:targetFields` property.
