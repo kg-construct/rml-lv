@@ -6,7 +6,7 @@
 
 <http://w3id.org/rml/lv/shapes> a owl:Ontology ;
     owl:imports <http://w3id.org/rml/core/shapes> ;
-    owl:imports <http://w3id.org/rml/io/shapes> ; 
+    owl:imports <http://w3id.org/rml/io/shapes> ;
 .
 
 # rml:LogicalView
@@ -63,7 +63,18 @@ rmlsh:LogicalViewShape a sh:NodeShape ;
         """ ;
         sh:path rml:innerJoin ;
         sh:nodeKind sh:BlankNodeOrIRI ;
-    ] .
+    ] ,
+    [
+        sh:description """
+        A structural annotation of the logical view.
+        """ ;
+        sh:message """
+       The value of a rml:structuralAnnotation property must be a resource.
+        """ ;
+        sh:path rml:structuralAnnotation ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
+    ]
+.
 
 rmlsh:FieldShape a sh:NodeShape ;
     sh:name "Field" ;
@@ -76,7 +87,7 @@ rmlsh:FieldShape a sh:NodeShape ;
     Furthermore, rml:Field requires what an rml:ExpressionMap requires.
     """ ;
     sh:targetClass rml:Field ;
-    sh:targetObjectOf rml:field ;
+    sh:targetObjectsOf rml:field ;
     sh:property [
         sh:description """
         The name of the field.
@@ -114,7 +125,7 @@ rmlsh:LogicalViewJoinShape a sh:NodeShape ;
     Furthermore, rml:Field requires what an rml:ExpressionMap requires.
     """ ;
     sh:targetClass rml:LogicalViewJoin ;
-    sh:targetObjectOf rml:leftJoin , rml:innerJoin ;
+    sh:targetObjectsOf rml:leftJoin , rml:innerJoin ;
     sh:property [
         sh:description """
         The parent logical view of the logical view join.
@@ -145,5 +156,67 @@ rmlsh:LogicalViewJoinShape a sh:NodeShape ;
         """ ;
         sh:path rml:field ;
         sh:minCount 1 ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
+    ] .
+
+rmlsh:StructuralAnnotationShape a sh:NodeShape;
+    sh:name "StructuralAnnotation" ;
+    sh:description """
+    Structural annotations provide a mechanism to express relationships between logical views, as well as additional information about fields.
+    """ ;
+    sh:message """
+    Node must have a valid rml:StructuralAnnotationShape description.
+    All structural annotations of a logical view lv MUST have an on fields property (rml:onFields), linking the structural annotation to a list of field names occurring in lv.
+    rml:StructuralAnnotationShape requires:
+    - exactly one rml:onFields property.
+    """ ;
+    sh:targetClass rml:StructuralAnnotation ;
+    sh:targetObjectsOf rml:structuralAnnotation ;
+    sh:property [
+        sh:description """
+        property onFields specifies the fields in LogicalView that are involved by the structural annotation. The semantics of this involvement depends on the specific annotation.
+        """ ;
+        sh:message """
+        Exactly one rml:onFields property must be specified for each rml:StructuralAnnotation
+        """ ;
+        sh:path rml:onFields ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
+    ] .
+
+rmlsh:InclusionAnnotationShape a sh:NodeShape;
+    sh:name "InclusionAnnotation" ;
+    sh:description """
+    The InclusionAnnotaton annotation (rml:InclusionAnnotation) is analogous to the notion of inclusion dependency in databases.
+    """ ;
+    sh:message """
+    Node must have a valid rml:InclusionAnnotation description.
+    Each InclusionAnnotation annotation requires (additionally to the inherited `rml:onFields` property):
+    - Exactly one `rml:targetView` property
+    - Exactly one `rml:targetFields` property.
+    """ ;
+    sh:targetClass rml:InclusionAnnotation ;
+    sh:property [
+        sh:description """
+        property targetView specifies the LogicalView target of the InclusionAnnotation annotation.
+        """ ;
+        sh:message """
+        Exactly one rml:targetView property must be specified for each rml:InclusionAnnotation.
+        """ ;
+        sh:path rml:targetView ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
+    ] , [
+        sh:description """
+        property targetFields specifies the Fields target of the InclusionAnnotation.
+        """ ;
+        sh:message """
+        Exactly one rml:targetFields property must be specified for each rml:InclusionAnnotation.
+        """ ;
+        sh:path rml:targetFields ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
         sh:nodeKind sh:BlankNodeOrIRI ;
     ] .
