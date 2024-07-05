@@ -9,7 +9,7 @@ Each [=logical view=] MAY have zero or more [=structural annotation=] properties
 | `rml:structuralAnnotation`     | `rml:LogicalView` | `rml:StructuralAnnotation` |
 
 Following [=structural annotations=] MAY be defined:
-- [=Unique=] (`rml:UniqueAnnotation`)
+- [=Unique annotation=] (`rml:UniqueAnnotation`)
 - [=ForeignKey=] (`rml:ForeignKeyAnnotation`)
 - [=NotNull=] (`rml:NotNullAnnotation`)
 - [=IriSafe=] (`rml:IriSafeAnnotation`)
