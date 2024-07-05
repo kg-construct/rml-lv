@@ -41,7 +41,7 @@ A <dfn data-lt="PrimaryKey annotation">PrimaryKey structural annotation</dfn>  (
 - no duplicate record sequences are present over the list of fields _(f1, ..., fn)_;
 - No `NULL` value is admitted in any of the field _f1, ..., fn_.
 
-Each [=logical view=] MAY specify AT MOST ONE [=PrimaryKey=] annotation.
+Each [=logical view=] MAY specify AT MOST ONE [=PrimaryKey annotation=].
 
 <aside class=example id=primary-key>
 
