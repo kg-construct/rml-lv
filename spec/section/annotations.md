@@ -32,7 +32,7 @@ We emphasize that RML engines might exploit structural annotations, as they coul
 
 ### IriSafe
 
-An <dfn>IriSafe</dfn> structural annotation (`rml:IriSafeAnnotation`) [=on fields=] _F_ indicates that the content of each field in _F_ is [IRI safe](https://www.w3.org/TR/r2rml/#dfn-iri-safe), that is, each field in _F_ does not contain any character that is not in the [`iunreserved` production](http://tools.ietf.org/html/rfc3987#section-2.2) in [RFC3987](http://tools.ietf.org/html/rfc3987).
+An <dfn data-lt="IriSafe annotation">IriSafe structural annotation</dfn> (`rml:IriSafeAnnotation`) [=on fields=] _F_ indicates that the content of each field in _F_ is [IRI safe](https://www.w3.org/TR/r2rml/#dfn-iri-safe), that is, each field in _F_ does not contain any character that is not in the [`iunreserved` production](http://tools.ietf.org/html/rfc3987#section-2.2) in [RFC3987](http://tools.ietf.org/html/rfc3987).
 
 ### PrimaryKey
 
