@@ -12,7 +12,7 @@ Following [=structural annotations=] MAY be defined:
 - [=Unique annotation=] (`rml:UniqueAnnotation`)
 - [=ForeignKey annotation=] (`rml:ForeignKeyAnnotation`)
 - [=NotNull annotation=] (`rml:NotNullAnnotation`)
-- [=IriSafe=] (`rml:IriSafeAnnotation`)
+- [=IriSafe annotation=] (`rml:IriSafeAnnotation`)
 - [=PrimaryKey annotation=] (`rml:PrimaryKeyAnnotation`)
 - [=Inclusion=] (`rml:InclusionAnnotation`)
 
