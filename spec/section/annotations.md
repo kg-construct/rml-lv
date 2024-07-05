@@ -11,7 +11,7 @@ Each [=logical view=] MAY have zero or more [=structural annotation=] properties
 Following [=structural annotations=] MAY be defined:
 - [=Unique annotation=] (`rml:UniqueAnnotation`)
 - [=ForeignKey annotation=] (`rml:ForeignKeyAnnotation`)
-- [=NotNull=] (`rml:NotNullAnnotation`)
+- [=NotNull annotation=] (`rml:NotNullAnnotation`)
 - [=IriSafe=] (`rml:IriSafeAnnotation`)
 - [=PrimaryKey=] (`rml:PrimaryKeyAnnotation`)
 - [=Inclusion=] (`rml:InclusionAnnotation`)
