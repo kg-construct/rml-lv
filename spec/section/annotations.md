@@ -118,7 +118,7 @@ Note that every [=PrimaryKey=] annotation is, as a matter of fact, also a [=NotN
 
 ### ForeignKey
 
-The <dfn>ForeignKey annotation</dfn> (`rml:ForeignKeyAnnotation`) is analogous to the notion of <i>foreign key constraint</i> in databases. Specifically, a [=ForeignKey=] annotation [=on fields=]  _(f1, ..., fn)_ , [=target view=] <i>lv</i>, and [=target fields=] _(tf1,...,tfn)_ imposes the following conditions:
+The <dfn data-lt="ForeignKey annotation">ForeignKey structural annotation</dfn> (`rml:ForeignKeyAnnotation`) is analogous to the notion of <i>foreign key constraint</i> in databases. Specifically, a [=ForeignKey annotation=] [=on fields=]  _(f1, ..., fn)_ , [=target view=] <i>lv</i>, and [=target fields=] _(tf1,...,tfn)_ imposes the following conditions:
 
 - each NULL-free record sequence over the list of fields _(f1, ..., fn)_ occurs also as a record sequence in _(tf1,...,tfn)_;
 - Target view <i>lv</i> defines a [=Unique=] annotation [=on fields=] _(tf1,...,tfn)_.
