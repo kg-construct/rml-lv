@@ -106,7 +106,7 @@ The <dfn>Unique</dfn> structural annotation (`rml:UniqueAnnotation`) is analogou
 
 - no duplicate record sequences are present over the list of fields _(f1, ..., fn)_.
 
-Note that every [=PrimaryKey=] annotation is, as a matter of fact, also a [=Unique=] annotation.
+Note that every [=PrimaryKey annotation=] is, as a matter of fact, also a [=Unique annotation=].
 
 ### NotNull
 
