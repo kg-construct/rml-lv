@@ -36,7 +36,7 @@ An <dfn data-lt="IriSafe annotation">IriSafe structural annotation</dfn> (`rml:I
 
 ### PrimaryKey
 
-A <dfn>PrimaryKey</dfn> structural annotation (`rml:PrimaryKeyAnnotation`) [=on fields=]  _(f1, ..., fn)_  imposes two conditions:
+A <dfn data-lt="PrimaryKey annotation">PrimaryKey structural annotation</dfn>  (`rml:PrimaryKeyAnnotation`) [=on fields=]  _(f1, ..., fn)_  imposes two conditions:
 
 - no duplicate record sequences are present over the list of fields _(f1, ..., fn)_;
 - No `NULL` value is admitted in any of the field _f1, ..., fn_.
