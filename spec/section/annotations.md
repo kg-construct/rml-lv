@@ -62,7 +62,7 @@ Now, assume that we know:
 
 - Attribute `name` in the CSV is "UNIQUE" and "NOT NULL";
 
-Such constraint naturally corresponds to the notion of `PRIMARY KEY` from the world of relational databases. This fact could be valuable information for the RML engine, especially in the virtual setting. However, note that constraints cannot be expressed on CSV files.
+Such a constraint naturally corresponds to the notion of `PRIMARY KEY` from the world of relational databases. This fact could be valuable information for the RML engine, especially in the virtual setting. However, note that constraints cannot be expressed on CSV files.
 
 We can exploit the mechanism of structural annotations to inform the RML engine about the existence of such "relational-like" constraint. We here work-out an example.
 
