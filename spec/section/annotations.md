@@ -102,7 +102,7 @@ We are now ready to specify our logical view and associated `rml:primaryKeyAnnot
 
 ### Unique
 
-The <dfn>Unique</dfn> structural annotation (`rml:UniqueAnnotation`) is analogous to the notion of <i>UNIQUE constraints</i> in databases. Specifically, a [=Unique=] annotation [=on fields=]  _(f1, ..., fn)_  imposes the following condition:
+The <dfn data-lt="Unique annotation">Unique structural annotation</dfn> (`rml:UniqueAnnotation`) is analogous to the notion of <i>UNIQUE constraints</i> in databases. Specifically, a [=Unique annotation=] [=on fields=]  _(f1, ..., fn)_  imposes the following condition:
 
 - no duplicate record sequences are present over the list of fields _(f1, ..., fn)_.
 
