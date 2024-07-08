@@ -113,7 +113,7 @@ Note that every [=PrimaryKey annotation=] is, as a matter of fact, also a [=Uniq
 The <dfn data-lt="NotNull annotation">NotNull structural annotation</dfn> (`rml:NotNullAnnotation`) is analogous to the notion of <i>NOT NULL constraints</i> in databases. Specifically, a [=NotNull annotation=] [=on fields=]  _F_  imposes that each field in _F_ does not contain NULL values.
 
 <aside class="note">
-Note that every [=PrimaryKey=] annotation is, as a matter of fact, also a [=NotNull=] annotation.
+Note that every [=PrimaryKey annotation=] is, as a matter of fact, also a [=NotNull annotation=].
 </aside>
 
 ### ForeignKey
