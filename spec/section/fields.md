@@ -1,6 +1,5 @@
 ## Fields {#fields}
 
-<aside class="issue">
 Are we sure that fields are expression maps? I am not really convinced about that. We do not want to allow for things such as `rr:template` on fields, right?
 </aside>
 
