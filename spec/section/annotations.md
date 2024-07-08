@@ -26,7 +26,7 @@ All structural annotations of a logical view <i>lv</i> MUST have an <dfn>on fiel
 
 Structural annotations provide additional information about the data that might be used by the RML processor to optimize the KG construction process. If this additional information is incorrect, then the RML processor might either fail or produce wrong results. When using structural annotations, users should make sure that the following invariance principle is satisfied:
 
-<i>For any source instances, the RDF graph produced by the RML engine over an RML file with annotations, and the same file where annotations have been removed, MUST be the same.</i>
+<i>For any source instances, the RDF graph produced by the RML engine using an <a data-cite="RML-Core#dfn-rml-mapping">RML mapping</a> with annotations, and the same  <a data-cite="RML-Core#dfn-rml-mapping">RML mapping</a> where annotations have been removed, MUST be the same.</i>
 
 We emphasize that RML engines might exploit structural annotations, as they could totally ignore them. It is responsibility of the user to make sure that the annotations provided are indeed correct (that is, the data complies with the annotations). Sanity checks MAY be provided by the RML engines themselves, but this is not mandatory. Note that providing wrong annotations to an engine that takes into account for annotations, for instance for applying optimizations, could result in a violation of the invariance principle, with unpredictable results.
 
