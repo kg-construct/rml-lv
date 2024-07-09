@@ -18,7 +18,7 @@ rmlsh:LogicalViewShape a sh:NodeShape ;
     sh:message """
     Node must have a valid rml:LogicalView description.
     rml:LogicalView requires
-    - exactly one rml:source property, with a rml:LogicalSource as its value.
+    - exactly one rml:viewOn property, with a rml:LogicalSource as its value.
     - at least one rml:field property, with a rml:Field as its value.
     """ ;
     sh:targetClass rml:LogicalView ;
@@ -28,9 +28,9 @@ rmlsh:LogicalViewShape a sh:NodeShape ;
         The source of the logical view. This is the logical source from which the logical view is derived.
         """ ;
         sh:message """
-        Exactly one rml:source property must be specified for a rml:LogicalView, with a rml:LogicalSource as its value.
+        Exactly one rml:viewOn property must be specified for a rml:LogicalView, with a rml:LogicalSource as its value.
         """ ;
-        sh:path rml:source ;
+        sh:path rml:viewOn ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:node rmlsh:LogicalSource ;

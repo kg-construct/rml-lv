@@ -71,7 +71,7 @@ First, we specify the logical source corresponding to the CSV file:
 <aside class=ex-mapping>
 
 ```turtle
-:csvSource a rml:logicalSource ;
+:csvSource a rml:InputLogicalSource ;
   rml:source :csvFile ;
   rml:referenceFormulation rml:CSV .
 ```
@@ -83,7 +83,7 @@ We are now ready to specify our logical view and associated `rml:primaryKeyAnnot
 
 ```turtle
 :csvSource a rml:LogicalView ;
-  rml:onLogicalSource :csvSource ;
+  rml:viewOn :csvSource ;
   rml:field [
     rml:fieldName "name";
     rml:reference "name"
@@ -188,7 +188,7 @@ First, we need to specify the logical sources. The logical source corresponding 
 <aside class=ex-mapping>
 
 ```turtle
-:csvSource a rml:logicalSource ;
+:csvSource a rml:InputLogicalSource ;
   rml:source :csvFile ;
   rml:referenceFormulation rml:CSV .
 ```
@@ -199,7 +199,7 @@ The logical source corresponding to the JSON:
 <aside class=ex-mapping>
 
 ```turtle
-:jsonSource a rml:logicalSource ;
+:jsonSource a rml:InputLogicalSource ;
   rml:source :jsonFile ;
   rml:referenceFormulation rml:JSONPath ;
   rml:iterator "$.people[*]" .
@@ -212,7 +212,7 @@ We are now ready to specify our logical views, and associated structural annotat
 
 ```turtle
 :csvSource a rml:LogicalView ;
-  rml:onLogicalSource :csvSource ;
+  rml:viewOn :csvSource ;
   rml:field [
     rml:fieldName "name";
     rml:reference "name"
@@ -234,7 +234,7 @@ Now, we declare the logical view corresponding to `:jsonSource`. Note that this 
 
 ```turtle
 :jsonView a rml:LogicalView ;
-  rml:onLogicalSource :jsonSource ;
+  rml:viewOn :jsonSource ;
   rml:field [
     rml:fieldName "name" ;
     rml:reference "$.name" ;

@@ -20,7 +20,7 @@ tobias,2005
 <aside class=ex-mapping>
 
 ```turtle
-:csvSource a rml:logicalSource ;
+:csvSource a rml:InputLogicalSource ;
   rml:source :csvFile ;
   rml:referenceFormulation rml:CSV .
 ```
@@ -71,7 +71,7 @@ tobias,2005
 <aside class=ex-mapping>
 
 ```turtle
-:xmlSource a rml:logicalSource ;
+:xmlSource a rml:InputLogicalSource ;
   rml:source :xmlFile ;
   rml:referenceFormulation rml:XPath ;
   rml:iterator "/People/Person" .
@@ -141,7 +141,7 @@ and
 <aside class=ex-mapping>
 
 ```turtle
-:jsonSource a rml:logicalSource ;
+:jsonSource a rml:InputLogicalSource ;
   rml:source :jsonFile ;
   rml:referenceFormulation rml:JSONPath ;
   rml:iterator "$.people[*]" .
@@ -272,7 +272,7 @@ An <!-- TODO core or io, dependent on https://github.com/kg-construct/rml-lv/iss
 <aside class=ex-mapping>
 
 ```turtle
-:jsonSource a rml:logicalSource ;
+:jsonSource a rml:InputLogicalSource ;
   rml:source :jsonFile ;
   rml:referenceFormulation rml:JSONPath ;
   rml:iterator "$.people[*]" .

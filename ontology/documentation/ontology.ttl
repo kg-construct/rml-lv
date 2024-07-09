@@ -30,6 +30,11 @@ rml:field rdf:type owl:ObjectProperty ;
           rdfs:range rml:Field ;
           rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
+### http://w3id.org/rml/viewOn
+rml:viewOn rdf:type owl:ObjectProperty ;
+          rdfs:domain :LogicalView ;
+          rdfs:range :LogicalSource ;
+          rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
 ###  http://w3id.org/rml/innerJoin
 rml:innerJoin rdf:type owl:ObjectProperty ;
