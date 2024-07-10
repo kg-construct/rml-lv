@@ -47,11 +47,11 @@ var respecConfig = {
   // These may become useful if the document gets a more 'official' status
   // postProcess : [ postProc ],
   doRdfa: "true",
-  processVersion: 2021,
+  processVersion: 2024,
   // specification status (e.g. WD, LCWD, WG-NOTE, etc.). If in doubt use ED.
   specStatus: "CG-DRAFT",
   // the specification's short name, as in http://www.w3.org/TR/short-name/
-  shortName: "rml-fields",
+  shortName: "rml-lv",
   // if your specification has a subtitle that goes below the main
   // formal title, define it here
   // subtitle   :  "White Paper",
@@ -59,13 +59,13 @@ var respecConfig = {
   // publishDate:  "2015-06-30",
   // if the specification's copyright date is a range of years, specify
   // the start date here:
-  copyrightStart: "2021",
+  copyrightStart: "2024",
   // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
   // and its maturity status
   // previousPublishDate: "2015-10-15",
   // previousMaturity: "FPWD",
   // if there a publicly available Editor's Draft, this is the link
-  edDraftURI: "https://w3id.org/kg-construct/rml-fields",
+  edDraftURI: "https://w3id.org/kg-construct/rml-lv",
   // if this is a LCWD, uncomment and set the end of its review period
   // lcEnd: "2009-08-05",
   // editors, add as many as you like
