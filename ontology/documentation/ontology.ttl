@@ -30,11 +30,13 @@ rml:field rdf:type owl:ObjectProperty ;
           rdfs:range rml:Field ;
           rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
+
 ### http://w3id.org/rml/viewOn
 rml:viewOn rdf:type owl:ObjectProperty ;
-          rdfs:domain :LogicalView ;
-          rdfs:range :LogicalSource ;
+          rdfs:domain rml:LogicalView ;
+          rdfs:range rml:LogicalSource ;
           rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
+
 
 ###  http://w3id.org/rml/innerJoin
 rml:innerJoin rdf:type owl:ObjectProperty ;
@@ -57,29 +59,31 @@ rml:parentLogicalView rdf:type owl:ObjectProperty ;
                       rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
 
-###  http://w3id.org/rml/lv/onFields
-:onFields rdf:type owl:ObjectProperty ;
-          rdfs:domain :StructuralAnnotation ;
+###  http://w3id.org/rml/onFields
+rml:onFields rdf:type owl:ObjectProperty ;
+          rdfs:domain rml:StructuralAnnotation ;
           rdfs:range rdf:List ;
-          rdfs:comment "" .
+          rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
 
-###  http://w3id.org/rml/lv/structuralAnnotation
-:structuralAnnotation rdf:type owl:ObjectProperty ;
+###  http://w3id.org/rml/structuralAnnotation
+rml:structuralAnnotation rdf:type owl:ObjectProperty ;
                       rdfs:domain rml:LogicalView ;
-                      rdfs:range :StructuralAnnotation .
+                      rdfs:range rml:StructuralAnnotation ;
+                      rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
+
+###  http://w3id.org/rml/targetFields
+rml:targetFields rdf:type owl:ObjectProperty ;
+              rdfs:domain rml:StructuralAnnotation ;
+              rdfs:range rdf:List ;
+              rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
 
-###  http://w3id.org/rml/lv/targetFields
-:targetFields rdf:type owl:ObjectProperty ;
-              rdfs:domain :StructuralAnnotation ;
-              rdfs:range rdf:List .
-
-
-###  http://w3id.org/rml/lv/targetView
-:targetView rdf:type owl:ObjectProperty ;
-            rdfs:domain :InclusionDependencyAnnotation ;
-            rdfs:range rml:LogicalView .
+###  http://w3id.org/rml/targetView
+rml:targetView rdf:type owl:ObjectProperty ;
+            rdfs:domain rml:InclusionDependencyAnnotation ;
+            rdfs:range rml:LogicalView ;
+            rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
 
 #################################################################
@@ -115,39 +119,46 @@ rml:LogicalViewJoin rdf:type owl:Class ;
                     rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
 
-###  http://w3id.org/rml/lv/ForeignKeyAnnotation
-:ForeignKeyAnnotation rdf:type owl:Class ;
-                      rdfs:subClassOf :InclusionDependencyAnnotation .
+###  http://w3id.org/rml/ForeignKeyAnnotation
+rml:ForeignKeyAnnotation rdf:type owl:Class ;
+                      rdfs:subClassOf rml:InclusionDependencyAnnotation ;
+                      rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
 
-###  http://w3id.org/rml/lv/IRISafeAnnotation
-:IRISafeAnnotation rdf:type owl:Class ;
-                   rdfs:subClassOf :StructuralAnnotation .
+###  http://w3id.org/rml/IRISafeAnnotation
+rml:IRISafeAnnotation rdf:type owl:Class ;
+                   rdfs:subClassOf rml:StructuralAnnotation ;
+                   rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
 
-###  http://w3id.org/rml/lv/InclusionDependencyAnnotation
-:InclusionDependencyAnnotation rdf:type owl:Class ;
-                               rdfs:subClassOf :StructuralAnnotation .
+###  http://w3id.org/rml/InclusionDependencyAnnotation
+rml:InclusionDependencyAnnotation rdf:type owl:Class ;
+                               rdfs:subClassOf rml:StructuralAnnotation ;
+                               rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
 
-###  http://w3id.org/rml/lv/NonNullableAnnotation
-:NonNullableAnnotation rdf:type owl:Class ;
-                       rdfs:subClassOf :StructuralAnnotation .
+###  http://w3id.org/rml/NonNullableAnnotation
+rml:NonNullableAnnotation rdf:type owl:Class ;
+                       rdfs:subClassOf rml:StructuralAnnotation ;
+                       rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
 
-###  http://w3id.org/rml/lv/PrimaryKeyAnnotation
-:PrimaryKeyAnnotation rdf:type owl:Class ;
-                      rdfs:subClassOf :NonNullableAnnotation ,
-                                      :UniqueAnnotation .
+###  http://w3id.org/rml/PrimaryKeyAnnotation
+rml:PrimaryKeyAnnotation rdf:type owl:Class ;
+                      rdfs:subClassOf rml:NonNullableAnnotation ,
+                                      rml:UniqueAnnotation ;
+                      rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
 
-###  http://w3id.org/rml/lv/StructuralAnnotation
-:StructuralAnnotation rdf:type owl:Class .
+###  http://w3id.org/rml/StructuralAnnotation
+rml:StructuralAnnotation rdf:type owl:Class ;
+                      rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
 
-###  http://w3id.org/rml/lv/UniqueAnnotation
-:UniqueAnnotation rdf:type owl:Class ;
-                  rdfs:subClassOf :StructuralAnnotation .
+###  http://w3id.org/rml/UniqueAnnotation
+rml:UniqueAnnotation rdf:type owl:Class ;
+                  rdfs:subClassOf rml:StructuralAnnotation ;
+                  rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
 
 ###  http://www.w3.org/1999/02/22-rdf-syntax-ns#List
