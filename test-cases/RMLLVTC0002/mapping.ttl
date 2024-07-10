@@ -2,7 +2,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://example.org/> .
 
-:jsonSource a rml:LogicalSource ;
+:jsonSource a rml:InputLogicalSource ;
   rml:source [
     a rml:RelativePathSource , rml:Source ;
     rml:root rml:MappingDirectory ;
@@ -12,7 +12,7 @@
   rml:iterator "$.people[*]" .
 
 :jsonView a rml:LogicalView ;
-  rml:source :jsonSource ;
+  rml:viewOn :jsonSource ;
   rml:field [
     rml:fieldName "name" ;
     rml:reference "$.name" ;
