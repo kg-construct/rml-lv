@@ -75,7 +75,8 @@ It is not possible to declare the construction of below output triples from belo
 
 ```csv
 name,item  
-alice,"{""type"":""sword"",""weight"": 2500}" alice, "{""type"":""shield"",""weight"": 1500}"  
+alice,"{""type"":""sword"",""weight"": 2500}" 
+alice,"{""type"":""shield"",""weight"": 1500}"  
 bob,"{""type"":""flower"",""weight"": 15 }"  
 ```
 </aside>
