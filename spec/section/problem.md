@@ -18,7 +18,7 @@ Furthermore, there is varying expressiveness in data source expression and query
 This limits the ability of [RML-Core](https://kg-construct.github.io/rml-core/spec/docs/) to map nested data.
 
 <aside class=example id=ex-nesting-problem>
-It is not possible to declare the construction of below output triples from below data source with [RML-Core](https://kg-construct.github.io/rml-core/spec/docs/). 
+It is not possible to declare the construction of below output triples from below data source with RML-Core. 
 <aside class=ex-input>
 
 ```json
@@ -70,13 +70,13 @@ It is not possible to declare the construction of below output triples from belo
 Data in one format can contain multiple or composite values stored in another format, e.g. a CSV dataset could contain columns containing JSON values. To define the expected form of references to input data [RML-Core](https://kg-construct.github.io/rml-core/spec/docs/) employs the notion of a <!-- TODO reference to core, dependent on https://github.com/kg-construct/rml-core/issues/127-->[reference formulation](https://kg-construct.github.io/rml-io/spec/docs/#reference-formulations) that is a property of every <!-- TODO reference to core, dependent on https://github.com/kg-construct/rml-core/issues/127-->[logical source](https://kg-construct.github.io/rml-io/spec/docs/#defining-logical-sources). However, currently a logical source is limited to having a single reference formulation, meaning mixed format data can only be referenced using a query language that supports just one of the formats.
 
 <aside class=example id=ex-mixed-format-problem>
-It is not possible to declare the construction of below output triples from below data source with [RML-Core](https://kg-construct.github.io/rml-core/spec/docs/). 
+It is not possible to declare the construction of below output triples from below data source with RML-Core. 
 <aside class=ex-input>
 
 ```csv
-name,item
-alice,"{""type"":""sword"",""weight"": 2500}" alice, "{""type"":""shield"",""weight"": 1500}"
-bob,"{""type"":""flower"",""weight"": 15 }"
+name,item  
+alice,"{""type"":""sword"",""weight"": 2500}" alice, "{""type"":""shield"",""weight"": 1500}"  
+bob,"{""type"":""flower"",""weight"": 15 }"  
 ```
 </aside>
 
@@ -91,12 +91,13 @@ bob,"{""type"":""flower"",""weight"": 15 }"
 
 ### Joining of data sources
 
-[RML-Core](https://kg-construct.github.io/rml-core/spec/docs/) restricts join operations to <a data-cite="RML-Core#referencing-object-map">referencing object maps<\a>. Since a referencing object map can only generate an object that is an IRI or blank node subject as specified by a parent triples map, it is not possible to combine data from two sources in one term, use data from a join on another position than the object, or generate a literal using data from a join.
+[RML-Core](https://kg-construct.github.io/rml-core/spec/docs/) restricts join operations to <a data-cite="RML-Core#referencing-object-map">referencing object maps</a>. Since a referencing object map can only generate an object that is an IRI or blank node subject as specified by a parent triples map, it is not possible to combine data from two sources in one term, use data from a join on another position than the object, or generate a literal using data from a join.
 Moreover, [RML-Core](https://kg-construct.github.io/rml-core/spec/docs/) cannot declare join operations correctly across hierarchies.
 
 <aside class=example id=ex-mixed-format-problem>
-It is not possible to declare the construction of below output triples from below two data sources with [RML-Core](https://kg-construct.github.io/rml-core/spec/docs/). 
+It is not possible to declare the construction of below output triples from below two data sources with RML-Core. 
 <aside class=ex-input>
+
 ```csv
 name,id
 alice,1
@@ -106,6 +107,7 @@ tobias,3
 </aside>
 
 <aside class=ex-input>
+
 ```csv
 name,item_type
 alice,sword
