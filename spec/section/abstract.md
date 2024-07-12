@@ -1,6 +1,6 @@
 ## Abstract {#abstract}
 
-RML logical views is an extension of the RDF Mapping Language (RML) that increases the language’s capability to
+RML logical views is an extension of the RDF Mapping Language (RML) that increases the language's capability to
 construct RDF datasets from nested input data, to join datasources (also across data hierarchies),
 and to handle data sources that mix source formats,
 by allowing to specify a logical view: a flattened, source format-agnostic view
