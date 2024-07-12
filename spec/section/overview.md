@@ -2,10 +2,7 @@
 
 *This section is non-normative.*
 
-TODO
-
 <section id="conformance"> </section>
-
 
 ### Document conventions {#conventions}
 We assume readers have basic familiarity with RDF and RML concepts.
@@ -17,7 +14,6 @@ the following namespace prefix bindings unless otherwise stated:
 | ------ | --------------------------------- |
 | `rml:` | http://w3id.org/rml/              |
 | `xsd:` | http://www.w3.org/2001/XMLSchema# |
-| `ex:`  | http://example.org/               |
 | `:`    | http://example.org/               |
 
 The examples are contained in color-coded boxes. We use the Turtle syntax [[Turtle]] to write RDF.
