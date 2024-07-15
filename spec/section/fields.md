@@ -1,10 +1,31 @@
 ## Fields {#fields}
 
-A <dfn>field</dfn> is an [ExpressionMap](http://w3id.org/rml/core/spec#dfn-expression-map) that gives a name to an <a data-cite="RML-Core#dfn-expressions">expression</a>. A [=field=] MUST have a <dfn data-lt="field-parent">parent</dfn> that is either a <!-- TODO core or io, dependent on https://github.com/kg-construct/rml-lv/issues/7 and https://github.com/kg-construct/rml-lv/issues/14-->[logical source]() or another [=field=]. The parent relation MUST not contain cycles: it is tree-shaped with a logical source as its root. The transitive parents of a [=field=], i.e., the [=field=]'s parent, the parent of the [=field=]'s parent, etcetera, are fittingly called the [=field=]'s <dfn>ancestors</dfn>. A [=field=] MUST have a <dfn>declared name</dfn> that is an alphanumerical string. [=Fields=] with the same parent MUST have different declared names. If a [=field=]'s parent is another [=field=], we distinguish between the [=field=]'s declared name and the [=field=]'s name. A [=field=]'s <dfn data-lt="field name">name</dfn> is the concatentation of the name of the parent [=field=], a dot `.`, and the [=field=]'s declared name. A [=field=] MUST have an <a data-cite="RML-Core#dfn-expressions">expression</a> and a <!-- TODO core or io, dependent on https://github.com/kg-construct/rml-lv/issues/7 and https://github.com/kg-construct/rml-lv/issues/14-->[reference formulation](). If no <!-- TODO core or io, dependent on https://github.com/kg-construct/rml-lv/issues/7 and https://github.com/kg-construct/rml-lv/issues/14-->reference formulation is explicitly declared, the [=field=] has the same <!-- TODO core or io, dependent on https://github.com/kg-construct/rml-lv/issues/7 and https://github.com/kg-construct/rml-lv/issues/14-->[reference formulation]() as its parent.
+A <dfn>field</dfn> is a type of <a data-cite="RML-Core#dfn-expression-map">expression map</a>, that gives a name to an <a data-cite="RML-Core#dfn-expressions">expression</a>. Consequently, a [=field=] MUST have an <a data-cite="RML-Core#dfn-expressions">expression</a>.
+
+A [=field=] (`rml:Field`) MUST have following additional properties:
+- exactly one field name property (`rml:fieldName`), that specifies the [=name=] of the field
+- zero or more field properties (`rml:field`), to describe nested [=field=], also of the type `rml:Field`
+- zero or one field reference formulation property (`rml:fieldReferenceFormulation`), to specify the reference formulation of the field. 
+- zero or one iterator property (`rml:fieldIterator`) to specify the iterator of the field. 
+
+| Property                   | Domain       | Range                      |
+|----------------------------|--------------|----------------------------|
+| `rml:fieldName`            | `rml:Field`  | `rml:LogicalSource`        |
+| `rml:field`                | `rml:Field`  | `rml:Field`                |
+| `rml:referenceFormulation` | `rml:Field`  | `rml:ReferenceFormulation` |
+| `rml:iterator`             | `rml:Field`  | `Literal`                  |
+
+
+### Field parents {#fieldparents}
+
+A [=field=] MUST have a <dfn data-lt="field-parent">parent</dfn> that is either a <!-- TODO reference to core, dependent on https://github.com/kg-construct/rml-core/issues/127-->[logical source]() or another [=field=]. The parent relation MUST not contain cycles: it is tree-shaped with a logical source as its root. The transitive parents of a [=field=], i.e., the [=field=]'s parent, the parent of the [=field=]'s parent, etcetera, are fittingly called the [=field=]'s <dfn>ancestors</dfn>. 
+
+### Field names {#fieldnames}
+A [=field=] MUST have a <dfn>declared name</dfn> that is an alphanumerical string. [=Fields=] with the same parent MUST have different declared names. If a [=field=]'s parent is another [=field=], we distinguish between the [=field=]'s declared name and the [=field=]'s name. A [=field=]'s <dfn data-lt="field name">name</dfn> is the concatenation of the name of the parent [=field=], a dot `.`, and the [=field=]'s declared name. 
 
 <aside class=example id=ex-field>
 
-In this example a [=field=] with [=declared name=] "name" is declared on the <!-- TODO core or io, dependent on https://github.com/kg-construct/rml-lv/issues/7 and https://github.com/kg-construct/rml-lv/issues/14-->[logical source]() from [[[#ex-record-sequence]]] and added to the [=logical view=].
+In this example a [=field=] with [=declared name=] "name" is declared on the <!-- TODO reference to core, dependent on https://github.com/kg-construct/rml-core/issues/127-->[logical source]() from [[[#ex-record-sequence]]] and added to the [=logical view=]. The parent of the field with [=declared name=] "name" is the <!-- TODO reference to core, dependent on https://github.com/kg-construct/rml-core/issues/127-->[logical source]() `:jsonSource`.
 
 <aside class=ex-mapping>
 
@@ -77,6 +98,12 @@ In this example a [=field=] with [=declared name=] "name" is declared on the <!-
 </aside>
 
 </aside>
+
+<aside class="note">
+Note that the tabular representation of the [=field record sequence=] in [[[#ex-field]]] is just one possible way of representing fields.
+</aside>
+
+### Field record sequences and records {#fieldrecords}
 
 A [=field=] defines a [=record sequence=], called the <dfn>field record sequence</dfn>, that is obtained by consecutively applying the [=field=]'s <a data-cite="RML-Core#dfn-expressions">expression</a> on the [=parent records=], the <dfn>parent records</dfn> being the records in the record sequence defined by the [=field=]'s [=parent=]. For a given [=field=], the [=field record sequence=] has these keys and corresponding values:
 
@@ -112,14 +139,13 @@ In this example a [=field=] with [=declared name=] "item" is added to the [=logi
 ```
 
 </aside>
-
+Note some columns in the table below have been shortened for brevity.
 <aside class="ex-intermediate">
 <table>
 <th>#</th>
 <th>
 
 `<it>`
-
 </th>
 <th>name.#</th>
 <th>name</th>
@@ -127,26 +153,15 @@ In this example a [=field=] with [=declared name=] "item" is added to the [=logi
 <th>item</th>
 <th>item.type.#</th>
 <th>item.type</th>
-<!-- <th>item.weight#</th>
-<th>item.weight</th> -->
+<th>item.weight.#</th>
+<th>item.weight</th> 
 <tr>
 <td>0</td>
 <td>
 
 ```json
-{
-  "name": "alice",
-  "items": [
-    {
-      "type": "sword",
-      "weight": 1500
-    },
-    {
-      "type": "shield",
-      "weight": 2500
-    }
-  ]
-}
+
+{...}
 ```
 
 </td>
@@ -156,16 +171,13 @@ In this example a [=field=] with [=declared name=] "item" is added to the [=logi
 <td>
 
 ```json
-{
-  "type": "sword",
-  "weight": 1500
-}
+{...}
 ```
 
 </td>
 <td>0</td>
 <td>sword</td>
-<!-- <td>0</td>
+<td>0</td>
 <td>1500</td> -->
 </tr>
 <tr>
@@ -173,19 +185,7 @@ In this example a [=field=] with [=declared name=] "item" is added to the [=logi
 <td>
 
 ```json
-{
-  "name": "alice",
-  "items": [
-    {
-      "type": "sword",
-      "weight": 1500
-    },
-    {
-      "type": "shield",
-      "weight": 2500
-    }
-  ]
-}
+{...}
 ```
 
 </td>
@@ -204,7 +204,7 @@ In this example a [=field=] with [=declared name=] "item" is added to the [=logi
 </td>
 <td>0</td>
 <td>shield</td>
-<!-- <td>0</td>
+<td>0</td>
 <td>2500</td> -->
 </tr>
 <tr>
@@ -212,15 +212,7 @@ In this example a [=field=] with [=declared name=] "item" is added to the [=logi
 <td>
 
 ```json
-{
-  "name": "bob",
-  "items": [
-    {
-      "type": "flower",
-      "weight": 15
-    }
-  ]
-}
+{...}
 ```
 
 </td>
@@ -239,7 +231,7 @@ In this example a [=field=] with [=declared name=] "item" is added to the [=logi
 </td>
 <td>0</td>
 <td>flower</td>
-<!-- <td>0</td>
+<td>0</td>
 <td>15</td> -->
 </tr>
 </table>
@@ -248,8 +240,257 @@ In this example a [=field=] with [=declared name=] "item" is added to the [=logi
 
 </aside>
 
-<aside class="note">
-Note that the tabular representation of the [=field record sequence=] in [[[#ex-field-record-sequence]]] is just one possible way of representing fields.
+### Field reference formulation {#fieldreferenceformulation}
+
+A [=field=] MUST have an a <!-- TODO reference to core, dependent on https://github.com/kg-construct/rml-core/issues/127-->reference formulation. If no <!-- TODO reference to core, dependent on https://github.com/kg-construct/rml-core/issues/127-->reference formulation is declared for the [=field=], the [=field=] has the same <!-- TODO reference to core, dependent on https://github.com/kg-construct/rml-core/issues/127-->reference formulation as its parent.
+If a field has a declared reference formulation, it MUST also have an iterator. By default, the iterator is considered a row, if not specified. 
+
+For the application of the <a data-cite="RML-Core#dfn-expressions">expression</a> of a [=field=] on the records of it's [=parent=], the parent's reference formulation is used, resulting in [=record sequence=] *R*. If the field has a declared reference formulation, the field's iterator is applied on this resulting record sequence *R* to obtain the [=field record sequence=] defined by the field. 
+
+<aside class=example id=ex-mixed-format-csv-json>
+
+In this example a [=logical view=] is derived from a <!-- TODO reference to core, dependent on https://github.com/kg-construct/rml-core/issues/127-->[logical source]() with reference formulation `rml:CSV`.
+The [=field=] with [=declared name=] "item" has a declared <!-- TODO reference to core, dependent on https://github.com/kg-construct/rml-core/issues/127-->reference  formulation `rml:JSONPath` and a declared iterator "$.*". First, the expression "item" is evaluated using the reference formulation of the [=parent=]. Second, the field's reference formulation and iterator is applied on the resulting records. 
+The nested fields with [=declared name=] "type" and "weight" are evaluated using the reference formulation `rml:JSONPath' from their parent field  with [=declared name=] "item" .
+
+<aside class=ex-input>
+
+```csv
+name,item 
+alice,"{""type"":""sword"",""weight"":1500}"
+alice, "{""type"":""shield"",""weight"":2500}"  
+bob,"[{""type"":""flower"",""weight"":15}]"  
+```
+</aside>
+<aside class=ex-mapping>
+
+```turtle
+:mixedCSVSource a rml:InputLogicalSource ;
+  rml:source :mixedCSVFile ;
+  rml:referenceFormulation rml:CSV .
+
+:mixedCSVView a rml:LogicalView ;
+  rml:viewOn :mixedCSVSource ;
+    rml:field [    
+      rml:fieldName "item" ;    
+      rml:reference "item" ;    
+      rml:referenceFormulation rml:JSONPath ; 
+      rml:iterator "$.*"   
+      rml:field [      
+        rml:fieldName "type" ;      
+        rml:reference "$.type" ; ] ; 
+      rml:field [      
+        rml:fieldName "weight" ;      
+        rml:reference "$.weight" ; ] ; ] .
+```
+
+</aside>
+Note some columns in the table below have been shortened for brevity.
+<aside class="ex-intermediate">
+<table>
+<tr>
+<td>#</td>
+<td>
+
+`<it>`
+</td>
+<td>item.#</td>
+<td>item</td>
+<td>item.type.#</td>
+<td>time.type</td>
+<td>item.weight.#</td>
+<td>time.weight</td>
+</tr>
+<tr>
+<td>0</td>
+<td>alice,&quot;{...}&quot; </td>
+<td>0</td>
+<td>
+
+```json
+{
+"type": "sword",
+"weight": 1500
+}
+```
+
+</td>
+<td>0</td>
+<td>sword</td>
+<td>0</td>
+<td>2500</td>
+</tr>
+<tr>
+<td>1</td>
+<td>alice,&quot;{...}&quot;  </td>
+<td>0</td>
+<td>
+
+```json
+{
+"type": "shield",
+"weight": 2500
+}
+```
+
+</td>
+<td>0</td>
+<td>shield</td>
+<td>0</td>
+<td>1500</td>
+</tr>
+<tr>
+<td>2</td>
+<td>bob,&quot;{...}&quot;  </td>
+<td>0</td>
+<td>
+
+```json
+{
+"type": "flower",
+"weight": 15
+}
+```
+
+</td>
+<td>0</td>
+<td>flower</td>
+<td>0</td>
+<td>15</td>
+</tr>
+</table>
+</aside>
+
+</aside>
+
+
+<aside class=example id=ex-mixed-format-json-csv>
+
+In this example a [=logical view] is derived from a <!-- TODO reference to core, dependent on https://github.com/kg-construct/rml-core/issues/127-->[logical source]() with reference formulation `rml:JSONPath`.
+The [=field=] with [=declared name=] "hobbies" has a declared <!-- TODO reference to core, dependent on https://github.com/kg-construct/rml-core/issues/127-->reference  formulation `rml:JSONPath` and a declared iterator `$.people.*"`. First the expression "$.hobbies" is evaluated using the reference formulation of the [=field parent=]. Then the field's reference formulation and iterator is applied on the resulting records.
+The nested fields with [=declared name=] "id" and "type" are evaluated using the reference formulation `rml:CSV` from their parent field  with [=declared name=] "hobbies" .
+<aside class=ex-input>
+
+```json
+{
+  "people": [
+    {
+      "name": "alice",
+      "hobbies": "id;type\n1;volleyball\n2;basketball\n3;horses"
+    },
+    {
+      "name": "bob",
+      "hobbies": "id;type\n1;football"
+    }
+  ]
+}  
+```
+</aside>
+<aside class=ex-mapping>
+
+```turtle
+:mixedJSONSource a rml:InputLogicalSource ;
+  rml:source :mixedJSONFile ;
+  rml:referenceFormulation rml:JSONPath ;
+  rml:iterator "$.people[*]" .
+
+:jsonView a rml:LogicalView ;
+  rml:viewOn :mixedJSONSource ;
+  rml:field [
+    rml:fieldName "hobbies" ;
+    rml:reference "$.hobbies" ;
+    rml:referenceFormulation rml:CSV;  
+    # implicit default iterator is CSV row 
+    rml:field [
+      rml:fieldName "id" ;
+      rml:reference "id" ;
+    ] ;
+    rml:field [
+      rml:fieldName "type" ;
+      rml:reference "type" ;
+    ] ;
+  ] .
+```
+
+</aside>
+Note some columns in the table below have been shortened for brevity.
+<aside class="ex-intermediate">
+<table>
+<tr>
+<td>#</td>
+<td>&lt;it&gt;</td>
+<td>hobbies</td>
+<td>hobbies.#</td>
+<td>hobbies.id</td>
+<td>hobbies.id.#</td>
+<td>hobbies.type</td>
+<td>hobbies.type.#</td>
+</tr>
+<tr>
+<td>0</td>
+<td>
+
+```json 
+
+{...}
+```
+
+</td>
+<td>1;volleyball</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>volleyball</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>
+
+```json 
+
+{...}
+```
+
+</td>
+<td>2;basketball</td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+<td>basketball</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>
+
+```json 
+
+{...}
+```
+
+
+</td>
+<td>3;horses</td>
+<td>2</td>
+<td>3</td>
+<td>0</td>
+<td>horses</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td></td>
+<td>1;football</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>football</td>
+<td>0</td>
+</tr>
+</table>
+</aside>
+
 </aside>
 
 ### Using field names in triples maps
