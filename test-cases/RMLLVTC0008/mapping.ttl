@@ -1,0 +1,40 @@
+@prefix rml: <http://w3id.org/rml/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/> .
+
+:mixedJSONSource a rml:InputLogicalSource ;
+  rml:source [
+    a rml:RelativePathSource , rml:Source ;
+    rml:root rml:MappingDirectory ;
+    rml:path "people.json" ;
+  ] ;
+  rml:referenceFormulation rml:JSONPath ;
+  rml:iterator "$.people[*]" .
+
+:mixedJSONView a rml:LogicalView ;
+  rml:viewOn :mixedJSONSource ;
+  rml:field [
+    rml:fieldName "hobby" ;
+    rml:reference "$.hobbies" ;
+    rml:referenceFormulation rml:CSV;
+    rml:field [
+      rml:fieldName "id" ;
+      rml:reference "id" ;
+    ] ;
+    rml:field [
+      rml:fieldName "type" ;
+      rml:reference "type" ;
+    ] ;
+  ] .
+
+:triplesMapItem a rml:TriplesMap ;
+  rml:logicalSource :mixedJSONView ;
+  rml:subjectMap [
+    rml:template "http://example.org/person/{name}/hobby/{hobby.#}/{hobby_id}" ;
+  ] ;
+  rml:predicateObjectMap [
+    rml:predicate :hasType ;
+    rml:objectMap [
+      rml:reference "hobby_type" ;
+    ] ;
+  ] .

@@ -9,9 +9,9 @@ A [=logical view=] (`rml:LogicalView`) is represented by a resource that MUST co
 
 A [=logical view=] (`rml:LogicalView`) has an implicit default <!-- TODO reference to core, dependent on https://github.com/kg-construct/rml-core/issues/127-->reference formulation (`rml:referenceFormulation`) and logical iterator (`rml:iterator`), which MUST not be overwritten. 
 
-| Property        | Domain            | Range                 |
-|-----------------|-------------------|-----------------------|
-| `rml:viewOn`    | `rml:LogicalView` | `rml:LogicalSource`   |
-| `rml:field`     | `rml:LogicalView` | `rml:Field`           |
-| `rml:leftJoin`  | `rml:LogicalView` | `rml:LogicalViewJoin` |
-| `rml:innerJoin` | `rml:LogicalView` | `rml:LogicalViewJoin` |
+| Property        | Domain                         | Range                 |
+|-----------------|--------------------------------|-----------------------|
+| `rml:viewOn`    | `rml:LogicalView`              | `rml:LogicalSource`   |
+| `rml:field`     | `rml:LogicalView`, `rml:Field` | `rml:Field`           |
+| `rml:leftJoin`  | `rml:LogicalView`              | `rml:LogicalViewJoin` |
+| `rml:innerJoin` | `rml:LogicalView`              | `rml:LogicalViewJoin` |

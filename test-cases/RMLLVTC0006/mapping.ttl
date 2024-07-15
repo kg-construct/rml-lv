@@ -1,0 +1,48 @@
+@prefix rml: <http://w3id.org/rml/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <http://example.org/> .
+
+:mixedCSVSource a rml:InputLogicalSource ;
+  rml:source [
+    a rml:RelativePathSource , rml:Source ;
+    rml:root rml:MappingDirectory ;
+    rml:path "people.csv" ;
+  ] ;
+  rml:referenceFormulation rml:CSV .
+
+:mixedCSVView a rml:LogicalView ;
+  rml:viewOn :mixedCSVSource ;
+  rml:field [
+    rml:fieldName "name" ;
+    rml:reference "name" ;
+  ] ;
+  rml:field [
+    rml:fieldName "item" ;
+    rml:reference "items" ;
+    rml:referenceFormulation rml:JSONPath ;
+    rml:iterator "$[*]" ;
+    rml:field [
+      rml:fieldName "type" ;
+      rml:reference "$.type" ; ] ;
+    rml:field [
+      rml:fieldName "weight" ;
+      rml:reference "$.weight" ; ] ; ] .
+
+:triplesMapItem a rml:TriplesMap ;
+  rml:logicalSource :mixedCSVView ;
+  rml:subjectMap [
+    rml:template "http://example.org/person/{name}/item/{item.#}/{item_type}" ;
+  ] ;
+  rml:predicateObjectMap [
+    rml:predicate :hasType ;
+    rml:objectMap [
+      rml:reference "item_type" ;
+    ] ;
+  ] ;
+  rml:predicateObjectMap [
+    rml:predicate :hasWeight ;
+    rml:objectMap [
+      rml:reference "item_weight" ;
+      rml:datatype xsd:integer ;
+    ] ;
+  ] .

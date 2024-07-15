@@ -1,0 +1,12 @@
+{
+  "people": [
+    {
+      "name": "alice",
+      "hobbies": "id;type\n1;volleyball\n2;basketball\n3;horses"
+    },
+    {
+      "name": "bob",
+      "hobbies": "id;type\n1;football"
+    }
+  ]
+}
