@@ -14,11 +14,11 @@ A [=field=] (`rml:Field`) MUST have following additional properties:
 | `rml:fieldName`              | `rml:Field`                    | `rml:LogicalSource`        |
 | `rml:field`                  | `rml:LogicalView`,`rml:Field` | `rml:Field`                |
 
-### Field parents {#field-parents}
+### Field parents {#fieldparents}
 
 A [=field=] MUST have a <dfn data-lt="field parent">parent</dfn> that is either a <!-- TODO reference to core, dependent on https://github.com/kg-construct/rml-core/issues/127-->[logical source]() or another [=field=]. The parent relation MUST not contain cycles: it is tree-shaped with a logical source as its root. The transitive parents of a [=field=], i.e., the [=field=]'s parent, the parent of the [=field=]'s parent, etcetera, are fittingly called the [=field=]'s <dfn>ancestors</dfn>. 
 
-### Field names {#field-names}
+### Field names {#fieldnames}
 A [=field=] MUST have a <dfn>declared name</dfn> that is an alphanumerical string. [=Fields=] with the same parent MUST have different declared names. If a [=field=]'s parent is another [=field=], we distinguish between the [=field=]'s declared name and the [=field=]'s name. A [=field=]'s <dfn data-lt="field name">name</dfn> is the concatenation of the name of the parent [=field=], a dot `.`, and the [=field=]'s declared name. 
 
 <aside class=example id=ex-field>
@@ -238,7 +238,7 @@ Note some columns in the table below have been shortened for brevity.
 
 </aside>
 
-### Field reference formulation {#field-reference-formulation}
+### Field reference formulations and iterators {#fieldreferenceformulations}
 
 A [=field=] MUST have an a <!-- TODO reference to core reference formulation when available-->[reference formulation]() and an <!-- TODO reference to core iterator when available-->[iterator]() . 
 If no reference formulation is declared for a field, the reference formulation of the [=field parent=] is implied.
