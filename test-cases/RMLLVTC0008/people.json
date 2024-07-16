@@ -2,11 +2,11 @@
   "people": [
     {
       "name": "alice",
-      "hobbies": "id;type\n1;volleyball\n2;basketball\n3;horses"
+      "items": "type,weight\nsword,1500\nshield,2500"
     },
     {
       "name": "bob",
-      "hobbies": "id;type\n1;football"
+      "items": "type,weight\nflower,15"
     }
   ]
 }

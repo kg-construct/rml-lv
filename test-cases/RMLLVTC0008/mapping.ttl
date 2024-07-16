@@ -14,27 +14,39 @@
 :mixedJSONView a rml:LogicalView ;
   rml:viewOn :mixedJSONSource ;
   rml:field [
-    rml:fieldName "hobby" ;
-    rml:reference "$.hobbies" ;
-    rml:referenceFormulation rml:CSV;
-    rml:field [
-      rml:fieldName "id" ;
-      rml:reference "id" ;
+      rml:fieldName "name" ;
+      rml:reference "$.name" ;
     ] ;
+  rml:field [
+    rml:fieldName "item" ;
+    rml:reference "$.items" ;
+    rml:referenceFormulation rml:CSV;
     rml:field [
       rml:fieldName "type" ;
       rml:reference "type" ;
+    ] ;
+    rml:field [
+      rml:fieldName "weight" ;
+      rml:reference "weight" ;
     ] ;
   ] .
 
 :triplesMapItem a rml:TriplesMap ;
   rml:logicalSource :mixedJSONView ;
   rml:subjectMap [
-    rml:template "http://example.org/person/{name}/hobby/{hobby.#}/{hobby_id}" ;
+    rml:template "item_{#}_{item.#}" ;
+    rml:termType rml:BlankNode ;
   ] ;
   rml:predicateObjectMap [
     rml:predicate :hasType ;
     rml:objectMap [
-      rml:reference "hobby_type" ;
+      rml:reference "item.type" ;
+    ] ;
+  ] ;
+  rml:predicateObjectMap [
+    rml:predicate :hasWeight ;
+    rml:objectMap [
+      rml:reference "item.weight" ;
+      rml:datatype xsd:integer ;
     ] ;
   ] .

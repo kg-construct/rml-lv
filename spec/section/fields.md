@@ -246,140 +246,23 @@ If no iterator is declared for a field, a default iterator is implied. If the re
 
 For the application of the <a data-cite="RML-Core#dfn-expressions">expression</a> of a [=field=] on the records of the [=field parent=], the parent's reference formulation is used, resulting in [=record sequence=] *R*. Afterwards the field's iterator is applied on this resulting record sequence *R* to obtain the [=field record sequence=] defined by the field. 
 
-<aside class=example id=ex-mixed-format-csv-json>
-
-In this example a [=logical view=] is defined on a <!-- TODO reference to core, dependent on https://github.com/kg-construct/rml-core/issues/127-->[logical source]() with reference formulation `rml:CSV`.
-The [=field=] with [=declared name=] "item" has a declared <!-- TODO reference to core reference formulation when available-->[reference formulation]() `rml:JSONPath` and an implied iterator "$.*". First, the expression "item" is evaluated using the reference formulation of the [=field parent=]. Second, the implicit iterator of the field is applied on the resulting records. 
-The nested fields with [=declared name=] "type" and "weight" are evaluated using the reference formulation `rml:JSONPath' from their parent field  with [=declared name=] "item" .
-
-<aside class=ex-input>
-
-```csv
-name,item 
-alice,"{""type"":""sword"",""weight"":1500}"
-alice, "{""type"":""shield"",""weight"":2500}"  
-bob,"{""type"":""flower"",""weight"":15}"  
-```
-</aside>
-<aside class=ex-mapping>
-
-```turtle
-:mixedCSVSource a rml:InputLogicalSource ;
-  rml:source :mixedCSVFile ;
-  rml:referenceFormulation rml:CSV .
-
-:mixedCSVView a rml:LogicalView ;
-  rml:viewOn :mixedCSVSource ;
-    rml:field [    
-      rml:fieldName "item" ;    
-      rml:reference "item" ;    
-      rml:referenceFormulation rml:JSONPath ;  
-      rml:field [      
-        rml:fieldName "type" ;      
-        rml:reference "$.type" ; ] ; 
-      rml:field [      
-        rml:fieldName "weight" ;      
-        rml:reference "$.weight" ; ] ; ] .
-```
-
-</aside>
-Note some columns in the table below have been shortened for brevity.
-<aside class="ex-intermediate">
-<table>
-<tr>
-<td>#</td>
-<td>
-
-`<it>`
-</td>
-<td>item.#</td>
-<td>item</td>
-<td>item.type.#</td>
-<td>time.type</td>
-<td>item.weight.#</td>
-<td>time.weight</td>
-</tr>
-<tr>
-<td>0</td>
-<td>alice,&quot;{...}&quot; </td>
-<td>0</td>
-<td>
-
-```json
-{
-"type": "sword",
-"weight": 1500
-}
-```
-
-</td>
-<td>0</td>
-<td>sword</td>
-<td>0</td>
-<td>2500</td>
-</tr>
-<tr>
-<td>1</td>
-<td>alice,&quot;{...}&quot;  </td>
-<td>0</td>
-<td>
-
-```json
-{
-"type": "shield",
-"weight": 2500
-}
-```
-
-</td>
-<td>0</td>
-<td>shield</td>
-<td>0</td>
-<td>1500</td>
-</tr>
-<tr>
-<td>2</td>
-<td>bob,&quot;{...}&quot;  </td>
-<td>0</td>
-<td>
-
-```json
-{
-"type": "flower",
-"weight": 15
-}
-```
-
-</td>
-<td>0</td>
-<td>flower</td>
-<td>0</td>
-<td>15</td>
-</tr>
-</table>
-</aside>
-
-</aside>
-
-
 <aside class=example id=ex-mixed-format-json-csv>
 
 In this example a [=logical view=] is defined on a <!-- TODO reference to core, dependent on https://github.com/kg-construct/rml-core/issues/127-->[logical source]() with reference formulation `rml:JSONPath`.
-The [=field=] with [=declared name=] "hobbies" has a declared <!-- TODO reference to core reference formulation when available-->[reference formulation]() `rml:CSV` and CSV row as implicit iterator. 
-First the expression "$.hobbies" is evaluated using the reference formulation of the [=field parent=]. Then the field's reference formulation and iterator is applied on the resulting records.
-The nested fields with [=declared name=] "id" and "type" are evaluated using the reference formulation `rml:CSV` from their parent field  with [=declared name=] "hobbies" .
-<aside class=ex-input>
+The [=field=] with [=declared name=] "item" has a declared <!-- TODO reference to core reference formulation when available-->[reference formulation]() `rml:CSV` and CSV row as implicit iterator. 
+First the expression "$.items" is evaluated using the reference formulation of the [=field parent=]. Second, the implicit iterator of the field is applied on the resulting records.
+The nested fields with [=declared name=] "type" and "weight" are evaluated using the reference formulation `rml:CSV` from their parent field  with [=declared name=] "item".
 
 ```json
 {
   "people": [
     {
       "name": "alice",
-      "hobbies": "id;type\n1;volleyball\n2;basketball\n3;horses"
+      "items": "type,weight\nsword,1500\nshield,2500"
     },
     {
       "name": "bob",
-      "hobbies": "id;type\n1;football"
+      "items": "type,weight\nflower,15"
     }
   ]
 }  
@@ -393,20 +276,19 @@ The nested fields with [=declared name=] "id" and "type" are evaluated using the
   rml:referenceFormulation rml:JSONPath ;
   rml:iterator "$.people[*]" .
 
-:jsonView a rml:LogicalView ;
+:mixedJSONView a rml:LogicalView ;
   rml:viewOn :mixedJSONSource ;
   rml:field [
-    rml:fieldName "hobbies" ;
-    rml:reference "$.hobbies" ;
-    rml:referenceFormulation rml:CSV;  
-    # implicit default iterator is CSV row 
-    rml:field [
-      rml:fieldName "id" ;
-      rml:reference "id" ;
-    ] ;
+    rml:fieldName "item" ;
+    rml:reference "$.items" ;
+    rml:referenceFormulation rml:CSV;
     rml:field [
       rml:fieldName "type" ;
       rml:reference "type" ;
+    ] ;
+    rml:field [
+      rml:fieldName "weight" ;
+      rml:reference "weight" ;
     ] ;
   ] .
 ```
@@ -418,12 +300,12 @@ Note some columns in the table below have been shortened for brevity.
 <tr>
 <td>#</td>
 <td>&lt;it&gt;</td>
-<td>hobbies</td>
-<td>hobbies.#</td>
-<td>hobbies.id</td>
-<td>hobbies.id.#</td>
-<td>hobbies.type</td>
-<td>hobbies.type.#</td>
+<td>item</td>
+<td>item.#</td>
+<td>item.type</td>
+<td>item.type.#</td>
+<td>item.weight</td>
+<td>item.weight.#</td>
 </tr>
 <tr>
 <td>0</td>
@@ -435,11 +317,11 @@ Note some columns in the table below have been shortened for brevity.
 ```
 
 </td>
-<td>1;volleyball</td>
+<td>sword,1500</td>
 <td>0</td>
-<td>1</td>
+<td>sword</td>
 <td>0</td>
-<td>volleyball</td>
+<td>1500</td>
 <td>0</td>
 </tr>
 <tr>
@@ -452,15 +334,15 @@ Note some columns in the table below have been shortened for brevity.
 ```
 
 </td>
-<td>2;basketball</td>
+<td>shield,2500</td>
 <td>1</td>
-<td>2</td>
+<td>shield</td>
 <td>0</td>
-<td>basketball</td>
+<td>2500</td>
 <td>0</td>
 </tr>
 <tr>
-<td>0</td>
+<td>1</td>
 <td>
 
 ```json 
@@ -470,26 +352,14 @@ Note some columns in the table below have been shortened for brevity.
 
 
 </td>
-<td>3;horses</td>
-<td>2</td>
-<td>3</td>
+<td>flower,15</td>
 <td>0</td>
-<td>horses</td>
+<td>flower</td>
 <td>0</td>
-</tr>
-<tr>
-<td>1</td>
-<td></td>
-<td>1;football</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>football</td>
+<td>15</td>
 <td>0</td>
 </tr>
 </table>
-</aside>
-
 </aside>
 
 ### Using field names in triples maps

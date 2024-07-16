@@ -26,23 +26,26 @@
       rml:reference "$.type" ; ] ;
     rml:field [
       rml:fieldName "weight" ;
-      rml:reference "$.weight" ; ] ; ] .
+      rml:reference "$.weight" ;
+    ] ;
+  ] .
 
 :triplesMapItem a rml:TriplesMap ;
   rml:logicalSource :mixedCSVView ;
   rml:subjectMap [
-    rml:template "http://example.org/person/{name}/item/{item.#}/{item_type}" ;
+    rml:template "item_{#}_{item.#}" ;
+    rml:termType rml:BlankNode ;
   ] ;
   rml:predicateObjectMap [
     rml:predicate :hasType ;
     rml:objectMap [
-      rml:reference "item_type" ;
+      rml:reference "item.type" ;
     ] ;
   ] ;
   rml:predicateObjectMap [
     rml:predicate :hasWeight ;
     rml:objectMap [
-      rml:reference "item_weight" ;
+      rml:reference "item.weight" ;
       rml:datatype xsd:integer ;
     ] ;
   ] .
