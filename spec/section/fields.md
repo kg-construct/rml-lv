@@ -4,7 +4,7 @@ A <dfn>field</dfn> is a type of <a data-cite="RML-Core#dfn-expression-map">expre
 
 A [=field=] is also a type of <!-- TODO reference to core logically iterable when available-->[logically iterable](). Consequently, a [=field=] MUST have a <!-- TODO reference to core reference formulation when available-->[reference formulation]() and an <!-- TODO reference to core iterator when available-->[iterator](). 
 
-A [=field=] (`rml:Field`) MUST have following additional properties:
+A [=field=] (`rml:Field`) MUST have the following additional properties:
 - exactly one field name property (`rml:fieldName`), that specifies the [=name=] of the field
 - zero or more field properties (`rml:field`), to describe nested [=field=], also of the type `rml:Field`
 
