@@ -240,7 +240,7 @@ Note some columns in the table below have been shortened for brevity.
 
 ### Field reference formulations and iterators {#fieldreferenceformulations}
 
-A [=field=] MUST have an a <!-- TODO reference to core reference formulation when available-->[reference formulation]() and an <!-- TODO reference to core iterator when available-->[iterator]() . 
+A [=field=] MUST have a <!-- TODO reference to core reference formulation when available-->[reference formulation]() and an <!-- TODO reference to core iterator when available-->[iterator]() . 
 If no reference formulation is declared for a field, the reference formulation of the [=field parent=] is implied.
 If no iterator is declared for a field, a default iterator is implied. If the reference formulation of the field is `rml:JSONPath` or `rml:XMLPath`, the default iterator is the root of the document. Otherwise, the default iterator is a row.
 
