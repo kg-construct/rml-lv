@@ -1,0 +1,6 @@
+_:item_0_0 <http://example.org/hasType> "sword" .
+_:item_0_0 <http://example.org/hasWeight> "1500"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:item_0_1 <http://example.org/hasType> "shield" .
+_:item_0_1 <http://example.org/hasWeight> "2500"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:item_1_0 <http://example.org/hasType> "flower" .
+_:item_1_0 <http://example.org/hasWeight> "15"^^<http://www.w3.org/2001/XMLSchema#integer> .
