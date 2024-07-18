@@ -12,6 +12,6 @@ A [=logical view=] (`rml:LogicalView`) has an implicit default <!-- TODO referen
 | Property        | Domain                         | Range                 |
 |-----------------|--------------------------------|-----------------------|
 | `rml:viewOn`    | `rml:LogicalView`              | `rml:LogicalSource`   |
-| `rml:field`     | `rml:LogicalView`, `rml:Field` | `rml:Field`           |
+| `rml:field`     | `rml:LogicalView` or `rml:Field` | `rml:Field`           |
 | `rml:leftJoin`  | `rml:LogicalView`              | `rml:LogicalViewJoin` |
 | `rml:innerJoin` | `rml:LogicalView`              | `rml:LogicalViewJoin` |
