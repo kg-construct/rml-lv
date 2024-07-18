@@ -121,9 +121,9 @@ Note that every [=PrimaryKey annotation=] is, as a matter of fact, also a [=NotN
 The <dfn data-lt="ForeignKey annotation">ForeignKey structural annotation</dfn> (`rml:ForeignKeyAnnotation`) is analogous to the notion of <i>foreign key constraint</i> in databases. Specifically, a [=ForeignKey annotation=] [=on fields=]  _(f1, ..., fn)_ , [=target view=] <i>lv</i>, and [=target fields=] _(tf1,...,tfn)_ imposes the following conditions:
 
 - each NULL-free record sequence over the list of fields _(f1, ..., fn)_ occurs also as a record sequence in _(tf1,...,tfn)_;
-- Target view <i>lv</i> defines a [=Unique=] annotation [=on fields=] _(tf1,...,tfn)_.
+- Target view <i>lv</i> defines a [=Unique annotation=] [=on fields=] _(tf1,...,tfn)_.
 
-The <def>target view</def> is a [=logical view=] specified through the property `rml:targetView`, whereas the <def>target fields</def> are an RDF list of field names specified through the property `rml:targetFields`. These two properties are specified as follows:
+The <dfn>target view</dfn> is a [=logical view=] specified through the property `rml:targetView`, whereas the <dfn>target fields</dfn> are an RDF list of field names specified through the property `rml:targetFields`. These two properties are specified as follows:
 
 | Property                | Domain                | Range               |
 |-------------------------|-----------------------|---------------------|
@@ -267,7 +267,7 @@ The <dfn data-lt="Inclusion annotation">Inclusion structural annotation</dfn> (`
 
 - each NULL-free record sequence over the list of fields _(f1, ..., fn)_ occurs also as a record sequence in _(tf1,...,tfn)_;
 
-As for [=ForeignKey annotation=], the <def>target view</def> MUST be a [=logical view=] specified through the property `rml:targetView`, whereas the <def>target fields</def> MUST be an RDF list of field names specified through the property `rml:targetFields`.
+As for [=ForeignKey annotation=], the [=target view=] MUST be a [=logical view=] specified through the property `rml:targetView`, whereas the <def>target fields</def> MUST be an RDF list of field names specified through the property `rml:targetFields`.
 
 Therefore, each inclusion annotation MUST specify (additionally to the inherited `rml:onFields` property):
 
