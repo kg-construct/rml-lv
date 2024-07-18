@@ -12,7 +12,7 @@ A [=field=] (`rml:Field`) MUST have the following additional properties:
 | Property                     | Domain                         | Range                      |
 |------------------------------|--------------------------------|----------------------------|
 | `rml:fieldName`              | `rml:Field`                    | `rml:LogicalSource`        |
-| `rml:field`                  | `rml:LogicalView`,`rml:Field` | `rml:Field`                |
+| `rml:field`                  | `rml:LogicalView` or `rml:Field` | `rml:Field`                |
 
 ### Field parents {#fieldparents}
 
