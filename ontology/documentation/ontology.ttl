@@ -116,7 +116,6 @@ rml:LogicalView rdf:type owl:Class ;
 
 ###  http://w3id.org/rml/LogicalViewJoin
 rml:LogicalViewJoin rdf:type owl:Class ;
-                    rdfs:subClassOf rml:Join ;
                     rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
 
