@@ -101,9 +101,9 @@ It is not possible to declare the construction of below output triples from belo
 
 ```csv
 name,id
-alice,1
-bob,2
-tobias,3
+alice,123
+bob,456
+tobias,789
 ```
 </aside>
 
@@ -120,8 +120,8 @@ bob,flower
 <aside class="ex-output">
 
 ```turtle
-:person/1 :hasItem "sword", "shield" . 
-:person/2 :hasItem "flower" .
+:person/123 :hasItem "sword", "shield" . 
+:person/456 :hasItem "flower" .
 ```
 </aside>
 </aside>

@@ -113,21 +113,21 @@ If an inner joins would have been used, the logical view would have only 3 logic
     <tr>
         <td>1</td>
         <td>(row)</td>
-        <td>1</td>
+        <td>0</td>
         <td>bob</td>
-        <td>1</td>
+        <td>0</td>
         <td>1999</td>
-        <td>2</td>
+        <td>0</td>
         <td>flower</td>
-        <td>2</td>
+        <td>0</td>
         <td>15 </td>
     </tr>
     <tr>
         <td>2</td>
         <td>(row)</td>
-        <td>2</td>
+        <td>0</td>
         <td>tobias</td>
-        <td>2</td>
+        <td>0</td>
         <td>2005</td>
         <td>null</td>
         <td>null</td>
@@ -217,13 +217,13 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
     <tr>
         <td>1</td>
         <td>(row)</td>
-        <td>1</td>
+        <td>0</td>
         <td>bob</td>
-        <td>1</td>
+        <td>0</td>
         <td>1999</td>
-        <td>2</td>
+        <td>0</td>
         <td>flower</td>
-        <td>2</td>
+        <td>0</td>
         <td>15 </td>
     </tr>
 </table>
@@ -241,9 +241,9 @@ In this example a second [=logical view join=] is added to the [=logical view=] 
 
 ```csv
 name,id
-alice,1
-bob,2
-tobias,3
+alice,123
+bob,456
+tobias,789
 ```
 </aside>
 
@@ -329,7 +329,7 @@ tobias,3
         <td>0</td>
         <td>1500 </td>
         <td>0</td>
-        <td>1</td>
+        <td>123</td>
     </tr>
     <tr>
         <td>0</td>
@@ -343,35 +343,35 @@ tobias,3
         <td>1</td>
         <td>2500 </td>
         <td>0</td>
-        <td>1</td>
+        <td>123</td>
     </tr>
     <tr>
         <td>1</td>
         <td>(row)</td>
-        <td>1</td>
+        <td>0</td>
         <td>bob</td>
-        <td>1</td>
+        <td>0</td>
         <td>1999</td>
-        <td>2</td>
+        <td>0</td>
         <td>flower</td>
-        <td>2</td>
+        <td>0</td>
         <td>15 </td>
         <td>0</td>
-        <td>2</td>
+        <td>456</td>
     </tr>
     <tr>
         <td>2</td>
         <td>(row)</td>
-        <td>2</td>
+        <td>0</td>
         <td>tobias</td>
-        <td>2</td>
+        <td>0</td>
         <td>2005</td>
         <td>null</td>
         <td>null</td>
         <td>null</td>
         <td>null </td>
         <td>0</td>
-        <td>3</td>
+        <td>789</td>
     </tr>
 </table>
 
