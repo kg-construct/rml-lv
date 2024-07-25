@@ -34,8 +34,7 @@
 :triplesMapItem a rml:TriplesMap ;
   rml:logicalSource :mixedJSONView ;
   rml:subjectMap [
-    rml:template "item_{#}_{item.#}" ;
-    rml:termType rml:BlankNode ;
+    rml:template "http://example.org/item_{#}_{item.#}" ;
   ] ;
   rml:predicateObjectMap [
     rml:predicate :hasType ;

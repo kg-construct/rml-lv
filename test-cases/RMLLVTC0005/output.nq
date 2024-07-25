@@ -8,6 +8,6 @@ _:item_0_1 <http://example.org/hasType> "shield" .
 _:item_0_1 <http://example.org/hasWeight> "2500"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://example.org/people/bob> <http://example.org/hasName> "bob" .
 <http://example.org/people/bob> <http://example.org/hasBirthyear> "1999"^^<http://www.w3.org/2001/XMLSchema#gYear> .
-<http://example.org/people/bob> <http://example.org/hasItem> _:item_1_2 .
-_:item_1_2 <http://example.org/hasType> "flower" .
-_:item_1_2 <http://example.org/hasWeight> "1500"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://example.org/people/bob> <http://example.org/hasItem> _:item_1_0 .
+_:item_1_0 <http://example.org/hasType> "flower" .
+_:item_1_0 <http://example.org/hasWeight> "15"^^<http://www.w3.org/2001/XMLSchema#integer> .

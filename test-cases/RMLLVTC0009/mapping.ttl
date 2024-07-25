@@ -39,14 +39,14 @@
     rml:referenceFormulation rml:CSV .
 
   :additionalCsvView a rml:LogicalView ;
-    rml:viewOn :csvSource ;
+    rml:viewOn :additionalCsvSource ;
     rml:field [
       rml:fieldName "name" ;
       rml:reference "name" ;
     ] ;
     rml:field [
       rml:fieldName "id" ;
-      rml:reference "idr" ;
+      rml:reference "id" ;
     ] ;
     .
 
@@ -84,7 +84,7 @@
     ] ;
   ] ;
   rml:leftJoin [
-    rml:parentLogicalView :addionalCsvView ;
+    rml:parentLogicalView :additionalCsvView ;
     rml:joinCondition [
       rml:parent "name" ;
       rml:child "name" ;
@@ -98,7 +98,7 @@
 :triplesMapPerson a rml:TriplesMap ;
   rml:logicalSource :csvView ;
   rml:subjectMap [
-    rml:template "http://example.org/person/{id}" ;
+    rml:template "http://example.org/people/{id}" ;
   ] ;
   rml:predicateObjectMap [
     rml:predicate :hasName ;
@@ -123,8 +123,7 @@
 :triplesMapItem a rml:TriplesMap ;
   rml:logicalSource :csvView ;
   rml:subjectMap [
-    rml:template "item_{#}_{item_type.#}" ;
-    rml:termType rml:BlankNode ;
+    rml:template "http://example.org/item_{#}_{item_type.#}" ;
   ] ;
   rml:predicateObjectMap [
     rml:predicate :hasType ;

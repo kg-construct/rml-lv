@@ -67,7 +67,7 @@
 :triplesMapPerson a rml:TriplesMap ;
   rml:logicalSource :csvView ;
   rml:subjectMap [
-    rml:template "http://example.org/person/{name}" ;
+    rml:template "http://example.org/people/{name}" ;
   ] ;
   rml:predicateObjectMap [
     rml:predicate :hasName ;
