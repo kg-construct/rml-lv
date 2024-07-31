@@ -36,7 +36,7 @@ An <dfn>inner join</dfn> (`rml:innerJoin`) is the equivalent of an inner join in
 
 <aside class=example id=ex-leftjoin>
 
-In this example a [=logical view=] with fields built with data from the logical source form [[[#csviterator]]] is joined with the logical view from [[[#ex-field-record-sequence]]]. 
+In this example a [=logical view=] with fields built with data from the logical source from [[[#csviterator]]] is joined with the logical view from [[[#ex-field-record-sequence]]]. 
 In case of a left join (as in the example), this results in 4 logical iterations in the logical view. 
 If an inner joins would have been used, the logical view would have only 3 logical iterations. 
 
