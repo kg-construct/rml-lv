@@ -15,7 +15,7 @@ A [=logical view join=] (`rml:LogicalViewJoin`) MUST contain:
 
 ### Join types {#dfn-join-type}
 
-A [=logical view=] (`rml:LogicalView`) MAY have one or more join properties, whose value is a [=logical view join=]. 
+A [=logical view=] (`rml:LogicalView`) MUST have zero or more join properties, whose value is a [=logical view join=]. 
 This [=logical view=] fulfills the role of <!-- TODO reference to core child logical source when available-->[child logical source]() in the <a data-cite="RML-Core#dfn-join-condition">join condition(s)</a> of the [=logical view join=], and is referred to as <dfn>child logical view</dfn>. 
 The logical iterations of the [=child logical view=] are extended with the fields defined in the [=logical view join=].  
 
