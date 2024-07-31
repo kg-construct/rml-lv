@@ -17,7 +17,7 @@ The [=logical view=] in the subject position of the [=join property=], fulfills 
 
 ### Join types {#dfn-join-type}
 
-The <dfn>join property</dfn> specifies the join type of the [=logical view join=], i.e. a [=left join=] and an [=inner join=]. 
+The <dfn>join property</dfn> specifies the join type of the [=logical view join=], i.e. a [=left join=] or an [=inner join=].
 
 A <dfn>left join</dfn> (`rml:leftJoin`) is the equivalent of a left (outer) join in SQL, where the [=child logical view=] is the left part of the join, and the [=parent logical view=] is the right part of the join. If any of the <a data-cite="RML-Core#dfn-join-condition">join conditions</a> evaluates to `false`, the fields from the [=logical view join=] in the extended logical iteration contain a null value.
 
