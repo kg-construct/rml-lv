@@ -5,7 +5,7 @@ A <dfn>logical view join</dfn> (`rml:LogicalViewJoin`) is an operation that exte
 A [=logical view join=] (`rml:LogicalViewJoin`) MUST contain:
 - exactly one parent logical view property (`rml:parentLogicalView`), whose value is a [=logical view=] (`rml:LogicalView`) that supplies the additional fields, fulfills the role of the <!-- TODO reference to core parent logical source when available-->[parent logical source]() in the <a data-cite="RML-Core#dfn-join-condition">join condition(s)</a> of the [=logical view join=], and is referred to as <dfn>parent logical view</dfn>.
 - at least one join condition property (`rml:joinCondition`), whose value is a <a data-cite="RML-Core#dfn-join-condition">join condition</a>.
-- at least one field property (`rml:field`), whose value is a [=field=] (`rml:Field`). This field MAY only contain references to fields that exists in the parent logical view. 
+- at least one field property (`rml:field`), whose value is a [=field=] (`rml:Field`). This field SHOULD only contain references to fields that exists in the parent logical view. 
 
 | Property                | Domain                | Range               |
 |-------------------------|-----------------------|---------------------|
