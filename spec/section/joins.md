@@ -83,7 +83,7 @@ If an inner joins would have been used, the logical view would have only 3 logic
         <td>birthyear</td>
         <td>item_type.#</td>
         <td>item_type</td>
-        <td>item_weight#</td>
+        <td>item_weight.#</td>
         <td>item_weight </td>
     </tr>
     <tr>
@@ -187,7 +187,7 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
         <td>birthyear</td>
         <td>item_type.#</td>
         <td>item_type</td>
-        <td>item_weight#</td>
+        <td>item_weight.#</td>
         <td>item_weight </td>
     </tr>
     <tr>
@@ -312,7 +312,7 @@ tobias,789
         <td>birthyear</td>
         <td>item_type.#</td>
         <td>item_type</td>
-        <td>item_weight#</td>
+        <td>item_weight.#</td>
         <td>item_weight</td>
         <td>id#</td>
         <td>id</td>
