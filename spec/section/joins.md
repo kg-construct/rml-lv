@@ -1,11 +1,13 @@
 ## Logical view joins {#viewjoins}
 
-A <dfn>logical view join</dfn> (`rml:LogicalViewJoin`) is an operation that extends the logical iteration of one logical view (the [=child logical view=]) with fields derived from another logical view (the [=parent logical view=]).
+A <dfn>logical view join</dfn> (`rml:LogicalViewJoin`) is an operation that extends the logical iteration of one logical view (the [=child logical view=]) with fields derived from another logical view (the [=parent logical view=]).  
 
 A [=logical view join=] (`rml:LogicalViewJoin`) MUST contain:
 - exactly one parent logical view property (`rml:parentLogicalView`), whose value is a [=logical view=] (`rml:LogicalView`) that supplies the additional fields, fulfills the role of the <!-- TODO reference to core parent logical source when available-->[parent logical source]() in the <a data-cite="RML-Core#dfn-join-condition">join condition(s)</a> of the [=logical view join=], and is referred to as <dfn>parent logical view</dfn>.
 - at least one join condition property (`rml:joinCondition`), whose value is a <a data-cite="RML-Core#dfn-join-condition">join condition</a>.
 - at least one field property (`rml:field`), whose value is a [=field=] (`rml:Field`). This field SHOULD only contain references to fields that exists in the parent logical view. 
+
+The [=logical view=] in the subject position of the [=join property=], fulfills the role of <!-- TODO reference to core child logical source when available-->[child logical source]() in the <a data-cite="RML-Core#dfn-join-condition">join condition(s)</a> of the [=logical view join=], and is referred to as <dfn>child logical view</dfn>.
 
 | Property                | Domain                | Range               |
 |-------------------------|-----------------------|---------------------|
@@ -15,20 +17,11 @@ A [=logical view join=] (`rml:LogicalViewJoin`) MUST contain:
 
 ### Join types {#dfn-join-type}
 
-A [=logical view=] (`rml:LogicalView`) MUST have zero or more join properties, whose value is a [=logical view join=]. 
-This [=logical view=] fulfills the role of <!-- TODO reference to core child logical source when available-->[child logical source]() in the <a data-cite="RML-Core#dfn-join-condition">join condition(s)</a> of the [=logical view join=], and is referred to as <dfn>child logical view</dfn>. 
-The logical iterations of the [=child logical view=] are extended with the fields defined in the [=logical view join=].  
-
-The join property specifies the join type of the [=logical view join=], i.e. a [=left join=] and an [=inner join=]. 
+The <dfn>join property</dfn> specifies the join type of the [=logical view join=], i.e. a [=left join=] and an [=inner join=]. 
 
 A <dfn>left join</dfn> (`rml:leftJoin`) is the equivalent of a left (outer) join in SQL, where the [=child logical view=] is the left part of the join, and the [=parent logical view=] is the right part of the join. If any of the <a data-cite="RML-Core#dfn-join-condition">join conditions</a> evaluates to `false`, the fields from the [=logical view join=] in the extended logical iteration contain a null value.
 
 An <dfn>inner join</dfn> (`rml:innerJoin`) is the equivalent of an inner join in SQL. If any of the <a data-cite="RML-Core#dfn-join-condition">join conditions</a> evaluates to `false`, the logical iteration is removed from the [=child logical view=].
-
-| Property          | Domain            | Range                  |
-|-------------------|-------------------|------------------------|
-| `rml:leftJoin`    | `rml:LogicalView` | `rml:LogicalViewJoin`  |
-| `rml:innerJoin`   | `rml:LogicalView` | `rml:LogicalViewJoin ` |
 
 ### Logical view join examples
 
