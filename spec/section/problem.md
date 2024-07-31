@@ -7,7 +7,7 @@ RML Logical Views aims to resolve challenges such as handling hierarchy of neste
 ### Nested data structures
 
 References to nested data structures, like JSON or XML, may return multiple values. These values can be composite: they may again contain multiple values. 
-<a data-cite="RML-Core">RML-Core</a>defines mapping constructs that produce results by combining the results of other mapping constructs in a specific order. 
+<a data-cite="RML-Core">RML-Core</a> defines mapping constructs that produce results by combining the results of other mapping constructs in a specific order. 
 For example, a <a data-cite="RML-Core#dfn-triples-map">triples map</a> combines the results of a <a data-cite="RML-Core#dfn-subject-map">subject map</a> and a <a data-cite="RML-Core#dfn-predicate-object-map">predicate-object map</a> in that order. 
 Another example is a <a data-cite="RML-Core#dfn-template-expression">template expression</a>, 
 which combines character strings and zero or more <a data-cite="RML-Core#dfn-reference-expression">reference expressions</a> in declared order. 
@@ -101,9 +101,9 @@ It is not possible to declare the construction of below output triples from belo
 
 ```csv
 name,id
-alice,1
-bob,2
-tobias,3
+alice,123
+bob,456
+tobias,789
 ```
 </aside>
 
@@ -120,8 +120,8 @@ bob,flower
 <aside class="ex-output">
 
 ```turtle
-:person/1 :hasItem "sword", "shield" . 
-:person/2 :hasItem "flower" .
+:person/123 :hasItem "sword", "shield" . 
+:person/456 :hasItem "flower" .
 ```
 </aside>
 </aside>

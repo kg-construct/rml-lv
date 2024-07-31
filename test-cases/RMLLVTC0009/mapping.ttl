@@ -30,6 +30,26 @@
     ] ;
   ] .
 
+  :additionalCsvSource a rml:InputLogicalSource ;
+    rml:source [
+      a rml:RelativePathSource , rml:Source ;
+      rml:root rml:MappingDirectory ;
+      rml:path "people2.csv" ;
+    ] ;
+    rml:referenceFormulation rml:CSV .
+
+  :additionalCsvView a rml:LogicalView ;
+    rml:viewOn :additionalCsvSource ;
+    rml:field [
+      rml:fieldName "name" ;
+      rml:reference "name" ;
+    ] ;
+    rml:field [
+      rml:fieldName "id" ;
+      rml:reference "id" ;
+    ] ;
+    .
+
 :csvSource a rml:InputLogicalSource ;
   rml:source [
     a rml:RelativePathSource , rml:Source ;
@@ -48,7 +68,7 @@
     rml:fieldName "birthyear" ;
     rml:reference "birthyear" ;
   ] ;
-  rml:innerJoin [
+  rml:leftJoin [
     rml:parentLogicalView :jsonView ;
     rml:joinCondition [
       rml:parent "name" ;
@@ -62,12 +82,23 @@
       rml:fieldName "item_weight" ;
       rml:reference "item.weight" ;
     ] ;
+  ] ;
+  rml:leftJoin [
+    rml:parentLogicalView :additionalCsvView ;
+    rml:joinCondition [
+      rml:parent "name" ;
+      rml:child "name" ;
+    ] ;
+    rml:field [
+      rml:fieldName "id" ;
+      rml:reference "id" ;
+    ] ;
   ] .
 
 :triplesMapPerson a rml:TriplesMap ;
   rml:logicalSource :csvView ;
   rml:subjectMap [
-    rml:template "http://example.org/people/{name}" ;
+    rml:template "http://example.org/people/{id}" ;
   ] ;
   rml:predicateObjectMap [
     rml:predicate :hasName ;
@@ -92,8 +123,7 @@
 :triplesMapItem a rml:TriplesMap ;
   rml:logicalSource :csvView ;
   rml:subjectMap [
-    rml:template "item_{#}_{item_type.#}" ;
-    rml:termType rml:BlankNode ;
+    rml:template "http://example.org/item_{#}_{item_type.#}" ;
   ] ;
   rml:predicateObjectMap [
     rml:predicate :hasType ;

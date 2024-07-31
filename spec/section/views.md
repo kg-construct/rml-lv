@@ -5,7 +5,7 @@ A <dfn>logical view</dfn> (`rml:LogicalView`) is a type of <!-- TODO link to log
 A [=logical view=] (`rml:LogicalView`) is represented by a resource that MUST contain:
 - exactly one view on property (`rml:viewOn`), whose value is a <!-- TODO reference to core, dependent on https://github.com/kg-construct/rml-core/issues/127-->[logical source](https://kg-construct.github.io/rml-io/spec/docs/#source-vocabulary) (`rml:LogicalSource`),
 - at least one field property (`rml:field`), whose value is a [=field=] (`rml:Field`).
-- zero or more join properties (`rml:leftJoin`, `rml:innerJoin`) to describe a [=logical view join=] operation (`rml:LogicalViewJoin`) with another [=Logical View=].
+- zero or more join properties (`rml:leftJoin`, `rml:innerJoin`), whose value is a [=logical view join=](`rml:LogicalViewJoin`).
 
 A [=logical view=] (`rml:LogicalView`) has an implicit default <!-- TODO reference to core, dependent on https://github.com/kg-construct/rml-core/issues/127-->reference formulation (`rml:referenceFormulation`) and logical iterator (`rml:iterator`), which MUST not be overwritten. 
 
