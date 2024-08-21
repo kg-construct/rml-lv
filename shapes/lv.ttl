@@ -3,6 +3,7 @@
 @prefix rmlsh: <http://w3id.org/rml/shapes/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 <http://w3id.org/rml/lv/shapes> a owl:Ontology ;
     owl:imports <http://w3id.org/rml/core/shapes> ;
@@ -11,8 +12,8 @@
 
 # rml:LogicalView
 rmlsh:LogicalViewShape a sh:NodeShape ;
-    sh:name "LogicalView" ;
-    sh:description """
+    rdfs:label "LogicalView" ;
+    rdfs:comment """
     A logical view (rml:LogicalView) is a type of logical source that is derived from another logical source by defining field with data from said logical source.
     """ ;
     sh:message """
@@ -24,7 +25,7 @@ rmlsh:LogicalViewShape a sh:NodeShape ;
     sh:targetClass rml:LogicalView ;
     sh:targetObjectsOf rml:parentLogicalView ;
     sh:property [
-        sh:description """
+        rdfs:comment """
         The source of the logical view. This is the logical source from which the logical view is derived.
         """ ;
         sh:message """
@@ -36,7 +37,7 @@ rmlsh:LogicalViewShape a sh:NodeShape ;
         sh:node rmlsh:LogicalSource ;
         sh:nodeKind sh:BlankNodeOrIRI ;
     ] , [
-        sh:description """
+        rdfs:comment """
         A field of the logical view.
         """ ;
         sh:message """
@@ -46,7 +47,7 @@ rmlsh:LogicalViewShape a sh:NodeShape ;
         sh:minCount 1 ;
         sh:nodeKind sh:BlankNodeOrIRI ;
     ] , [
-        sh:description """
+        rdfs:comment """
         A left join of the logical view.
         """ ;
         sh:message """
@@ -55,7 +56,7 @@ rmlsh:LogicalViewShape a sh:NodeShape ;
         sh:path rml:leftJoin ;
         sh:nodeKind sh:BlankNodeOrIRI ;
     ] , [
-        sh:description """
+        rdfs:comment """
         An inner join of the logical view.
         """ ;
         sh:message """
@@ -65,7 +66,7 @@ rmlsh:LogicalViewShape a sh:NodeShape ;
         sh:nodeKind sh:BlankNodeOrIRI ;
     ] ,
     [
-        sh:description """
+        rdfs:comment """
         A structural annotation of the logical view.
         """ ;
         sh:message """
@@ -77,8 +78,8 @@ rmlsh:LogicalViewShape a sh:NodeShape ;
 .
 
 rmlsh:FieldShape a sh:NodeShape ;
-    sh:name "Field" ;
-    sh:description """
+    rdfs:label "Field" ;
+    rdfs:comment """
     A field is an expression map that gives a name to an expression.
     """ ;
     sh:message """
@@ -89,7 +90,7 @@ rmlsh:FieldShape a sh:NodeShape ;
     sh:targetClass rml:Field ;
     sh:targetObjectsOf rml:field ;
     sh:property [
-        sh:description """
+        rdfs:comment """
         The name of the field.
         """ ;
         sh:message """
@@ -101,7 +102,7 @@ rmlsh:FieldShape a sh:NodeShape ;
         sh:datatype xsd:string ;
         sh:nodeKind sh:Literal ;
     ] , [
-        sh:description """
+        rdfs:comment """
         A child field of the field.
         """ ;
         sh:message """
@@ -112,8 +113,8 @@ rmlsh:FieldShape a sh:NodeShape ;
     ] .
 
 rmlsh:LogicalViewJoinShape a sh:NodeShape ;
-    sh:name "LogicalViewJoin" ;
-    sh:description """
+    rdfs:label "LogicalViewJoin" ;
+    rdfs:comment """
     A LogicalViewJoin is an operation that adapts the logical iterations of one logical view (the child logical view) with fields from another logical view (the parent logical view).
     """ ;
     sh:message """
@@ -127,7 +128,7 @@ rmlsh:LogicalViewJoinShape a sh:NodeShape ;
     sh:targetClass rml:LogicalViewJoin ;
     sh:targetObjectsOf rml:leftJoin , rml:innerJoin ;
     sh:property [
-        sh:description """
+        rdfs:comment """
         The parent logical view of the logical view join.
         """ ;
         sh:message """
@@ -138,7 +139,7 @@ rmlsh:LogicalViewJoinShape a sh:NodeShape ;
         sh:maxCount 1 ;
         sh:nodeKind sh:BlankNodeOrIRI ;
     ] , [
-        sh:description """
+        rdfs:comment """
         A join condition of the logical view join.
         """ ;
         sh:message """
@@ -148,7 +149,7 @@ rmlsh:LogicalViewJoinShape a sh:NodeShape ;
         sh:minCount 1 ;
         sh:nodeKind sh:BlankNodeOrIRI ;
     ] , [
-        sh:description """
+        rdfs:comment """
         A join condition of the logical view join.
         """ ;
         sh:message """
@@ -160,8 +161,8 @@ rmlsh:LogicalViewJoinShape a sh:NodeShape ;
     ] .
 
 rmlsh:StructuralAnnotationShape a sh:NodeShape;
-    sh:name "StructuralAnnotation" ;
-    sh:description """
+    rdfs:label "StructuralAnnotation" ;
+    rdfs:comment """
     Structural annotations provide a mechanism to express relationships between logical views, as well as additional information about fields.
     """ ;
     sh:message """
@@ -173,7 +174,7 @@ rmlsh:StructuralAnnotationShape a sh:NodeShape;
     sh:targetClass rml:StructuralAnnotation ;
     sh:targetObjectsOf rml:structuralAnnotation ;
     sh:property [
-        sh:description """
+        rdfs:comment """
         property onFields specifies the fields in LogicalView that are involved by the structural annotation. The semantics of this involvement depends on the specific annotation.
         """ ;
         sh:message """
@@ -186,8 +187,8 @@ rmlsh:StructuralAnnotationShape a sh:NodeShape;
     ] .
 
 rmlsh:InclusionAnnotationShape a sh:NodeShape;
-    sh:name "InclusionAnnotation" ;
-    sh:description """
+    rdfs:label "InclusionAnnotation" ;
+    rdfs:comment """
     The InclusionAnnotaton annotation (rml:InclusionAnnotation) is analogous to the notion of inclusion dependency in databases.
     """ ;
     sh:message """
@@ -198,7 +199,7 @@ rmlsh:InclusionAnnotationShape a sh:NodeShape;
     """ ;
     sh:targetClass rml:InclusionAnnotation ;
     sh:property [
-        sh:description """
+        rdfs:comment """
         property targetView specifies the LogicalView target of the InclusionAnnotation annotation.
         """ ;
         sh:message """
@@ -209,7 +210,7 @@ rmlsh:InclusionAnnotationShape a sh:NodeShape;
         sh:maxCount 1 ;
         sh:nodeKind sh:BlankNodeOrIRI ;
     ] , [
-        sh:description """
+        rdfs:comment """
         property targetFields specifies the Fields target of the InclusionAnnotation.
         """ ;
         sh:message """
