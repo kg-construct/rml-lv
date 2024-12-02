@@ -104,7 +104,7 @@ rml:fieldName rdf:type owl:DatatypeProperty ;
 
 ###  http://w3id.org/rml/Field
 rml:Field rdf:type owl:Class ;
-          rdfs:subClassOf rml:ExpressionMap, rml:LogicallyIterable ;
+          rdfs:subClassOf rml:ExpressionMap, rml:LogicalIterable ;
           rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
 
