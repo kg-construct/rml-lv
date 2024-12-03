@@ -79,7 +79,7 @@ tobias,2005
 
 </aside>
 
-In this example, the XPath expression `/People/Person` is used as <!-- TODO core or io, dependent on https://github.com/kg-construct/rml-lv/issues/7 and https://github.com/kg-construct/rml-lv/issues/14-->[iterator](http://w3id.org/rml/core/spec#dfn-iterator). The sequence of [=records=] it defines are the `Person` nodes on the first level in the document that have string representations
+In this example, the XPath expression `/People/Person` is used as <a data-cite="RML-Core#dfn-iterator>logical iterator</a>. The sequence of [=records=] it defines are the `Person` nodes on the first level in the document that have string representations
 
 ```xml
 <Person name="cindy">
