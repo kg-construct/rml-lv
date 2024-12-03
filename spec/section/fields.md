@@ -8,10 +8,11 @@ A [=field=] (`rml:Field`) MUST have the following additional properties:
 - exactly one field name property (`rml:fieldName`), that specifies the [=name=] of the field
 - zero or more field properties (`rml:field`), to describe nested [=field=], also of the type `rml:Field`
 
-| Property                     | Domain                           | Range                      |
-|------------------------------|----------------------------------|----------------------------|
-| `rml:fieldName`              | `rml:Field`                      | `rml:LogicalSource`        |
-| `rml:field`                  | `rml:LogicalView` or `rml:Field` | `rml:Field`                |
+| Property                     | Domain                           | Range            |
+|------------------------------|----------------------------------|------------------|
+| `rml:fieldName`              | `rml:Field`                      | `xsd:string`     |
+| `rml:field`                  | `rml:LogicalView` or `rml:Field` | `rml:Field`      |
+
 
 ### Field parents {#fieldparents}
 

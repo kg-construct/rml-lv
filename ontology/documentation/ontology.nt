@@ -1,0 +1,225 @@
+<http://w3id.org/rml/lv/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://w3id.org/rml/lv/> <http://www.w3.org/2002/07/owl#versionIRI> <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/lv/> <http://www.w3.org/2002/07/owl#imports> <https://kg-construct.github.io/rml-core/ontology/documentation/ontology.ttl> .
+<http://w3id.org/rml/lv/> <http://www.w3.org/2002/07/owl#imports> <https://kg-construct.github.io/rml-io/ontology/documentation/ontology.ttl> .
+<http://w3id.org/rml/lv/> <http://purl.org/dc/terms/contributor> "Ana Iglesias Molina" .
+<http://w3id.org/rml/lv/> <http://purl.org/dc/terms/contributor> "Ben De Meester" .
+<http://w3id.org/rml/lv/> <http://purl.org/dc/terms/contributor> "Davide Lanti" .
+<http://w3id.org/rml/lv/> <http://purl.org/dc/terms/contributor> "Els de Vleeschauwer" .
+<http://w3id.org/rml/lv/> <http://purl.org/dc/terms/contributor> "Pano Maria" .
+<http://w3id.org/rml/lv/> <http://purl.org/dc/terms/contributor> "Thomas Delva" .
+<http://w3id.org/rml/lv/> <http://purl.org/dc/terms/created> "2024-01-01" .
+<http://w3id.org/rml/lv/> <http://purl.org/dc/terms/description> "RML Logical Views flatten nested data, allow flexible joining of data sources, and handle mix source formats."@en .
+<http://w3id.org/rml/lv/> <http://purl.org/dc/terms/license> <http://purl.org/NET/rdflicense/cc-by4.0> .
+<http://w3id.org/rml/lv/> <http://purl.org/dc/terms/modified> "2024-12-02" .
+<http://w3id.org/rml/lv/> <http://purl.org/dc/terms/publisher> <https://www.w3.org/community/kg-construct/> .
+<http://w3id.org/rml/lv/> <http://purl.org/dc/terms/title> "RML Logical Views"@en .
+<http://w3id.org/rml/lv/> <http://purl.org/ontology/bibo/status> "draft" .
+<http://w3id.org/rml/lv/> <http://purl.org/vocab/vann/preferredNamespacePrefix> "rml" .
+<http://w3id.org/rml/lv/> <http://purl.org/vocab/vann/preferredNamespaceUri> "http://w3id.org/rml/" .
+<http://w3id.org/rml/lv/> <http://www.w3.org/2002/07/owl#versionInfo> "0.1.0" .
+<http://w3id.org/rml/lv/> <http://www.w3.org/ns/shacl#suggestedShapesGraph> <http://w3id.org/rml/lv/shapes> .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/ns/shacl#suggestedShapesGraph
+<http://www.w3.org/ns/shacl#suggestedShapesGraph> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://w3id.org/rml/field
+<http://w3id.org/rml/field> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://w3id.org/rml/field> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid1 .
+_:genid1 <http://www.w3.org/2002/07/owl#unionOf> _:genid3 .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid2 .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://w3id.org/rml/LogicalView> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://w3id.org/rml/Field> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://w3id.org/rml/field> <http://www.w3.org/2000/01/rdf-schema#range> <http://w3id.org/rml/Field> .
+<http://w3id.org/rml/field> <http://www.w3.org/2000/01/rdf-schema#comment> "A field of the logical view." .
+<http://w3id.org/rml/field> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/field> <http://www.w3.org/2000/01/rdf-schema#label> "field" .
+# 
+# http://w3id.org/rml/innerJoin
+<http://w3id.org/rml/innerJoin> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://w3id.org/rml/innerJoin> <http://www.w3.org/2000/01/rdf-schema#domain> <http://w3id.org/rml/LogicalView> .
+<http://w3id.org/rml/innerJoin> <http://www.w3.org/2000/01/rdf-schema#range> <http://w3id.org/rml/LogicalViewJoin> .
+<http://w3id.org/rml/innerJoin> <http://www.w3.org/2000/01/rdf-schema#comment> "An inner join of the logical view." .
+<http://w3id.org/rml/innerJoin> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/innerJoin> <http://www.w3.org/2000/01/rdf-schema#label> "inner join" .
+# 
+# http://w3id.org/rml/leftJoin
+<http://w3id.org/rml/leftJoin> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://w3id.org/rml/leftJoin> <http://www.w3.org/2000/01/rdf-schema#domain> <http://w3id.org/rml/LogicalView> .
+<http://w3id.org/rml/leftJoin> <http://www.w3.org/2000/01/rdf-schema#range> <http://w3id.org/rml/LogicalViewJoin> .
+<http://w3id.org/rml/leftJoin> <http://www.w3.org/2000/01/rdf-schema#comment> "A left join of the logical view." .
+<http://w3id.org/rml/leftJoin> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/leftJoin> <http://www.w3.org/2000/01/rdf-schema#label> "left join" .
+# 
+# http://w3id.org/rml/onFields
+<http://w3id.org/rml/onFields> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://w3id.org/rml/onFields> <http://www.w3.org/2000/01/rdf-schema#domain> <http://w3id.org/rml/StructuralAnnotation> .
+<http://w3id.org/rml/onFields> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://w3id.org/rml/onFields> <http://www.w3.org/2000/01/rdf-schema#comment> "\n          The property onFields specifies the fields in LogicalView that are involved by the structural annotation.\n          The semantics of this involvement depends on the specific annotation.\n          " .
+<http://w3id.org/rml/onFields> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/onFields> <http://www.w3.org/2000/01/rdf-schema#label> "on fields" .
+# 
+# http://w3id.org/rml/parentLogicalView
+<http://w3id.org/rml/parentLogicalView> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://w3id.org/rml/parentLogicalView> <http://www.w3.org/2000/01/rdf-schema#domain> <http://w3id.org/rml/LogicalViewJoin> .
+<http://w3id.org/rml/parentLogicalView> <http://www.w3.org/2000/01/rdf-schema#range> <http://w3id.org/rml/LogicalView> .
+<http://w3id.org/rml/parentLogicalView> <http://www.w3.org/2000/01/rdf-schema#comment> "The parent logical view of the logical view join." .
+<http://w3id.org/rml/parentLogicalView> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/parentLogicalView> <http://www.w3.org/2000/01/rdf-schema#label> "parent logical view" .
+# 
+# http://w3id.org/rml/structuralAnnotation
+<http://w3id.org/rml/structuralAnnotation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://w3id.org/rml/structuralAnnotation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://w3id.org/rml/LogicalView> .
+<http://w3id.org/rml/structuralAnnotation> <http://www.w3.org/2000/01/rdf-schema#range> <http://w3id.org/rml/StructuralAnnotation> .
+<http://w3id.org/rml/structuralAnnotation> <http://www.w3.org/2000/01/rdf-schema#comment> "A structural annotation of the logical view." .
+<http://w3id.org/rml/structuralAnnotation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/structuralAnnotation> <http://www.w3.org/2000/01/rdf-schema#label> "structural annotation" .
+# 
+# http://w3id.org/rml/targetFields
+<http://w3id.org/rml/targetFields> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://w3id.org/rml/targetFields> <http://www.w3.org/2000/01/rdf-schema#domain> <http://w3id.org/rml/StructuralAnnotation> .
+<http://w3id.org/rml/targetFields> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://w3id.org/rml/targetFields> <http://www.w3.org/2000/01/rdf-schema#comment> "The property targetFields specifies the Fields target of the InclusionAnnotation." .
+<http://w3id.org/rml/targetFields> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/targetFields> <http://www.w3.org/2000/01/rdf-schema#label> "target fields" .
+# 
+# http://w3id.org/rml/targetView
+<http://w3id.org/rml/targetView> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://w3id.org/rml/targetView> <http://www.w3.org/2000/01/rdf-schema#domain> <http://w3id.org/rml/InclusionDependencyAnnotation> .
+<http://w3id.org/rml/targetView> <http://www.w3.org/2000/01/rdf-schema#range> <http://w3id.org/rml/LogicalView> .
+<http://w3id.org/rml/targetView> <http://www.w3.org/2000/01/rdf-schema#comment> "The property targetFields specifies the Fields target of the InclusionAnnotation." .
+<http://w3id.org/rml/targetView> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/targetView> <http://www.w3.org/2000/01/rdf-schema#label> "target view" .
+# 
+# http://w3id.org/rml/viewOn
+<http://w3id.org/rml/viewOn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://w3id.org/rml/viewOn> <http://www.w3.org/2000/01/rdf-schema#domain> <http://w3id.org/rml/LogicalView> .
+<http://w3id.org/rml/viewOn> <http://www.w3.org/2000/01/rdf-schema#range> <http://w3id.org/rml/LogicalSource> .
+<http://w3id.org/rml/viewOn> <http://www.w3.org/2000/01/rdf-schema#comment> "The source of the logical view. This is the logical source from which the logical view is derived." .
+<http://w3id.org/rml/viewOn> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/viewOn> <http://www.w3.org/2000/01/rdf-schema#label> "view on" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://w3id.org/rml/fieldName
+<http://w3id.org/rml/fieldName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://w3id.org/rml/fieldName> <http://www.w3.org/2000/01/rdf-schema#domain> <http://w3id.org/rml/Field> .
+<http://w3id.org/rml/fieldName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://w3id.org/rml/fieldName> <http://www.w3.org/2000/01/rdf-schema#comment> "The name of the field." .
+<http://w3id.org/rml/fieldName> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/fieldName> <http://www.w3.org/2000/01/rdf-schema#label> "field name" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://w3id.org/rml/Field
+<http://w3id.org/rml/Field> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://w3id.org/rml/Field> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://w3id.org/rml/ExpressionMap> .
+<http://w3id.org/rml/Field> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://w3id.org/rml/LogicalIterable> .
+<http://w3id.org/rml/LogicalIterable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://w3id.org/rml/Field> <http://www.w3.org/2000/01/rdf-schema#comment> "A field is an expression map that gives a name to an expression." .
+<http://w3id.org/rml/Field> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/Field> <http://www.w3.org/2000/01/rdf-schema#label> "Field" .
+# 
+# http://w3id.org/rml/ForeignKeyAnnotation
+<http://w3id.org/rml/ForeignKeyAnnotation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://w3id.org/rml/ForeignKeyAnnotation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://w3id.org/rml/InclusionDependencyAnnotation> .
+<http://w3id.org/rml/ForeignKeyAnnotation> <http://www.w3.org/2000/01/rdf-schema#comment> "A foreign key annotation is analogous to the notion of foreign key constraint in databases." .
+<http://w3id.org/rml/ForeignKeyAnnotation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/ForeignKeyAnnotation> <http://www.w3.org/2000/01/rdf-schema#label> "Foreign Key Annotation" .
+# 
+# http://w3id.org/rml/IRISafeAnnotation
+<http://w3id.org/rml/IRISafeAnnotation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://w3id.org/rml/IRISafeAnnotation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://w3id.org/rml/StructuralAnnotation> .
+<http://w3id.org/rml/IRISafeAnnotation> <http://www.w3.org/2000/01/rdf-schema#comment> "A IRI safe annotation indicates that the field content is IRI safe." .
+<http://w3id.org/rml/IRISafeAnnotation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/IRISafeAnnotation> <http://www.w3.org/2000/01/rdf-schema#label> "IRI Safe Annotation" .
+# 
+# http://w3id.org/rml/InclusionDependencyAnnotation
+<http://w3id.org/rml/InclusionDependencyAnnotation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://w3id.org/rml/InclusionDependencyAnnotation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://w3id.org/rml/StructuralAnnotation> .
+<http://w3id.org/rml/InclusionDependencyAnnotation> <http://www.w3.org/2000/01/rdf-schema#comment> "An inclusion dependency annotation is analogous to the notion of inclusion dependency in databases." .
+<http://w3id.org/rml/InclusionDependencyAnnotation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/InclusionDependencyAnnotation> <http://www.w3.org/2000/01/rdf-schema#label> "Inclusion Dependency Annotation" .
+# 
+# http://w3id.org/rml/LogicalIterable
+# 
+# http://w3id.org/rml/LogicalView
+<http://w3id.org/rml/LogicalView> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://w3id.org/rml/LogicalView> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://w3id.org/rml/LogicalSource> .
+<http://w3id.org/rml/LogicalView> <http://www.w3.org/2000/01/rdf-schema#comment> "A logical view (rml:LogicalView) is a type of logical source that is derived from another logical source by defining field with data from said logical source." .
+<http://w3id.org/rml/LogicalView> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/LogicalView> <http://www.w3.org/2000/01/rdf-schema#label> "Logical View" .
+# 
+# http://w3id.org/rml/LogicalViewJoin
+<http://w3id.org/rml/LogicalViewJoin> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://w3id.org/rml/LogicalViewJoin> <http://www.w3.org/2000/01/rdf-schema#comment> "A LogicalViewJoin is an operation that adapts the logical iterations of one logical view (the child logical view) with fields from another logical view (the parent logical view)." .
+<http://w3id.org/rml/LogicalViewJoin> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/LogicalViewJoin> <http://www.w3.org/2000/01/rdf-schema#label> "Logical View Join" .
+# 
+# http://w3id.org/rml/NonNullableAnnotation
+<http://w3id.org/rml/NonNullableAnnotation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://w3id.org/rml/NonNullableAnnotation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://w3id.org/rml/StructuralAnnotation> .
+<http://w3id.org/rml/NonNullableAnnotation> <http://www.w3.org/2000/01/rdf-schema#comment> "A non nullable annotation is analogous to the notion of NOT NULL constraints in databases." .
+<http://w3id.org/rml/NonNullableAnnotation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/NonNullableAnnotation> <http://www.w3.org/2000/01/rdf-schema#label> "Non Nullable Annotation" .
+# 
+# http://w3id.org/rml/PrimaryKeyAnnotation
+<http://w3id.org/rml/PrimaryKeyAnnotation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://w3id.org/rml/PrimaryKeyAnnotation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://w3id.org/rml/NonNullableAnnotation> .
+<http://w3id.org/rml/PrimaryKeyAnnotation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://w3id.org/rml/UniqueAnnotation> .
+<http://w3id.org/rml/PrimaryKeyAnnotation> <http://www.w3.org/2000/01/rdf-schema#comment> "A primary key annotation is analogous to the notion of a primary key constraints in databases." .
+<http://w3id.org/rml/PrimaryKeyAnnotation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/PrimaryKeyAnnotation> <http://www.w3.org/2000/01/rdf-schema#label> "Primary Key Annotation" .
+# 
+# http://w3id.org/rml/StructuralAnnotation
+<http://w3id.org/rml/StructuralAnnotation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://w3id.org/rml/StructuralAnnotation> <http://www.w3.org/2000/01/rdf-schema#comment> "A structural annotation provide a mechanism to express relationships between logical views, as well as additional information about fields." .
+<http://w3id.org/rml/StructuralAnnotation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/StructuralAnnotation> <http://www.w3.org/2000/01/rdf-schema#label> "Structural Annotation" .
+# 
+# http://w3id.org/rml/UniqueAnnotation
+<http://w3id.org/rml/UniqueAnnotation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://w3id.org/rml/UniqueAnnotation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://w3id.org/rml/StructuralAnnotation> .
+<http://w3id.org/rml/UniqueAnnotation> <http://www.w3.org/2000/01/rdf-schema#comment> "A unique annotation is analogous to the notion of UNIQUE constraints in databases. ." .
+<http://w3id.org/rml/UniqueAnnotation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/UniqueAnnotation> <http://www.w3.org/2000/01/rdf-schema#label> "Unique Annotation" .
+# 
+# http://www.w3.org/1999/02/22-rdf-syntax-ns#List
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#List> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

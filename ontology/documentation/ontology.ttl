@@ -1,24 +1,39 @@
 @prefix : <http://w3id.org/rml/lv/> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rml: <http://w3id.org/rml/> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @base <http://w3id.org/rml/lv/> .
 
 <http://w3id.org/rml/lv/> rdf:type owl:Ontology ;
+                           owl:versionIRI <http://w3id.org/rml/lv/> ;
                            owl:imports <https://kg-construct.github.io/rml-core/ontology/documentation/ontology.ttl> ,
                                        <https://kg-construct.github.io/rml-io/ontology/documentation/ontology.ttl> ;
-                           sh:suggestedShapesGraph :shapes .
+                           <http://purl.org/dc/terms/contributor> "Ana Iglesias Molina" ,
+                                                                  "Ben De Meester" ,
+                                                                  "Davide Lanti" ,
+                                                                  "Els de Vleeschauwer" ,
+                                                                  "Pano Maria" ,
+                                                                  "Thomas Delva" ;
+                           <http://purl.org/dc/terms/created> "2024-01-01" ;
+                           <http://purl.org/dc/terms/description> "RML Logical Views flatten nested data, allow flexible joining of data sources, and handle mix source formats."@en ;
+                           <http://purl.org/dc/terms/license> <http://purl.org/NET/rdflicense/cc-by4.0> ;
+                           <http://purl.org/dc/terms/modified> "2024-12-02" ;
+                           <http://purl.org/dc/terms/publisher> <https://www.w3.org/community/kg-construct/> ;
+                           <http://purl.org/dc/terms/title> "RML Logical Views"@en ;
+                           <http://purl.org/ontology/bibo/status> "draft" ;
+                           <http://purl.org/vocab/vann/preferredNamespacePrefix> "rml" ;
+                           <http://purl.org/vocab/vann/preferredNamespaceUri> "http://w3id.org/rml/" ;
+                           owl:versionInfo "0.1.0" ;
+                           <http://www.w3.org/ns/shacl#suggestedShapesGraph> :shapes .
 
 #################################################################
 #    Annotation properties
 #################################################################
 
 ###  http://www.w3.org/ns/shacl#suggestedShapesGraph
-sh:suggestedShapesGraph rdf:type owl:AnnotationProperty .
+<http://www.w3.org/ns/shacl#suggestedShapesGraph> rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -26,65 +41,91 @@ sh:suggestedShapesGraph rdf:type owl:AnnotationProperty .
 #################################################################
 
 ###  http://w3id.org/rml/field
-rml:field rdf:type owl:ObjectProperty ;
-          rdfs:domain [ owl:unionOf ( rml:LogicalView rml:Field )] ;
-          rdfs:range rml:Field ;
-          rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
-
-
-### http://w3id.org/rml/viewOn
-rml:viewOn rdf:type owl:ObjectProperty ;
-          rdfs:domain rml:LogicalView ;
-          rdfs:range rml:LogicalSource ;
-          rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/field> rdf:type owl:ObjectProperty ;
+                            rdfs:domain [ rdf:type owl:Class ;
+                                          owl:unionOf ( <http://w3id.org/rml/Field>
+                                                        <http://w3id.org/rml/LogicalView>
+                                                      )
+                                        ] ;
+                            rdfs:range <http://w3id.org/rml/Field> ;
+                            rdfs:comment "A field of the logical view." ;
+                            rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+                            rdfs:label "field" .
 
 
 ###  http://w3id.org/rml/innerJoin
-rml:innerJoin rdf:type owl:ObjectProperty ;
-              rdfs:domain rml:LogicalView ;
-              rdfs:range rml:LogicalViewJoin ;
-              rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/innerJoin> rdf:type owl:ObjectProperty ;
+                                rdfs:domain <http://w3id.org/rml/LogicalView> ;
+                                rdfs:range <http://w3id.org/rml/LogicalViewJoin> ;
+                                rdfs:comment "An inner join of the logical view." ;
+                                rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+                                rdfs:label "inner join" .
 
 
 ###  http://w3id.org/rml/leftJoin
-rml:leftJoin rdf:type owl:ObjectProperty ;
-             rdfs:domain rml:LogicalView ;
-             rdfs:range rml:LogicalViewJoin ;
-             rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
-
-
-###  http://w3id.org/rml/parentLogicalView
-rml:parentLogicalView rdf:type owl:ObjectProperty ;
-                      rdfs:domain rml:LogicalViewJoin ;
-                      rdfs:range rml:LogicalView ;
-                      rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/leftJoin> rdf:type owl:ObjectProperty ;
+                               rdfs:domain <http://w3id.org/rml/LogicalView> ;
+                               rdfs:range <http://w3id.org/rml/LogicalViewJoin> ;
+                               rdfs:comment "A left join of the logical view." ;
+                               rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+                               rdfs:label "left join" .
 
 
 ###  http://w3id.org/rml/onFields
-rml:onFields rdf:type owl:ObjectProperty ;
-          rdfs:domain rml:StructuralAnnotation ;
-          rdfs:range rdf:List ;
-          rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/onFields> rdf:type owl:ObjectProperty ;
+                               rdfs:domain <http://w3id.org/rml/StructuralAnnotation> ;
+                               rdfs:range rdf:List ;
+                               rdfs:comment """
+          The property onFields specifies the fields in LogicalView that are involved by the structural annotation.
+          The semantics of this involvement depends on the specific annotation.
+          """ ;
+                               rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+                               rdfs:label "on fields" .
+
+
+###  http://w3id.org/rml/parentLogicalView
+<http://w3id.org/rml/parentLogicalView> rdf:type owl:ObjectProperty ;
+                                        rdfs:domain <http://w3id.org/rml/LogicalViewJoin> ;
+                                        rdfs:range <http://w3id.org/rml/LogicalView> ;
+                                        rdfs:comment "The parent logical view of the logical view join." ;
+                                        rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+                                        rdfs:label "parent logical view" .
 
 
 ###  http://w3id.org/rml/structuralAnnotation
-rml:structuralAnnotation rdf:type owl:ObjectProperty ;
-                      rdfs:domain rml:LogicalView ;
-                      rdfs:range rml:StructuralAnnotation ;
-                      rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/structuralAnnotation> rdf:type owl:ObjectProperty ;
+                                           rdfs:domain <http://w3id.org/rml/LogicalView> ;
+                                           rdfs:range <http://w3id.org/rml/StructuralAnnotation> ;
+                                           rdfs:comment "A structural annotation of the logical view." ;
+                                           rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+                                           rdfs:label "structural annotation" .
+
 
 ###  http://w3id.org/rml/targetFields
-rml:targetFields rdf:type owl:ObjectProperty ;
-              rdfs:domain rml:StructuralAnnotation ;
-              rdfs:range rdf:List ;
-              rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/targetFields> rdf:type owl:ObjectProperty ;
+                                   rdfs:domain <http://w3id.org/rml/StructuralAnnotation> ;
+                                   rdfs:range rdf:List ;
+                                   rdfs:comment "The property targetFields specifies the Fields target of the InclusionAnnotation." ;
+                                   rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+                                   rdfs:label "target fields" .
 
 
 ###  http://w3id.org/rml/targetView
-rml:targetView rdf:type owl:ObjectProperty ;
-            rdfs:domain rml:InclusionDependencyAnnotation ;
-            rdfs:range rml:LogicalView ;
-            rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/targetView> rdf:type owl:ObjectProperty ;
+                                 rdfs:domain <http://w3id.org/rml/InclusionDependencyAnnotation> ;
+                                 rdfs:range <http://w3id.org/rml/LogicalView> ;
+                                 rdfs:comment "The property targetFields specifies the Fields target of the InclusionAnnotation." ;
+                                 rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+                                 rdfs:label "target view" .
+
+
+###  http://w3id.org/rml/viewOn
+<http://w3id.org/rml/viewOn> rdf:type owl:ObjectProperty ;
+                             rdfs:domain <http://w3id.org/rml/LogicalView> ;
+                             rdfs:range <http://w3id.org/rml/LogicalSource> ;
+                             rdfs:comment "The source of the logical view. This is the logical source from which the logical view is derived." ;
+                             rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+                             rdfs:label "view on" .
 
 
 #################################################################
@@ -92,10 +133,12 @@ rml:targetView rdf:type owl:ObjectProperty ;
 #################################################################
 
 ###  http://w3id.org/rml/fieldName
-rml:fieldName rdf:type owl:DatatypeProperty ;
-              rdfs:domain rml:Field ;
-              rdfs:range xsd:string ;
-              rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/fieldName> rdf:type owl:DatatypeProperty ;
+                                rdfs:domain <http://w3id.org/rml/Field> ;
+                                rdfs:range xsd:string ;
+                                rdfs:comment "The name of the field." ;
+                                rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+                                rdfs:label "field name" .
 
 
 #################################################################
@@ -103,63 +146,90 @@ rml:fieldName rdf:type owl:DatatypeProperty ;
 #################################################################
 
 ###  http://w3id.org/rml/Field
-rml:Field rdf:type owl:Class ;
-          rdfs:subClassOf rml:ExpressionMap, rml:LogicalIterable ;
-          rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
-
-
-###  http://w3id.org/rml/LogicalView
-rml:LogicalView rdf:type owl:Class ;
-                rdfs:subClassOf rml:LogicalSource ;
-                rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
-
-
-###  http://w3id.org/rml/LogicalViewJoin
-rml:LogicalViewJoin rdf:type owl:Class ;
-                    rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
-
+<http://w3id.org/rml/Field> rdf:type owl:Class ;
+                            rdfs:subClassOf <http://w3id.org/rml/ExpressionMap> ,
+                                            <http://w3id.org/rml/LogicalIterable> ;
+                            rdfs:comment "A field is an expression map that gives a name to an expression." ;
+                            rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+                            rdfs:label "Field" .
 
 ###  http://w3id.org/rml/ForeignKeyAnnotation
-rml:ForeignKeyAnnotation rdf:type owl:Class ;
-                      rdfs:subClassOf rml:InclusionDependencyAnnotation ;
-                      rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/ForeignKeyAnnotation> rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://w3id.org/rml/InclusionDependencyAnnotation> ;
+                                           rdfs:comment "A foreign key annotation is analogous to the notion of foreign key constraint in databases." ;
+                                           rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+                                           rdfs:label "Foreign Key Annotation" .
 
 
 ###  http://w3id.org/rml/IRISafeAnnotation
-rml:IRISafeAnnotation rdf:type owl:Class ;
-                   rdfs:subClassOf rml:StructuralAnnotation ;
-                   rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/IRISafeAnnotation> rdf:type owl:Class ;
+                                        rdfs:subClassOf <http://w3id.org/rml/StructuralAnnotation> ;
+                                        rdfs:comment "A IRI safe annotation indicates that the field content is IRI safe." ;
+                                        rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+                                        rdfs:label "IRI Safe Annotation" .
 
 
 ###  http://w3id.org/rml/InclusionDependencyAnnotation
-rml:InclusionDependencyAnnotation rdf:type owl:Class ;
-                               rdfs:subClassOf rml:StructuralAnnotation ;
-                               rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/InclusionDependencyAnnotation> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://w3id.org/rml/StructuralAnnotation> ;
+                                                    rdfs:comment "An inclusion dependency annotation is analogous to the notion of inclusion dependency in databases." ;
+                                                    rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+                                                    rdfs:label "Inclusion Dependency Annotation" .
+
+
+###  http://w3id.org/rml/LogicalIterable
+<http://w3id.org/rml/LogicalIterable> rdf:type owl:Class .
+
+
+###  http://w3id.org/rml/LogicalView
+<http://w3id.org/rml/LogicalView> rdf:type owl:Class ;
+                                  rdfs:subClassOf <http://w3id.org/rml/LogicalSource> ;
+                                  rdfs:comment "A logical view (rml:LogicalView) is a type of logical source that is derived from another logical source by defining field with data from said logical source." ;
+                                  rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+                                  rdfs:label "Logical View" .
+
+
+###  http://w3id.org/rml/LogicalViewJoin
+<http://w3id.org/rml/LogicalViewJoin> rdf:type owl:Class ;
+                                      rdfs:comment "A LogicalViewJoin is an operation that adapts the logical iterations of one logical view (the child logical view) with fields from another logical view (the parent logical view)." ;
+                                      rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+                                      rdfs:label "Logical View Join" .
 
 
 ###  http://w3id.org/rml/NonNullableAnnotation
-rml:NonNullableAnnotation rdf:type owl:Class ;
-                       rdfs:subClassOf rml:StructuralAnnotation ;
-                       rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/NonNullableAnnotation> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://w3id.org/rml/StructuralAnnotation> ;
+                                            rdfs:comment "A non nullable annotation is analogous to the notion of NOT NULL constraints in databases." ;
+                                            rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+                                            rdfs:label "Non Nullable Annotation" .
 
 
 ###  http://w3id.org/rml/PrimaryKeyAnnotation
-rml:PrimaryKeyAnnotation rdf:type owl:Class ;
-                      rdfs:subClassOf rml:NonNullableAnnotation ,
-                                      rml:UniqueAnnotation ;
-                      rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/PrimaryKeyAnnotation> rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://w3id.org/rml/NonNullableAnnotation> ,
+                                                           <http://w3id.org/rml/UniqueAnnotation> ;
+                                           rdfs:comment "A primary key annotation is analogous to the notion of a primary key constraints in databases." ;
+                                           rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+                                           rdfs:label "Primary Key Annotation" .
 
 
 ###  http://w3id.org/rml/StructuralAnnotation
-rml:StructuralAnnotation rdf:type owl:Class ;
-                      rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/StructuralAnnotation> rdf:type owl:Class ;
+                                           rdfs:comment "A structural annotation provide a mechanism to express relationships between logical views, as well as additional information about fields." ;
+                                           rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+                                           rdfs:label "Structural Annotation" .
 
 
 ###  http://w3id.org/rml/UniqueAnnotation
-rml:UniqueAnnotation rdf:type owl:Class ;
-                  rdfs:subClassOf rml:StructuralAnnotation ;
-                  rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/UniqueAnnotation> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://w3id.org/rml/StructuralAnnotation> ;
+                                       rdfs:comment "A unique annotation is analogous to the notion of UNIQUE constraints in databases. ." ;
+                                       rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+                                       rdfs:label "Unique Annotation" .
 
 
 ###  http://www.w3.org/1999/02/22-rdf-syntax-ns#List
 rdf:List rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
