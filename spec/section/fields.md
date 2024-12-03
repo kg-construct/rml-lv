@@ -10,8 +10,9 @@ A [=field=] (`rml:Field`) MUST have the following additional properties:
 
 | Property                     | Domain                           | Range            |
 |------------------------------|----------------------------------|------------------|
-| `rml:fieldName`              | `rml:Field`                      | `xsd:string` |
+| `rml:fieldName`              | `rml:Field`                      | `xsd:string`     |
 | `rml:field`                  | `rml:LogicalView` or `rml:Field` | `rml:Field`      |
+
 
 ### Field parents {#fieldparents}
 

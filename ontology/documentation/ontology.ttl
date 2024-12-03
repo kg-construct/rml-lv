@@ -153,7 +153,6 @@
                             rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
                             rdfs:label "Field" .
 
-
 ###  http://w3id.org/rml/ForeignKeyAnnotation
 <http://w3id.org/rml/ForeignKeyAnnotation> rdf:type owl:Class ;
                                            rdfs:subClassOf <http://w3id.org/rml/InclusionDependencyAnnotation> ;
