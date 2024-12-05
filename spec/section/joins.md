@@ -9,11 +9,11 @@ A [=logical view join=] (`rml:LogicalViewJoin`) MUST contain:
 
 The [=logical view=] in the subject position of the [=join property=], fulfills the role of <!-- TODO reference to core child logical source when available-->[child logical source]() in the <a data-cite="RML-Core#dfn-join-condition">join condition(s)</a> of the [=logical view join=], and is referred to as <dfn>child logical view</dfn>.
 
-| Property                | Domain                | Range               |
-|-------------------------|-----------------------|---------------------|
-| `rml:parentLogicalView` | `rml:LogicalViewJoin` | `rml:LogicalView`   |
-| `rml:joinCondition`     | `rml:LogicalViewJoin` | `rml:JoinCondition` |
-| `rml:field`             | `rml:LogicalViewJoin` | `rml:Field`         |
+| Property                | Domain                | Range             |
+|-------------------------|-----------------------|-------------------|
+| `rml:parentLogicalView` | `rml:LogicalViewJoin` | `rml:LogicalView` |
+| `rml:joinCondition`     | `rml:LogicalViewJoin` | `rml:Join`        |
+| `rml:field`             | `rml:LogicalViewJoin` | `rml:Field`       |
 
 ### Join types {#dfn-join-type}
 

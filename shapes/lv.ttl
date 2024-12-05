@@ -150,7 +150,7 @@ rmlsh:LogicalViewJoinShape a sh:NodeShape ;
         sh:nodeKind sh:BlankNodeOrIRI ;
     ] , [
         sh:description """
-        A join condition of the logical view join.
+        A field of the logical view join.
         """ ;
         sh:message """
         At least one rml:field property must be specified for a rml:LogicalViewJoin, with a resource as its value.
