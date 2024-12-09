@@ -21,7 +21,7 @@
     rml:reference "item" ;
     rml:field [ a rml:IterableField ;
       rml:referenceFormulation rml:JSONPath ;
-      # rml:iterator "$[*]" ;
+      rml:iterator "$[*]" ;
       rml:field [ a rml:ExpressionField;
         rml:fieldName "type" ;
         rml:reference "$.type" ; ] ;
