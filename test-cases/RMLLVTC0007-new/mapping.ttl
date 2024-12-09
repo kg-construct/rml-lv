@@ -12,21 +12,23 @@
 
 :mixedCSVView a rml:LogicalView ;
   rml:viewOn :mixedCSVSource ;
-  rml:field [
+  rml:field [ a rml:ExpressionField ;
     rml:fieldName "name" ;
     rml:reference "name" ;
   ] ;
-  rml:field [
+  rml:field [ a rml:ExpressionField ;
     rml:fieldName "item" ;
-    rml:reference "items" ;
-    rml:referenceFormulation rml:JSONPath ;
-    # rml:iterator "$[*]" ;
-    rml:field [
-      rml:fieldName "type" ;
-      rml:reference "$.type" ; ] ;
-    rml:field [
-      rml:fieldName "weight" ;
-      rml:reference "$.weight" ;
+    rml:reference "item" ;
+    rml:field [ a rml:IterableField ;
+      rml:referenceFormulation rml:JSONPath ;
+      # rml:iterator "$[*]" ;
+      rml:field [ a rml:ExpressionField;
+        rml:fieldName "type" ;
+        rml:reference "$.type" ; ] ;
+      rml:field [ a rml:ExpressionField;
+        rml:fieldName "weight" ;
+        rml:reference "$.weight" ;
+      ] ;
     ] ;
   ] .
 
