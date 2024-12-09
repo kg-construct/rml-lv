@@ -23,7 +23,7 @@
       rml:referenceFormulation rml:JSONPath ;
       rml:iterator "$[*]"
       rml:fieldName: "item" ;
-      rml:field [ e rml:ExpressionField ;
+      rml:field [ a rml:ExpressionField ;
         rml:fieldName "type" ;
         rml:reference "$.type" ; ] ;
       rml:field [ a rml:ExpressionField ;
