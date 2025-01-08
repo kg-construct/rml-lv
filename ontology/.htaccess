@@ -1,7 +1,7 @@
 ############################################################################
 ### THIS FILE SHOULD BE PLACED ON THE PARENT FOLDER OF THE DOCUMENTATION ###
 ### OTHERWISE THE CONTENT NEGOTIATION WILL NOT WORK                      ###
-### THE URL OF YOUR VOCABULARY WILL BE (domain)/rml-lv/def    ###
+### THE URL OF YOUR VOCABULARY WILL BE (domain)/myDocumentation/def    ###
 ############################################################################
 # Turn off MultiViews
 Options -MultiViews
@@ -16,7 +16,7 @@ AddType application/ld+json .jsonld
 # Rewrite engine setup
 RewriteEngine On
 #Change the path to the folder here
-RewriteBase /rml-lv 
+RewriteBase /myDocumentation 
 
 # Rewrite rule to serve JSON-LD content from the vocabulary URI if requested
 # Placed before HTML to support serving JSON-LD from a browser (e.g., JSON Playground)

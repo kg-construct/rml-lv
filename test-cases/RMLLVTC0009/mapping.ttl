@@ -2,7 +2,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://example.org/> .
 
-:jsonSource a rml:InputLogicalSource ;
+:jsonSource a rml:LogicalSource ;
   rml:source [
     a rml:RelativePathSource , rml:Source ;
     rml:root rml:MappingDirectory ;
@@ -13,24 +13,28 @@
 
 :jsonView a rml:LogicalView ;
   rml:viewOn :jsonSource ;
-  rml:field [
+  rml:field [ a
+    rml:ExpressionField ;
     rml:fieldName "name" ;
     rml:reference "$.name" ;
   ] ;
   rml:field [
+    a rml:IterableField ;
     rml:fieldName "item" ;
     rml:reference "$.items[*]" ;
     rml:field [
+      a rml:ExpressionField ;
       rml:fieldName "type" ;
       rml:reference "$.type" ;
     ] ;
     rml:field [
+      a rml:ExpressionField ;
       rml:fieldName "weight" ;
       rml:reference "$.weight" ;
     ] ;
   ] .
 
-  :additionalCsvSource a rml:InputLogicalSource ;
+  :additionalCsvSource a rml:LogicalSource ;
     rml:source [
       a rml:RelativePathSource , rml:Source ;
       rml:root rml:MappingDirectory ;
@@ -41,16 +45,18 @@
   :additionalCsvView a rml:LogicalView ;
     rml:viewOn :additionalCsvSource ;
     rml:field [
+      a rml:ExpressionField ;
       rml:fieldName "name" ;
       rml:reference "name" ;
     ] ;
     rml:field [
+      a rml:ExpressionField ;
       rml:fieldName "id" ;
       rml:reference "id" ;
     ] ;
     .
 
-:csvSource a rml:InputLogicalSource ;
+:csvSource a rml:LogicalSource ;
   rml:source [
     a rml:RelativePathSource , rml:Source ;
     rml:root rml:MappingDirectory ;
@@ -61,10 +67,12 @@
 :csvView a rml:LogicalView ;
   rml:viewOn :csvSource ;
   rml:field [
+    a rml:ExpressionField ;
     rml:fieldName "name" ;
     rml:reference "name" ;
   ] ;
   rml:field [
+    a rml:ExpressionField ;
     rml:fieldName "birthyear" ;
     rml:reference "birthyear" ;
   ] ;
@@ -75,10 +83,12 @@
       rml:child "name" ;
     ] ;
     rml:field [
+      a rml:ExpressionField ;
       rml:fieldName "item_type" ;
       rml:reference "item.type" ;
     ] ;
     rml:field [
+      a rml:ExpressionField ;
       rml:fieldName "item_weight" ;
       rml:reference "item.weight" ;
     ] ;
@@ -90,6 +100,7 @@
       rml:child "name" ;
     ] ;
     rml:field [
+      a rml:ExpressionField ;
       rml:fieldName "id" ;
       rml:reference "id" ;
     ] ;

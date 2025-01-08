@@ -71,7 +71,7 @@ First, we specify the logical source corresponding to the CSV file:
 <aside class=ex-mapping>
 
 ```turtle
-:csvSource a rml:InputLogicalSource ;
+:csvSource a rml:LogicalSource ;
   rml:source :csvFile ;
   rml:referenceFormulation rml:CSV .
 ```
@@ -85,10 +85,12 @@ We are now ready to specify our logical view and associated `rml:primaryKeyAnnot
 :csvSource a rml:LogicalView ;
   rml:viewOn :csvSource ;
   rml:field [
+    a rml:ExpressionField ;
     rml:fieldName "name";
     rml:reference "name"
  ];
  rml:field [
+    a rml:ExpressionField ;
     rml:fieldName "birthday";
     rml:reference "birthday"
  ];
@@ -188,7 +190,7 @@ First, we need to specify the logical sources. The logical source corresponding 
 <aside class=ex-mapping>
 
 ```turtle
-:csvSource a rml:InputLogicalSource ;
+:csvSource a rml:LogicalSource ;
   rml:source :csvFile ;
   rml:referenceFormulation rml:CSV .
 ```
@@ -199,7 +201,7 @@ The logical source corresponding to the JSON:
 <aside class=ex-mapping>
 
 ```turtle
-:jsonSource a rml:InputLogicalSource ;
+:jsonSource a rml:LogicalSource ;
   rml:source :jsonFile ;
   rml:referenceFormulation rml:JSONPath ;
   rml:iterator "$.people[*]" .
@@ -214,10 +216,12 @@ We are now ready to specify our logical views, and associated structural annotat
 :csvSource a rml:LogicalView ;
   rml:viewOn :csvSource ;
   rml:field [
+    a rml:ExpressionField ;
     rml:fieldName "name";
     rml:reference "name"
  ];
  rml:field [
+    a rml:ExpressionField ;
     rml:fieldName "birthday";
     rml:reference "birthday"
  ];
@@ -236,17 +240,21 @@ Now, we declare the logical view corresponding to `:jsonSource`. Note that this 
 :jsonView a rml:LogicalView ;
   rml:viewOn :jsonSource ;
   rml:field [
+    a rml:ExpressionField ;
     rml:fieldName "name" ;
     rml:reference "$.name" ;
   ] ;
   rml:field [
+    a rml:IterableField ;
     rml:fieldName "item" ;
-    rml:reference "$.items[*]" ;
+    rml:iterator "$.items[*]" ;
     rml:field [
+      a rml:ExpressionField ;
       rml:fieldName "type" ;
       rml:reference "$.type" ;
     ] ;
     rml:field [
+      a rml:ExpressionField ;
       rml:fieldName "weight" ;
       rml:reference "$.weight" ;
     ]

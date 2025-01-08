@@ -14,38 +14,46 @@
 :mixedJSONView a rml:LogicalView ;
   rml:viewOn :mixedJSONSource ;
   rml:field [
-      rml:fieldName "name" ;
-      rml:reference "$.name" ;
+    a rml:ExpressionField ;
+    rml:fieldName "name" ;
+    rml:reference "$.name" ;
     ] ;
   rml:field [
-    rml:fieldName "item" ;
-    rml:reference "$.items" ;
-    rml:referenceFormulation rml:CSV;
+    a rml:ExpressionField ;
+    rml:fieldName "items" ;
+    rml:iterator "$.items" ;
     rml:field [
-      rml:fieldName "type" ;
-      rml:reference "type" ;
-    ] ;
-    rml:field [
-      rml:fieldName "weight" ;
-      rml:reference "weight" ;
-    ] ;
-  ] .
+      a rml:IterableField
+      rml:referenceFormulation rml:CSV ;
+      rml:fieldName "item";
+      rml:field [
+        a rml:ExpressionField
+        rml:fieldName "type" ;
+        rml:reference "type" ;
+      ] ;
+      rml:field [
+        a rml:expressionField ;
+        rml:fieldName "weight" ;
+        rml:reference "weight" ;
+      ] ;
+    ]
+  ].
 
 :triplesMapItem a rml:TriplesMap ;
   rml:logicalSource :mixedJSONView ;
   rml:subjectMap [
-    rml:template "http://example.org/item_{#}_{item.#}" ;
+    rml:template "http://example.org/item_{#}_{items.item.#}" ;
   ] ;
   rml:predicateObjectMap [
     rml:predicate :hasType ;
     rml:objectMap [
-      rml:reference "item.type" ;
+      rml:reference "items.item.type" ;
     ] ;
   ] ;
   rml:predicateObjectMap [
     rml:predicate :hasWeight ;
     rml:objectMap [
-      rml:reference "item.weight" ;
+      rml:reference "items.item.weight" ;
       rml:datatype xsd:integer ;
     ] ;
   ] .

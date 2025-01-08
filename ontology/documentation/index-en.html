@@ -96,7 +96,98 @@ $(function(){
 <div>
 <span>draft</span>
 </div>
-</div><div id="toc"></div>   
+</div><div id="toc"></div>  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">RML Logical Views: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#ExpressionField" title="http://w3id.org/rml/ExpressionField">Expression Field</a>
+   </li>
+   <li>
+      <a href="#Field" title="http://w3id.org/rml/Field">Field</a>
+   </li>
+   <li>
+      <a href="#ForeignKeyAnnotation" title="http://w3id.org/rml/ForeignKeyAnnotation">Foreign Key Annotation</a>
+   </li>
+   <li>
+      <a href="#InclusionDependencyAnnotation"
+         title="http://w3id.org/rml/InclusionDependencyAnnotation">Inclusion Dependency Annotation</a>
+   </li>
+   <li>
+      <a href="#IRISafeAnnotation" title="http://w3id.org/rml/IRISafeAnnotation">IRI Safe Annotation</a>
+   </li>
+   <li>
+      <a href="#IterableField" title="http://w3id.org/rml/IterableField">Iterable Field</a>
+   </li>
+   <li>
+      <a href="#LogicalView" title="http://w3id.org/rml/LogicalView">Logical View</a>
+   </li>
+   <li>
+      <a href="#LogicalViewJoin" title="http://w3id.org/rml/LogicalViewJoin">Logical View Join</a>
+   </li>
+   <li>
+      <a href="#NonNullableAnnotation" title="http://w3id.org/rml/NonNullableAnnotation">Non Nullable Annotation</a>
+   </li>
+   <li>
+      <a href="#PrimaryKeyAnnotation" title="http://w3id.org/rml/PrimaryKeyAnnotation">Primary Key Annotation</a>
+   </li>
+   <li>
+      <a href="#StructuralAnnotation" title="http://w3id.org/rml/StructuralAnnotation">Structural Annotation</a>
+   </li>
+   <li>
+      <a href="#UniqueAnnotation" title="http://w3id.org/rml/UniqueAnnotation">Unique Annotation</a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#field" title="http://w3id.org/rml/field">field</a>
+   </li>
+   <li>
+      <a href="#innerJoin" title="http://w3id.org/rml/innerJoin">inner join</a>
+   </li>
+   <li>
+      <a href="#leftJoin" title="http://w3id.org/rml/leftJoin">left join</a>
+   </li>
+   <li>
+      <a href="#onFields" title="http://w3id.org/rml/onFields">on fields</a>
+   </li>
+   <li>
+      <a href="#parentLogicalView" title="http://w3id.org/rml/parentLogicalView">parent logical view</a>
+   </li>
+   <li>
+      <a href="#structuralAnnotation" title="http://w3id.org/rml/structuralAnnotation">structural annotation</a>
+   </li>
+   <li>
+      <a href="#targetFields" title="http://w3id.org/rml/targetFields">target fields</a>
+   </li>
+   <li>
+      <a href="#targetView" title="http://w3id.org/rml/targetView">target view</a>
+   </li>
+   <li>
+      <a href="#viewOn" title="http://w3id.org/rml/viewOn">view on</a>
+   </li>
+</ul><h4>Data Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#fieldName" title="http://w3id.org/rml/fieldName">field name</a>
+   </li>
+</ul>
+</div>
+  
+
+<!--DESCRIPTION SECTION-->
+    <div id="description"><h2 id="desc" class="list">RML Logical Views: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+
+<span class="markdown">RML Logical Views flatten nested data, allow flexible joining of data sources, and handle mix source formats.</span></div>
+   
 
 <!--CROSSREF SECTION-->
    <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for RML Logical Views classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
@@ -104,10 +195,12 @@ This section provides details for each class and property defined by RML Logical
 <div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
  <h3 id="classes-headline" class="list">Classes</h3>
  <ul class="hlist">
+  <li><a href="#ExpressionField" title="http://w3id.org/rml/ExpressionField">Expression Field</a></li>
   <li><a href="#Field" title="http://w3id.org/rml/Field">Field</a></li>
   <li><a href="#ForeignKeyAnnotation" title="http://w3id.org/rml/ForeignKeyAnnotation">Foreign Key Annotation</a></li>
   <li><a href="#InclusionDependencyAnnotation" title="http://w3id.org/rml/InclusionDependencyAnnotation">Inclusion Dependency Annotation</a></li>
   <li><a href="#IRISafeAnnotation" title="http://w3id.org/rml/IRISafeAnnotation">IRI Safe Annotation</a></li>
+  <li><a href="#IterableField" title="http://w3id.org/rml/IterableField">Iterable Field</a></li>
   <li><a href="#LogicalView" title="http://w3id.org/rml/LogicalView">Logical View</a></li>
   <li><a href="#LogicalViewJoin" title="http://w3id.org/rml/LogicalViewJoin">Logical View Join</a></li>
   <li><a href="#NonNullableAnnotation" title="http://w3id.org/rml/NonNullableAnnotation">Non Nullable Annotation</a></li>
@@ -115,11 +208,11 @@ This section provides details for each class and property defined by RML Logical
   <li><a href="#StructuralAnnotation" title="http://w3id.org/rml/StructuralAnnotation">Structural Annotation</a></li>
   <li><a href="#UniqueAnnotation" title="http://w3id.org/rml/UniqueAnnotation">Unique Annotation</a></li>
  </ul>
- <div class="entity" id="Field">
-  <h3>Field<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> http://w3id.org/rml/Field</p>
+ <div class="entity" id="ExpressionField">
+  <h3>Expression Field<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/ExpressionField</p>
   <div class="comment">
-   <span class="markdown">A field is an expression map that gives a name to an expression.</span>
+   <span class="markdown">A expression field is an expression map that gives a name to an expression.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -134,7 +227,30 @@ This section provides details for each class and property defined by RML Logical
     has super-classes
    </dt>
    <dd>
-    <a href="ExpressionMap" title="http://w3id.org/rml/ExpressionMap">Expression Map</a> <sup class="type-c" title="class">c</sup>, <a href="http://w3id.org/rml/LogicalIterable" target="_blank" title="http://w3id.org/rml/LogicalIterable">Logical Iterable</a> <sup class="type-c" title="class">c</sup>
+    <a href="ExpressionMap" title="http://w3id.org/rml/ExpressionMap">Expression Map</a> <sup class="type-c" title="class">c</sup>, <a href="#Field" title="http://w3id.org/rml/Field">Field</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Field">
+  <h3>Field<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/Field</p>
+  <div class="comment">
+   <span class="markdown">A field gives a name to data derived from the abstract logical source on which a logical view is defined.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#ExpressionField" title="http://w3id.org/rml/ExpressionField">Expression Field</a> <sup class="type-c" title="class">c</sup>, <a href="#IterableField" title="http://w3id.org/rml/IterableField">Iterable Field</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in domain of
@@ -231,11 +347,11 @@ This section provides details for each class and property defined by RML Logical
    </dd>
   </dl>
  </div>
- <div class="entity" id="LogicalView">
-  <h3>Logical View<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> http://w3id.org/rml/LogicalView</p>
+ <div class="entity" id="IterableField">
+  <h3>Iterable Field<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/IterableField</p>
   <div class="comment">
-   <span class="markdown">A logical view (rml:LogicalView) is a type of logical source that is derived from another logical source by defining field with data from said logical source.</span>
+   <span class="markdown">A iterable field is an iterable that gives a name to a logical iteration.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -250,7 +366,30 @@ This section provides details for each class and property defined by RML Logical
     has super-classes
    </dt>
    <dd>
-    <a href="LogicalSource" title="http://w3id.org/rml/LogicalSource">Logical Source</a> <sup class="type-c" title="class">c</sup>
+    <a href="#Field" title="http://w3id.org/rml/Field">Field</a> <sup class="type-c" title="class">c</sup>, <a href="http://w3id.org/rml/Iterable" target="_blank" title="http://w3id.org/rml/Iterable">Iterable</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="LogicalView">
+  <h3>Logical View<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/LogicalView</p>
+  <div class="comment">
+   <span class="markdown">A logical view (rml:LogicalView) is a type of abstract logical source that is derived from another abstract logical source by defining field with data from said abstract logical source.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/AbstractLogicalSource" target="_blank" title="http://w3id.org/rml/AbstractLogicalSource">Abstract Logical Source</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in domain of
@@ -270,7 +409,7 @@ This section provides details for each class and property defined by RML Logical
   <h3>Logical View Join<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://w3id.org/rml/LogicalViewJoin</p>
   <div class="comment">
-   <span class="markdown">A LogicalViewJoin is an operation that adapts the logical iterations of one logical view (the child logical view) with fields from another logical view (the parent logical view).</span>
+   <span class="markdown">A logical view join is an operation that adapts the logical iterations of one logical view (the child logical view) with fields from another logical view (the parent logical view).</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -676,7 +815,7 @@ This section provides details for each class and property defined by RML Logical
   <h3>view on<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://w3id.org/rml/viewOn</p>
   <div class="comment">
-   <span class="markdown">The source of the logical view. This is the logical source from which the logical view is derived.</span>
+   <span class="markdown">The source of the logical view. This is the abstract logical source from which the logical view is derived.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -698,7 +837,7 @@ This section provides details for each class and property defined by RML Logical
      has range
     </dt>
     <dd>
-     <a href="LogicalSource" title="http://w3id.org/rml/LogicalSource">Logical Source</a> <sup class="type-c" title="class">c</sup>
+     <a href="http://w3id.org/rml/AbstractLogicalSource" target="_blank" title="http://w3id.org/rml/AbstractLogicalSource">Abstract Logical Source</a> <sup class="type-c" title="class">c</sup>
     </dd>
    </dl>
   </div>
@@ -747,6 +886,15 @@ This section provides details for each class and property defined by RML Logical
 <sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
 </div>
 </div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+  <div id="references">
+<h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+Add your references here. It is recommended to have them as a list.</span>
+
 </div>
 <div id="acknowledgments">
 <h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
