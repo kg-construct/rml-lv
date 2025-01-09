@@ -2,7 +2,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://example.org/> .
 
-:mixedCSVSource a rml:InputLogicalSource ;
+:mixedCSVSource a rml:LogicalSource ;
   rml:source [
     a rml:RelativePathSource , rml:Source ;
     rml:root rml:MappingDirectory ;
@@ -24,7 +24,7 @@
     rml:field [
       a rml:IterableField ;
       rml:referenceFormulation rml:JSONPath ;
-      rml:iterator "$[*]"
+      rml:iterator "$[*]" ;
       rml:fieldName: "item" ;
       rml:field [
         a rml:ExpressionField ;

@@ -21,7 +21,7 @@
   rml:field [
     a rml:IterableField ;
     rml:fieldName "item" ;
-    rml:iterable "$.items[*]" ;
+    rml:iterator "$.items[*]" ;
     rml:field [
       a rml:ExpressionField ;
       rml:fieldName "type" ;

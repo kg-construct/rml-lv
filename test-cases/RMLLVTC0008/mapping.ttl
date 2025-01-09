@@ -2,7 +2,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://example.org/> .
 
-:mixedJSONSource a rml:InputLogicalSource ;
+:mixedJSONSource a rml:LogicalSource ;
   rml:source [
     a rml:RelativePathSource , rml:Source ;
     rml:root rml:MappingDirectory ;
@@ -21,13 +21,13 @@
   rml:field [
     a rml:ExpressionField ;
     rml:fieldName "items" ;
-    rml:iterator "$.items" ;
+    rml:reference "$.items" ;
     rml:field [
-      a rml:IterableField
+      a rml:IterableField ;
       rml:referenceFormulation rml:CSV ;
       rml:fieldName "item";
       rml:field [
-        a rml:ExpressionField
+        a rml:ExpressionField ;
         rml:fieldName "type" ;
         rml:reference "type" ;
       ] ;
@@ -36,7 +36,7 @@
         rml:fieldName "weight" ;
         rml:reference "weight" ;
       ] ;
-    ]
+    ] ;
   ].
 
 :triplesMapItem a rml:TriplesMap ;
