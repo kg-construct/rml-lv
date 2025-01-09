@@ -25,7 +25,7 @@
       a rml:IterableField ;
       rml:referenceFormulation rml:JSONPath ;
       rml:iterator "$[*]" ;
-      rml:fieldName: "item" ;
+      rml:fieldName "item" ;
       rml:field [
         a rml:ExpressionField ;
         rml:fieldName "type" ;
@@ -42,7 +42,7 @@
 :triplesMapItem a rml:TriplesMap ;
   rml:logicalSource :mixedCSVView ;
   rml:subjectMap [
-    rml:template "http://example.org/item_{#}_{item.#}" ;
+    rml:template "http://example.org/item_{#}_{items.item.#}" ;
   ] ;
   rml:predicateObjectMap [
     rml:predicate :hasType ;
