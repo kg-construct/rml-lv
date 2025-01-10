@@ -172,7 +172,7 @@ rml:IterableField rdf:type owl:Class ;
 ###  http://w3id.org/rml/LogicalView
 rml:LogicalView rdf:type owl:Class ;
                 rdfs:label "Logical View" ;
-                rdfs:comment "A logical view (rml:LogicalView) is a type of abstract logical source that is derived from another abstract logical source by defining field with data from said abstract logical source." ;
+                rdfs:comment "A logical view (rml:LogicalView) is a type of abstract logical source that is derived from another abstract logical source by defining fields with data from said abstract logical source." ;
                 rdfs:subClassOf rml:AbstractLogicalSource ;
                 rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
