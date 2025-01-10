@@ -156,7 +156,7 @@ rml:Field rdf:type owl:Class ;
 ###  http://w3id.org/rml/ExpressionField
 rml:ExpressionField rdf:type owl:Class ;
           rdfs:label "Expression Field" ;
-          rdfs:comment "A expression field is an expression map that gives a name to an expression." ;
+          rdfs:comment "An expression field is an expression map that gives a name to an expression." ;
           rdfs:subClassOf rml:Field, rml:ExpressionMap ;
           rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
