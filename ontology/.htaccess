@@ -1,7 +1,7 @@
 ############################################################################
 ### THIS FILE SHOULD BE PLACED ON THE PARENT FOLDER OF THE DOCUMENTATION ###
 ### OTHERWISE THE CONTENT NEGOTIATION WILL NOT WORK                      ###
-### THE URL OF YOUR VOCABULARY WILL BE (domain)/myDocumentation/def    ###
+### THE URL OF YOUR VOCABULARY WILL BE (domain)/rml-lv/def    ###
 ############################################################################
 # Turn off MultiViews
 Options -MultiViews
