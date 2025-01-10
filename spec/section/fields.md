@@ -255,7 +255,7 @@ For the evaluation of the expression of an [=expression field=] (`rml:Expression
 Consequently, the parent of an [=expression field=] MUST be an <a data-cite="RML-Core##dfn-iterable">iterable</a>, i.e. an <a data-cite="RML-Core##dfn-abstract-logical-source">abstract logical source</a> or [=iterable field=].  
 
 The default <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> of an [=iterable field=] (`rml:IterableField`) is the <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> of the field's [=parent=]. 
-If the [=iterable field=]'s [=parent=] is an [=expression field=], the [=iterable field=] MUST declare an own <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a>.
+If the [=iterable field=]'s [=parent=] is an [=expression field=], a <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> MUST be declared for the [=iterable field=].
 Declaring a new <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a>, i.e. a <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> that is different from the <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> of the field's [=parent=], is only allowed when the field's [=parent=] is an [=expression field=]. 
 
 <aside class=example id=ex-mixed-format-json-csv>
