@@ -261,7 +261,7 @@ Declaring a new <a data-cite="RML-Core##dfn-reference-formulation">reference for
 <aside class=example id=ex-mixed-format-json-csv>
 
 In this example a [=logical view=] is defined on a <a data-cite="RML-Core#dfn-logical-source">logical source</a> with reference formulation `rml:JSONPath`.
-The [=field=] with [=declared name=] "items" is evaluated using this reference formulation.
+The [=field=] with [=declared name=] "items" is evaluated using this <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a>.
 The nested [=field=] with [=declared name=] "item" has a declared <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a> `rml:CSV` and CSV row as implicit iterator. 
 Its records are a sequence of logical iterations defined by its iterator. 
 The nested fields with [=declared name=] "type" and "weight" are evaluated using the reference formulation `rml:CSV` from their parent field  with [=declared name=] "item".
