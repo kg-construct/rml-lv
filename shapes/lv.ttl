@@ -14,7 +14,7 @@
 rmlsh:LogicalViewShape a sh:NodeShape ;
     rdfs:label "LogicalView" ;
     rdfs:comment """
-    A logical view (rml:LogicalView) is a type of abstract logical source that is derived from another abstract logical source by defining field with data from said abstract logical source.
+    A logical view (rml:LogicalView) is a type of abstract logical source that is derived from another abstract logical source by defining fields with data from said abstract logical source.
     """ ;
     sh:message """
     Node must have a valid rml:LogicalView description.
