@@ -16,7 +16,7 @@ AddType application/ld+json .jsonld
 # Rewrite engine setup
 RewriteEngine On
 #Change the path to the folder here
-RewriteBase /myDocumentation 
+RewriteBase /rml-lv
 
 # Rewrite rule to serve JSON-LD content from the vocabulary URI if requested
 # Placed before HTML to support serving JSON-LD from a browser (e.g., JSON Playground)
@@ -53,13 +53,13 @@ RewriteRule ^def/(.+)$ doc/ontology.nt [R=303,NE,L]
 # Rewrite rule to serve TTL content from the vocabulary URI if requested
 RewriteCond %{HTTP_ACCEPT} text/turtle [OR]
 RewriteCond %{HTTP_ACCEPT} text/\* [OR]
-RewriteCond %{HTTP_ACCEPT} \*/turtle 
+RewriteCond %{HTTP_ACCEPT} \*/turtle
 RewriteRule ^def$ doc/ontology.ttl [R=303,L]
 
 # Rewrite rule to serve TTL content from the vocabulary URI if requested
 RewriteCond %{HTTP_ACCEPT} text/turtle [OR]
 RewriteCond %{HTTP_ACCEPT} text/\* [OR]
-RewriteCond %{HTTP_ACCEPT} \*/turtle 
+RewriteCond %{HTTP_ACCEPT} \*/turtle
 RewriteRule ^def/(.+)$ doc/ontology.ttl [R=303,NE,L]
 
 RewriteCond %{HTTP_ACCEPT} .+
