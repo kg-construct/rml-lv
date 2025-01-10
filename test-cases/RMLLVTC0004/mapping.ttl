@@ -58,7 +58,8 @@
       rml:parent "name" ;
       rml:child "name" ;
     ] ;
-    rml:field [ a rml:ExpressionField ;
+    rml:field [
+      a rml:ExpressionField ;
       rml:fieldName "item_type" ;
       rml:reference "item.type" ;
     ] ;
