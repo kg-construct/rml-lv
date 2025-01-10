@@ -164,7 +164,7 @@ rml:ExpressionField rdf:type owl:Class ;
 ###  http://w3id.org/rml/IterableField
 rml:IterableField rdf:type owl:Class ;
           rdfs:label "Iterable Field" ;
-          rdfs:comment "A iterable field is an iterable that gives a name to a logical iteration." ;
+          rdfs:comment "An iterable field is an iterable that gives a name to a logical iteration." ;
           rdfs:subClassOf rml:Field, rml:Iterable ;
           rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
