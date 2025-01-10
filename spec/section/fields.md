@@ -251,7 +251,7 @@ Note some columns in the table below have been shortened for brevity.
 
 ### Field reference formulations {#fieldreferenceformulations}
 
-For the application of the expression of an [=expression field=] (`rml:ExpressionField`) on the records of the field's [=parent=], the parent's <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> is used. 
+For the evaluation of the expression of an [=expression field=] (`rml:ExpressionField`) on the records of the field's [=parent=], the parent's <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> is used. 
 Consequently, the parent of an [=expression field=] MUST be an <a data-cite="RML-Core##dfn-iterable">iterable</a>, i.e. an <a data-cite="RML-Core##dfn-abstract-logical-source">abstract logical source</a> or [=iterable field=].  
 
 The default <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> of an [=iterable field=] (`rml:IterableField`) is the <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> of the field's [=parent=]. 
