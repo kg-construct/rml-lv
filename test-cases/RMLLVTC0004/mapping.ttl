@@ -48,7 +48,8 @@
     rml:fieldName "name" ;
     rml:reference "name" ;
   ] ;
-  rml:field [ a rml:ExpressionField ;
+  rml:field [
+    a rml:ExpressionField ;
     rml:fieldName "birthyear" ;
     rml:reference "birthyear" ;
   ] ;
