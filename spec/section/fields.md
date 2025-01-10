@@ -23,7 +23,7 @@ If no reference formulation is declared for a field, the reference formulation o
 
 ### Field parents {#fieldparents}
 
-A [=field=] MUST have a <dfn>parent</dfn> that is either <a data-cite="RML-Core##dfn-abstract-logical-source">abstract logical source</a> or another [=field=]. The parent relation MUST not contain cycles: it is tree-shaped with a logical source as its root. The transitive parents of a [=field=], i.e., the [=field=]'s parent, the parent of the [=field=]'s parent, etcetera, are fittingly called the [=field=]'s <dfn>ancestors</dfn>. 
+A [=field=] MUST have a <dfn>parent</dfn> that is either <a data-cite="RML-Core##dfn-abstract-logical-source">abstract logical source</a> or another [=field=]. The parent relation MUST not contain cycles: it is tree-shaped with a [=logical view=] as its root. The transitive parents of a [=field=], i.e., the [=field=]'s parent, the parent of the [=field=]'s parent, etcetera, are fittingly called the [=field=]'s <dfn>ancestors</dfn>. 
 
 ### Field names {#fieldnames}
 A [=field=] MUST have a <dfn>declared name</dfn> that is an alphanumerical string. Fields with the same [=parent=] MUST have different declared names. If a [=field=]'s parent is another [=field=], we distinguish between the [=field=]'s declared name and the [=field=]'s name. A [=field=]'s <dfn data-lt="field name">name</dfn> is the concatenation of the name of the parent [=field=], a dot `.`, and the [=field=]'s declared name. 
