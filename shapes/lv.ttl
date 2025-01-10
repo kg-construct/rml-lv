@@ -80,7 +80,7 @@ rmlsh:LogicalViewShape a sh:NodeShape ;
 rmlsh:FieldShape a sh:NodeShape ;
     rdfs:label "Field" ;
     rdfs:comment """
-    A field is a construction that gives a name to data derived from an abstract logical source.
+    A field is a construct that gives a name to data derived from an abstract logical source.
     """ ;
     sh:message """
     Node must have a valid rml:Field description.
