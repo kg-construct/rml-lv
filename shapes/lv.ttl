@@ -130,7 +130,7 @@ rmlsh:ExpressionFieldShape a sh:NodeShape ;
     rml:ExpressionField requires what an rml:ExpressionMap and rml:Field requires.
     """ ;
     sh:targetClass rml:ExpressionField ;
-    sh:node rmlsh:ExpressionMap, rmlsh:Field ; # TODO requires rmlsh:ExpressionMap to be defined in core
+    sh:node rmlsh:RMLExpressionMapShape, rmlsh:Field ;
 .
 
 rmlsh:IterableFieldShape a sh:NodeShape ;
