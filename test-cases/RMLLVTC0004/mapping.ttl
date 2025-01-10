@@ -62,7 +62,8 @@
       rml:fieldName "item_type" ;
       rml:reference "item.type" ;
     ] ;
-    rml:field [ a rml:ExpressionField ;
+    rml:field [
+      a rml:ExpressionField ;
       rml:fieldName "item_weight" ;
       rml:reference "item.weight" ;
     ] ;
