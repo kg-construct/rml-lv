@@ -42,13 +42,13 @@ dfn{cursor:pointer}
 .dfn-panel li{margin-left:1em}
 .dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
 </style>
-    
+
 <title>RML Logical Views</title>
-    
-    
+
+
 <link rel="stylesheet" type="text/css" href="./resources/css/extras.css">
-    
-    
+
+
 <style type="text/css">
 
         /* Adapted from R2RML */
@@ -133,13 +133,13 @@ dfn{cursor:pointer}
         th {
           font-weight: bold;
         }
-    
+
 </style>
-    
-    
-    
+
+
+
 <script data-goatcounter="https://rml-fields.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
-    
+
 <noscript>
         &lt;img src="https://rml-fields.goatcounter.com/count?p=/test-noscript"&gt;
     </noscript>
@@ -320,34 +320,34 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
 <body class="h-entry"><div class="head">
-    
-    <h1 id="title" class="title">RML Logical Views</h1> 
+
+    <h1 id="title" class="title">RML Logical Views</h1>
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
       <time class="dt-published" datetime="2024-07-18">18 July 2024</time>
     </p>
     <dl>
-      
+
       <dt>Latest published version:</dt><dd>
               none
             </dd>
       <dt>Latest editor's draft:</dt><dd><a href="https://w3id.org/kg-construct/rml-lv">https://w3id.org/kg-construct/rml-lv</a></dd>
-      
-      
-      
-      
+
+
+
+
       <dt>Editors:</dt><dd class="editor p-author h-card vcard">
     <a class="ed_mailto u-email email p-name" href="mailto:pano@skemu.com">Pano Maria</a> (<a class="p-org org h-org" href="https://skemu.com">Skemu</a>)
   </dd><dd class="editor p-author h-card vcard">
     <a class="ed_mailto u-email email p-name" href="mailto:els.devleeschauwer@ugent.be">Els de Vleeschauwer</a> (<a class="p-org org h-org" href="https://idlab.technology/">Ghent University – imec – IDLab</a>)
   </dd>
-      
+
       <dt>Authors:</dt><dd class="editor p-author h-card vcard">
     <a class="ed_mailto u-email email p-name" href="mailto:pano@skemu.com">Pano Maria</a> (<a class="p-org org h-org" href="https://skemu.com">Skemu</a>)
   </dd><dd class="editor p-author h-card vcard">
     <a class="ed_mailto u-email email p-name" href="mailto:els.devleeschauwer@ugent.be">Els de Vleeschauwer</a> (<a class="p-org org h-org" href="https://idlab.technology/">Ghent University – imec – IDLab</a>)
   </dd>
-      
+
       <dt>This Version</dt><dd>
     <a href="https://kg-construct.github.io/rml-lv/%thisDate%/">https://kg-construct.github.io/rml-lv/%thisDate%/</a>
   </dd><dt>Previous Version</dt><dd>
@@ -356,19 +356,19 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <a href="https://rml.io/">https://rml.io/</a>
   </dd>
     </dl>
-    
+
     <p class="copyright">
           <a href="https://www.w3.org/policies/#copyright">Copyright</a>
           ©
           2024
-          
+
           the Contributors to the RML Logical Views
           Specification, published by the
           <a href="https://www.w3.org/groups/cg/kg-construct">Knowledge Graph Construction Community Group</a> under the
           <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>. A human-readable
                 <a href="https://www.w3.org/community/about/agreements/cla-deed/">summary</a>
                 is available.
-              
+
         </p>
     <hr title="Separator for header">
   </div>
@@ -387,11 +387,11 @@ as well as additional information about their fields, through structural annotat
       This specification was published by the
       <a href="https://www.w3.org/groups/cg/kg-construct">Knowledge Graph Construction Community Group</a>. It is not a W3C Standard nor is it
       on the W3C Standards Track.
-      
+
             Please note that under the
             <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>
             there is a limited opt-out and other conditions apply.
-          
+
       Learn more about
       <a href="https://www.w3.org/community/">W3C Community and Business Groups</a>.
     </p>
@@ -402,7 +402,7 @@ yet efforts are made to keep things stable.</p>
 
 <section id="overview-0"><div class="header-wrapper"><h2 id="overview"><bdi class="secno">1. </bdi>Overview</h2><a class="self-link" href="#overview" aria-label="Permalink for Section 1."></a></div><p><em>This section is non-normative.</em></p>
 <section id="document-conventions"><div class="header-wrapper"><h3 id="conventions"><bdi class="secno">1.1 </bdi>Document conventions</h3><a class="self-link" href="#conventions" aria-label="Permalink for Section 1.1"></a></div><p>We assume readers have basic familiarity with RDF and RML concepts.</p>
-<p>In this document, examples assume 
+<p>In this document, examples assume
 the following namespace prefix bindings unless otherwise stated:</p>
 <table>
 <thead>
@@ -452,18 +452,18 @@ the following namespace prefix bindings unless otherwise stated:</p>
 <section id="problem-0"><div class="header-wrapper"><h2 id="problem"><bdi class="secno">2. </bdi>Problem</h2><a class="self-link" href="#problem" aria-label="Permalink for Section 2."></a></div><p><em>This section is non-normative.</em></p>
 <p>RML Logical Views aims to resolve challenges such as handling hierarchy of nested data, more flexible joining (also across data hierarchies), and handling data sources that mix source formats.</p>
 <section id="nested-data-structures"><div class="header-wrapper"><h3 id="x2-1-nested-data-structures"><bdi class="secno">2.1 </bdi>Nested data structures</h3><a class="self-link" href="#nested-data-structures" aria-label="Permalink for Section 2.1"></a></div>
-<p>References to nested data structures, like JSON or XML, may return multiple values. These values can be composite: they may again contain multiple values. 
-<cite><a class="respec-offending-element" title="No matching definition found." id="respec-offender-no-matching-definition-found" href="https://w3id.org/rml/core/spec">RML-Core</a></cite> defines mapping constructs that produce results by combining the results of other mapping constructs in a specific order. 
-For example, a <a href="https://w3id.org/rml/core/spec#dfn-triples-map">triples map</a> combines the results of a <a href="https://w3id.org/rml/core/spec#dfn-subject-map">subject map</a> and a <a href="https://w3id.org/rml/core/spec#dfn-predicate-object-map">predicate-object map</a> in that order. 
-Another example is a <a href="https://w3id.org/rml/core/spec#dfn-template-expression">template expression</a>, 
-which combines character strings and zero or more <a href="https://w3id.org/rml/core/spec#dfn-reference-expression">reference expressions</a> in declared order. 
+<p>References to nested data structures, like JSON or XML, may return multiple values. These values can be composite: they may again contain multiple values.
+<cite><a class="respec-offending-element" title="No matching definition found." id="respec-offender-no-matching-definition-found" href="https://w3id.org/rml/core/spec">RML-Core</a></cite> defines mapping constructs that produce results by combining the results of other mapping constructs in a specific order.
+For example, a <a href="https://w3id.org/rml/core/spec#dfn-triples-map">triples map</a> combines the results of a <a href="https://w3id.org/rml/core/spec#dfn-subject-map">subject map</a> and a <a href="https://w3id.org/rml/core/spec#dfn-predicate-object-map">predicate-object map</a> in that order.
+Another example is a <a href="https://w3id.org/rml/core/spec#dfn-template-expression">template expression</a>,
+which combines character strings and zero or more <a href="https://w3id.org/rml/core/spec#dfn-reference-expression">reference expressions</a> in declared order.
 When mapping constructs produce multiple results, the combining mapping constructs will apply an <a href="https://w3id.org/rml/core/spec#dfn-n-ary-cartesian-product">n-ary Cartesian product</a> over the sets of results, maintaining the order of the mapping constructs. In the case of nested data structures, this may cause the generation of results that do not match the source hierarchy, i.e. do not follow the root-to-leaf paths in the source data, since values are combined irrespective of it.</p>
 <p>Furthermore, there is varying expressiveness in data source expression and query languages, and many languages have limited support for hierarchy traversal. For example, JSONPath has no operator to refer to an ancestor in the document hierarchy.</p>
 <p>This limits the ability of <a href="https://kg-construct.github.io/rml-core/spec/docs/">RML-Core</a> to map nested data.</p>
 <aside class="example" id="ex-nesting-problem"><div class="marker">
     <a class="self-link" href="#ex-nesting-problem">Example<bdi> 1</bdi></a>
   </div>
-It is not possible to declare the construction of below output triples from below data source with RML-Core. 
+It is not possible to declare the construction of below output triples from below data source with RML-Core.
 <aside class="ex-input">
 
 <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
@@ -513,20 +513,20 @@ It is not possible to declare the construction of below output triples from belo
 <aside class="example" id="ex-mixed-format-problem"><div class="marker">
     <a class="self-link" href="#ex-mixed-format-problem">Example<bdi> 2</bdi></a>
   </div>
-It is not possible to declare the construction of below output triples from below data source with RML-Core. 
+It is not possible to declare the construction of below output triples from below data source with RML-Core.
 <aside class="ex-input">
 
-<pre><code class="csv hljs" aria-busy="false">name,item  
-alice,"{""type"":""sword"",""weight"": 2500}" 
-alice,"{""type"":""shield"",""weight"": 1500}"  
-bob,"{""type"":""flower"",""weight"": 15 }"  
+<pre><code class="csv hljs" aria-busy="false">name,item
+alice,"{""type"":""sword"",""weight"": 2500}"
+alice,"{""type"":""shield"",""weight"": 1500}"
+bob,"{""type"":""flower"",""weight"": 15 }"
 </code></pre>
 </aside>
 
 <aside class="ex-output">
 
 <pre><code class="turtle hljs" aria-busy="false">:person/alice :hasItem "sword" , "shield" .
-:person/bob :hasItem "flower" . 
+:person/bob :hasItem "flower" .
 </code></pre>
 </aside>
 </aside>
@@ -537,7 +537,7 @@ Moreover, <a href="https://kg-construct.github.io/rml-core/spec/docs/">RML-Core<
 <aside class="example" id="ex-mixed-format-problem"><div class="marker">
     <a class="self-link" href="#ex-mixed-format-problem">Example<bdi> 3</bdi></a>
   </div>
-It is not possible to declare the construction of below output triples from below two data sources with RML-Core. 
+It is not possible to declare the construction of below output triples from below two data sources with RML-Core.
 <aside class="ex-input">
 
 <pre><code class="csv hljs" aria-busy="false">name,id
@@ -558,7 +558,7 @@ bob,flower
 
 <aside class="ex-output">
 
-<pre><code class="turtle hljs" aria-busy="false">:person/123 :hasItem "sword", "shield" . 
+<pre><code class="turtle hljs" aria-busy="false">:person/123 :hasItem "sword", "shield" .
 :person/456 :hasItem "flower" .
 </code></pre>
 </aside>
@@ -581,7 +581,7 @@ tobias,2005
 
 <aside class="ex-mapping">
 
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:csvSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:InputLogicalSource</span> ;
+<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:csvSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalSource</span> ;
   <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:csvFile</span> ;
   <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:CSV</span> .
 </code></pre>
@@ -622,7 +622,7 @@ tobias,2005
 
 <aside class="ex-mapping">
 
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:xmlSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:InputLogicalSource</span> ;
+<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:xmlSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalSource</span> ;
   <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:xmlFile</span> ;
   <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:XPath</span> ;
   <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"/People/Person"</span> .
@@ -683,7 +683,7 @@ tobias,2005
 
 <aside class="ex-mapping">
 
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:InputLogicalSource</span> ;
+<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalSource</span> ;
   <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:jsonFile</span> ;
   <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:JSONPath</span> ;
   <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.people[*]"</span> .
@@ -801,7 +801,7 @@ Describe how logical iteration relates to records.
 
 <aside class="ex-mapping">
 
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:InputLogicalSource</span> ;
+<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalSource</span> ;
   <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:jsonFile</span> ;
   <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:JSONPath</span> ;
   <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.people[*]"</span> .
@@ -1055,7 +1055,7 @@ Note some columns in the table below have been shortened for brevity.
 <th>item.type.#</th>
 <th>item.type</th>
 <th>item.weight.#</th>
-<th>item.weight</th> 
+<th>item.weight</th>
 </tr><tr>
 <td>0</td>
 <td>
@@ -1126,7 +1126,7 @@ Note some columns in the table below have been shortened for brevity.
 
 </aside>
 
-</section><section id="field-reference-formulations-and-iterators"><div class="header-wrapper"><h3 id="fieldreferenceformulations"><bdi class="secno">5.4 </bdi>Field reference formulations and iterators</h3><a class="self-link" href="#fieldreferenceformulations" aria-label="Permalink for Section 5.4"></a></div><p>A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-33">field</a> <em class="rfc2119">MUST</em> have a <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a> and a <a href="https://w3id.org/rml/core/spec#dfn-iterator">logical iterator</a> . 
+</section><section id="field-reference-formulations-and-iterators"><div class="header-wrapper"><h3 id="fieldreferenceformulations"><bdi class="secno">5.4 </bdi>Field reference formulations and iterators</h3><a class="self-link" href="#fieldreferenceformulations" aria-label="Permalink for Section 5.4"></a></div><p>A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-33">field</a> <em class="rfc2119">MUST</em> have a <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a> and a <a href="https://w3id.org/rml/core/spec#dfn-iterator">logical iterator</a> .
 If no reference formulation is declared for a field, the reference formulation of the <a data-link-type="dfn|abstract-op" href="#dfn-field-parent" class="internalDFN" id="ref-for-dfn-field-parent-2">field parent</a> is implied.
 If no iterator is declared for a field, the default iterator of the field's reference formulation is implied.</p>
 <p>For the application of the <a href="https://w3id.org/rml/core/spec#dfn-expressions">expression</a> of a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-34">field</a> on the records of the <a data-link-type="dfn|abstract-op" href="#dfn-field-parent" class="internalDFN" id="ref-for-dfn-field-parent-3">field parent</a>, the parent's reference formulation is used, resulting in <a data-link-type="dfn|abstract-op" href="#dfn-record-sequence" class="internalDFN" id="ref-for-dfn-record-sequence-4">record sequence</a> <em>R</em>. Afterwards the field's iterator is applied on this resulting record sequence <em>R</em> to obtain the <a data-link-type="dfn|abstract-op" href="#dfn-field-record-sequence" class="internalDFN" id="ref-for-dfn-field-record-sequence-3">field record sequence</a> defined by the field. </p>
@@ -1135,7 +1135,7 @@ If no iterator is declared for a field, the default iterator of the field's refe
   </div>
 
 <p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-5">logical view</a> is defined on a <a href="https://w3id.org/rml/core/spec#dfn-logical-source">logical source</a> with reference formulation <code>rml:JSONPath</code>.
-The <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-35">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-4">declared name</a> "item" has a declared <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a> <code>rml:CSV</code> and CSV row as implicit iterator. 
+The <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-35">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-4">declared name</a> "item" has a declared <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a> <code>rml:CSV</code> and CSV row as implicit iterator.
 First the expression "$.items" is evaluated using the reference formulation of the <a data-link-type="dfn|abstract-op" href="#dfn-field-parent" class="internalDFN" id="ref-for-dfn-field-parent-4">field parent</a>. Second, the implicit iterator of the field is applied on the resulting records.
 The nested fields with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-5">declared name</a> "type" and "weight" are evaluated using the reference formulation <code>rml:CSV</code> from their parent field  with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-6">declared name</a> "item".</p>
 <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
@@ -1149,12 +1149,12 @@ The nested fields with <a data-link-type="dfn|abstract-op" href="#dfn-declared-n
       <span class="hljs-attr">"items"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"type,weight\nflower,15"</span>
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
-<span class="hljs-punctuation">}</span>  
+<span class="hljs-punctuation">}</span>
 </code></pre>
 </aside>
 <aside class="ex-mapping">
 
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:mixedJSONSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:InputLogicalSource</span> ;
+<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:mixedJSONSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalSource</span> ;
   <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:mixedJSONFile</span> ;
   <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:JSONPath</span> ;
   <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.people[*]"</span> .
@@ -1459,8 +1459,8 @@ Note some columns in the table below have been shortened for brevity.
     <a class="self-link" href="#ex-leftjoin">Example<bdi> 15</bdi></a>
   </div>
 
-<p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-8">logical view</a> with fields built with data from the logical source from <a href="#csviterator" data-matched-text="[[[#csviterator]]]" class="box-ref">Example<bdi> 4</bdi></a> is joined with the logical view from <a href="#ex-field-record-sequence" data-matched-text="[[[#ex-field-record-sequence]]]" class="box-ref">Example<bdi> 12</bdi></a>. 
-In case of a left join (as in the example), this results in 4 logical iterations in the logical view. 
+<p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-8">logical view</a> with fields built with data from the logical source from <a href="#csviterator" data-matched-text="[[[#csviterator]]]" class="box-ref">Example<bdi> 4</bdi></a> is joined with the logical view from <a href="#ex-field-record-sequence" data-matched-text="[[[#ex-field-record-sequence]]]" class="box-ref">Example<bdi> 12</bdi></a>.
+In case of a left join (as in the example), this results in 4 logical iterations in the logical view.
 If an inner joins would have been used, the logical view would have only 3 logical iterations. </p>
 <aside class="ex-mapping">
 
@@ -1479,7 +1479,7 @@ If an inner joins would have been used, the logical view would have only 3 logic
     <span class="hljs-symbol">rml:joinCondition</span> [
       <span class="hljs-symbol">rml:parent</span> <span class="hljs-string">"name"</span> ;
       <span class="hljs-symbol">rml:child</span> <span class="hljs-string">"name"</span> ;
-    ] ; 
+    ] ;
     <span class="hljs-symbol">rml:field</span> [
       <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"item_type"</span> ;
       <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"item.type"</span> ;
@@ -1582,7 +1582,7 @@ If an inner joins would have been used, the logical view would have only 3 logic
     <span class="hljs-symbol">rml:joinCondition</span> [
       <span class="hljs-symbol">rml:parent</span> <span class="hljs-string">"name"</span> ;
       <span class="hljs-symbol">rml:child</span> <span class="hljs-string">"name"</span> ;
-    ] ; 
+    ] ;
     <span class="hljs-symbol">rml:field</span> [
       <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"item_type"</span> ;
       <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"item.type"</span> ;
@@ -1677,7 +1677,7 @@ tobias,789
   <span class="hljs-symbol">rml:field</span> [
     <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"id"</span> ;
     <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"id"</span> ;
-  ] . 
+  ] .
 
 <span class="hljs-symbol">:csvView</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
   <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:csvSource</span> ;
@@ -1694,7 +1694,7 @@ tobias,789
     <span class="hljs-symbol">rml:joinCondition</span> [
       <span class="hljs-symbol">rml:parent</span> <span class="hljs-string">"name"</span> ;
       <span class="hljs-symbol">rml:child</span> <span class="hljs-string">"name"</span> ;
-    ] ; 
+    ] ;
     <span class="hljs-symbol">rml:field</span> [
       <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"item_type"</span> ;
       <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"item.type"</span> ;
@@ -1703,13 +1703,13 @@ tobias,789
       <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"item_weight"</span> ;
       <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"item.weight"</span> ;
     ] ;
-  ] ; 
+  ] ;
   <span class="hljs-symbol">rml:leftJoin</span> [
     <span class="hljs-symbol">rml:parentLogicalView</span> <span class="hljs-symbol">:additionalCsvView</span> ;
     <span class="hljs-symbol">rml:joinCondition</span> [
       <span class="hljs-symbol">rml:parent</span> <span class="hljs-string">"name"</span> ;
       <span class="hljs-symbol">rml:child</span> <span class="hljs-string">"name"</span> ;
-    ] ; 
+    ] ;
     <span class="hljs-symbol">rml:field</span> [
       <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"id"</span> ;
       <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"id"</span> ;
@@ -1872,7 +1872,7 @@ lukas, 1986
 <p>First, we specify the logical source corresponding to the CSV file:</p>
 <aside class="ex-mapping">
 
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:csvSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:InputLogicalSource</span> ;
+<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:csvSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalSource</span> ;
   <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:csvFile</span> ;
   <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:CSV</span> .
 </code></pre>
@@ -1989,7 +1989,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annota
 <p>First, we need to specify the logical sources. The logical source corresponding to the CSV:</p>
 <aside class="ex-mapping">
 
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:csvSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:InputLogicalSource</span> ;
+<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:csvSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalSource</span> ;
   <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:csvFile</span> ;
   <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:CSV</span> .
 </code></pre>
@@ -1998,7 +1998,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annota
 <p>The logical source corresponding to the JSON:</p>
 <aside class="ex-mapping">
 
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:InputLogicalSource</span> ;
+<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalSource</span> ;
   <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:jsonFile</span> ;
   <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:JSONPath</span> ;
   <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.people[*]"</span> .
@@ -2078,7 +2078,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
 
 
 <section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-references"><bdi class="secno">A. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="a-1-normative-references"><bdi class="secno">A.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix A.1"></a></div>
-    
+
     <dl class="bibliography"><dt id="bib-rfc2119">[RFC2119]</dt><dd>
       <a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>
     </dd><dt id="bib-rfc8174">[RFC8174]</dt><dd>
@@ -2094,21 +2094,21 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-record" aria-label="Permalink for definition: record. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-record-1" title="§ 3. Records">§ 3. Records</a> <a href="#ref-for-dfn-record-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-record-3" title="Reference 3">(3)</a> <a href="#ref-for-dfn-record-4" title="Reference 4">(4)</a> <a href="#ref-for-dfn-record-5" title="Reference 5">(5)</a> <a href="#ref-for-dfn-record-6" title="Reference 6">(6)</a> <a href="#ref-for-dfn-record-7" title="Reference 7">(7)</a> <a href="#ref-for-dfn-record-8" title="Reference 8">(8)</a> <a href="#ref-for-dfn-record-9" title="Reference 9">(9)</a> <a href="#ref-for-dfn-record-10" title="Reference 10">(10)</a> <a href="#ref-for-dfn-record-11" title="Reference 11">(11)</a> <a href="#ref-for-dfn-record-12" title="Reference 12">(12)</a> <a href="#ref-for-dfn-record-13" title="Reference 13">(13)</a> 
+      <a href="#ref-for-dfn-record-1" title="§ 3. Records">§ 3. Records</a> <a href="#ref-for-dfn-record-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-record-3" title="Reference 3">(3)</a> <a href="#ref-for-dfn-record-4" title="Reference 4">(4)</a> <a href="#ref-for-dfn-record-5" title="Reference 5">(5)</a> <a href="#ref-for-dfn-record-6" title="Reference 6">(6)</a> <a href="#ref-for-dfn-record-7" title="Reference 7">(7)</a> <a href="#ref-for-dfn-record-8" title="Reference 8">(8)</a> <a href="#ref-for-dfn-record-9" title="Reference 9">(9)</a> <a href="#ref-for-dfn-record-10" title="Reference 10">(10)</a> <a href="#ref-for-dfn-record-11" title="Reference 11">(11)</a> <a href="#ref-for-dfn-record-12" title="Reference 12">(12)</a> <a href="#ref-for-dfn-record-13" title="Reference 13">(13)</a>
     </li><li>
-      <a href="#ref-for-dfn-record-14" title="§ 3.2 Record sequences">§ 3.2 Record sequences</a> 
+      <a href="#ref-for-dfn-record-14" title="§ 3.2 Record sequences">§ 3.2 Record sequences</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-expression-values" aria-label="Links in this document to definition: expression values">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-expression-values" aria-label="Permalink for definition: expression values. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2118,23 +2118,23 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-record-sequence" aria-label="Permalink for definition: record sequence. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-record-sequence-1" title="§ 3.2 Record sequences">§ 3.2 Record sequences</a> 
+      <a href="#ref-for-dfn-record-sequence-1" title="§ 3.2 Record sequences">§ 3.2 Record sequences</a>
     </li><li>
-      <a href="#ref-for-dfn-record-sequence-2" title="§ 5.3 Field record sequences and records">§ 5.3 Field record sequences and records</a> <a href="#ref-for-dfn-record-sequence-3" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-record-sequence-2" title="§ 5.3 Field record sequences and records">§ 5.3 Field record sequences and records</a> <a href="#ref-for-dfn-record-sequence-3" title="Reference 2">(2)</a>
     </li><li>
-      <a href="#ref-for-dfn-record-sequence-4" title="§ 5.4 Field reference formulations and iterators">§ 5.4 Field reference formulations and iterators</a> 
+      <a href="#ref-for-dfn-record-sequence-4" title="§ 5.4 Field reference formulations and iterators">§ 5.4 Field reference formulations and iterators</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-iterator-record-sequence" aria-label="Links in this document to definition: iterator record sequence">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-iterator-record-sequence" aria-label="Permalink for definition: iterator record sequence. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2144,79 +2144,79 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-logical-view" aria-label="Permalink for definition: logical view. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-logical-view-1" title="§ 4. Logical views">§ 4. Logical views</a> <a href="#ref-for-dfn-logical-view-2" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-logical-view-1" title="§ 4. Logical views">§ 4. Logical views</a> <a href="#ref-for-dfn-logical-view-2" title="Reference 2">(2)</a>
     </li><li>
-      <a href="#ref-for-dfn-logical-view-3" title="§ 5.2 Field names">§ 5.2 Field names</a> 
+      <a href="#ref-for-dfn-logical-view-3" title="§ 5.2 Field names">§ 5.2 Field names</a>
     </li><li>
-      <a href="#ref-for-dfn-logical-view-4" title="§ 5.3 Field record sequences and records">§ 5.3 Field record sequences and records</a> 
+      <a href="#ref-for-dfn-logical-view-4" title="§ 5.3 Field record sequences and records">§ 5.3 Field record sequences and records</a>
     </li><li>
-      <a href="#ref-for-dfn-logical-view-5" title="§ 5.4 Field reference formulations and iterators">§ 5.4 Field reference formulations and iterators</a> 
+      <a href="#ref-for-dfn-logical-view-5" title="§ 5.4 Field reference formulations and iterators">§ 5.4 Field reference formulations and iterators</a>
     </li><li>
-      <a href="#ref-for-dfn-logical-view-6" title="§ 6. Logical view joins">§ 6. Logical view joins</a> <a href="#ref-for-dfn-logical-view-7" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-logical-view-6" title="§ 6. Logical view joins">§ 6. Logical view joins</a> <a href="#ref-for-dfn-logical-view-7" title="Reference 2">(2)</a>
     </li><li>
-      <a href="#ref-for-dfn-logical-view-8" title="§ 6.2.1 Left join">§ 6.2.1 Left join</a> 
+      <a href="#ref-for-dfn-logical-view-8" title="§ 6.2.1 Left join">§ 6.2.1 Left join</a>
     </li><li>
-      <a href="#ref-for-dfn-logical-view-9" title="§ 6.2.3 Two left joins">§ 6.2.3 Two left joins</a> 
+      <a href="#ref-for-dfn-logical-view-9" title="§ 6.2.3 Two left joins">§ 6.2.3 Two left joins</a>
     </li><li>
-      <a href="#ref-for-dfn-logical-view-10" title="§ 7. Structural Annotations">§ 7. Structural Annotations</a> 
+      <a href="#ref-for-dfn-logical-view-10" title="§ 7. Structural Annotations">§ 7. Structural Annotations</a>
     </li><li>
-      <a href="#ref-for-dfn-logical-view-11" title="§ 7.3 PrimaryKey">§ 7.3 PrimaryKey</a> 
+      <a href="#ref-for-dfn-logical-view-11" title="§ 7.3 PrimaryKey">§ 7.3 PrimaryKey</a>
     </li><li>
-      <a href="#ref-for-dfn-logical-view-12" title="§ 7.6 ForeignKey">§ 7.6 ForeignKey</a> 
+      <a href="#ref-for-dfn-logical-view-12" title="§ 7.6 ForeignKey">§ 7.6 ForeignKey</a>
     </li><li>
-      <a href="#ref-for-dfn-logical-view-13" title="§ 7.7 Inclusion">§ 7.7 Inclusion</a> 
+      <a href="#ref-for-dfn-logical-view-13" title="§ 7.7 Inclusion">§ 7.7 Inclusion</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-field" aria-label="Links in this document to definition: field">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-field" aria-label="Permalink for definition: field. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-field-1" title="§ 4. Logical views">§ 4. Logical views</a> <a href="#ref-for-dfn-field-2" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-field-1" title="§ 4. Logical views">§ 4. Logical views</a> <a href="#ref-for-dfn-field-2" title="Reference 2">(2)</a>
     </li><li>
-      <a href="#ref-for-dfn-field-3" title="§ 5. Fields">§ 5. Fields</a> <a href="#ref-for-dfn-field-4" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-5" title="Reference 3">(3)</a> <a href="#ref-for-dfn-field-6" title="Reference 4">(4)</a> <a href="#ref-for-dfn-field-7" title="Reference 5">(5)</a> 
+      <a href="#ref-for-dfn-field-3" title="§ 5. Fields">§ 5. Fields</a> <a href="#ref-for-dfn-field-4" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-5" title="Reference 3">(3)</a> <a href="#ref-for-dfn-field-6" title="Reference 4">(4)</a> <a href="#ref-for-dfn-field-7" title="Reference 5">(5)</a>
     </li><li>
-      <a href="#ref-for-dfn-field-8" title="§ 5.1 Field parents">§ 5.1 Field parents</a> <a href="#ref-for-dfn-field-9" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-10" title="Reference 3">(3)</a> <a href="#ref-for-dfn-field-11" title="Reference 4">(4)</a> <a href="#ref-for-dfn-field-12" title="Reference 5">(5)</a> <a href="#ref-for-dfn-field-13" title="Reference 6">(6)</a> 
+      <a href="#ref-for-dfn-field-8" title="§ 5.1 Field parents">§ 5.1 Field parents</a> <a href="#ref-for-dfn-field-9" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-10" title="Reference 3">(3)</a> <a href="#ref-for-dfn-field-11" title="Reference 4">(4)</a> <a href="#ref-for-dfn-field-12" title="Reference 5">(5)</a> <a href="#ref-for-dfn-field-13" title="Reference 6">(6)</a>
     </li><li>
-      <a href="#ref-for-dfn-field-14" title="§ 5.2 Field names">§ 5.2 Field names</a> <a href="#ref-for-dfn-field-15" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-16" title="Reference 3">(3)</a> <a href="#ref-for-dfn-field-17" title="Reference 4">(4)</a> <a href="#ref-for-dfn-field-18" title="Reference 5">(5)</a> <a href="#ref-for-dfn-field-19" title="Reference 6">(6)</a> <a href="#ref-for-dfn-field-20" title="Reference 7">(7)</a> <a href="#ref-for-dfn-field-21" title="Reference 8">(8)</a> <a href="#ref-for-dfn-field-22" title="Reference 9">(9)</a> <a href="#ref-for-dfn-field-23" title="Reference 10">(10)</a> 
+      <a href="#ref-for-dfn-field-14" title="§ 5.2 Field names">§ 5.2 Field names</a> <a href="#ref-for-dfn-field-15" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-16" title="Reference 3">(3)</a> <a href="#ref-for-dfn-field-17" title="Reference 4">(4)</a> <a href="#ref-for-dfn-field-18" title="Reference 5">(5)</a> <a href="#ref-for-dfn-field-19" title="Reference 6">(6)</a> <a href="#ref-for-dfn-field-20" title="Reference 7">(7)</a> <a href="#ref-for-dfn-field-21" title="Reference 8">(8)</a> <a href="#ref-for-dfn-field-22" title="Reference 9">(9)</a> <a href="#ref-for-dfn-field-23" title="Reference 10">(10)</a>
     </li><li>
-      <a href="#ref-for-dfn-field-24" title="§ 5.3 Field record sequences and records">§ 5.3 Field record sequences and records</a> <a href="#ref-for-dfn-field-25" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-26" title="Reference 3">(3)</a> <a href="#ref-for-dfn-field-27" title="Reference 4">(4)</a> <a href="#ref-for-dfn-field-28" title="Reference 5">(5)</a> <a href="#ref-for-dfn-field-29" title="Reference 6">(6)</a> <a href="#ref-for-dfn-field-30" title="Reference 7">(7)</a> <a href="#ref-for-dfn-field-31" title="Reference 8">(8)</a> <a href="#ref-for-dfn-field-32" title="Reference 9">(9)</a> 
+      <a href="#ref-for-dfn-field-24" title="§ 5.3 Field record sequences and records">§ 5.3 Field record sequences and records</a> <a href="#ref-for-dfn-field-25" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-26" title="Reference 3">(3)</a> <a href="#ref-for-dfn-field-27" title="Reference 4">(4)</a> <a href="#ref-for-dfn-field-28" title="Reference 5">(5)</a> <a href="#ref-for-dfn-field-29" title="Reference 6">(6)</a> <a href="#ref-for-dfn-field-30" title="Reference 7">(7)</a> <a href="#ref-for-dfn-field-31" title="Reference 8">(8)</a> <a href="#ref-for-dfn-field-32" title="Reference 9">(9)</a>
     </li><li>
-      <a href="#ref-for-dfn-field-33" title="§ 5.4 Field reference formulations and iterators">§ 5.4 Field reference formulations and iterators</a> <a href="#ref-for-dfn-field-34" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-35" title="Reference 3">(3)</a> 
+      <a href="#ref-for-dfn-field-33" title="§ 5.4 Field reference formulations and iterators">§ 5.4 Field reference formulations and iterators</a> <a href="#ref-for-dfn-field-34" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-35" title="Reference 3">(3)</a>
     </li><li>
-      <a href="#ref-for-dfn-field-36" title="§ 5.5 Using field names in triples maps">§ 5.5 Using field names in triples maps</a> 
+      <a href="#ref-for-dfn-field-36" title="§ 5.5 Using field names in triples maps">§ 5.5 Using field names in triples maps</a>
     </li><li>
-      <a href="#ref-for-dfn-field-37" title="§ 6. Logical view joins">§ 6. Logical view joins</a> 
+      <a href="#ref-for-dfn-field-37" title="§ 6. Logical view joins">§ 6. Logical view joins</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-field-parent" aria-label="Links in this document to definition: parent">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-field-parent" aria-label="Permalink for definition: parent. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-field-parent-1" title="§ 5.3 Field record sequences and records">§ 5.3 Field record sequences and records</a> 
+      <a href="#ref-for-dfn-field-parent-1" title="§ 5.3 Field record sequences and records">§ 5.3 Field record sequences and records</a>
     </li><li>
-      <a href="#ref-for-dfn-field-parent-2" title="§ 5.4 Field reference formulations and iterators">§ 5.4 Field reference formulations and iterators</a> <a href="#ref-for-dfn-field-parent-3" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-parent-4" title="Reference 3">(3)</a> 
+      <a href="#ref-for-dfn-field-parent-2" title="§ 5.4 Field reference formulations and iterators">§ 5.4 Field reference formulations and iterators</a> <a href="#ref-for-dfn-field-parent-3" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-parent-4" title="Reference 3">(3)</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-ancestors" aria-label="Links in this document to definition: ancestors">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-ancestors" aria-label="Permalink for definition: ancestors. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2226,306 +2226,306 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-declared-name" aria-label="Permalink for definition: declared name. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-declared-name-1" title="§ 5.2 Field names">§ 5.2 Field names</a> <a href="#ref-for-dfn-declared-name-2" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-declared-name-1" title="§ 5.2 Field names">§ 5.2 Field names</a> <a href="#ref-for-dfn-declared-name-2" title="Reference 2">(2)</a>
     </li><li>
-      <a href="#ref-for-dfn-declared-name-3" title="§ 5.3 Field record sequences and records">§ 5.3 Field record sequences and records</a> 
+      <a href="#ref-for-dfn-declared-name-3" title="§ 5.3 Field record sequences and records">§ 5.3 Field record sequences and records</a>
     </li><li>
-      <a href="#ref-for-dfn-declared-name-4" title="§ 5.4 Field reference formulations and iterators">§ 5.4 Field reference formulations and iterators</a> <a href="#ref-for-dfn-declared-name-5" title="Reference 2">(2)</a> <a href="#ref-for-dfn-declared-name-6" title="Reference 3">(3)</a> 
+      <a href="#ref-for-dfn-declared-name-4" title="§ 5.4 Field reference formulations and iterators">§ 5.4 Field reference formulations and iterators</a> <a href="#ref-for-dfn-declared-name-5" title="Reference 2">(2)</a> <a href="#ref-for-dfn-declared-name-6" title="Reference 3">(3)</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-field-name" aria-label="Links in this document to definition: name">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-field-name" aria-label="Permalink for definition: name. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-field-name-1" title="§ 5. Fields">§ 5. Fields</a> 
+      <a href="#ref-for-dfn-field-name-1" title="§ 5. Fields">§ 5. Fields</a>
     </li><li>
-      <a href="#ref-for-dfn-field-name-2" title="§ 5.5 Using field names in triples maps">§ 5.5 Using field names in triples maps</a> 
+      <a href="#ref-for-dfn-field-name-2" title="§ 5.5 Using field names in triples maps">§ 5.5 Using field names in triples maps</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-field-record-sequence" aria-label="Links in this document to definition: field record sequence">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-field-record-sequence" aria-label="Permalink for definition: field record sequence. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-field-record-sequence-1" title="§ 5.2 Field names">§ 5.2 Field names</a> 
+      <a href="#ref-for-dfn-field-record-sequence-1" title="§ 5.2 Field names">§ 5.2 Field names</a>
     </li><li>
-      <a href="#ref-for-dfn-field-record-sequence-2" title="§ 5.3 Field record sequences and records">§ 5.3 Field record sequences and records</a> 
+      <a href="#ref-for-dfn-field-record-sequence-2" title="§ 5.3 Field record sequences and records">§ 5.3 Field record sequences and records</a>
     </li><li>
-      <a href="#ref-for-dfn-field-record-sequence-3" title="§ 5.4 Field reference formulations and iterators">§ 5.4 Field reference formulations and iterators</a> 
+      <a href="#ref-for-dfn-field-record-sequence-3" title="§ 5.4 Field reference formulations and iterators">§ 5.4 Field reference formulations and iterators</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-parent-records" aria-label="Links in this document to definition: parent records">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-parent-records" aria-label="Permalink for definition: parent records. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-parent-records-1" title="§ 5.3 Field record sequences and records">§ 5.3 Field record sequences and records</a> <a href="#ref-for-dfn-parent-records-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-parent-records-3" title="Reference 3">(3)</a> <a href="#ref-for-dfn-parent-records-4" title="Reference 4">(4)</a> 
+      <a href="#ref-for-dfn-parent-records-1" title="§ 5.3 Field record sequences and records">§ 5.3 Field record sequences and records</a> <a href="#ref-for-dfn-parent-records-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-parent-records-3" title="Reference 3">(3)</a> <a href="#ref-for-dfn-parent-records-4" title="Reference 4">(4)</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-field-reference" aria-label="Links in this document to definition: field reference">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-field-reference" aria-label="Permalink for definition: field reference. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-field-reference-1" title="§ 5.5 Using field names in triples maps">§ 5.5 Using field names in triples maps</a> <a href="#ref-for-dfn-field-reference-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-reference-3" title="Reference 3">(3)</a> 
+      <a href="#ref-for-dfn-field-reference-1" title="§ 5.5 Using field names in triples maps">§ 5.5 Using field names in triples maps</a> <a href="#ref-for-dfn-field-reference-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-reference-3" title="Reference 3">(3)</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-logical-view-join" aria-label="Links in this document to definition: logical view join">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-logical-view-join" aria-label="Permalink for definition: logical view join. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-logical-view-join-1" title="§ 6. Logical view joins">§ 6. Logical view joins</a> <a href="#ref-for-dfn-logical-view-join-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-logical-view-join-3" title="Reference 3">(3)</a> 
+      <a href="#ref-for-dfn-logical-view-join-1" title="§ 6. Logical view joins">§ 6. Logical view joins</a> <a href="#ref-for-dfn-logical-view-join-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-logical-view-join-3" title="Reference 3">(3)</a>
     </li><li>
-      <a href="#ref-for-dfn-logical-view-join-4" title="§ 6.1 Join types">§ 6.1 Join types</a> <a href="#ref-for-dfn-logical-view-join-5" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-logical-view-join-4" title="§ 6.1 Join types">§ 6.1 Join types</a> <a href="#ref-for-dfn-logical-view-join-5" title="Reference 2">(2)</a>
     </li><li>
-      <a href="#ref-for-dfn-logical-view-join-6" title="§ 6.2.3 Two left joins">§ 6.2.3 Two left joins</a> 
+      <a href="#ref-for-dfn-logical-view-join-6" title="§ 6.2.3 Two left joins">§ 6.2.3 Two left joins</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-parent-logical-view" aria-label="Links in this document to definition: parent logical view">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-parent-logical-view" aria-label="Permalink for definition: parent logical view. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-parent-logical-view-1" title="§ 6. Logical view joins">§ 6. Logical view joins</a> 
+      <a href="#ref-for-dfn-parent-logical-view-1" title="§ 6. Logical view joins">§ 6. Logical view joins</a>
     </li><li>
-      <a href="#ref-for-dfn-parent-logical-view-2" title="§ 6.1 Join types">§ 6.1 Join types</a> 
+      <a href="#ref-for-dfn-parent-logical-view-2" title="§ 6.1 Join types">§ 6.1 Join types</a>
     </li><li>
-      <a href="#ref-for-dfn-parent-logical-view-3" title="§ 6.2.3 Two left joins">§ 6.2.3 Two left joins</a> 
+      <a href="#ref-for-dfn-parent-logical-view-3" title="§ 6.2.3 Two left joins">§ 6.2.3 Two left joins</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-child-logical-view" aria-label="Links in this document to definition: child logical view">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-child-logical-view" aria-label="Permalink for definition: child logical view. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-child-logical-view-1" title="§ 6. Logical view joins">§ 6. Logical view joins</a> 
+      <a href="#ref-for-dfn-child-logical-view-1" title="§ 6. Logical view joins">§ 6. Logical view joins</a>
     </li><li>
-      <a href="#ref-for-dfn-child-logical-view-2" title="§ 6.1 Join types">§ 6.1 Join types</a> <a href="#ref-for-dfn-child-logical-view-3" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-child-logical-view-2" title="§ 6.1 Join types">§ 6.1 Join types</a> <a href="#ref-for-dfn-child-logical-view-3" title="Reference 2">(2)</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-join-property" aria-label="Links in this document to definition: join property">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-join-property" aria-label="Permalink for definition: join property. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-join-property-1" title="§ 6. Logical view joins">§ 6. Logical view joins</a> 
+      <a href="#ref-for-dfn-join-property-1" title="§ 6. Logical view joins">§ 6. Logical view joins</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-left-join" aria-label="Links in this document to definition: left join">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-left-join" aria-label="Permalink for definition: left join. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-left-join-1" title="§ 6.1 Join types">§ 6.1 Join types</a> 
+      <a href="#ref-for-dfn-left-join-1" title="§ 6.1 Join types">§ 6.1 Join types</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-inner-join" aria-label="Links in this document to definition: inner join">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-inner-join" aria-label="Permalink for definition: inner join. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-inner-join-1" title="§ 6.1 Join types">§ 6.1 Join types</a> 
+      <a href="#ref-for-dfn-inner-join-1" title="§ 6.1 Join types">§ 6.1 Join types</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-structural-annotations" aria-label="Links in this document to definition: Structural annotations">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-structural-annotations" aria-label="Permalink for definition: Structural annotations. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-structural-annotations-1" title="§ 7. Structural Annotations">§ 7. Structural Annotations</a> <a href="#ref-for-dfn-structural-annotations-2" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-structural-annotations-1" title="§ 7. Structural Annotations">§ 7. Structural Annotations</a> <a href="#ref-for-dfn-structural-annotations-2" title="Reference 2">(2)</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-on-fields" aria-label="Links in this document to definition: on fields">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-on-fields" aria-label="Permalink for definition: on fields. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-on-fields-1" title="§ 7. Structural Annotations">§ 7. Structural Annotations</a> 
+      <a href="#ref-for-dfn-on-fields-1" title="§ 7. Structural Annotations">§ 7. Structural Annotations</a>
     </li><li>
-      <a href="#ref-for-dfn-on-fields-2" title="§ 7.2 IriSafe">§ 7.2 IriSafe</a> 
+      <a href="#ref-for-dfn-on-fields-2" title="§ 7.2 IriSafe">§ 7.2 IriSafe</a>
     </li><li>
-      <a href="#ref-for-dfn-on-fields-3" title="§ 7.3 PrimaryKey">§ 7.3 PrimaryKey</a> 
+      <a href="#ref-for-dfn-on-fields-3" title="§ 7.3 PrimaryKey">§ 7.3 PrimaryKey</a>
     </li><li>
-      <a href="#ref-for-dfn-on-fields-4" title="§ 7.4 Unique">§ 7.4 Unique</a> 
+      <a href="#ref-for-dfn-on-fields-4" title="§ 7.4 Unique">§ 7.4 Unique</a>
     </li><li>
-      <a href="#ref-for-dfn-on-fields-5" title="§ 7.5 NotNull">§ 7.5 NotNull</a> 
+      <a href="#ref-for-dfn-on-fields-5" title="§ 7.5 NotNull">§ 7.5 NotNull</a>
     </li><li>
-      <a href="#ref-for-dfn-on-fields-6" title="§ 7.6 ForeignKey">§ 7.6 ForeignKey</a> <a href="#ref-for-dfn-on-fields-7" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-on-fields-6" title="§ 7.6 ForeignKey">§ 7.6 ForeignKey</a> <a href="#ref-for-dfn-on-fields-7" title="Reference 2">(2)</a>
     </li><li>
-      <a href="#ref-for-dfn-on-fields-8" title="§ 7.7 Inclusion">§ 7.7 Inclusion</a> 
+      <a href="#ref-for-dfn-on-fields-8" title="§ 7.7 Inclusion">§ 7.7 Inclusion</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-irisafe-annotation" aria-label="Links in this document to definition: IriSafe structural annotation">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-irisafe-annotation" aria-label="Permalink for definition: IriSafe structural annotation. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-irisafe-annotation-1" title="§ 7. Structural Annotations">§ 7. Structural Annotations</a> 
+      <a href="#ref-for-dfn-irisafe-annotation-1" title="§ 7. Structural Annotations">§ 7. Structural Annotations</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-primarykey-annotation" aria-label="Links in this document to definition: PrimaryKey structural annotation">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-primarykey-annotation" aria-label="Permalink for definition: PrimaryKey structural annotation. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-primarykey-annotation-1" title="§ 7. Structural Annotations">§ 7. Structural Annotations</a> 
+      <a href="#ref-for-dfn-primarykey-annotation-1" title="§ 7. Structural Annotations">§ 7. Structural Annotations</a>
     </li><li>
-      <a href="#ref-for-dfn-primarykey-annotation-2" title="§ 7.3 PrimaryKey">§ 7.3 PrimaryKey</a> 
+      <a href="#ref-for-dfn-primarykey-annotation-2" title="§ 7.3 PrimaryKey">§ 7.3 PrimaryKey</a>
     </li><li>
-      <a href="#ref-for-dfn-primarykey-annotation-3" title="§ 7.4 Unique">§ 7.4 Unique</a> 
+      <a href="#ref-for-dfn-primarykey-annotation-3" title="§ 7.4 Unique">§ 7.4 Unique</a>
     </li><li>
-      <a href="#ref-for-dfn-primarykey-annotation-4" title="§ 7.5 NotNull">§ 7.5 NotNull</a> 
+      <a href="#ref-for-dfn-primarykey-annotation-4" title="§ 7.5 NotNull">§ 7.5 NotNull</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-unique-annotation" aria-label="Links in this document to definition: Unique structural annotation">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-unique-annotation" aria-label="Permalink for definition: Unique structural annotation. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-unique-annotation-1" title="§ 7. Structural Annotations">§ 7. Structural Annotations</a> 
+      <a href="#ref-for-dfn-unique-annotation-1" title="§ 7. Structural Annotations">§ 7. Structural Annotations</a>
     </li><li>
-      <a href="#ref-for-dfn-unique-annotation-2" title="§ 7.4 Unique">§ 7.4 Unique</a> <a href="#ref-for-dfn-unique-annotation-3" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-unique-annotation-2" title="§ 7.4 Unique">§ 7.4 Unique</a> <a href="#ref-for-dfn-unique-annotation-3" title="Reference 2">(2)</a>
     </li><li>
-      <a href="#ref-for-dfn-unique-annotation-4" title="§ 7.6 ForeignKey">§ 7.6 ForeignKey</a> 
+      <a href="#ref-for-dfn-unique-annotation-4" title="§ 7.6 ForeignKey">§ 7.6 ForeignKey</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-notnull-annotation" aria-label="Links in this document to definition: NotNull structural annotation">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-notnull-annotation" aria-label="Permalink for definition: NotNull structural annotation. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-notnull-annotation-1" title="§ 7. Structural Annotations">§ 7. Structural Annotations</a> 
+      <a href="#ref-for-dfn-notnull-annotation-1" title="§ 7. Structural Annotations">§ 7. Structural Annotations</a>
     </li><li>
-      <a href="#ref-for-dfn-notnull-annotation-2" title="§ 7.5 NotNull">§ 7.5 NotNull</a> <a href="#ref-for-dfn-notnull-annotation-3" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-notnull-annotation-2" title="§ 7.5 NotNull">§ 7.5 NotNull</a> <a href="#ref-for-dfn-notnull-annotation-3" title="Reference 2">(2)</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-foreignkey-annotation" aria-label="Links in this document to definition: ForeignKey structural annotation">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-foreignkey-annotation" aria-label="Permalink for definition: ForeignKey structural annotation. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-foreignkey-annotation-1" title="§ 7. Structural Annotations">§ 7. Structural Annotations</a> 
+      <a href="#ref-for-dfn-foreignkey-annotation-1" title="§ 7. Structural Annotations">§ 7. Structural Annotations</a>
     </li><li>
-      <a href="#ref-for-dfn-foreignkey-annotation-2" title="§ 7.6 ForeignKey">§ 7.6 ForeignKey</a> 
+      <a href="#ref-for-dfn-foreignkey-annotation-2" title="§ 7.6 ForeignKey">§ 7.6 ForeignKey</a>
     </li><li>
-      <a href="#ref-for-dfn-foreignkey-annotation-3" title="§ 7.7 Inclusion">§ 7.7 Inclusion</a> <a href="#ref-for-dfn-foreignkey-annotation-4" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-foreignkey-annotation-3" title="§ 7.7 Inclusion">§ 7.7 Inclusion</a> <a href="#ref-for-dfn-foreignkey-annotation-4" title="Reference 2">(2)</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-target-view" aria-label="Links in this document to definition: target view">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-target-view" aria-label="Permalink for definition: target view. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-target-view-1" title="§ 7.6 ForeignKey">§ 7.6 ForeignKey</a> 
+      <a href="#ref-for-dfn-target-view-1" title="§ 7.6 ForeignKey">§ 7.6 ForeignKey</a>
     </li><li>
-      <a href="#ref-for-dfn-target-view-2" title="§ 7.7 Inclusion">§ 7.7 Inclusion</a> <a href="#ref-for-dfn-target-view-3" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-target-view-2" title="§ 7.7 Inclusion">§ 7.7 Inclusion</a> <a href="#ref-for-dfn-target-view-3" title="Reference 2">(2)</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-target-fields" aria-label="Links in this document to definition: target fields">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-target-fields" aria-label="Permalink for definition: target fields. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-target-fields-1" title="§ 7.6 ForeignKey">§ 7.6 ForeignKey</a> 
+      <a href="#ref-for-dfn-target-fields-1" title="§ 7.6 ForeignKey">§ 7.6 ForeignKey</a>
     </li><li>
-      <a href="#ref-for-dfn-target-fields-2" title="§ 7.7 Inclusion">§ 7.7 Inclusion</a> 
+      <a href="#ref-for-dfn-target-fields-2" title="§ 7.7 Inclusion">§ 7.7 Inclusion</a>
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-inclusion-annotation" aria-label="Links in this document to definition: Inclusion structural annotation">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-inclusion-annotation" aria-label="Permalink for definition: Inclusion structural annotation. Activate to close this dialog.">Permalink</a>
-         
+
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-inclusion-annotation-1" title="§ 7. Structural Annotations">§ 7. Structural Annotations</a> 
+      <a href="#ref-for-dfn-inclusion-annotation-1" title="§ 7. Structural Annotations">§ 7. Structural Annotations</a>
     </li><li>
-      <a href="#ref-for-dfn-inclusion-annotation-2" title="§ 7.7 Inclusion">§ 7.7 Inclusion</a> <a href="#ref-for-dfn-inclusion-annotation-3" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-inclusion-annotation-2" title="§ 7.7 Inclusion">§ 7.7 Inclusion</a> <a href="#ref-for-dfn-inclusion-annotation-3" title="Reference 2">(2)</a>
     </li>
   </ul>
     </div><script id="respec-dfn-panel">(() => {

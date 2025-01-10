@@ -2,7 +2,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://example.org/> .
 
-:mixedCSVSource a rml:InputLogicalSource ;
+:mixedCSVSource a rml:LogicalSource ;
   rml:source [
     a rml:RelativePathSource , rml:Source ;
     rml:root rml:MappingDirectory ;
@@ -13,38 +13,47 @@
 :mixedCSVView a rml:LogicalView ;
   rml:viewOn :mixedCSVSource ;
   rml:field [
+    a rml:ExpressionField;
     rml:fieldName "name" ;
     rml:reference "name" ;
   ] ;
   rml:field [
-    rml:fieldName "item" ;
+    a rml:ExpressionField ;
+    rml:fieldName "items" ;
     rml:reference "items" ;
-    rml:referenceFormulation rml:JSONPath ;
-    rml:iterator "$[*]" ;
     rml:field [
-      rml:fieldName "type" ;
-      rml:reference "$.type" ; ] ;
-    rml:field [
-      rml:fieldName "weight" ;
-      rml:reference "$.weight" ;
+      a rml:IterableField ;
+      rml:referenceFormulation rml:JSONPath ;
+      rml:iterator "$[*]" ;
+      rml:fieldName "item" ;
+      rml:field [
+        a rml:ExpressionField ;
+        rml:fieldName "type" ;
+        rml:reference "$.type" ;
+      ] ;
+      rml:field [
+        a rml:ExpressionField ;
+        rml:fieldName "weight" ;
+        rml:reference "$.weight" ;
+      ] ;
     ] ;
   ] .
 
 :triplesMapItem a rml:TriplesMap ;
   rml:logicalSource :mixedCSVView ;
   rml:subjectMap [
-    rml:template "http://example.org/item_{#}_{item.#}" ;
+    rml:template "http://example.org/item_{#}_{items.item.#}" ;
   ] ;
   rml:predicateObjectMap [
     rml:predicate :hasType ;
     rml:objectMap [
-      rml:reference "item.type" ;
+      rml:reference "items.item.type" ;
     ] ;
   ] ;
   rml:predicateObjectMap [
     rml:predicate :hasWeight ;
     rml:objectMap [
-      rml:reference "item.weight" ;
+      rml:reference "items.item.weight" ;
       rml:datatype xsd:integer ;
     ] ;
   ] .

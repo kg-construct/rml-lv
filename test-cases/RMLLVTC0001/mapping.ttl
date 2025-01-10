@@ -1,7 +1,7 @@
 @prefix rml: <http://w3id.org/rml/> .
 @prefix : <http://example.org/> .
 
-:jsonSource a rml:InputLogicalSource ;
+:jsonSource a rml:LogicalSource ;
   rml:source [
     a rml:RelativePathSource , rml:Source ;
     rml:root rml:MappingDirectory ;
@@ -13,6 +13,7 @@
 :jsonView a rml:LogicalView ;
   rml:viewOn :jsonSource ;
   rml:field [
+    a rml:ExpressionField ;
     rml:fieldName "name" ;
     rml:reference "$.name" ;
   ] .

@@ -189,8 +189,8 @@
 
     <owl:ObjectProperty rdf:about="http://w3id.org/rml/viewOn">
         <rdfs:domain rdf:resource="http://w3id.org/rml/LogicalView"/>
-        <rdfs:range rdf:resource="http://w3id.org/rml/LogicalSource"/>
-        <rdfs:comment>The source of the logical view. This is the logical source from which the logical view is derived.</rdfs:comment>
+        <rdfs:range rdf:resource="http://w3id.org/rml/AbstractLogicalSource"/>
+        <rdfs:comment>The source of the logical view. This is the abstract logical source from which the logical view is derived.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://w3id.org/rml/lv/"/>
         <rdfs:label>view on</rdfs:label>
     </owl:ObjectProperty>
@@ -234,13 +234,31 @@
     
 
 
+    <!-- http://w3id.org/rml/AbstractLogicalSource -->
+
+
+    <owl:Class rdf:about="http://w3id.org/rml/AbstractLogicalSource"/>
+    
+
+
+    <!-- http://w3id.org/rml/ExpressionField -->
+
+
+    <owl:Class rdf:about="http://w3id.org/rml/ExpressionField">
+        <rdfs:subClassOf rdf:resource="http://w3id.org/rml/ExpressionMap"/>
+        <rdfs:subClassOf rdf:resource="http://w3id.org/rml/Field"/>
+        <rdfs:comment>A expression field is an expression map that gives a name to an expression.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/rml/lv/"/>
+        <rdfs:label>Expression Field</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://w3id.org/rml/Field -->
 
 
     <owl:Class rdf:about="http://w3id.org/rml/Field">
-        <rdfs:subClassOf rdf:resource="http://w3id.org/rml/ExpressionMap"/>
-        <rdfs:subClassOf rdf:resource="http://w3id.org/rml/LogicalIterable"/>
-        <rdfs:comment>A field is an expression map that gives a name to an expression.</rdfs:comment>
+        <rdfs:comment>A field gives a name to data derived from the abstract logical source on which a logical view is defined.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://w3id.org/rml/lv/"/>
         <rdfs:label>Field</rdfs:label>
     </owl:Class>
@@ -283,10 +301,23 @@
     
 
 
-    <!-- http://w3id.org/rml/LogicalIterable -->
+    <!-- http://w3id.org/rml/Iterable -->
 
 
-    <owl:Class rdf:about="http://w3id.org/rml/LogicalIterable"/>
+    <owl:Class rdf:about="http://w3id.org/rml/Iterable"/>
+    
+
+
+    <!-- http://w3id.org/rml/IterableField -->
+
+
+    <owl:Class rdf:about="http://w3id.org/rml/IterableField">
+        <rdfs:subClassOf rdf:resource="http://w3id.org/rml/Field"/>
+        <rdfs:subClassOf rdf:resource="http://w3id.org/rml/Iterable"/>
+        <rdfs:comment>A iterable field is an iterable that gives a name to a logical iteration.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/rml/lv/"/>
+        <rdfs:label>Iterable Field</rdfs:label>
+    </owl:Class>
     
 
 
@@ -294,8 +325,8 @@
 
 
     <owl:Class rdf:about="http://w3id.org/rml/LogicalView">
-        <rdfs:subClassOf rdf:resource="http://w3id.org/rml/LogicalSource"/>
-        <rdfs:comment>A logical view (rml:LogicalView) is a type of logical source that is derived from another logical source by defining field with data from said logical source.</rdfs:comment>
+        <rdfs:subClassOf rdf:resource="http://w3id.org/rml/AbstractLogicalSource"/>
+        <rdfs:comment>A logical view (rml:LogicalView) is a type of abstract logical source that is derived from another abstract logical source by defining field with data from said abstract logical source.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://w3id.org/rml/lv/"/>
         <rdfs:label>Logical View</rdfs:label>
     </owl:Class>
@@ -306,7 +337,7 @@
 
 
     <owl:Class rdf:about="http://w3id.org/rml/LogicalViewJoin">
-        <rdfs:comment>A LogicalViewJoin is an operation that adapts the logical iterations of one logical view (the child logical view) with fields from another logical view (the parent logical view).</rdfs:comment>
+        <rdfs:comment>A logical view join is an operation that adapts the logical iterations of one logical view (the child logical view) with fields from another logical view (the parent logical view).</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://w3id.org/rml/lv/"/>
         <rdfs:label>Logical View Join</rdfs:label>
     </owl:Class>
