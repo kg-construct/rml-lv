@@ -46,6 +46,10 @@ rmlsh:LogicalViewShape a sh:NodeShape ;
         sh:path rml:field ;
         sh:minCount 1 ;
         sh:nodeKind sh:BlankNodeOrIRI ;
+        sh:xone (
+            [ sh:node rmlsh:ExpressionFieldShape ]
+            [ sh:node rmlsh:IterableFieldShape ]
+        )
     ] , [
         sh:description """
         A left join of the logical view.
@@ -110,7 +114,24 @@ rmlsh:FieldShape a sh:NodeShape ;
         """ ;
         sh:path rml:field ;
         sh:nodeKind sh:BlankNodeOrIRI ;
+        sh:xone (
+            [ sh:node rmlsh:ExpressionFieldShape ]
+            [ sh:node rmlsh:IterableFieldShape ]
+        )
     ] .
+
+rmlsh:ExpressionFieldShape a sh:NodeShape ;
+    rdfs:label "Expression Field" ;
+    rdfs:comment """
+    A expression field is an expression map that gives a name to an expression.
+    """ ;
+    sh:message """
+    Node must have a valid rml:ExpressionField description.
+    rml:ExpressionField requires what an rml:ExpressionMap and rml:Field requires.
+    """ ;
+    sh:targetClass rml:ExpressionField ;
+    sh:node rmlsh:ExpressionMap, rmlsh:Field ; # TODO requires rmlsh:ExpressionMap to be defined in core
+.
 
 rmlsh:IterableFieldShape a sh:NodeShape ;
     rdfs:label "Iterable Field" ;
@@ -119,10 +140,11 @@ rmlsh:IterableFieldShape a sh:NodeShape ;
     """ ;
     sh:message """
     Node must have a valid rml:IterableField description.
-    rml:IterableField must one or more rml:field properties.
-    Furthermore, rml:IterableField requires what an rml:Iterable and rml:Field requires,.
+    rml:IterableField must have one or more rml:field properties.
+    Furthermore, rml:IterableField requires what an rml:Iterable and rml:Field requires.
     """ ;
     sh:targetClass rml:IterableField ;
+    sh:node rmlsh:Iterable, rmlsh:Field ;  # TODO requires rmlsh:Iterable to be defined in core
     sh:property [
         sh:description """
         A child field of the iterable field.
@@ -133,6 +155,10 @@ rmlsh:IterableFieldShape a sh:NodeShape ;
         sh:path rml:field ;
         sh:minCount 1 ;
         sh:nodeKind sh:BlankNodeOrIRI ;
+        sh:xone (
+            [ sh:node rmlsh:ExpressionFieldShape ]
+            [ sh:node rmlsh:IterableFieldShape ]
+        )
     ] .
 
 rmlsh:LogicalViewJoinShape a sh:NodeShape ;
@@ -181,6 +207,10 @@ rmlsh:LogicalViewJoinShape a sh:NodeShape ;
         sh:path rml:field ;
         sh:minCount 1 ;
         sh:nodeKind sh:BlankNodeOrIRI ;
+        sh:xone (
+            [ sh:node rmlsh:ExpressionFieldShape ]
+            [ sh:node rmlsh:IterableFieldShape ]
+        )
     ] .
 
 rmlsh:StructuralAnnotationShape a sh:NodeShape;
