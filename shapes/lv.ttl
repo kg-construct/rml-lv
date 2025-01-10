@@ -123,7 +123,6 @@ rmlsh:IterableFieldShape a sh:NodeShape ;
     Furthermore, rml:IterableField requires what an rml:Iterable and rml:Field requires,.
     """ ;
     sh:targetClass rml:IterableField ;
-    sh:targetObjectsOf rml:field ;
     sh:property [
         sh:description """
         A child field of the iterable field.
