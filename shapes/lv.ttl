@@ -112,6 +112,30 @@ rmlsh:FieldShape a sh:NodeShape ;
         sh:nodeKind sh:BlankNodeOrIRI ;
     ] .
 
+rmlsh:IterableFieldShape a sh:NodeShape ;
+    rdfs:label "Iterable Field" ;
+    rdfs:comment """
+    An iterable field is a construction that gives a name to logical iterations derived from the parent of the field.
+    """ ;
+    sh:message """
+    Node must have a valid rml:IterableField description.
+    rml:IterableField must one or more rml:field properties.
+    Furthermore, rml:IterableField requires what an rml:Iterable and rml:Field requires,.
+    """ ;
+    sh:targetClass rml:IterableField ;
+    sh:targetObjectsOf rml:field ;
+    sh:property [
+        sh:description """
+        A child field of the iterable field.
+        """ ;
+        sh:message """
+        The value of a rml:field property for a rml:Field must be a resource.
+        """ ;
+        sh:path rml:field ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
+    ] .
+
 rmlsh:LogicalViewJoinShape a sh:NodeShape ;
     rdfs:label "LogicalViewJoin" ;
     rdfs:comment """
