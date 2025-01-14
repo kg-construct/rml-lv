@@ -99,6 +99,13 @@ var respecConfig = {
       company: "Ghent University &ndash; imec &ndash; IDLab",
       orcidid: "0000-0002-8630-3947",
       companyURL: "https://idlab.technology/"
+    },
+    {
+      name: "Davide Lanti",
+      mailto: "dalanti@unibz.it",
+      company: "Free University of Bozen-Bolzano",
+      orcidid: "0000-0003-1097-2965",
+      companyURL: "https://www.unibz.it/"
     }
   ],
   // name of the WG, should be listed at https://respec.org/w3c/groups/
