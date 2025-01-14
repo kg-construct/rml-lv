@@ -8,6 +8,6 @@ over one or more existing data sources.
 Additionally, it provides a mechanism to express relationships between data sources,
 as well as additional information about their fields, through structural annotations.
 
-This document describes RML logical views through definitions and examples.
+This document describes RML logical views through definitions and examples. 
 
-The version of this document is *Unreleased*.
+The version of this document is *DRAFT*.

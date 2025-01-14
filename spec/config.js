@@ -65,7 +65,7 @@ var respecConfig = {
   // previousPublishDate: "2015-10-15",
   // previousMaturity: "FPWD",
   // if there a publicly available Editor's Draft, this is the link
-  edDraftURI: "https://w3id.org/kg-construct/rml-lv",
+  edDraftURI: "https://w3id.org/rml/lv/spec",
   // if this is a LCWD, uncomment and set the end of its review period
   // lcEnd: "2009-08-05",
   // editors, add as many as you like
@@ -110,22 +110,22 @@ var respecConfig = {
     {
       key: "This Version",
       data: [{
-        value: "https://kg-construct.github.io/rml-lv/%thisDate%/",
-        href: "https://kg-construct.github.io/rml-lv/%thisDate%/"
+        value: "https://w3id.org/rml/lv/spec/%thisDate%/",
+        href: "https://w3id.org/rml/lv/spec/%thisDate%/"
       }]
     },
     {
       key: "Previous Version",
       data: [{
-        value: "https://kg-construct.github.io/rml-lv/%prevDate%/",
-        href: "https://kg-construct.github.io/rml-lv/%prevDate%/"
+        value: "https://w3id.org/rml/lv/spec/%prevDate%/",
+        href: "https://w3id.org/rml/lv/spec/%prevDate%/"
       }]
     },
     {
       key: "Website",
       data: [{
-        value: "https://rml.io/",
-        href: "https://rml.io/"
+        value: "https://github.com/kg-construct/rml-lv/",
+        href: "https://github.com/kg-construct/rml-lv/"
       }]
     }
   ],
