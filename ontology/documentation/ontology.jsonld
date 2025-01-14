@@ -33,7 +33,7 @@
   "@id" : "http://w3id.org/rml/ExpressionField",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "A expression field is an expression map that gives a name to an expression."
+    "@value" : "An expression field is an expression map that gives a name to an expression."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
     "@id" : "http://w3id.org/rml/lv/"
@@ -110,7 +110,7 @@
   "@id" : "http://w3id.org/rml/IterableField",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "A iterable field is an iterable that gives a name to a logical iteration."
+    "@value" : "An iterable field is an iterable that gives a name to a logical iteration."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
     "@id" : "http://w3id.org/rml/lv/"
@@ -127,7 +127,7 @@
   "@id" : "http://w3id.org/rml/LogicalView",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "A logical view (rml:LogicalView) is a type of abstract logical source that is derived from another abstract logical source by defining field with data from said abstract logical source."
+    "@value" : "A logical view (rml:LogicalView) is a type of abstract logical source that is derived from another abstract logical source by defining fields with data from said abstract logical source."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
     "@id" : "http://w3id.org/rml/lv/"
@@ -285,20 +285,14 @@
   "@id" : "http://w3id.org/rml/lv/",
   "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
   "http://purl.org/dc/terms/contributor" : [ {
-    "@value" : "Ana Iglesias Molina"
-  }, {
-    "@value" : "Ben De Meester"
-  }, {
     "@value" : "Davide Lanti"
   }, {
     "@value" : "Els de Vleeschauwer"
   }, {
     "@value" : "Pano Maria"
-  }, {
-    "@value" : "Thomas Delva"
   } ],
   "http://purl.org/dc/terms/created" : [ {
-    "@value" : "2024-01-01"
+    "@value" : "2025-01-14"
   } ],
   "http://purl.org/dc/terms/description" : [ {
     "@language" : "en",
@@ -308,7 +302,7 @@
     "@id" : "http://purl.org/NET/rdflicense/cc-by4.0"
   } ],
   "http://purl.org/dc/terms/modified" : [ {
-    "@value" : "2024-12-02"
+    "@value" : "2025-01-14"
   } ],
   "http://purl.org/dc/terms/publisher" : [ {
     "@id" : "https://www.w3.org/community/kg-construct/"
