@@ -56,7 +56,7 @@ var respecConfig = {
   // formal title, define it here
   // subtitle   :  "White Paper",
   // if you wish the publication date to be other than the last modification, set this
-  // publishDate:  "2015-06-30",
+  // publishDate:  "2025-01-14",
   // if the specification's copyright date is a range of years, specify
   // the start date here:
   copyrightStart: "2024",
@@ -103,7 +103,7 @@ var respecConfig = {
   ],
   // name of the WG, should be listed at https://respec.org/w3c/groups/
   group: "kg-construct",
-  latestVersion: null,
+  latestVersion: "https://w3id.org/rml/lv/spec/",
   issueBase: "https://github.com/kg-construct/rml-lv/issues",
   noRecTrack: "true",
   otherLinks: [
