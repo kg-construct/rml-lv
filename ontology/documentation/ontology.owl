@@ -18,16 +18,13 @@
         <owl:versionIRI rdf:resource="http://w3id.org/rml/lv/"/>
         <owl:imports rdf:resource="https://kg-construct.github.io/rml-core/ontology/documentation/ontology.ttl"/>
         <owl:imports rdf:resource="https://kg-construct.github.io/rml-io/ontology/documentation/ontology.ttl"/>
-        <terms:contributor>Ana Iglesias Molina</terms:contributor>
-        <terms:contributor>Ben De Meester</terms:contributor>
         <terms:contributor>Davide Lanti</terms:contributor>
         <terms:contributor>Els de Vleeschauwer</terms:contributor>
         <terms:contributor>Pano Maria</terms:contributor>
-        <terms:contributor>Thomas Delva</terms:contributor>
-        <terms:created>2024-01-01</terms:created>
+        <terms:created>2025-01-14</terms:created>
         <terms:description xml:lang="en">RML Logical Views flatten nested data, allow flexible joining of data sources, and handle mix source formats.</terms:description>
         <terms:license rdf:resource="http://purl.org/NET/rdflicense/cc-by4.0"/>
-        <terms:modified>2024-12-02</terms:modified>
+        <terms:modified>2025-01-14</terms:modified>
         <terms:publisher rdf:resource="https://www.w3.org/community/kg-construct/"/>
         <terms:title xml:lang="en">RML Logical Views</terms:title>
         <bibo:status>draft</bibo:status>
@@ -247,7 +244,7 @@
     <owl:Class rdf:about="http://w3id.org/rml/ExpressionField">
         <rdfs:subClassOf rdf:resource="http://w3id.org/rml/ExpressionMap"/>
         <rdfs:subClassOf rdf:resource="http://w3id.org/rml/Field"/>
-        <rdfs:comment>A expression field is an expression map that gives a name to an expression.</rdfs:comment>
+        <rdfs:comment>An expression field is an expression map that gives a name to an expression.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://w3id.org/rml/lv/"/>
         <rdfs:label>Expression Field</rdfs:label>
     </owl:Class>
@@ -314,7 +311,7 @@
     <owl:Class rdf:about="http://w3id.org/rml/IterableField">
         <rdfs:subClassOf rdf:resource="http://w3id.org/rml/Field"/>
         <rdfs:subClassOf rdf:resource="http://w3id.org/rml/Iterable"/>
-        <rdfs:comment>A iterable field is an iterable that gives a name to a logical iteration.</rdfs:comment>
+        <rdfs:comment>An iterable field is an iterable that gives a name to a logical iteration.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://w3id.org/rml/lv/"/>
         <rdfs:label>Iterable Field</rdfs:label>
     </owl:Class>
@@ -326,7 +323,7 @@
 
     <owl:Class rdf:about="http://w3id.org/rml/LogicalView">
         <rdfs:subClassOf rdf:resource="http://w3id.org/rml/AbstractLogicalSource"/>
-        <rdfs:comment>A logical view (rml:LogicalView) is a type of abstract logical source that is derived from another abstract logical source by defining field with data from said abstract logical source.</rdfs:comment>
+        <rdfs:comment>A logical view (rml:LogicalView) is a type of abstract logical source that is derived from another abstract logical source by defining fields with data from said abstract logical source.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://w3id.org/rml/lv/"/>
         <rdfs:label>Logical View</rdfs:label>
     </owl:Class>

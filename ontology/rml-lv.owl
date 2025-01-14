@@ -22,9 +22,6 @@
                            dc:contributor "Pano Maria" ;
                            dc:contributor "Els de Vleeschauwer" ;
                            dc:contributor "Davide Lanti" ;
-                           dc:contributor "Ben De Meester" ;
-                           dc:contributor "Thomas Delva" ;
-                           dc:contributor "Ana Iglesias Molina" ;
                            dc:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
                            vann:preferredNamespaceUri "http://w3id.org/rml/" ;
                            vann:preferredNamespacePrefix "rml" ;
@@ -32,8 +29,8 @@
                            bibo:status "draft" ;
                            owl:versionIRI <http://w3id.org/rml/lv/> ;
                            owl:versionInfo "0.1.0" ;
-                           dc:created "2024-01-01" ;
-                           dc:modified "2024-12-02" .
+                           dc:created "2025-01-14" ;
+                           dc:modified "2025-01-14" .
 
 #################################################################
 #    Annotation properties

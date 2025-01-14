@@ -17,7 +17,7 @@
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"http://w3id.org/rml/","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://w3id.org/rml/","name":"RML Logical Views", "headline":"Document describing the ontology http://w3id.org/rml/", "dateReleased":"2024-01-01", "dateModified":"2024-12-02", "version":"0.1.0", "license":"http://purl.org/NET/rdflicense/cc-by4.0", "contributor":[{"@type":"Person","name":"Ana Iglesias Molina"},{"@type":"Person","name":"Ben De Meester"},{"@type":"Person","name":"Davide Lanti"},{"@type":"Person","name":"Els de Vleeschauwer"},{"@type":"Person","name":"Pano Maria"},{"@type":"Person","name":"Thomas Delva"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"http://w3id.org/rml/","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://w3id.org/rml/","name":"RML Logical Views", "headline":"Document describing the ontology http://w3id.org/rml/", "dateReleased":"2025-01-14", "dateModified":"2025-01-14", "version":"0.1.0", "license":"http://purl.org/NET/rdflicense/cc-by4.0", "contributor":[{"@type":"Person","name":"Davide Lanti"},{"@type":"Person","name":"Els de Vleeschauwer"},{"@type":"Person","name":"Pano Maria"}]}</script>
 
 <script src="resources/jquery.js"></script> 
 <script src="resources/marked.min.js"></script> 
@@ -66,11 +66,11 @@ $(function(){
 <div class="head">
 <div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
 <h1>RML Logical Views</h1>
-<h2>Release: 2024-01-01</h2>
+<h2>Release: 2025-01-14</h2>
 
 
 <dl>
-<dt>Modified on: 2024-12-02</dt>
+<dt>Modified on: 2025-01-14</dt>
 <dt>This version:</dt>
 <dd><a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a></dd>
 <dt>Latest version:</dt>
@@ -78,7 +78,7 @@ $(function(){
 <dt>Revision:</dt>
 <dd>0.1.0</dd>
 <dt>Contributors:</dt>
-<dd>Ana Iglesias Molina</dd><dd>Ben De Meester</dd><dd>Davide Lanti</dd><dd>Els de Vleeschauwer</dd><dd>Pano Maria</dd><dd>Thomas Delva</dd>
+<dd>Davide Lanti</dd><dd>Els de Vleeschauwer</dd><dd>Pano Maria</dd>
 
 <dt>Publisher:</dt>
 <dd><a href="https://www.w3.org/community/kg-construct/">https://www.w3.org/community/kg-construct/</a></dd>
@@ -96,98 +96,7 @@ $(function(){
 <div>
 <span>draft</span>
 </div>
-</div><div id="toc"></div>  
-
-<!--OVERVIEW SECTION-->
-    <div id="overview"><h2 id="overv" class="list">RML Logical Views: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
-<span class="markdown">
-This ontology has the following classes and properties.</span>
-<h4>Classes</h4>
-<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    class="hlist">
-   <li>
-      <a href="#ExpressionField" title="http://w3id.org/rml/ExpressionField">Expression Field</a>
-   </li>
-   <li>
-      <a href="#Field" title="http://w3id.org/rml/Field">Field</a>
-   </li>
-   <li>
-      <a href="#ForeignKeyAnnotation" title="http://w3id.org/rml/ForeignKeyAnnotation">Foreign Key Annotation</a>
-   </li>
-   <li>
-      <a href="#InclusionDependencyAnnotation"
-         title="http://w3id.org/rml/InclusionDependencyAnnotation">Inclusion Dependency Annotation</a>
-   </li>
-   <li>
-      <a href="#IRISafeAnnotation" title="http://w3id.org/rml/IRISafeAnnotation">IRI Safe Annotation</a>
-   </li>
-   <li>
-      <a href="#IterableField" title="http://w3id.org/rml/IterableField">Iterable Field</a>
-   </li>
-   <li>
-      <a href="#LogicalView" title="http://w3id.org/rml/LogicalView">Logical View</a>
-   </li>
-   <li>
-      <a href="#LogicalViewJoin" title="http://w3id.org/rml/LogicalViewJoin">Logical View Join</a>
-   </li>
-   <li>
-      <a href="#NonNullableAnnotation" title="http://w3id.org/rml/NonNullableAnnotation">Non Nullable Annotation</a>
-   </li>
-   <li>
-      <a href="#PrimaryKeyAnnotation" title="http://w3id.org/rml/PrimaryKeyAnnotation">Primary Key Annotation</a>
-   </li>
-   <li>
-      <a href="#StructuralAnnotation" title="http://w3id.org/rml/StructuralAnnotation">Structural Annotation</a>
-   </li>
-   <li>
-      <a href="#UniqueAnnotation" title="http://w3id.org/rml/UniqueAnnotation">Unique Annotation</a>
-   </li>
-</ul><h4>Object Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    class="hlist">
-   <li>
-      <a href="#field" title="http://w3id.org/rml/field">field</a>
-   </li>
-   <li>
-      <a href="#innerJoin" title="http://w3id.org/rml/innerJoin">inner join</a>
-   </li>
-   <li>
-      <a href="#leftJoin" title="http://w3id.org/rml/leftJoin">left join</a>
-   </li>
-   <li>
-      <a href="#onFields" title="http://w3id.org/rml/onFields">on fields</a>
-   </li>
-   <li>
-      <a href="#parentLogicalView" title="http://w3id.org/rml/parentLogicalView">parent logical view</a>
-   </li>
-   <li>
-      <a href="#structuralAnnotation" title="http://w3id.org/rml/structuralAnnotation">structural annotation</a>
-   </li>
-   <li>
-      <a href="#targetFields" title="http://w3id.org/rml/targetFields">target fields</a>
-   </li>
-   <li>
-      <a href="#targetView" title="http://w3id.org/rml/targetView">target view</a>
-   </li>
-   <li>
-      <a href="#viewOn" title="http://w3id.org/rml/viewOn">view on</a>
-   </li>
-</ul><h4>Data Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    class="hlist">
-   <li>
-      <a href="#fieldName" title="http://w3id.org/rml/fieldName">field name</a>
-   </li>
-</ul>
-</div>
-  
-
-<!--DESCRIPTION SECTION-->
-    <div id="description"><h2 id="desc" class="list">RML Logical Views: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
-
-<span class="markdown">RML Logical Views flatten nested data, allow flexible joining of data sources, and handle mix source formats.</span></div>
-   
+</div><div id="toc"></div>   
 
 <!--CROSSREF SECTION-->
    <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for RML Logical Views classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
@@ -212,7 +121,7 @@ This section provides details for each class and property defined by RML Logical
   <h3>Expression Field<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://w3id.org/rml/ExpressionField</p>
   <div class="comment">
-   <span class="markdown">A expression field is an expression map that gives a name to an expression.</span>
+   <span class="markdown">An expression field is an expression map that gives a name to an expression.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -351,7 +260,7 @@ This section provides details for each class and property defined by RML Logical
   <h3>Iterable Field<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://w3id.org/rml/IterableField</p>
   <div class="comment">
-   <span class="markdown">A iterable field is an iterable that gives a name to a logical iteration.</span>
+   <span class="markdown">An iterable field is an iterable that gives a name to a logical iteration.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -374,7 +283,7 @@ This section provides details for each class and property defined by RML Logical
   <h3>Logical View<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://w3id.org/rml/LogicalView</p>
   <div class="comment">
-   <span class="markdown">A logical view (rml:LogicalView) is a type of abstract logical source that is derived from another abstract logical source by defining field with data from said abstract logical source.</span>
+   <span class="markdown">A logical view (rml:LogicalView) is a type of abstract logical source that is derived from another abstract logical source by defining fields with data from said abstract logical source.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -886,15 +795,6 @@ This section provides details for each class and property defined by RML Logical
 <sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
 </div>
 </div>
-</div>
-    
-
-<!--REFERENCES SECTION-->
-  <div id="references">
-<h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
-<span class="markdown">
-Add your references here. It is recommended to have them as a list.</span>
-
 </div>
 <div id="acknowledgments">
 <h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>

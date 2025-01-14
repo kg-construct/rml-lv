@@ -10,16 +10,13 @@
                            owl:versionIRI <http://w3id.org/rml/lv/> ;
                            owl:imports <https://kg-construct.github.io/rml-core/ontology/documentation/ontology.ttl> ,
                                        <https://kg-construct.github.io/rml-io/ontology/documentation/ontology.ttl> ;
-                           <http://purl.org/dc/terms/contributor> "Ana Iglesias Molina" ,
-                                                                  "Ben De Meester" ,
-                                                                  "Davide Lanti" ,
+                           <http://purl.org/dc/terms/contributor> "Davide Lanti" ,
                                                                   "Els de Vleeschauwer" ,
-                                                                  "Pano Maria" ,
-                                                                  "Thomas Delva" ;
-                           <http://purl.org/dc/terms/created> "2024-01-01" ;
+                                                                  "Pano Maria" ;
+                           <http://purl.org/dc/terms/created> "2025-01-14" ;
                            <http://purl.org/dc/terms/description> "RML Logical Views flatten nested data, allow flexible joining of data sources, and handle mix source formats."@en ;
                            <http://purl.org/dc/terms/license> <http://purl.org/NET/rdflicense/cc-by4.0> ;
-                           <http://purl.org/dc/terms/modified> "2024-12-02" ;
+                           <http://purl.org/dc/terms/modified> "2025-01-14" ;
                            <http://purl.org/dc/terms/publisher> <https://www.w3.org/community/kg-construct/> ;
                            <http://purl.org/dc/terms/title> "RML Logical Views"@en ;
                            <http://purl.org/ontology/bibo/status> "draft" ;
@@ -153,7 +150,7 @@
 <http://w3id.org/rml/ExpressionField> rdf:type owl:Class ;
                                       rdfs:subClassOf <http://w3id.org/rml/ExpressionMap> ,
                                                       <http://w3id.org/rml/Field> ;
-                                      rdfs:comment "A expression field is an expression map that gives a name to an expression." ;
+                                      rdfs:comment "An expression field is an expression map that gives a name to an expression." ;
                                       rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
                                       rdfs:label "Expression Field" .
 
@@ -197,7 +194,7 @@
 <http://w3id.org/rml/IterableField> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://w3id.org/rml/Field> ,
                                                     <http://w3id.org/rml/Iterable> ;
-                                    rdfs:comment "A iterable field is an iterable that gives a name to a logical iteration." ;
+                                    rdfs:comment "An iterable field is an iterable that gives a name to a logical iteration." ;
                                     rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
                                     rdfs:label "Iterable Field" .
 
@@ -205,7 +202,7 @@
 ###  http://w3id.org/rml/LogicalView
 <http://w3id.org/rml/LogicalView> rdf:type owl:Class ;
                                   rdfs:subClassOf <http://w3id.org/rml/AbstractLogicalSource> ;
-                                  rdfs:comment "A logical view (rml:LogicalView) is a type of abstract logical source that is derived from another abstract logical source by defining field with data from said abstract logical source." ;
+                                  rdfs:comment "A logical view (rml:LogicalView) is a type of abstract logical source that is derived from another abstract logical source by defining fields with data from said abstract logical source." ;
                                   rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
                                   rdfs:label "Logical View" .
 
