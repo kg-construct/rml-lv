@@ -5,7 +5,7 @@ A <dfn>logical view join</dfn> (`rml:LogicalViewJoin`) is an operation that exte
 A [=logical view join=] (`rml:LogicalViewJoin`) MUST contain:
 - exactly one parent logical view property (`rml:parentLogicalView`), whose value is a [=logical view=] (`rml:LogicalView`) that supplies the additional fields, fulfills the role of the <!-- TODO reference to core parent logical source when available-->[parent logical source]() in the <a data-cite="RML-Core#dfn-join-condition">join condition(s)</a> of the [=logical view join=], and is referred to as <dfn>parent logical view</dfn>.
 - at least one join condition property (`rml:joinCondition`), whose value is a <a data-cite="RML-Core#dfn-join-condition">join condition</a>.
-- at least one field property (`rml:field`), whose value is an [=expression field=] (`rml:ExpressionField`). This field SHOULD only contain [=field references=] that can be evaluated on the parent logical view. 
+- at least one field property (`rml:field`), whose value is an [=expression field=] (`rml:ExpressionField`). This field SHOULD only contain [=logical view references=] that can be evaluated on the parent logical view. 
 
 The [=logical view=] in the subject position of the [=join property=], fulfills the role of <!-- TODO reference to core child logical source when available-->[child logical source]() in the <a data-cite="RML-Core#dfn-join-condition">join condition(s)</a> of the [=logical view join=], and is referred to as <dfn>child logical view</dfn>.
 
@@ -29,13 +29,28 @@ An <dfn>inner join</dfn> (`rml:innerJoin`) is the equivalent of an inner join in
 
 <aside class=example id=ex-leftjoin>
 
-In this example a [=logical view=] with fields built with data from the logical source from [[[#csviterator]]] is joined with the logical view from [[[#ex-field-record-sequence]]]. 
+In this example a [=logical view=] with fields built with data from the logical source `:csvSource` is joined with the logical view from [[[#ex-field-record-sequence]]]. 
 In case of a left join (as in the example), this results in 4 logical iterations in the logical view. 
 If an inner joins would have been used, the logical view would have only 3 logical iterations. 
+
+<aside class="ex-input">
+
+```csv
+name,birthyear
+alice,1995
+bob,1999
+tobias,2005
+```
+
+</aside>
 
 <aside class=ex-mapping>
 
 ```turtle
+:csvSource a rml:LogicalSource ;
+  rml:source :csvFile ;
+  rml:referenceFormulation rml:CSV .
+  
 :csvView a rml:LogicalView ;
   rml:viewOn :csvSource ;
   rml:field [
@@ -72,16 +87,16 @@ If an inner joins would have been used, the logical view would have only 3 logic
 <aside class="ex-intermediate">
 <table>
     <tr>
-        <td>#</td>
+        <td><u>#</u></td>
         <td>&lt;it&gt;</td>
-        <td>name.#</td>
-        <td>name</td>
-        <td>birthyear.#</td>
-        <td>birthyear</td>
-        <td>item_type.#</td>
-        <td>item_type</td>
-        <td>item_weight.#</td>
-        <td>item_weight </td>
+        <td><u>name.#</u></td>
+        <td><u>name</u></td>
+        <td><u>birthyear.#</u></td>
+        <td><u>birthyear</u></td>
+        <td><u>item_type.#</u></td>
+        <td><u>item_type</u></td>
+        <td><u>item_weight.#</u></td>
+        <td><u>item_weight</u></td>
     </tr>
     <tr>
         <td>0</td>
@@ -180,16 +195,16 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
 <aside class="ex-intermediate">
 <table>
     <tr>
-        <td>#</td>
+        <td><u>#</u></td>
         <td>&lt;it&gt;</td>
-        <td>name.#</td>
-        <td>name</td>
-        <td>birthyear.#</td>
-        <td>birthyear</td>
-        <td>item_type.#</td>
-        <td>item_type</td>
-        <td>item_weight.#</td>
-        <td>item_weight </td>
+        <td><u>name.#</u></td>
+        <td><u>name</u></td>
+        <td><u>birthyear.#</u></td>
+        <td><u>birthyear</u></td>
+        <td><u>item_type.#</u></td>
+        <td><u>item_type</u></td>
+        <td><u>item_weight.#</u></td>
+        <td><u>item_weight </u></td>
     </tr>
     <tr>
         <td>0</td>
@@ -312,18 +327,18 @@ tobias,789
 <aside class="ex-intermediate">
 <table>
     <tr>
-        <td>#</td>
-        <td>&lt;it&gt;</td>
-        <td>name.#</td>
-        <td>name</td>
-        <td>birthyear.#</td>
-        <td>birthyear</td>
-        <td>item_type.#</td>
-        <td>item_type</td>
-        <td>item_weight.#</td>
-        <td>item_weight</td>
-        <td>id#</td>
-        <td>id</td>
+        <td><u>#</u></td>
+        <td><&lt;it&gt;</td>
+        <td><u>name.#</u></td>
+        <td><u>name</u></td>
+        <td><u>birthyear.#</u></td>
+        <td><u>birthyear</u></td>
+        <td><u>item_type.#</u></td>
+        <td><u>item_type</u></td>
+        <td><u>item_weight.#</u></td>
+        <td><u>item_weight</u></td>
+        <td><u>id#</u></td>
+        <td><u>id</u></td>
     </tr>
     <tr>
         <td>0</td>
