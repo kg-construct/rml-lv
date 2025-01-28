@@ -5,7 +5,7 @@ A <dfn>referenceable key</dfn> is either a [=record key=] of an [=expression fie
 A [=record key=] of an [=iterable field=] can not be referenced. 
 
 The <a data-cite="RML-Core##dfn-natural-rdf-datatype">natural RDF datatype</a> of an [=index key=] is [xsd:integer](https://www.w3.org/TR/xmlschema11-2/#integer).
-The <a data-cite="RML-Core##dfn-natural-rdf-datatype">natural RDF datatype</a> of an [=record key=] of an [=expression field=]  depends on the <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a> used to retrieve the [=record=], i.e. that <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a> of the [=parent=] of the [=field=].
+The <a data-cite="RML-Core##dfn-natural-rdf-datatype">natural RDF datatype</a> of an [=record key=] of an [=expression field=]  depends on the <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a> used to retrieve the [=record=], i.e. the <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a> of the [=parent=] of the [=field=].
 
 A [=logical view reference=] can be used in <a data-cite="RML-Core#dfn-expression-map">expression maps</a> just as any other <a data-cite="RML-Core#dfn-reference-expression">reference expression</a>.
 
