@@ -1,6 +1,8 @@
 ## Fields {#fields}
 
-A <dfn>field</dfn> (`rml:Field`) is represented by a resource that MUST contain:
+A <dfn>field</dfn> gives a name to data derived from the <a data-cite="RML-Core#dfn-abstract-logical-source">abstract logical source</a> on which the [=logical view=] is defined.
+
+A [=field=] (`rml:Field`) is represented by a resource that MUST contain:
 - exactly one field name property (`rml:fieldName`), that specifies the [=name=] of the field
 - zero or more field properties (`rml:field`), to describe nested [=field=], also of the type `rml:Field`
 
