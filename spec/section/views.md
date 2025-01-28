@@ -23,7 +23,7 @@ The <a data-cite="RML-Core##dfn-iterator">logical iterator</a> of a [=logical vi
 A <dfn>record</dfn> is either a <a data-cite="RML-Core#dfn-iteration">logical iteration</a> or one element of an <a data-cite="RML-Core#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a>.
 A <dfn>record key</dfn> has a [=record=] as value. 
 An <dfn>index key</dfn> has a positive integer as value, indicating the position of the corresponding record in  the sequence of <a data-cite="RML-Core#dfn-iteration">logical iterations</a> or in the <a data-cite="RML-Core#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a> from which it is derived.
-Each set represents a <a data-cite="RML-Core#dfn-iteration">logical iteration</a> of the [=logical view=] , called a <dfn>logical view iteration</dfn>.
+Each set of key-value pairs represents a <a data-cite="RML-Core#dfn-iteration">logical iteration</a> of the [=logical view=] , called a <dfn>logical view iteration</dfn>.
 A [=logical view iteration sequence=] MUST have a finite set of keys that appear in each [=logical view iteration=].
 In any particular [=logical view iteration=], the value of a key MAY be a null value.
 

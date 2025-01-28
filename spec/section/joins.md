@@ -87,16 +87,16 @@ tobias,2005
 <aside class="ex-intermediate">
 <table>
     <tr>
-        <td><u>#</u></td>
-        <td>&lt;it&gt;</td>
-        <td><u>name.#</u></td>
-        <td><u>name</u></td>
-        <td><u>birthyear.#</u></td>
-        <td><u>birthyear</u></td>
-        <td><u>item_type.#</u></td>
-        <td><u>item_type</u></td>
-        <td><u>item_weight.#</u></td>
-        <td><u>item_weight</u></td>
+        <th><u>#</u></th>
+        <th>&lt;it&gt;</th>
+        <th><u>name.#</u></th>
+        <th><u>name</u></th>
+        <th><u>birthyear.#</u></th>
+        <th><u>birthyear</u></th>
+        <th><u>item_type.#</u></th>
+        <th><u>item_type</u></th>
+        <th><u>item_weight.#</u></th>
+        <th><u>item_weight</u></th>
     </tr>
     <tr>
         <td>0</td>
@@ -195,16 +195,16 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
 <aside class="ex-intermediate">
 <table>
     <tr>
-        <td><u>#</u></td>
-        <td>&lt;it&gt;</td>
-        <td><u>name.#</u></td>
-        <td><u>name</u></td>
-        <td><u>birthyear.#</u></td>
-        <td><u>birthyear</u></td>
-        <td><u>item_type.#</u></td>
-        <td><u>item_type</u></td>
-        <td><u>item_weight.#</u></td>
-        <td><u>item_weight </u></td>
+        <th><u>#</u></th>
+        <th>&lt;it&gt;</th>
+        <th><u>name.#</u></th>
+        <th><u>name</u></th>
+        <th><u>birthyear.#</u></th>
+        <th><u>birthyear</u></th>
+        <th><u>item_type.#</u></th>
+        <th><u>item_type</u></th>
+        <th><u>item_weight.#</u></th>
+        <th><u>item_weight </u></th>
     </tr>
     <tr>
         <td>0</td>
@@ -327,18 +327,18 @@ tobias,789
 <aside class="ex-intermediate">
 <table>
     <tr>
-        <td><u>#</u></td>
-        <td><&lt;it&gt;</td>
-        <td><u>name.#</u></td>
-        <td><u>name</u></td>
-        <td><u>birthyear.#</u></td>
-        <td><u>birthyear</u></td>
-        <td><u>item_type.#</u></td>
-        <td><u>item_type</u></td>
-        <td><u>item_weight.#</u></td>
-        <td><u>item_weight</u></td>
-        <td><u>id#</u></td>
-        <td><u>id</u></td>
+        <th><u>#</u></th>
+        <th><&lt;it&gt;</th>
+        <th><u>name.#</u></th>
+        <th><u>name</u></th>
+        <th><u>birthyear.#</u></th>
+        <th><u>birthyear</u></th>
+        <th><u>item_type.#</u></th>
+        <th><u>item_type</u></th>
+        <th><u>item_weight.#</u></th>
+        <th><u>item_weight</u></th>
+        <th><u>id#</u></th>
+        <th><u>id</u></th>
     </tr>
     <tr>
         <td>0</td>

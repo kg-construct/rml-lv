@@ -89,14 +89,12 @@ In this example a [=field=] with [=declared name=] "name" is declared and added 
 
 <aside class="ex-intermediate">
 <table>
+<tr>
 <th><u>#</u></th>
-<th>
-
-`<it>`
-
-</th>
+<th>&lt;it></th>
 <th><u>name.#</u></th>
 <th><u>name</u></th>
+</tr>
 <tr>
 <td>0</td>
 <td>
@@ -160,41 +158,7 @@ A field adds following keys and corresponding values to the [=logical view itera
 
 <aside class=example id=ex-field-record-sequence>
 
-In this example a [=field=] with [=declared name=] "item" is added to the [=logical view=] from [[[#ex-fieldnames]]]. Additionally a nested [=field=] "type" and a nested [=field=] "weight" are added to the "item" [=field=], .
-
-<aside class=ex-input>
-
-```json
-{
-  "people": [
-    {
-      "name": "alice",
-      "items": [
-        {
-          "type": "sword",
-          "weight": 1500
-        },
-        {
-          "type": "shield",
-          "weight": 2500
-        }
-      ]
-    },
-    {
-      "name": "bob",
-      "items": [
-        {
-          "type": "flower",
-          "weight": 15
-        }
-      ]
-    }
-  ]
-}
-```
-
-</aside>
-
+In this example a [=field=] with [=declared name=] "item" is added to the [=logical view=] from [[[#ex-fieldnames]]]. Additionally a nested [=field=] "type" and a nested [=field=] "weight" are added to the "item" [=field=].
 
 <aside class=ex-mapping>
 
@@ -224,35 +188,25 @@ In this example a [=field=] with [=declared name=] "item" is added to the [=logi
 ```
 
 </aside>
+
 Note some columns in the table below have been shortened for brevity.
-<aside class="ex-intermediate">
+
+<aside class=ex-intermediate>
 <table>
-<th><u>#</u></th>
-<th>
-
-`<it>`
-</th>
-<th><u>name.#</u></th>
-<th><u>name</u></th>
-<th><u>item.#</u></th>
-<th>item</th>
-<th><u>item.type.#</u></th>
-<th><u>item.type</u></th>
-<th><u>item.weight.#</u></th>
-<th><u>item.weight</u></th> 
-<tr>
-<td>0</td>
-<td>
-
-```json
-
-{...}
-```
-
-</td>
-<td>0</td>
-<td>alice</td>
-<td>0</td>
+    <tr>
+        <th><u>#</u></th>
+        <th>&lt;it></th>   
+        <th><u>name.#</u></th>
+        <th><u>name</u></th>
+        <th><u>item.#</u></th>
+        <th>item</th>
+        <th><u>item.type.#</u></th>
+        <th><u>item.type</u></th>
+        <th><u>item.weight.#</u></th>
+        <th><u>item.weight</u></th> 
+    </tr>
+    <tr>
+        <td>0</td>
 <td>
 
 ```json
@@ -260,13 +214,26 @@ Note some columns in the table below have been shortened for brevity.
 ```
 
 </td>
-<td>0</td>
-<td>sword</td>
-<td>0</td>
-<td>1500</td> -->
-</tr>
-<tr>
-<td>0</td>
+        <td>0</td>
+        <td>alice</td>
+        <td>0</td>
+<td>
+
+```json
+{
+  "type": "sword",
+  "weight": 1500
+}
+```
+
+</td>
+        <td>0</td>
+        <td>sword</td>
+        <td>0</td>
+        <td>1500</td> 
+    </tr>
+    <tr>
+    <td>0</td>
 <td>
 
 ```json
@@ -274,9 +241,9 @@ Note some columns in the table below have been shortened for brevity.
 ```
 
 </td>
-<td>0</td>
-<td>alice</td>
-<td>1</td>
+    <td>0</td>
+    <td>alice</td>
+    <td>1</td>
 <td>
 
 ```json
@@ -287,13 +254,13 @@ Note some columns in the table below have been shortened for brevity.
 ```
 
 </td>
-<td>0</td>
-<td>shield</td>
-<td>0</td>
-<td>2500</td> -->
-</tr>
-<tr>
-<td>1</td>
+        <td>0</td>
+        <td>shield</td>
+        <td>0</td>
+        <td>2500</td>
+    </tr>
+    <tr>
+        <td>1</td>
 <td>
 
 ```json
@@ -301,9 +268,9 @@ Note some columns in the table below have been shortened for brevity.
 ```
 
 </td>
-<td>0</td>
-<td>bob</td>
-<td>0</td>
+        <td>0</td>
+        <td>bob</td>
+        <td>0</td>
 <td>
 
 ```json
@@ -314,11 +281,11 @@ Note some columns in the table below have been shortened for brevity.
 ```
 
 </td>
-<td>0</td>
-<td>flower</td>
-<td>0</td>
-<td>15</td> -->
-</tr>
+        <td>0</td>
+        <td>flower</td>
+        <td>0</td>
+        <td>15</td>
+    </tr>
 </table>
 
 </aside>
@@ -393,16 +360,16 @@ Note some columns in the table below have been shortened for brevity.
 <aside class="ex-intermediate">
 <table>
 <tr>
-<td><u>#</u></td>
-<td>&lt;it&gt;</td>
-<td><u>items</u></td>
-<td><u>items.#</u></td>
-<td>item</td>
-<td><u>item.#</u></td>
-<td><u>item.type</u></td>
-<td><u>item.type.#</u></td>
-<td><u>item.weight</u></td>
-<td><u>item.weight.#</u></td>
+<th><u>#</u></th>
+<th>&lt;it&gt;</th>
+<th><u>items</u></th>
+<th><u>items.#</u></th>
+<th>item</th>
+<th><u>item.#</u></th>
+<th><u>item.type</u></th>
+<th><u>item.type.#</u></th>
+<th><u>item.weight</u></th>
+<th><u>item.weight.#</u></th>
 </tr>
 <tr>
 <td>0</td>
