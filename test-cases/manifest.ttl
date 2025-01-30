@@ -1,0 +1,161 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rml: <http://w3id.org/rml/> .
+@prefix rmltest: <http://w3id.org/rml/test/> .
+@prefix test: <http://www.w3.org/2006/03/test-description#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0001> a test:TestCase;
+  dcterms:identifier "RMLLVTC0001";
+  rmltest:hasError false;
+  rmltest:input <http://w3id.org/rml/lv/test/RMLLVTC0001/input/people.json/>;
+  rmltest:mappingDocument "mapping.ttl";
+  rmltest:output <http://w3id.org/rml/lv/test/RMLLVTC0001/output/output.nq/> .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0001/input/people.json/> a rmltest:Input;
+  rmltest:input "people.json";
+  rmltest:inputFormat "application/json" .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0001/output/output.nq/> a rmltest:Output;
+  rmltest:output "output.nq";
+  rmltest:outputFormat "application/n-quads" .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0002> a test:TestCase;
+  dcterms:identifier "RMLLVTC0002";
+  rmltest:hasError false;
+  rmltest:input <http://w3id.org/rml/lv/test/RMLLVTC0002/input/people.json/>;
+  rmltest:mappingDocument "mapping.ttl";
+  rmltest:output <http://w3id.org/rml/lv/test/RMLLVTC0002/output/output.nq/> .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0002/input/people.json/> a rmltest:Input;
+  rmltest:input "people.json";
+  rmltest:inputFormat "application/json" .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0002/output/output.nq/> a rmltest:Output;
+  rmltest:output "output.nq";
+  rmltest:outputFormat "application/n-quads" .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0003> a test:TestCase;
+  dcterms:identifier "RMLLVTC0003";
+  rmltest:hasError false;
+  rmltest:input <http://w3id.org/rml/lv/test/RMLLVTC0003/input/people.csv/>, <http://w3id.org/rml/lv/test/RMLLVTC0003/input/people.json/>;
+  rmltest:mappingDocument "mapping.ttl";
+  rmltest:output <http://w3id.org/rml/lv/test/RMLLVTC0003/output/output.nq/> .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0003/input/people.csv/> a rmltest:Input;
+  rmltest:input "people.csv";
+  rmltest:inputFormat "text/csv" .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0003/input/people.json/> a rmltest:Input;
+  rmltest:input "people.json";
+  rmltest:inputFormat "application/json" .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0003/output/output.nq/> a rmltest:Output;
+  rmltest:output "output.nq";
+  rmltest:outputFormat "application/n-quads" .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0004> a test:TestCase;
+  dcterms:identifier "RMLLVTC0004";
+  rmltest:hasError false;
+  rmltest:input <http://w3id.org/rml/lv/test/RMLLVTC0004/input/people.csv/>, <http://w3id.org/rml/lv/test/RMLLVTC0004/input/people.json/>;
+  rmltest:mappingDocument "mapping.ttl";
+  rmltest:output <http://w3id.org/rml/lv/test/RMLLVTC0004/output/output.nq/> .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0004/input/people.csv/> a rmltest:Input;
+  rmltest:input "people.csv";
+  rmltest:inputFormat "text/csv" .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0004/input/people.json/> a rmltest:Input;
+  rmltest:input "people.json";
+  rmltest:inputFormat "application/json" .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0004/output/output.nq/> a rmltest:Output;
+  rmltest:output "output.nq";
+  rmltest:outputFormat "application/n-quads" .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0005> a test:TestCase;
+  dcterms:identifier "RMLLVTC0005";
+  rmltest:hasError false;
+  rmltest:input <http://w3id.org/rml/lv/test/RMLLVTC0005/input/people.csv/>, <http://w3id.org/rml/lv/test/RMLLVTC0005/input/people.json/>;
+  rmltest:mappingDocument "mapping.ttl";
+  rmltest:output <http://w3id.org/rml/lv/test/RMLLVTC0005/output/output.nq/> .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0005/input/people.csv/> a rmltest:Input;
+  rmltest:input "people.csv";
+  rmltest:inputFormat "text/csv" .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0005/input/people.json/> a rmltest:Input;
+  rmltest:input "people.json";
+  rmltest:inputFormat "application/json" .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0005/output/output.nq/> a rmltest:Output;
+  rmltest:output "output.nq";
+  rmltest:outputFormat "application/n-quads" .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0006> a test:TestCase;
+  dcterms:identifier "RMLLVTC0006";
+  rmltest:hasError false;
+  rmltest:input <http://w3id.org/rml/lv/test/RMLLVTC0006/input/people.csv/>;
+  rmltest:mappingDocument "mapping.ttl";
+  rmltest:output <http://w3id.org/rml/lv/test/RMLLVTC0006/output/output.nq/> .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0006/input/people.csv/> a rmltest:Input;
+  rmltest:input "people.csv";
+  rmltest:inputFormat "text/csv" .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0006/output/output.nq/> a rmltest:Output;
+  rmltest:output "output.nq";
+  rmltest:outputFormat "application/n-quads" .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0007> a test:TestCase;
+  dcterms:identifier "RMLLVTC0007";
+  rmltest:hasError false;
+  rmltest:input <http://w3id.org/rml/lv/test/RMLLVTC0007/input/people.csv/>;
+  rmltest:mappingDocument "mapping.ttl";
+  rmltest:output <http://w3id.org/rml/lv/test/RMLLVTC0007/output/output.nq/> .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0007/input/people.csv/> a rmltest:Input;
+  rmltest:input "people.csv";
+  rmltest:inputFormat "text/csv" .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0007/output/output.nq/> a rmltest:Output;
+  rmltest:output "output.nq";
+  rmltest:outputFormat "application/n-quads" .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0008> a test:TestCase;
+  dcterms:identifier "RMLLVTC0008";
+  rmltest:hasError false;
+  rmltest:input <http://w3id.org/rml/lv/test/RMLLVTC0008/input/people.json/>;
+  rmltest:mappingDocument "mapping.ttl";
+  rmltest:output <http://w3id.org/rml/lv/test/RMLLVTC0008/output/output.nq/> .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0008/input/people.json/> a rmltest:Input;
+  rmltest:input "people.json";
+  rmltest:inputFormat "application/json" .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0008/output/output.nq/> a rmltest:Output;
+  rmltest:output "output.nq";
+  rmltest:outputFormat "application/n-quads" .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0009> a test:TestCase;
+  dcterms:identifier "RMLLVTC0009";
+  rmltest:hasError false;
+  rmltest:input <http://w3id.org/rml/lv/test/RMLLVTC0009/input/people.csv/>, <http://w3id.org/rml/lv/test/RMLLVTC0009/input/people.json/>,
+    <http://w3id.org/rml/lv/test/RMLLVTC0009/input/people2.csv/>;
+  rmltest:mappingDocument "mapping.ttl";
+  rmltest:output <http://w3id.org/rml/lv/test/RMLLVTC0009/output/output.nq/> .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0009/input/people.csv/> a rmltest:Input;
+  rmltest:input "people.csv";
+  rmltest:inputFormat "text/csv" .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0009/input/people.json/> a rmltest:Input;
+  rmltest:input "people.json";
+  rmltest:inputFormat "application/json" .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0009/input/people2.csv/> a rmltest:Input;
+  rmltest:input "people2.csv";
+  rmltest:inputFormat "text/csv" .
+
+<http://w3id.org/rml/lv/test/RMLLVTC0009/output/output.nq/> a rmltest:Output;
+  rmltest:output "output.nq";
+  rmltest:outputFormat "application/n-quads" .
