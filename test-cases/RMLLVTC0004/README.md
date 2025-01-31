@@ -1,8 +1,8 @@
 ## RMLLVTC0004
 
-**Title**: 
+**Title**: Inner Join
 
-**Description**: 
+**Description**: Test inner join
 
 **Error expected?** No
 

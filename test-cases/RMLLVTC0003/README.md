@@ -1,8 +1,8 @@
 ## RMLLVTC0003
 
-**Title**: 
+**Title**: Left Join 
 
-**Description**: 
+**Description**: Test left join
 
 **Error expected?** No
 

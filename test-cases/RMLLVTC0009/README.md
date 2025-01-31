@@ -1,8 +1,8 @@
 ## RMLLVTC0009
 
-**Title**: 
+**Title**: Two Left Joins
 
-**Description**: 
+**Description**: Test two left joins
 
 **Error expected?** No
 

@@ -1,8 +1,8 @@
 ## RMLLVTC0002
 
-**Title**: 
+**Title**: Iterable Field
 
-**Description**: 
+**Description**: Test nested expression field, with iterable field as parent
 
 **Error expected?** No
 

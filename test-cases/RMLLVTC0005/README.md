@@ -1,8 +1,8 @@
 ## RMLLVTC0005
 
-**Title**: 
+**Title**: Index
 
-**Description**: 
+**Description**: Test references to index keys, including joins
 
 **Error expected?** No
 

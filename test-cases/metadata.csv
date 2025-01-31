@@ -1,10 +1,10 @@
 ID,title,description,specification,mapping,input_format1,input_format2,input_format3,output_format1,output_format2,output_format3,input1,input2,input3,output1,output2,output3,error
-RMLLVTC0001,,,http://w3id.org/rml/lv/,mapping.ttl,application/json,,,application/n-quads,,,people.json,,,output.nq,,,false
-RMLLVTC0002,,,http://w3id.org/rml/lv/,mapping.ttl,application/json,,,application/n-quads,,,people.json,,,output.nq,,,false
-RMLLVTC0003,,,http://w3id.org/rml/lv/,mapping.ttl,application/json,text/csv,,application/n-quads,,,people.json,people.csv,,output.nq,,,false
-RMLLVTC0004,,,http://w3id.org/rml/lv/,mapping.ttl,application/json,text/csv,,application/n-quads,,,people.json,people.csv,,output.nq,,,false
-RMLLVTC0005,,,http://w3id.org/rml/lv/,mapping.ttl,application/json,text/csv,,application/n-quads,,,people.json,people.csv,,output.nq,,,false
-RMLLVTC0006,,,http://w3id.org/rml/lv/,mapping.ttl,,text/csv,,application/n-quads,,,,people.csv,,output.nq,,,false
-RMLLVTC0007,,,http://w3id.org/rml/lv/,mapping.ttl,,text/csv,,application/n-quads,,,,people.csv,,output.nq,,,false
-RMLLVTC0008,,,http://w3id.org/rml/lv/,mapping.ttl,application/json,,,application/n-quads,,,people.json,,,output.nq,,,false
-RMLLVTC0009,,,http://w3id.org/rml/lv/,mapping.ttl,application/json,text/csv,text/csv,application/n-quads,,,people.json,people.csv,people2.csv,output.nq,,,false
+RMLLVTC0001,Expression Field,Test expression field,http://w3id.org/rml/lv/,mapping.ttl,application/json,,,application/n-quads,,,people.json,,,output.nq,,,false
+RMLLVTC0002,Iterable Field,"Test nested expression field, with iterable field as parent",http://w3id.org/rml/lv/,mapping.ttl,application/json,,,application/n-quads,,,people.json,,,output.nq,,,false
+RMLLVTC0003,Left Join ,Test left join,http://w3id.org/rml/lv/,mapping.ttl,application/json,text/csv,,application/n-quads,,,people.json,people.csv,,output.nq,,,false
+RMLLVTC0004,Inner Join,Test inner join,http://w3id.org/rml/lv/,mapping.ttl,application/json,text/csv,,application/n-quads,,,people.json,people.csv,,output.nq,,,false
+RMLLVTC0005,Index,"Test references to index keys, including joins",http://w3id.org/rml/lv/,mapping.ttl,application/json,text/csv,,application/n-quads,,,people.json,people.csv,,output.nq,,,false
+RMLLVTC0006,"Change Reference Formulations: CSV, including JSON array",Test a change of reference formulations: csv source including json array,http://w3id.org/rml/lv/,mapping.ttl,,text/csv,,application/n-quads,,,,people.csv,,output.nq,,,false
+RMLLVTC0007,Change Reference Formulations: CSV including JSON object,Test a change of reference formulations: csv source including json object,http://w3id.org/rml/lv/,mapping.ttl,,text/csv,,application/n-quads,,,,people.csv,,output.nq,,,false
+RMLLVTC0008,Change Reference Formulations: JSON including CSV,Test a change of reference formulations: json source including csv data,http://w3id.org/rml/lv/,mapping.ttl,application/json,,,application/n-quads,,,people.json,,,output.nq,,,false
+RMLLVTC0009,Two Left Joins,Test two left joins,http://w3id.org/rml/lv/,mapping.ttl,application/json,text/csv,text/csv,application/n-quads,,,people.json,people.csv,people2.csv,output.nq,,,false

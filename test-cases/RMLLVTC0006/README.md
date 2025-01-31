@@ -1,8 +1,8 @@
 ## RMLLVTC0006
 
-**Title**: 
+**Title**: Change Reference Formulations: CSV, including JSON array
 
-**Description**: 
+**Description**: Test a change of reference formulations: csv source including json array
 
 **Error expected?** No
 
