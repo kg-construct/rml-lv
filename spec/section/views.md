@@ -44,6 +44,8 @@ The <a data-cite="RML-Core##dfn-natural-rdf-datatype">natural RDF datatype</a> o
 
 A [=logical view reference=] can be used in <a data-cite="RML-Core#dfn-expression-map">expression maps</a> just as any other <a data-cite="RML-Core#dfn-reference-expression">reference expression</a>.
 
+When a non-existing or a non-referenceable key is referenced, RML processors should report an error. 
+
 <aside class=example id=ex-field-in-triples-map>
 
 <aside class=ex-mapping>
