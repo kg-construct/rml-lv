@@ -22,7 +22,7 @@ A [=logical view=] (`rml:LogicalView`) has an implicit default <a data-cite="RML
 The <a data-cite="RML-Core##dfn-iterator">logical iterator</a> of a [=logical view=] produces a <dfn>logical view iteration sequence</dfn>, i.e. an ordered sequence of sets of key-value pairs, where each key is a string and each value a [=record=] or a positive integer.
 A <dfn>record</dfn> is either a <a data-cite="RML-Core#dfn-iteration">logical iteration</a> or one element of an <a data-cite="RML-Core#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a>.
 A <dfn>record key</dfn> has a [=record=] as value. 
-An <dfn>index key</dfn> has a positive integer as value, indicating the position of the corresponding record in  the sequence of <a data-cite="RML-Core#dfn-iteration">logical iterations</a> or in the <a data-cite="RML-Core#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a> from which it is derived.
+An <dfn>index key</dfn> has a positive integer as value, indicating the position of the corresponding record in  the sequence of the <a data-cite="RML-Core#dfn-iteration">logical iteration</a> or in the <a data-cite="RML-Core#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a> from which it is derived.
 Each set of key-value pairs represents a <a data-cite="RML-Core#dfn-iteration">logical iteration</a> of the [=logical view=] , called a <dfn>logical view iteration</dfn>.
 A [=logical view iteration sequence=] MUST have a finite set of keys that appear in each [=logical view iteration=].
 In any particular [=logical view iteration=], the value of a key MAY be a null value.
