@@ -28,8 +28,8 @@ A [=field=] MUST have a <dfn>parent</dfn> that is either the <a data-cite="RML-C
 ### Field names {#fieldnames}
 
 A [=field=] MUST have a <dfn>declared name</dfn> that is an alphanumerical string. Fields with the same [=parent=] MUST have different declared names. 
-We distinguish between the [=field=]'s [=declared name=] and the [=field=]'s <dfn>absolute name</dfn>. 
-If a [=field=]'s parent is another [=field=], the [=field=]'s [=absolute name=] is the concatenation of the name of the parent [=field=], a dot `.`, and the [=field=]'s declared name. 
+We distinguish between the [=field=]'s [=declared name=] and the [=field=]'s [=absolute name=]. 
+If a [=field=]'s parent is another [=field=], the [=field=]'s <dfn>absolute name</dfn> is the concatenation of the name of the parent [=field=], a dot `.`, and the [=field=]'s declared name. 
 Otherwise, the [=field=]'s [=absolute name=] equals its [=declared name=].  
 
 <aside class=example id=ex-fieldnames>
