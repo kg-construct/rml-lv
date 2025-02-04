@@ -39,6 +39,8 @@ A <dfn>logical view reference</dfn> is a <a data-cite="RML-Core#dfn-reference-ex
 A <dfn>referenceable key</dfn> is either a [=record key=] of an [=expression field=] or an [=index key=].
 A [=record key=] of an [=iterable field=] and the [=record key=] `<it>` can not be referenced.
 
+The <a data-cite="RML-Core#dfn-expression-evaluation-result">expression evaluation result</a> of a [=logical view reference=] is the value corresponding to the referenced key. 
+
 The <a data-cite="RML-Core##dfn-natural-rdf-datatype">natural RDF datatype</a> of an [=index key=] is [xsd:integer](https://www.w3.org/TR/xmlschema11-2/#integer).
 The <a data-cite="RML-Core##dfn-natural-rdf-datatype">natural RDF datatype</a> of a [=record key=] of an [=expression field=] is obtained by applying the <a data-cite="RML-Core##dfn-natural-mapping">natural mapping</a> of the <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a> used to retrieve the [=record=].
 
