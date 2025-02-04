@@ -44,7 +44,7 @@ var respecConfig = {
   ],
   formerEditors: [
   ],
-  github: "https://github.com/kg-construct/rml-io",
+  github: "https://github.com/kg-construct/rml-lv",
   license: "w3c-software-doc",
   localBiblio: {
     "RML-Core": {
