@@ -7,13 +7,13 @@ RML Logical Views aims to resolve challenges such as handling hierarchy of neste
 ### Nested data structures
 
 References to nested data structures, like JSON or XML, may return multiple values. These values can be composite: they may again contain multiple values. 
-<a data-cite="RML-Core">RML-Core</a> defines mapping constructs that produce results by combining the results of other mapping constructs in a specific order. 
+[[RML-Core]] defines mapping constructs that produce results by combining the results of other mapping constructs in a specific order. 
 For example, a <a data-cite="RML-Core#dfn-triples-map">triples map</a> combines the results of a <a data-cite="RML-Core#dfn-subject-map">subject map</a> and a <a data-cite="RML-Core#dfn-predicate-object-map">predicate-object map</a> in that order. 
 Another example is a <a data-cite="RML-Core#dfn-template-expression">template expression</a>, 
 which combines character strings and zero or more <a data-cite="RML-Core#dfn-reference-expression">reference expressions</a> in declared order. 
 When mapping constructs produce multiple results, the combining mapping constructs will apply an <a data-cite="RML-Core#dfn-n-ary-cartesian-product">n-ary Cartesian product</a> over the sets of results, maintaining the order of the mapping constructs. In the case of nested data structures, this may cause the generation of results that do not match the source hierarchy, i.e. do not follow the root-to-leaf paths in the source data, since values are combined irrespective of it.
 
-Furthermore, there is varying expressiveness in data source expression and query languages, and many languages have limited support for hierarchy traversal. For example, JSONPath has no operator to refer to an ancestor in the document hierarchy.
+Furthermore, there is varying expressiveness in data source expression and query languages, and many languages have limited support for hierarchy traversal. For example, JSONPath has no operator to refer to an ancestor in the document hierarchy [[RFC9535]].
 
 This limits the ability of [RML-Core](https://kg-construct.github.io/rml-core/spec/docs/) to map nested data.
 
