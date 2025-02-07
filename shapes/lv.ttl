@@ -7,7 +7,6 @@
 
 <http://w3id.org/rml/lv/shapes> a owl:Ontology ;
     owl:imports <http://w3id.org/rml/core/shapes> ;
-    owl:imports <http://w3id.org/rml/io/shapes> ;
 .
 
 # rml:LogicalView
@@ -23,6 +22,7 @@ rmlsh:LogicalViewShape a sh:NodeShape ;
     - at least one rml:field property, with a rml:Field as its value.
     """ ;
     sh:targetClass rml:LogicalView ;
+    sh:targetSubjectsOf rml:viewOn ;
     sh:targetObjectsOf rml:parentLogicalView ;
     sh:property [
         sh:description """
@@ -34,14 +34,14 @@ rmlsh:LogicalViewShape a sh:NodeShape ;
         sh:path rml:viewOn ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
-        sh:node rmlsh:LogicalSource ;
+        sh:node rmlsh:RMLAbstractLogicalSourceShape ;
         sh:nodeKind sh:BlankNodeOrIRI ;
     ] , [
         sh:description """
         A field of the logical view.
         """ ;
         sh:message """
-        At least one rml:field property must be specified for a rml:LogicalView, with a resource as its value.
+        At least one rml:field property must be specified for a rml:LogicalView, with either an rml:ExpressionField or an rml:IterableField its value.
         """ ;
         sh:path rml:field ;
         sh:minCount 1 ;
@@ -130,7 +130,35 @@ rmlsh:ExpressionFieldShape a sh:NodeShape ;
     rml:ExpressionField requires what an rml:ExpressionMap and rml:Field requires.
     """ ;
     sh:targetClass rml:ExpressionField ;
-    sh:node rmlsh:RMLExpressionMapShape, rmlsh:Field ;
+    sh:node rmlsh:RMLExpressionMapShape ;
+    ## Not using sh:node rmlsh:Field here due to shape recursion problem https://github.com/RDFLib/pySHACL/issues/154
+    sh:property [
+        sh:description """
+        The name of the field.
+        """ ;
+        sh:message """
+        Exactly one rml:fieldName property must be specified for a rml:Field, with a string as its value.
+        """ ;
+        sh:path rml:fieldName ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:nodeKind sh:Literal ;
+    ] , [
+        sh:description """
+        A child field of the field.
+        """ ;
+        sh:message """
+        The value of a rml:field property for a rml:Field must be a resource.
+        """ ;
+        sh:path rml:field ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
+        ## Disabled due to shape recursion. This is covered by rmlsh:FieldShape
+        # sh:xone (
+        #     [ sh:node rmlsh:ExpressionFieldShape ]
+        #     [ sh:node rmlsh:IterableFieldShape ]
+        # )
+    ]
 .
 
 rmlsh:IterableFieldShape a sh:NodeShape ;
@@ -144,21 +172,32 @@ rmlsh:IterableFieldShape a sh:NodeShape ;
     Furthermore, rml:IterableField requires what an rml:Iterable and rml:Field requires.
     """ ;
     sh:targetClass rml:IterableField ;
-    sh:node rmlsh:Iterable, rmlsh:Field ;  # TODO requires rmlsh:Iterable to be defined in core
+    sh:node rmlsh:RMLIterableShape ;
+    ## Not using sh:node rmlsh:Field here due to shape recursion problem https://github.com/RDFLib/pySHACL/issues/154
+    sh:property [
+        sh:description """
+        The name of the field.
+        """ ;
+        sh:message """
+        Exactly one rml:fieldName property must be specified for a rml:Field, with a string as its value.
+        """ ;
+        sh:path rml:fieldName ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:nodeKind sh:Literal ;
+    ] ;
     sh:property [
         sh:description """
         A child field of the iterable field.
         """ ;
         sh:message """
-        The value of a rml:field property for a rml:Field must be a resource.
+        The value of a rml:field property for a rml:Field must be a resource that describes an rml:ExpressionField.
         """ ;
         sh:path rml:field ;
         sh:minCount 1 ;
         sh:nodeKind sh:BlankNodeOrIRI ;
-        sh:xone (
-            [ sh:node rmlsh:ExpressionFieldShape ]
-            [ sh:node rmlsh:IterableFieldShape ]
-        )
+        sh:node rmlsh:ExpressionFieldShape ;
     ] .
 
 rmlsh:LogicalViewJoinShape a sh:NodeShape ;
