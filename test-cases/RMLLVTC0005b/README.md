@@ -1,10 +1,10 @@
-## RMLLVTC0001
+## RMLLVTC0005b
 
-**Title**: Expression Field
+**Title**: Referencing the Record Key <it>
 
-**Description**: Test expression field
+**Description**: Test a reference to the record key <it>
 
-**Error expected?** No
+**Error expected?** Yes
 
 **Input**
 ```
@@ -65,18 +65,11 @@
     rml:template "http://example.org/person/{name}" ;
   ] ;
   rml:predicateObjectMap [
-    rml:predicate :hasName ;
+    rml:predicate :isDerivedFrom ;
     rml:objectMap [
-      rml:reference "name" ;
+      rml:reference "<it>" ;
     ] ;
   ] .
-
-```
-
-**Output**
-```
-<http://example.org/person/alice> <http://example.org/hasName> "alice" .
-<http://example.org/person/bob> <http://example.org/hasName> "bob" .
 
 ```
 

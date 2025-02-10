@@ -1,10 +1,10 @@
-## RMLLVTC0001
+## RMLLVTC0008c
 
-**Title**: Expression Field
+**Title**: Cycle: Self-Join
 
-**Description**: Test expression field
+**Description**: Test a cycle in a join of a logical view: self-join
 
-**Error expected?** No
+**Error expected?** Yes
 
 **Input**
 ```
@@ -57,26 +57,31 @@
     a rml:ExpressionField ;
     rml:fieldName "name" ;
     rml:reference "$.name" ;
+  ] ;
+  rml:leftJoin [
+    rml:parentLogicalView :jsonView ;
+    rml:joinCondition [
+      rml:parent "name" ;
+      rml:child "name" ;
+    ] ;
+    rml:field [
+      a rml:ExpressionField ;
+      rml:fieldName "newName" ;
+      rml:reference "name" ;
+    ] ;
   ] .
 
 :triplesMapPerson a rml:TriplesMap ;
   rml:logicalSource :jsonView ;
   rml:subjectMap [
-    rml:template "http://example.org/person/{name}" ;
+    rml:template "http://example.org/person/{newName}" ;
   ] ;
   rml:predicateObjectMap [
     rml:predicate :hasName ;
     rml:objectMap [
-      rml:reference "name" ;
+      rml:reference "newName" ;
     ] ;
   ] .
-
-```
-
-**Output**
-```
-<http://example.org/person/alice> <http://example.org/hasName> "alice" .
-<http://example.org/person/bob> <http://example.org/hasName> "bob" .
 
 ```
 

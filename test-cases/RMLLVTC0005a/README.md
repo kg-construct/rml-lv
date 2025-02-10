@@ -1,10 +1,10 @@
-## RMLLVTC0001
+## RMLLVTC0005a
 
-**Title**: Expression Field
+**Title**: Referencing a Non-Existing Key
 
-**Description**: Test expression field
+**Description**: Test a reference to a non-existing key
 
-**Error expected?** No
+**Error expected?** Yes
 
 **Input**
 ```
@@ -62,21 +62,14 @@
 :triplesMapPerson a rml:TriplesMap ;
   rml:logicalSource :jsonView ;
   rml:subjectMap [
-    rml:template "http://example.org/person/{name}" ;
+    rml:template "http://example.org/person/{Name}" ;
   ] ;
   rml:predicateObjectMap [
     rml:predicate :hasName ;
     rml:objectMap [
-      rml:reference "name" ;
+      rml:reference "Name" ;
     ] ;
   ] .
-
-```
-
-**Output**
-```
-<http://example.org/person/alice> <http://example.org/hasName> "alice" .
-<http://example.org/person/bob> <http://example.org/hasName> "bob" .
 
 ```
 

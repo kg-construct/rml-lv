@@ -1,82 +1,43 @@
-## RMLLVTC0001
+## RMLLVTC0008a
 
-**Title**: Expression Field
+**Title**: Cycle: Abstract Logical Source
 
-**Description**: Test expression field
+**Description**: Test a cycle in the abstract logical source of a logical view
 
-**Error expected?** No
-
-**Input**
-```
-{
-  "people": [
-    {
-      "name": "alice",
-      "items": [
-        {
-          "type": "sword",
-          "weight": 1500
-        },
-        {
-          "type": "shield",
-          "weight": 2500
-        }
-      ]
-    },
-    {
-      "name": "bob",
-      "items": [
-        {
-          "type": "flower",
-          "weight": 15
-        }
-      ]
-    }
-  ]
-}
-
-```
+**Error expected?** Yes
 
 **Mapping**
 ```
 @prefix rml: <http://w3id.org/rml/> .
 @prefix : <http://example.org/> .
 
-:jsonSource a rml:LogicalSource ;
-  rml:source [
-    a rml:RelativePathSource , rml:Source ;
-    rml:root rml:MappingDirectory ;
-    rml:path "people.json" ;
-  ] ;
-  rml:referenceFormulation rml:JSONPath ;
-  rml:iterator "$.people[*]" .
-
-:jsonView a rml:LogicalView ;
-  rml:viewOn :jsonSource ;
+:view1 a rml:LogicalView ;
+  rml:viewOn :view2 ;
   rml:field [
     a rml:ExpressionField ;
-    rml:fieldName "name" ;
-    rml:reference "$.name" ;
+    rml:fieldName "name1" ;
+    rml:reference "name2" ;
+  ] .
+
+:view2 a rml:LogicalView ;
+  rml:viewOn :view1 ;
+  rml:field [
+    a rml:ExpressionField ;
+    rml:fieldName "name2" ;
+    rml:reference "name1" ;
   ] .
 
 :triplesMapPerson a rml:TriplesMap ;
-  rml:logicalSource :jsonView ;
+  rml:logicalSource :view2 ;
   rml:subjectMap [
-    rml:template "http://example.org/person/{name}" ;
+    rml:template "http://example.org/person/{name2}" ;
   ] ;
   rml:predicateObjectMap [
     rml:predicate :hasName ;
     rml:objectMap [
-      rml:reference "name" ;
+      rml:reference "name2" ;
     ] ;
   ] .
-
-```
-
-**Output**
-```
-<http://example.org/person/alice> <http://example.org/hasName> "alice" .
-<http://example.org/person/bob> <http://example.org/hasName> "bob" .
 
 ```
 

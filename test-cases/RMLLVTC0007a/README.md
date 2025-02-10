@@ -1,6 +1,6 @@
-## RMLLVTC0006
+## RMLLVTC0007a
 
-**Title**: Change Reference Formulations: CSV, including JSON array
+**Title**: Change Reference Formulations: CSV including JSON array
 
 **Description**: Test a change of reference formulations: csv source including json array
 

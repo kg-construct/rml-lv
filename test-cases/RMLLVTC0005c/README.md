@@ -1,10 +1,10 @@
-## RMLLVTC0002
+## RMLLVTC0005c
 
-**Title**: Iterable Field
+**Title**: Referencing the Record Key of an Iterable Field
 
-**Description**: Test nested expression field, with iterable field as parent
+**Description**: Test a reference to the record key of an iterable field
 
-**Error expected?** No
+**Error expected?** Yes
 
 **Input**
 ```
@@ -68,11 +68,6 @@
       rml:fieldName "type" ;
       rml:reference "$.type" ;
     ] ;
-    rml:field [
-      a rml:ExpressionField ;
-      rml:fieldName "weight" ;
-      rml:reference "$.weight" ;
-    ] ;
   ] .
 
 :triplesMapPerson a rml:TriplesMap ;
@@ -81,52 +76,11 @@
     rml:template "http://example.org/person/{name}" ;
   ] ;
   rml:predicateObjectMap [
-    rml:predicate :hasName ;
-    rml:objectMap [
-      rml:reference "name" ;
-    ] ;
-  ] ;
-  rml:predicateObjectMap [
     rml:predicate :hasItem ;
     rml:objectMap [
-      rml:parentTriplesMap :triplesMapItem ;
+      rml:template "http://example.org/person/{name}/{item}" ;
     ] ;
   ] .
-
-:triplesMapItem a rml:TriplesMap ;
-  rml:logicalSource :jsonView ;
-  rml:subjectMap [
-    rml:template "http://example.org/person/{name}/item/{item.type}" ;
-  ] ;
-  rml:predicateObjectMap [
-    rml:predicate :hasName ;
-    rml:objectMap [
-      rml:reference "item.type" ;
-    ] ;
-  ] ;
-  rml:predicateObjectMap [
-    rml:predicate :hasWeight ;
-    rml:objectMap [
-      rml:reference "item.weight" ;
-      rml:datatype xsd:integer ;
-    ] ;
-  ] .
-
-```
-
-**Output**
-```
-<http://example.org/person/alice> <http://example.org/hasName> "alice" .
-<http://example.org/person/alice> <http://example.org/hasItem> <http://example.org/person/alice/item/sword> .
-<http://example.org/person/alice> <http://example.org/hasItem> <http://example.org/person/alice/item/shield> .
-<http://example.org/person/bob> <http://example.org/hasName> "bob" .
-<http://example.org/person/bob> <http://example.org/hasItem> <http://example.org/person/bob/item/flower> .
-<http://example.org/person/alice/item/sword> <http://example.org/hasName> "sword" .
-<http://example.org/person/alice/item/sword> <http://example.org/hasWeight> "1500"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://example.org/person/alice/item/shield> <http://example.org/hasName> "shield" .
-<http://example.org/person/alice/item/shield> <http://example.org/hasWeight> "2500"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://example.org/person/bob/item/flower> <http://example.org/hasName> "flower" .
-<http://example.org/person/bob/item/flower> <http://example.org/hasWeight> "15"^^<http://www.w3.org/2001/XMLSchema#integer> .
 
 ```
 

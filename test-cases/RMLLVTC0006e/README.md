@@ -1,8 +1,8 @@
-## RMLLVTC0003
+## RMLLVTC0006e
 
-**Title**: Left Join 
+**Title**: Two Inner Joins
 
-**Description**: Test left join
+**Description**: Test two left joins in one logical view
 
 **Error expected?** No
 
@@ -13,23 +13,14 @@
     {
       "name": "alice",
       "items": [
-        {
-          "type": "sword",
-          "weight": 1500
-        },
-        {
-          "type": "shield",
-          "weight": 2500
-        }
+        "sword",
+        "shield"
       ]
     },
     {
       "name": "bob",
       "items": [
-        {
-          "type": "flower",
-          "weight": 15
-        }
+        "flower"
       ]
     }
   ]
@@ -43,6 +34,13 @@ name,birthyear
 alice,1995
 bob,1999
 tobias,2005
+
+```
+
+**Input 2**
+```
+name,id
+alice,123
 
 ```
 
@@ -69,20 +67,32 @@ tobias,2005
     rml:reference "$.name" ;
   ] ;
   rml:field [
-    a rml:IterableField ;
+    a rml:ExpressionField ;
     rml:fieldName "item" ;
-    rml:iterator "$.items[*]" ;
-    rml:field [
-      a rml:ExpressionField ;
-      rml:fieldName "type" ;
-      rml:reference "$.type" ;
-    ] ;
-    rml:field [
-      a rml:ExpressionField ;
-      rml:fieldName "weight" ;
-      rml:reference "$.weight" ;
-    ] ;
+    rml:reference "$.items[*]" ;
   ] .
+
+:additionalCsvSource a rml:LogicalSource ;
+  rml:source [
+   a rml:RelativePathSource , rml:Source ;
+   rml:root rml:MappingDirectory ;
+   rml:path "people2.csv" ;
+  ] ;
+  rml:referenceFormulation rml:CSV .
+
+:additionalCsvView a rml:LogicalView ;
+  rml:viewOn :additionalCsvSource ;
+    rml:field [
+     a rml:ExpressionField ;
+     rml:fieldName "name" ;
+     rml:reference "name" ;
+    ] ;
+    rml:field [
+     a rml:ExpressionField ;
+     rml:fieldName "id" ;
+     rml:reference "id" ;
+    ] ;
+.
 
 :csvSource a rml:LogicalSource ;
   rml:source [
@@ -104,7 +114,7 @@ tobias,2005
     rml:fieldName "birthyear" ;
     rml:reference "birthyear" ;
   ] ;
-  rml:leftJoin [
+  rml:innerJoin [
     rml:parentLogicalView :jsonView ;
     rml:joinCondition [
       rml:parent "name" ;
@@ -112,13 +122,20 @@ tobias,2005
     ] ;
     rml:field [
       a rml:ExpressionField ;
-      rml:fieldName "item_type" ;
-      rml:reference "item.type" ;
+      rml:fieldName "json_item" ;
+      rml:reference "item" ;
+    ] ;
+  ] ;
+  rml:innerJoin [
+    rml:parentLogicalView :additionalCsvView ;
+    rml:joinCondition [
+      rml:parent "name" ;
+      rml:child "name" ;
     ] ;
     rml:field [
       a rml:ExpressionField ;
-      rml:fieldName "item_weight" ;
-      rml:reference "item.weight" ;
+      rml:fieldName "csv2_id" ;
+      rml:reference "id" ;
     ] ;
   ] .
 
@@ -126,16 +143,10 @@ tobias,2005
 :triplesMapPerson a rml:TriplesMap ;
   rml:logicalSource :csvView ;
   rml:subjectMap [
-    rml:template "http://example.org/person/{name}" ;
+    rml:template "http://example.org/person/{csv2_id}" ;
   ] ;
   rml:predicateObjectMap [
-    rml:predicate :hasName ;
-    rml:objectMap [
-      rml:reference "name" ;
-    ] ;
-  ] ;
-  rml:predicateObjectMap [
-    rml:predicate :hasBirthyear ;
+    rml:predicate :hasBirthYear ;
     rml:objectMap [
       rml:reference "birthyear" ;
       rml:datatype xsd:gYear ;
@@ -144,26 +155,7 @@ tobias,2005
   rml:predicateObjectMap [
     rml:predicate :hasItem ;
     rml:objectMap [
-      rml:parentTriplesMap :triplesMapItem ;
-    ] ;
-  ] .
-
-:triplesMapItem a rml:TriplesMap ;
-  rml:logicalSource :csvView ;
-  rml:subjectMap [
-    rml:template "http://example.org/person/{name}/item/{item_type}" ;
-  ] ;
-  rml:predicateObjectMap [
-    rml:predicate :hasType ;
-    rml:objectMap [
-      rml:reference "item_type" ;
-    ] ;
-  ] ;
-  rml:predicateObjectMap [
-    rml:predicate :hasWeight ;
-    rml:objectMap [
-      rml:reference "item_weight" ;
-      rml:datatype xsd:integer ;
+      rml:template "http://example.org/person/{csv2_id}/item/{json_item}" ;
     ] ;
   ] .
 
@@ -171,21 +163,9 @@ tobias,2005
 
 **Output**
 ```
-<http://example.org/person/alice> <http://example.org/hasName> "alice" .
-<http://example.org/person/alice> <http://example.org/hasBirthyear> "1995"^^<http://www.w3.org/2001/XMLSchema#gYear> .
-<http://example.org/person/alice> <http://example.org/hasItem> <http://example.org/person/alice/item/sword> .
-<http://example.org/person/alice> <http://example.org/hasItem> <http://example.org/person/alice/item/shield> .
-<http://example.org/person/alice/item/sword> <http://example.org/hasType> "sword" .
-<http://example.org/person/alice/item/sword> <http://example.org/hasWeight> "1500"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://example.org/person/alice/item/shield> <http://example.org/hasType> "shield" .
-<http://example.org/person/alice/item/shield> <http://example.org/hasWeight> "2500"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://example.org/person/bob> <http://example.org/hasName> "bob" .
-<http://example.org/person/bob> <http://example.org/hasBirthyear> "1999"^^<http://www.w3.org/2001/XMLSchema#gYear> .
-<http://example.org/person/bob> <http://example.org/hasItem> <http://example.org/person/bob/item/flower> .
-<http://example.org/person/bob/item/flower> <http://example.org/hasType> "flower" .
-<http://example.org/person/bob/item/flower> <http://example.org/hasWeight> "15"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://example.org/person/tobias> <http://example.org/hasName> "tobias" .
-<http://example.org/person/tobias> <http://example.org/hasBirthyear> "2005"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://example.org/person/123> <http://example.org/hasBirthYear> "1995"^^<http://www.w3.org/2001/XMLSchema#gYear> .
+<http://example.org/person/123> <http://example.org/hasItem> <http://example.org/person/123/item/sword> .
+<http://example.org/person/123> <http://example.org/hasItem> <http://example.org/person/123/item/shield> .
 
 ```
 
