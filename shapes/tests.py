@@ -14,16 +14,31 @@ from glob import glob
 from rdflib import Graph
 
 from mapping_validator import MappingValidator
+from utils import replace_strings_in_file, cleanup_tmp_folder
 
 TEST_CASES_DIR = os.path.join(os.path.abspath('../test-cases'), '*/*.ttl')
-SHAPE_FILE = os.path.abspath('lv.ttl')
-ONTOLOGY_FILE = os.path.abspath('../ontology/documentation/ontology.ttl')
+SHAPE_FILE_LOCATION = 'lv.ttl'
+ONTOLOGY_FILE_LOCATION = '../ontology/documentation/ontology.ttl'
+
 
 class MappingValidatorTests(unittest.TestCase):
     def _validate_rules(self, path: str) -> None:
         rules = Graph().parse(path, format='turtle')
-        mapping_validator = MappingValidator(SHAPE_FILE, ONTOLOGY_FILE)
+
+        # Replace import statements
+        # also include io shapes just to validate the logical sources in the test cases
+        shapes = replace_strings_in_file(SHAPE_FILE_LOCATION, {
+            '<http://w3id.org/rml/core/shapes>': '<https://raw.githubusercontent.com/kg-construct/rml-core/refs/heads/main/shapes/core.ttl>, <https://raw.githubusercontent.com/kg-construct/rml-io/refs/heads/main/shapes/io.ttl>'
+        })
+        ontology = replace_strings_in_file(ONTOLOGY_FILE_LOCATION, {
+            '<http://w3id.org/rml/core/>': '<https://raw.githubusercontent.com/kg-construct/rml-core/refs/heads/main/ontology/documentation/ontology.ttl>'
+        })
+
+        mapping_validator = MappingValidator(shapes, ontology)
         mapping_validator.validate(rules)
+
+        cleanup_tmp_folder(shapes)
+        cleanup_tmp_folder(ontology)
 
     def test_non_existing_mapping_rules(self) -> None:
         with self.assertRaises(FileNotFoundError):
@@ -45,7 +60,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Execute tests for SHACL '
                                      'shapes on RML mapping rules.')
     parser.add_argument('--verbose', '-v', action='count', default=1,
-                        help='Set verbosity level of messages. Example: -vvvv')
+                        help='Set verbosity level of messages. Example: -vvv')
     args = parser.parse_args()
 
     args.verbose = 70 - (10 * args.verbose) if args.verbose > 0 else 0

@@ -8,8 +8,7 @@
 
 <http://w3id.org/rml/lv/> rdf:type owl:Ontology ;
                            owl:versionIRI <http://w3id.org/rml/lv/> ;
-                           owl:imports <https://kg-construct.github.io/rml-core/ontology/documentation/ontology.ttl> ,
-                                       <https://kg-construct.github.io/rml-io/ontology/documentation/ontology.ttl> ;
+                           owl:imports <http://w3id.org/rml/core/> ;
                            <http://purl.org/dc/terms/contributor> "Davide Lanti" ,
                                                                   "Els de Vleeschauwer" ,
                                                                   "Pano Maria" ;
