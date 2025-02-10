@@ -1,23 +1,18 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://w3id.org/rml/lv/"
      xml:base="http://w3id.org/rml/lv/"
-     xmlns:ns="http://creativecommons.org/ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:rml="http://w3id.org/rml/"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:bibo="http://purl.org/ontology/bibo/"
-     xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:vaem="http://www.linkedmodel.org/schema/vaem#"
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:shacl="http://www.w3.org/ns/shacl#"
      xmlns:terms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="http://w3id.org/rml/lv/">
         <owl:versionIRI rdf:resource="http://w3id.org/rml/lv/"/>
-        <owl:imports rdf:resource="https://kg-construct.github.io/rml-core/ontology/documentation/ontology.ttl"/>
-        <owl:imports rdf:resource="https://kg-construct.github.io/rml-io/ontology/documentation/ontology.ttl"/>
+        <owl:imports rdf:resource="http://w3id.org/rml/core/"/>
         <terms:contributor>Davide Lanti</terms:contributor>
         <terms:contributor>Els de Vleeschauwer</terms:contributor>
         <terms:contributor>Pano Maria</terms:contributor>
