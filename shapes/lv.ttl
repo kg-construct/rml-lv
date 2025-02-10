@@ -197,7 +197,6 @@ rmlsh:IterableFieldShape a sh:NodeShape ;
         sh:path rml:field ;
         sh:minCount 1 ;
         sh:nodeKind sh:BlankNodeOrIRI ;
-        sh:node rmlsh:ExpressionFieldShape ;
     ] .
 
 rmlsh:LogicalViewJoinShape a sh:NodeShape ;
