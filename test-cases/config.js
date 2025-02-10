@@ -25,21 +25,35 @@ var respecConfig = {
   preProcess: [loadTurtle],
   authors: [
     {
-      name: "Dylan Van Assche",
-      url: "https://dylanvanassche.be",
-      company: "IDLab &ndash; Ghent University &ndash; imec",
-      orcid: "0000-0002-7195-9935",
-      companyURL: "https://knows.idlab.ugent.be/"
+      name: "Pano Maria",
+      mailto: "pano@skemu.com",
+      url: "https://panomaria.com",
+      company: "Skemu",
+      companyURL: "https://skemu.com"
+    },
+    {
+      name: "Els de Vleeschauwer",
+      mailto: "els.devleeschauwer@ugent.be",
+      company: "Ghent University &ndash; imec &ndash; IDLab",
+      orcidid: "0000-0002-8630-3947",
+      companyURL: "https://idlab.technology/"
     }
   ],
   edDraftURI: "https://w3id.org/rml/lv/test-cases/",
   editors: [
     {
-      name: "Dylan Van Assche",
-      url: "https://dylanvanassche.be",
-      company: "IDLab &ndash; Ghent University &ndash; imec",
-      orcid: "0000-0002-7195-9935",
-      companyURL: "https://knows.idlab.ugent.be/"
+      name: "Pano Maria",
+      mailto: "pano@skemu.com",
+      url: "https://panomaria.com",
+      company: "Skemu",
+      companyURL: "https://skemu.com"
+    },
+    {
+      name: "Els de Vleeschauwer",
+      mailto: "els.devleeschauwer@ugent.be",
+      company: "Ghent University &ndash; imec &ndash; IDLab",
+      orcidid: "0000-0002-8630-3947",
+      companyURL: "https://idlab.technology/"
     }
   ],
   formerEditors: [
