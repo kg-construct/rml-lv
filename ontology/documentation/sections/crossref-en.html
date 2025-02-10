@@ -1,0 +1,696 @@
+<h2 id="crossreference" class="list">Cross-reference for RML Logical Views classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by RML Logical Views.
+<div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+ <h3 id="classes-headline" class="list">Classes</h3>
+ <ul class="hlist">
+  <li><a href="#ExpressionField" title="http://w3id.org/rml/ExpressionField">Expression Field</a></li>
+  <li><a href="#Field" title="http://w3id.org/rml/Field">Field</a></li>
+  <li><a href="#ForeignKeyAnnotation" title="http://w3id.org/rml/ForeignKeyAnnotation">Foreign Key Annotation</a></li>
+  <li><a href="#InclusionDependencyAnnotation" title="http://w3id.org/rml/InclusionDependencyAnnotation">Inclusion Dependency Annotation</a></li>
+  <li><a href="#IRISafeAnnotation" title="http://w3id.org/rml/IRISafeAnnotation">IRI Safe Annotation</a></li>
+  <li><a href="#IterableField" title="http://w3id.org/rml/IterableField">Iterable Field</a></li>
+  <li><a href="#LogicalView" title="http://w3id.org/rml/LogicalView">Logical View</a></li>
+  <li><a href="#LogicalViewJoin" title="http://w3id.org/rml/LogicalViewJoin">Logical View Join</a></li>
+  <li><a href="#NonNullableAnnotation" title="http://w3id.org/rml/NonNullableAnnotation">Non Nullable Annotation</a></li>
+  <li><a href="#PrimaryKeyAnnotation" title="http://w3id.org/rml/PrimaryKeyAnnotation">Primary Key Annotation</a></li>
+  <li><a href="#StructuralAnnotation" title="http://w3id.org/rml/StructuralAnnotation">Structural Annotation</a></li>
+  <li><a href="#UniqueAnnotation" title="http://w3id.org/rml/UniqueAnnotation">Unique Annotation</a></li>
+ </ul>
+ <div class="entity" id="ExpressionField">
+  <h3>Expression Field<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/ExpressionField</p>
+  <div class="comment">
+   <span class="markdown">An expression field is an expression map that gives a name to an expression.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/ExpressionMap" target="_blank" title="http://w3id.org/rml/ExpressionMap">Expression Map</a> <sup class="type-c" title="class">c</sup>, <a href="#Field" title="http://w3id.org/rml/Field">Field</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Field">
+  <h3>Field<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/Field</p>
+  <div class="comment">
+   <span class="markdown">A field gives a name to data derived from the abstract logical source on which a logical view is defined.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#ExpressionField" title="http://w3id.org/rml/ExpressionField">Expression Field</a> <sup class="type-c" title="class">c</sup>, <a href="#IterableField" title="http://w3id.org/rml/IterableField">Iterable Field</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#field" title="http://w3id.org/rml/field">field</a> <sup class="type-op" title="object property">op</sup>, <a href="#fieldName" title="http://w3id.org/rml/fieldName">field name</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#field" title="http://w3id.org/rml/field">field</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ForeignKeyAnnotation">
+  <h3>Foreign Key Annotation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/ForeignKeyAnnotation</p>
+  <div class="comment">
+   <span class="markdown">A foreign key annotation is analogous to the notion of foreign key constraint in databases.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#InclusionDependencyAnnotation" title="http://w3id.org/rml/InclusionDependencyAnnotation">Inclusion Dependency Annotation</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="InclusionDependencyAnnotation">
+  <h3>Inclusion Dependency Annotation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/InclusionDependencyAnnotation</p>
+  <div class="comment">
+   <span class="markdown">An inclusion dependency annotation is analogous to the notion of inclusion dependency in databases.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#StructuralAnnotation" title="http://w3id.org/rml/StructuralAnnotation">Structural Annotation</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#ForeignKeyAnnotation" title="http://w3id.org/rml/ForeignKeyAnnotation">Foreign Key Annotation</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#targetView" title="http://w3id.org/rml/targetView">target view</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="IRISafeAnnotation">
+  <h3>IRI Safe Annotation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/IRISafeAnnotation</p>
+  <div class="comment">
+   <span class="markdown">A IRI safe annotation indicates that the field content is IRI safe.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#StructuralAnnotation" title="http://w3id.org/rml/StructuralAnnotation">Structural Annotation</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="IterableField">
+  <h3>Iterable Field<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/IterableField</p>
+  <div class="comment">
+   <span class="markdown">An iterable field is an iterable that gives a name to a logical iteration.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Field" title="http://w3id.org/rml/Field">Field</a> <sup class="type-c" title="class">c</sup>, <a href="http://w3id.org/rml/Iterable" target="_blank" title="http://w3id.org/rml/Iterable">Iterable</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="LogicalView">
+  <h3>Logical View<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/LogicalView</p>
+  <div class="comment">
+   <span class="markdown">A logical view (rml:LogicalView) is a type of abstract logical source that is derived from another abstract logical source by defining fields with data from said abstract logical source.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/AbstractLogicalSource" target="_blank" title="http://w3id.org/rml/AbstractLogicalSource">Abstract Logical Source</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#field" title="http://w3id.org/rml/field">field</a> <sup class="type-op" title="object property">op</sup>, <a href="#innerJoin" title="http://w3id.org/rml/innerJoin">inner join</a> <sup class="type-op" title="object property">op</sup>, <a href="#leftJoin" title="http://w3id.org/rml/leftJoin">left join</a> <sup class="type-op" title="object property">op</sup>, <a href="#structuralAnnotation" title="http://w3id.org/rml/structuralAnnotation">structural annotation</a> <sup class="type-op" title="object property">op</sup>, <a href="#viewOn" title="http://w3id.org/rml/viewOn">view on</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#parentLogicalView" title="http://w3id.org/rml/parentLogicalView">parent logical view</a> <sup class="type-op" title="object property">op</sup>, <a href="#targetView" title="http://w3id.org/rml/targetView">target view</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="LogicalViewJoin">
+  <h3>Logical View Join<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/LogicalViewJoin</p>
+  <div class="comment">
+   <span class="markdown">A logical view join is an operation that adapts the logical iterations of one logical view (the child logical view) with fields from another logical view (the parent logical view).</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#parentLogicalView" title="http://w3id.org/rml/parentLogicalView">parent logical view</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#innerJoin" title="http://w3id.org/rml/innerJoin">inner join</a> <sup class="type-op" title="object property">op</sup>, <a href="#leftJoin" title="http://w3id.org/rml/leftJoin">left join</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="NonNullableAnnotation">
+  <h3>Non Nullable Annotation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/NonNullableAnnotation</p>
+  <div class="comment">
+   <span class="markdown">A non nullable annotation is analogous to the notion of NOT NULL constraints in databases.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#StructuralAnnotation" title="http://w3id.org/rml/StructuralAnnotation">Structural Annotation</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#PrimaryKeyAnnotation" title="http://w3id.org/rml/PrimaryKeyAnnotation">Primary Key Annotation</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PrimaryKeyAnnotation">
+  <h3>Primary Key Annotation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/PrimaryKeyAnnotation</p>
+  <div class="comment">
+   <span class="markdown">A primary key annotation is analogous to the notion of a primary key constraints in databases.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#NonNullableAnnotation" title="http://w3id.org/rml/NonNullableAnnotation">Non Nullable Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#UniqueAnnotation" title="http://w3id.org/rml/UniqueAnnotation">Unique Annotation</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="StructuralAnnotation">
+  <h3>Structural Annotation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/StructuralAnnotation</p>
+  <div class="comment">
+   <span class="markdown">A structural annotation provide a mechanism to express relationships between logical views, as well as additional information about fields.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#IRISafeAnnotation" title="http://w3id.org/rml/IRISafeAnnotation">IRI Safe Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#InclusionDependencyAnnotation" title="http://w3id.org/rml/InclusionDependencyAnnotation">Inclusion Dependency Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#NonNullableAnnotation" title="http://w3id.org/rml/NonNullableAnnotation">Non Nullable Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#UniqueAnnotation" title="http://w3id.org/rml/UniqueAnnotation">Unique Annotation</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#onFields" title="http://w3id.org/rml/onFields">on fields</a> <sup class="type-op" title="object property">op</sup>, <a href="#targetFields" title="http://w3id.org/rml/targetFields">target fields</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#structuralAnnotation" title="http://w3id.org/rml/structuralAnnotation">structural annotation</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="UniqueAnnotation">
+  <h3>Unique Annotation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/UniqueAnnotation</p>
+  <div class="comment">
+   <span class="markdown">A unique annotation is analogous to the notion of UNIQUE constraints in databases. .</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#StructuralAnnotation" title="http://w3id.org/rml/StructuralAnnotation">Structural Annotation</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#PrimaryKeyAnnotation" title="http://w3id.org/rml/PrimaryKeyAnnotation">Primary Key Annotation</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+ <h3 id="properties" class="list">Object Properties</h3>
+ <ul class="hlist">
+  <li><a href="#field" title="http://w3id.org/rml/field">field</a></li>
+  <li><a href="#innerJoin" title="http://w3id.org/rml/innerJoin">inner join</a></li>
+  <li><a href="#leftJoin" title="http://w3id.org/rml/leftJoin">left join</a></li>
+  <li><a href="#onFields" title="http://w3id.org/rml/onFields">on fields</a></li>
+  <li><a href="#parentLogicalView" title="http://w3id.org/rml/parentLogicalView">parent logical view</a></li>
+  <li><a href="#structuralAnnotation" title="http://w3id.org/rml/structuralAnnotation">structural annotation</a></li>
+  <li><a href="#targetFields" title="http://w3id.org/rml/targetFields">target fields</a></li>
+  <li><a href="#targetView" title="http://w3id.org/rml/targetView">target view</a></li>
+  <li><a href="#viewOn" title="http://w3id.org/rml/viewOn">view on</a></li>
+ </ul>
+ <div class="entity" id="field">
+  <h3>field<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/field</p>
+  <div class="comment">
+   <span class="markdown">A field of the logical view.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Field" title="http://w3id.org/rml/Field">Field</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#LogicalView" title="http://w3id.org/rml/LogicalView">Logical View</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Field" title="http://w3id.org/rml/Field">Field</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="innerJoin">
+  <h3>inner join<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/innerJoin</p>
+  <div class="comment">
+   <span class="markdown">An inner join of the logical view.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#LogicalView" title="http://w3id.org/rml/LogicalView">Logical View</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#LogicalViewJoin" title="http://w3id.org/rml/LogicalViewJoin">Logical View Join</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="leftJoin">
+  <h3>left join<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/leftJoin</p>
+  <div class="comment">
+   <span class="markdown">A left join of the logical view.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#LogicalView" title="http://w3id.org/rml/LogicalView">Logical View</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#LogicalViewJoin" title="http://w3id.org/rml/LogicalViewJoin">Logical View Join</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="onFields">
+  <h3>on fields<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/onFields</p>
+  <div class="comment">
+   <span class="markdown"> The property onFields specifies the fields in LogicalView that are involved by the structural annotation. The semantics of this involvement depends on the specific annotation. </span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#StructuralAnnotation" title="http://w3id.org/rml/StructuralAnnotation">Structural Annotation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#List" target="_blank" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#List">List</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="parentLogicalView">
+  <h3>parent logical view<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/parentLogicalView</p>
+  <div class="comment">
+   <span class="markdown">The parent logical view of the logical view join.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#LogicalViewJoin" title="http://w3id.org/rml/LogicalViewJoin">Logical View Join</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#LogicalView" title="http://w3id.org/rml/LogicalView">Logical View</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="structuralAnnotation">
+  <h3>structural annotation<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/structuralAnnotation</p>
+  <div class="comment">
+   <span class="markdown">A structural annotation of the logical view.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#LogicalView" title="http://w3id.org/rml/LogicalView">Logical View</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#StructuralAnnotation" title="http://w3id.org/rml/StructuralAnnotation">Structural Annotation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="targetFields">
+  <h3>target fields<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/targetFields</p>
+  <div class="comment">
+   <span class="markdown">The property targetFields specifies the Fields target of the InclusionAnnotation.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#StructuralAnnotation" title="http://w3id.org/rml/StructuralAnnotation">Structural Annotation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#List" target="_blank" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#List">List</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="targetView">
+  <h3>target view<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/targetView</p>
+  <div class="comment">
+   <span class="markdown">The property targetFields specifies the Fields target of the InclusionAnnotation.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#InclusionDependencyAnnotation" title="http://w3id.org/rml/InclusionDependencyAnnotation">Inclusion Dependency Annotation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#LogicalView" title="http://w3id.org/rml/LogicalView">Logical View</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="viewOn">
+  <h3>view on<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/viewOn</p>
+  <div class="comment">
+   <span class="markdown">The source of the logical view. This is the abstract logical source from which the logical view is derived.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#LogicalView" title="http://w3id.org/rml/LogicalView">Logical View</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://w3id.org/rml/AbstractLogicalSource" target="_blank" title="http://w3id.org/rml/AbstractLogicalSource">Abstract Logical Source</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
+ <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+ <ul class="hlist">
+  <li><a href="#fieldName" title="http://w3id.org/rml/fieldName">field name</a></li>
+ </ul>
+ <div class="entity" id="fieldName">
+  <h3>field name<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/fieldName</p>
+  <div class="comment">
+   <span class="markdown">The name of the field.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="http://w3id.org/rml/lv/">http://w3id.org/rml/lv/</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Field" title="http://w3id.org/rml/Field">Field</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+</div>
+</div>

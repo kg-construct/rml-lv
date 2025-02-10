@@ -14,8 +14,7 @@
 
 
 <http://w3id.org/rml/lv/> rdf:type owl:Ontology ;
-                           owl:imports <https://kg-construct.github.io/rml-core/ontology/documentation/ontology.ttl> ,
-                                       <https://kg-construct.github.io/rml-io/ontology/documentation/ontology.ttl> ;
+                           owl:imports <http://w3id.org/rml/core/> ;
                            sh:suggestedShapesGraph :shapes ;
                            dc:description "RML Logical Views flatten nested data, allow flexible joining of data sources, and handle mix source formats."@en ;
                            dc:title "RML Logical Views"@en ;

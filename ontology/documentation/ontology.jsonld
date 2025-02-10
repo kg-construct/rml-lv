@@ -321,9 +321,7 @@
     "@value" : "http://w3id.org/rml/"
   } ],
   "http://www.w3.org/2002/07/owl#imports" : [ {
-    "@id" : "https://kg-construct.github.io/rml-core/ontology/documentation/ontology.ttl"
-  }, {
-    "@id" : "https://kg-construct.github.io/rml-io/ontology/documentation/ontology.ttl"
+    "@id" : "http://w3id.org/rml/core/"
   } ],
   "http://www.w3.org/2002/07/owl#versionIRI" : [ {
     "@id" : "http://w3id.org/rml/lv/"
@@ -338,7 +336,7 @@
   "@id" : "http://w3id.org/rml/onFields",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "\r\n          The property onFields specifies the fields in LogicalView that are involved by the structural annotation.\r\n          The semantics of this involvement depends on the specific annotation.\r\n          "
+    "@value" : "\n          The property onFields specifies the fields in LogicalView that are involved by the structural annotation.\n          The semantics of this involvement depends on the specific annotation.\n          "
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "http://w3id.org/rml/StructuralAnnotation"
