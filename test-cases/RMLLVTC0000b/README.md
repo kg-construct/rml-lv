@@ -6,6 +6,15 @@
 
 **Error expected?** No
 
+**Input**
+```
+name,birthyear
+alice,1995
+bob,1999
+tobias,2005
+
+```
+
 **Mapping**
 ```
 @prefix rml: <http://w3id.org/rml/> .

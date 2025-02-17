@@ -6,6 +6,15 @@
 
 **Error expected?** No
 
+**Input**
+```
+name,item
+alice,"{""type"":""sword"",""weight"":1500}"
+alice,"{""type"":""shield"",""weight"":2500}"
+bob,"{""type"":""flower"",""weight"":15}"
+
+```
+
 **Mapping**
 ```
 @prefix rml: <http://w3id.org/rml/> .

@@ -43,8 +43,12 @@ def main(spec: str):
                 input_format1 = 'application/json'
             
             if os.path.exists(os.path.join(testcase, 'people.csv')):
-                input2 = 'people.csv'
-                input_format2 = 'text/csv'
+                if input1 == '':
+                    input1 = 'people.csv'
+                    input_format1 = 'text/csv'
+                else:
+                    input2 = 'people.csv'
+                    input_format2 = 'text/csv'
             
             if os.path.exists(os.path.join(testcase, 'people2.csv')):
                 input3 = 'people2.csv'
