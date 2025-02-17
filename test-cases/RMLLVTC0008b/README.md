@@ -63,7 +63,6 @@ tobias,2005
     a rml:ExpressionField ;
     rml:fieldName "item" ;
     rml:reference "$.items[*]" ;
-    ] ;
   ] ;
   rml:leftJoin [
     rml:parentLogicalView :csvView ;
