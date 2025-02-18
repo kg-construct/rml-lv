@@ -56,13 +56,13 @@ var respecConfig = {
   // formal title, define it here
   // subtitle   :  "White Paper",
   // if you wish the publication date to be other than the last modification, set this
-  // publishDate:  "2025-01-14",
+  publishDate:  "2025-02-18",
   // if the specification's copyright date is a range of years, specify
   // the start date here:
   copyrightStart: "2024",
   // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
   // and its maturity status
-  // previousPublishDate: "2015-10-15",
+  // previousPublishDate: "2025-01-14",
   // previousMaturity: "FPWD",
   // if there a publicly available Editor's Draft, this is the link
   edDraftURI: "https://w3id.org/rml/lv/spec",
