@@ -46,7 +46,7 @@ rmlsh:LogicalViewShape a sh:NodeShape ;
         sh:path rml:field ;
         sh:minCount 1 ;
         sh:nodeKind sh:BlankNodeOrIRI ;
-        sh:xone (
+        sh:or (
             [ sh:node rmlsh:ExpressionFieldShape ]
             [ sh:node rmlsh:IterableFieldShape ]
         )
@@ -114,7 +114,7 @@ rmlsh:FieldShape a sh:NodeShape ;
         """ ;
         sh:path rml:field ;
         sh:nodeKind sh:BlankNodeOrIRI ;
-        sh:xone (
+        sh:or (
             [ sh:node rmlsh:ExpressionFieldShape ]
             [ sh:node rmlsh:IterableFieldShape ]
         )
@@ -154,7 +154,7 @@ rmlsh:ExpressionFieldShape a sh:NodeShape ;
         sh:path rml:field ;
         sh:nodeKind sh:BlankNodeOrIRI ;
         ## Disabled due to shape recursion. This is covered by rmlsh:FieldShape
-        # sh:xone (
+        # sh:or (
         #     [ sh:node rmlsh:ExpressionFieldShape ]
         #     [ sh:node rmlsh:IterableFieldShape ]
         # )
@@ -197,7 +197,6 @@ rmlsh:IterableFieldShape a sh:NodeShape ;
         sh:path rml:field ;
         sh:minCount 1 ;
         sh:nodeKind sh:BlankNodeOrIRI ;
-        sh:node rmlsh:ExpressionFieldShape ;
     ] .
 
 rmlsh:LogicalViewJoinShape a sh:NodeShape ;
@@ -246,7 +245,7 @@ rmlsh:LogicalViewJoinShape a sh:NodeShape ;
         sh:path rml:field ;
         sh:minCount 1 ;
         sh:nodeKind sh:BlankNodeOrIRI ;
-        sh:xone (
+        sh:or (
             [ sh:node rmlsh:ExpressionFieldShape ]
             [ sh:node rmlsh:IterableFieldShape ]
         )

@@ -21,6 +21,7 @@ def main(spec: str):
                          'output_format3', 'input1', 'input2', 'input3',
                          'output1', 'output2', 'output3', 'error'])
         for testcase in glob.glob('RML*'):
+            print(testcase)
             title, description = get_title_description(testcase)
             error = 'false'
             input1 = ''
@@ -42,8 +43,12 @@ def main(spec: str):
                 input_format1 = 'application/json'
             
             if os.path.exists(os.path.join(testcase, 'people.csv')):
-                input2 = 'people.csv'
-                input_format2 = 'text/csv'
+                if input1 == '':
+                    input1 = 'people.csv'
+                    input_format1 = 'text/csv'
+                else:
+                    input2 = 'people.csv'
+                    input_format2 = 'text/csv'
             
             if os.path.exists(os.path.join(testcase, 'people2.csv')):
                 input3 = 'people2.csv'
@@ -60,7 +65,7 @@ def main(spec: str):
                 output1 = 'output.nq'
                 output_format1 = 'application/n-quads'
             else:
-                raise NotImplementedError('output1 is not known, but required')
+                error = 'true'
 
             writer.writerow([testcase, title, description, spec, mapping_file,
                              input_format1, input_format2, input_format3,
