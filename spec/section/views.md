@@ -55,7 +55,7 @@ A <dfn>referenceable key</dfn> is either
 - a [=record key=] of an [=expression record=], or
 - an [=index key=].
 
-A [=record key=] of a [=iterable record=] (including the [=record key=] `<it>`) can not be referenced.
+A [=record key=] of a [=iterable record=] (including the [=record key=] `<it>`) cannot be referenced.
 
 The <a data-cite="RML-Core#dfn-expression-evaluation-result">expression evaluation result</a> of a [=logical view reference=] is the value corresponding to the referenced key. 
 

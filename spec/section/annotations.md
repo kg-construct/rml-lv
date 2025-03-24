@@ -62,7 +62,7 @@ Now, assume that we know:
 
 - Attribute `name` in the CSV is "UNIQUE" and "NOT NULL";
 
-Such a constraint naturally corresponds to the notion of `PRIMARY KEY` from the world of relational databases. This fact could be valuable information for the RML engine, especially in the virtual setting. However, note that constraints can not be expressed on CSV files.
+Such a constraint naturally corresponds to the notion of `PRIMARY KEY` from the world of relational databases. This fact could be valuable information for the RML engine, especially in the virtual setting. However, note that constraints cannot be expressed on CSV files.
 
 We can exploit the mechanism of structural annotations to inform the RML engine about the existence of this constraint. We here work-out an example.
 
@@ -179,9 +179,9 @@ Now, assume that we know:
 - Attribute `name` in the CSV of [[[#primary-key]]] is "UNIQUE" and "NOT NULL";
 - All warriors in our domain are contained in the JSON of [[[#foreign-key]]].
 
-The first constraint naturally corresponds to the notion of `PRIMARY KEY` from the world of relational databases. This fact could be valuable information for the RML engine, especially in the virtual setting. However, note that constraints can not be expressed on CSV files.
+The first constraint naturally corresponds to the notion of `PRIMARY KEY` from the world of relational databases. This fact could be valuable information for the RML engine, especially in the virtual setting. However, note that constraints cannot be expressed on CSV files.
 
-The second constraint naturally corresponds to a `FOREIGN KEY` constraint from the world of relational databases. However, as the involved values spread across different (and diverse) sources, it can not be expressed as such. Also this one could provide valuable information for the RML engine.
+The second constraint naturally corresponds to a `FOREIGN KEY` constraint from the world of relational databases. However, as the involved values spread across different (and diverse) sources, it cannot be expressed as such. Also this one could provide valuable information for the RML engine.
 
 We can exploit the mechanism of structural annotations to inform the RML engine about the existence of such "relational-like" constraint. We here work out an example.
 
