@@ -22,7 +22,7 @@ A [=logical view=] (`rml:LogicalView`) has an implicit default <a data-cite="RML
 The <a data-cite="RML-Core##dfn-iterator">logical iterator</a> of a [=logical view=] produces a <dfn>logical view iteration sequence</dfn>, i.e. an ordered sequence of sets of key-value pairs.
 Each set of key-value pairs represents a <a data-cite="RML-Core#dfn-iteration">logical iteration</a> of the [=logical view=], called a <dfn>logical view iteration</dfn>.
 
-Each key in a [=logical view iteration sequence=] is a string and each value is a [=record=] or a positive integer.
+Each key in a [=logical view iteration sequence=] is a string and each value is a [=record=] or a non-negative integer.
 A <dfn>record</dfn> is either an [=iterable record=] or an [=expression record=].
 
 An <dfn>iterable record</dfn> is a <a data-cite="RML-Core#dfn-iteration">logical iteration</a>, i.e. an item on which expressions can be evaluated.
