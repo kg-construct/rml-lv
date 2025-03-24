@@ -8,7 +8,7 @@ A [=logical view join=] MUST contain:
 - at least one join condition property (`rml:joinCondition`), whose value is a <a data-cite="RML-Core#dfn-join-condition">join condition</a>.
 - at least one field property (`rml:field`), whose value is an [=expression field=] (`rml:ExpressionField`). This field SHOULD only contain [=logical view references=] that can be evaluated on the parent logical view. 
 
-Similar to how [joins are defined in RML-Core](https://kg-construct.github.io/rml-core/spec/docs/#joins),
+Similar to how  <a data-cite="RML-Core#joins">joins are defined in RML-Core</a>,
 the [=logical view=] in the subject position of the [=join property=] fulfills the role of <!-- TODO reference to core child logical source when available-->[child logical source]() in the <a data-cite="RML-Core#dfn-join-condition">join condition(s)</a>, but of the [=logical view join=], and is referred to as <dfn>child logical view</dfn>.
 The [=parent logical view=] fulfills the role of the <!-- TODO reference to core parent logical source when available-->[parent logical source]() in the <a data-cite="RML-Core#dfn-join-condition">join condition(s)</a>, but of the [=logical view join=].
 
