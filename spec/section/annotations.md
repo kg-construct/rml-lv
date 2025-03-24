@@ -185,7 +185,7 @@ The second constraint naturally corresponds to a `FOREIGN KEY` constraint from t
 
 We can exploit the mechanism of structural annotations to inform the RML engine about the existence of such "relational-like" constraint. We here work out an example.
 
-First, we need to specify the logical sources. The logical source corresponding to the CSVof [[[#primary-key]]]:
+First, we need to specify the logical sources. The logical source corresponding to the CSV of [[[#primary-key]]]:
 
 <aside class=ex-mapping>
 
