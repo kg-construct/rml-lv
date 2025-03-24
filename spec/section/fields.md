@@ -3,7 +3,7 @@
 A <dfn>field</dfn> gives a name to data derived from the <a data-cite="RML-Core#dfn-abstract-logical-source">abstract logical source</a> on which the [=logical view=] is defined.
 
 A [=field=] (`rml:Field`) is represented by a resource that MUST contain:
-- exactly one field name property (`rml:fieldName`), that specifies the [=name=] of the field
+- exactly one field name property (`rml:fieldName`), that specifies the [=declared name=] of the field
 - zero or more field properties (`rml:field`), to describe nested [=field=], also of the type `rml:Field`
 
 | Property                     | Domain                           | Range            |
@@ -142,19 +142,18 @@ In this example a [=field=] with [=declared name=] "name" is declared and added 
 </table>
 </aside>
 </aside>
-<aside class="note">
-Note that the tabular representation of the [=logical view iteration sequence=] in [[[#ex-fieldnames]]] is just one possible way of representing a [=logical view iteration sequence=].
-The underlined keys represent [=referenceable keys=].
-</aside>
 
 ### Field records {#fieldrecords}
 
-A [=field=] defines [=records=], that are obtained by consecutively applying resp. the [=field=]'s <a data-cite="RML-Core#dfn-expressions">expression</a> (in case of an [=expression field=]) or the [=field=]'s <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> and a <a data-cite="RML-Core#dfn-iterator">logical iterator</a> (in case of an [=iterable field=]) on the [=parent records=], the <dfn>parent records</dfn> being the [=records=] defined by the field's [=parent=]. 
+A [=field=] defines [=records=]:
+
+- [=iterable records=] obtained by consecutively applying the [=expression field=]'s <a data-cite="RML-Core#dfn-expressions">expression</a>, or
+- [=expression records=] obtained by consecutively applying the [=iterable field=]'s <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> and <a data-cite="RML-Core#dfn-iterator">logical iterator</a> on the [=parent records=], the <dfn>parent records</dfn> being the [=records=] defined by the field's [=parent=].
 
 A field adds following keys and corresponding values to the [=logical view iteration sequence=]:
 
-- An [=index key=] `{absoluteFieldName}.#` with as values the position of the current [=record=] in the sequence of [=records=] derived from its [=parent record=].
 - A [=record key=] `{absoluteFieldName}` with as values the [=records=] defined by the [=field=].
+- An accompanying [=index key=] `{absoluteFieldName}.#` with as values the position of the current [=record=] in the sequence of [=records=] derived from its [=parent record=].
 
 <aside class=example id=ex-field-record-sequence>
 

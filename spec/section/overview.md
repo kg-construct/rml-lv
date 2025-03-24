@@ -16,7 +16,7 @@ the following namespace prefix bindings unless otherwise stated:
 | `xsd:` | http://www.w3.org/2001/XMLSchema# |
 | `:`    | http://example.org/               |
 
-The examples are contained in color-coded boxes. We use the Turtle syntax [[Turtle]] to write RDF.
+The examples are contained in color-coded boxes. We use the Turtle syntax [[turtle]] to write RDF.
 
 <aside class="ex-input">
 # This box contains an example input

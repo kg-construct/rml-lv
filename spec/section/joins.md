@@ -1,13 +1,16 @@
 ## Logical view joins {#viewjoins}
 
-A <dfn>logical view join</dfn> (`rml:LogicalViewJoin`) is an operation that extends the logical iteration of one logical view (the [=child logical view=]) with fields derived from another logical view (the [=parent logical view=]).
+A <dfn>logical view join</dfn> (`rml:LogicalViewJoin`) is an operation that extends the logical iteration of one logical view (the [=child logical view=]) with fields derived from another logical view (the [=parent logical view=]),
+using a <a data-cite="RML-Core#dfn-join-condition">join condition</a>.
 
-A [=logical view join=] (`rml:LogicalViewJoin`) MUST contain:
-- exactly one parent logical view property (`rml:parentLogicalView`), whose value is a [=logical view=] (`rml:LogicalView`) that supplies the additional fields, fulfills the role of the <!-- TODO reference to core parent logical source when available-->[parent logical source]() in the <a data-cite="RML-Core#dfn-join-condition">join condition(s)</a> of the [=logical view join=], and is referred to as <dfn>parent logical view</dfn>.
+A [=logical view join=] MUST contain:
+- exactly one parent logical view property (`rml:parentLogicalView`), whose value is a [=logical view=] (`rml:LogicalView`) that supplies the additional fields. This is referred to as the <dfn>parent logical view</dfn>.
 - at least one join condition property (`rml:joinCondition`), whose value is a <a data-cite="RML-Core#dfn-join-condition">join condition</a>.
 - at least one field property (`rml:field`), whose value is an [=expression field=] (`rml:ExpressionField`). This field SHOULD only contain [=logical view references=] that can be evaluated on the parent logical view. 
 
-The [=logical view=] in the subject position of the [=join property=], fulfills the role of <!-- TODO reference to core child logical source when available-->[child logical source]() in the <a data-cite="RML-Core#dfn-join-condition">join condition(s)</a> of the [=logical view join=], and is referred to as <dfn>child logical view</dfn>.
+Similar to how [joins are defined in RML-Core](https://kg-construct.github.io/rml-core/spec/docs/#joins),
+the [=logical view=] in the subject position of the [=join property=] fulfills the role of <!-- TODO reference to core child logical source when available-->[child logical source]() in the <a data-cite="RML-Core#dfn-join-condition">join condition(s)</a>, but of the [=logical view join=], and is referred to as <dfn>child logical view</dfn>.
+The [=parent logical view=] fulfills the role of the <!-- TODO reference to core parent logical source when available-->[parent logical source]() in the <a data-cite="RML-Core#dfn-join-condition">join condition(s)</a>, but of the [=logical view join=].
 
 | Property                | Domain                | Range                 |
 |-------------------------|-----------------------|-----------------------|
@@ -93,6 +96,8 @@ tobias,2005
         <th><u>name</u></th>
         <th><u>birthyear.#</u></th>
         <th><u>birthyear</u></th>
+        <th><u>item.#</u></th>
+        <th>item</th>
         <th><u>item_type.#</u></th>
         <th><u>item_type</u></th>
         <th><u>item_weight.#</u></th>
@@ -106,6 +111,15 @@ tobias,2005
         <td>0</td>
         <td>1995</td>
         <td>0</td>
+<td>
+
+```json 
+
+{...}
+```
+
+</td>
+        <td>0</td>
         <td>sword</td>
         <td>0</td>
         <td>1500 </td>
@@ -118,8 +132,17 @@ tobias,2005
         <td>0</td>
         <td>1995</td>
         <td>1</td>
+<td>
+
+```json 
+
+{...}
+```
+
+</td>
+        <td>0</td>
         <td>shield</td>
-        <td>1</td>
+        <td>0</td>
         <td>2500 </td>
     </tr>
     <tr>
@@ -129,6 +152,15 @@ tobias,2005
         <td>bob</td>
         <td>0</td>
         <td>1999</td>
+        <td>0</td>
+        <td>
+
+```json 
+
+{...}
+```
+
+</td>
         <td>0</td>
         <td>flower</td>
         <td>0</td>
@@ -141,6 +173,8 @@ tobias,2005
         <td>tobias</td>
         <td>0</td>
         <td>2005</td>
+        <td>null</td>
+        <td>null</td>
         <td>null</td>
         <td>null</td>
         <td>null</td>
@@ -201,10 +235,12 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
         <th><u>name</u></th>
         <th><u>birthyear.#</u></th>
         <th><u>birthyear</u></th>
+        <th><u>item.#</u></th>
+        <th>item</th>
         <th><u>item_type.#</u></th>
         <th><u>item_type</u></th>
         <th><u>item_weight.#</u></th>
-        <th><u>item_weight </u></th>
+        <th><u>item_weight</u></th>
     </tr>
     <tr>
         <td>0</td>
@@ -213,6 +249,15 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
         <td>alice</td>
         <td>0</td>
         <td>1995</td>
+        <td>0</td>
+<td>
+
+```json 
+
+{...}
+```
+
+</td>
         <td>0</td>
         <td>sword</td>
         <td>0</td>
@@ -226,8 +271,17 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
         <td>0</td>
         <td>1995</td>
         <td>1</td>
+<td>
+
+```json 
+
+{...}
+```
+
+</td>
+        <td>0</td>
         <td>shield</td>
-        <td>1</td>
+        <td>0</td>
         <td>2500 </td>
     </tr>
     <tr>
@@ -237,6 +291,15 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
         <td>bob</td>
         <td>0</td>
         <td>1999</td>
+        <td>0</td>
+        <td>
+
+```json 
+
+{...}
+```
+
+</td>
         <td>0</td>
         <td>flower</td>
         <td>0</td>
@@ -333,11 +396,13 @@ tobias,789
         <th><u>name</u></th>
         <th><u>birthyear.#</u></th>
         <th><u>birthyear</u></th>
+        <th><u>item.#</u></th>
+        <th>item</th>
         <th><u>item_type.#</u></th>
         <th><u>item_type</u></th>
         <th><u>item_weight.#</u></th>
         <th><u>item_weight</u></th>
-        <th><u>id#</u></th>
+        <th><u>id.#</u></th>
         <th><u>id</u></th>
     </tr>
     <tr>
@@ -347,6 +412,15 @@ tobias,789
         <td>alice</td>
         <td>0</td>
         <td>1995</td>
+        <td>0</td>
+<td>
+
+```json 
+
+{...}
+```
+
+</td>
         <td>0</td>
         <td>sword</td>
         <td>0</td>
@@ -362,8 +436,17 @@ tobias,789
         <td>0</td>
         <td>1995</td>
         <td>1</td>
+<td>
+
+```json 
+
+{...}
+```
+
+</td>        
+        <td>0</td>
         <td>shield</td>
-        <td>1</td>
+        <td>0</td>
         <td>2500 </td>
         <td>0</td>
         <td>123</td>
@@ -375,6 +458,15 @@ tobias,789
         <td>bob</td>
         <td>0</td>
         <td>1999</td>
+        <td>0</td>
+<td>
+
+```json 
+
+{...}
+```
+
+</td>
         <td>0</td>
         <td>flower</td>
         <td>0</td>
@@ -389,6 +481,8 @@ tobias,789
         <td>tobias</td>
         <td>0</td>
         <td>2005</td>
+        <td>null</td>
+        <td>null</td>
         <td>null</td>
         <td>null</td>
         <td>null</td>

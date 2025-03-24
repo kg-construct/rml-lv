@@ -28,7 +28,7 @@ Structural annotations provide additional information about the data that might 
 
 <i>For any source instances, the RDF graph produced by the RML engine using an <a data-cite="RML-Core#dfn-rml-mapping">RML mapping</a> with annotations, and the same  <a data-cite="RML-Core#dfn-rml-mapping">RML mapping</a> where annotations have been removed, MUST be the same.</i>
 
-We emphasize that RML engines might exploit structural annotations, as they could totally ignore them. It is responsibility of the user to make sure that the annotations provided are indeed correct (that is, the data complies with the annotations). Sanity checks MAY be provided by the RML engines themselves, but this is not mandatory. Note that providing wrong annotations to an engine that takes into account for annotations, for instance for applying optimizations, could result in a violation of the invariance principle, with unpredictable results.
+We emphasize that RML engines might exploit structural annotations, as they could totally ignore them. It is responsibility of the user to make sure that the annotations provided are indeed correct (that is, the data complies with the annotations). Sanity checks MAY be provided by the RML engines themselves, but this is not mandatory. Note that providing wrong annotations to an engine that takes annotations into account, for instance for applying optimizations, could result in a violation of the invariance principle, with unpredictable results.
 
 ### IriSafe
 
@@ -43,7 +43,7 @@ A <dfn data-lt="PrimaryKey annotation">PrimaryKey structural annotation</dfn>  (
 
 Each [=logical view=] MAY specify AT MOST ONE [=PrimaryKey annotation=].
 
-<aside class=example id=primary-key>
+<aside class=example id="primary-key">
 
  Consider the following CSV file containing birthdays of people:
 
@@ -62,7 +62,7 @@ Now, assume that we know:
 
 - Attribute `name` in the CSV is "UNIQUE" and "NOT NULL";
 
-Such a constraint naturally corresponds to the notion of `PRIMARY KEY` from the world of relational databases. This fact could be valuable information for the RML engine, especially in the virtual setting. However, note that constraints cannot be expressed on CSV files.
+Such a constraint naturally corresponds to the notion of `PRIMARY KEY` from the world of relational databases. This fact could be valuable information for the RML engine, especially in the virtual setting. However, note that constraints can not be expressed on CSV files.
 
 We can exploit the mechanism of structural annotations to inform the RML engine about the existence of this constraint. We here work-out an example.
 
@@ -127,19 +127,19 @@ The <dfn data-lt="ForeignKey annotation">ForeignKey structural annotation</dfn> 
 
 The <dfn>target view</dfn> is a [=logical view=] specified through the property `rml:targetView`, whereas the <dfn>target fields</dfn> are an RDF list of field names specified through the property `rml:targetFields`. These two properties are specified as follows:
 
-| Property                | Domain                | Range               |
-|-------------------------|-----------------------|---------------------|
-| `rml:targetView`     | `rml:InclusionAnnotation`| `rml:LogicalView` |
-| `rml:targetFields`     | `rml:InclusionAnnotation`| `rdf:List` |
+| Property           | Domain                    | Range             |
+|--------------------|---------------------------|-------------------|
+| `rml:targetView`   | `rml:InclusionAnnotation` | `rml:LogicalView` |
+| `rml:targetFields` | `rml:InclusionAnnotation` | `rdf:List`        |
 
 Therefore, each ForeignKey annotation MUST specify (additionally to the inherited `rml:onFields` property):
 
 - Exactly one `rml:targetView` property
 - Exactly one `rml:targetFields` property.
 
-<aside class=example id=foreign-key>
+<aside class=example id="foreign-key">
 
-Consider the following XML file containing information about warriors.
+Consider the following JSON file containing information about warriors.
 
 <aside class="ex-input">
 
@@ -176,16 +176,16 @@ Consider the following XML file containing information about warriors.
 
 Now, assume that we know:
 
-- Attribute `name` in the CSV is "UNIQUE" and "NOT NULL";
-- All warriors in our domain are contained in the CSV file.
+- Attribute `name` in the CSV of [[[#primary-key]]] is "UNIQUE" and "NOT NULL";
+- All warriors in our domain are contained in the JSON of [[[#foreign-key]]].
 
-The first constraint naturally corresponds to the notion of `PRIMARY KEY` from the world of relational databases. This fact could be valuable information for the RML engine, especially in the virtual setting. However, note that constraints cannot be expressed on CSV files.
+The first constraint naturally corresponds to the notion of `PRIMARY KEY` from the world of relational databases. This fact could be valuable information for the RML engine, especially in the virtual setting. However, note that constraints can not be expressed on CSV files.
 
-The second constraint naturally corresponds to a `FOREIGN KEY` constraint from the world of relational databases. However, being the involved values spread across  different (and diverse) sources, it obviously cannot be expressed as such. Also this one could provide valuable information for the RML engine.
+The second constraint naturally corresponds to a `FOREIGN KEY` constraint from the world of relational databases. However, as the involved values spread across different (and diverse) sources, it can not be expressed as such. Also this one could provide valuable information for the RML engine.
 
-We can exploit the mechanism of structural annotations to inform the RML engine about the existence of such "relational-like" constraint. We here work-out an example.
+We can exploit the mechanism of structural annotations to inform the RML engine about the existence of such "relational-like" constraint. We here work out an example.
 
-First, we need to specify the logical sources. The logical source corresponding to the CSV:
+First, we need to specify the logical sources. The logical source corresponding to the CSVof [[[#primary-key]]]:
 
 <aside class=ex-mapping>
 
@@ -196,7 +196,7 @@ First, we need to specify the logical sources. The logical source corresponding 
 ```
 </aside>
 
-The logical source corresponding to the JSON:
+The logical source corresponding to the JSON of [[[#foreign-key]]]:
 
 <aside class=ex-mapping>
 
