@@ -32,7 +32,7 @@ An <dfn>expression record</dfn> is one element of an <a data-cite="RML-Core#http
 A <dfn>record key</dfn> has a [=record=] as value. 
 Each [=record key=] is accompanied with an [=index key=].
 
-An <dfn>index key</dfn> has a positive integer as value, indicating the zero-based position of the corresponding record.
+An <dfn>index key</dfn> has a non-negative integer as value, indicating the zero-based position of the corresponding record.
 
 - For [=iterable records=], the index value denotes the position in the sequence of the <a data-cite="RML-Core#dfn-iteration">logical iteration</a>. For example: the second CSV row will be denoted with index value `1`.
 - For [=expression records=], the index value denotes the position of the element in the <a data-cite="RML-Core#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a>. For example, JSON object `{"elements": ["a", "b", "c"]}` with JSONPath expression `$.elements[*]` will return `"a"`, `"b"`, and `"c"` as <a data-cite="RML-Core#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a> elements. Element `"c"` will be denoted with index value `2`.
