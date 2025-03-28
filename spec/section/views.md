@@ -9,40 +9,58 @@ A [=logical view=] (`rml:LogicalView`) is represented by a resource that MUST co
 
 A [=logical view=] (`rml:LogicalView`) has an implicit default <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> (`rml:referenceFormulation`) and <a data-cite="RML-Core##dfn-iterator">logical iterator</a>  (`rml:iterator`), which MUST not be overwritten.
 
-| Property        | Domain                           | Range                 |
-|-----------------|----------------------------------|-----------------------|
-| `rml:viewOn`    | `rml:LogicalView`                | `rml:LogicalSource`   |
-| `rml:field`     | `rml:LogicalView` or `rml:Field` | `rml:Field`           |
-| `rml:leftJoin`  | `rml:LogicalView`                | `rml:LogicalViewJoin` |
-| `rml:innerJoin` | `rml:LogicalView`                | `rml:LogicalViewJoin` |
+| Property        | Domain                           | Range                       |
+|-----------------|----------------------------------|-----------------------------|
+| `rml:viewOn`    | `rml:LogicalView`                | `rml:AbstractLogicalSource` |
+| `rml:field`     | `rml:LogicalView` or `rml:Field` | `rml:Field`                 |
+| `rml:leftJoin`  | `rml:LogicalView`                | `rml:LogicalViewJoin`       |
+| `rml:innerJoin` | `rml:LogicalView`                | `rml:LogicalViewJoin`       |
 
 
 ### Logical view iterator {#logicalviewiterator}
 
-The <a data-cite="RML-Core##dfn-iterator">logical iterator</a> of a [=logical view=] produces a <dfn>logical view iteration sequence</dfn>, i.e. an ordered sequence of sets of key-value pairs, where each key is a string and each value a [=record=] or a positive integer.
-A <dfn>record</dfn> is either a <a data-cite="RML-Core#dfn-iteration">logical iteration</a> or one element of an <a data-cite="RML-Core#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a>.
+The <a data-cite="RML-Core##dfn-iterator">logical iterator</a> of a [=logical view=] produces a <dfn>logical view iteration sequence</dfn>, i.e. an ordered sequence of sets of key-value pairs.
+Each set of key-value pairs represents a <a data-cite="RML-Core#dfn-iteration">logical iteration</a> of the [=logical view=], called a <dfn>logical view iteration</dfn>.
+
+Each key in a [=logical view iteration sequence=] is a string and each value is a [=record=] or a non-negative integer.
+A <dfn>record</dfn> is either an [=iterable record=] or an [=expression record=].
+
+An <dfn>iterable record</dfn> is a <a data-cite="RML-Core#dfn-iteration">logical iteration</a>, i.e. an item on which expressions can be evaluated.
+
+An <dfn>expression record</dfn> is one element of an <a data-cite="RML-Core#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a>.
+
 A <dfn>record key</dfn> has a [=record=] as value. 
-An <dfn>index key</dfn> has a positive integer as value, indicating the position of the corresponding record in  the sequence of the <a data-cite="RML-Core#dfn-iteration">logical iteration</a> or in the <a data-cite="RML-Core#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a> from which it is derived.
-Each set of key-value pairs represents a <a data-cite="RML-Core#dfn-iteration">logical iteration</a> of the [=logical view=] , called a <dfn>logical view iteration</dfn>.
+Each [=record key=] is accompanied with an [=index key=].
+
+An <dfn>index key</dfn> has a non-negative integer as value, indicating the zero-based position of the corresponding record.
+
+- For [=iterable records=], the index value denotes the position in the sequence of the <a data-cite="RML-Core#dfn-iteration">logical iteration</a>. For example: the second CSV row will be denoted with index value `1`.
+- For [=expression records=], the index value denotes the position of the element in the <a data-cite="RML-Core#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a>. For example, JSON object `{"elements": ["a", "b", "c"]}` with JSONPath expression `$.elements[*]` will return `"a"`, `"b"`, and `"c"` as <a data-cite="RML-Core#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a> elements. Element `"c"` will be denoted with index value `2`.
+
 A [=logical view iteration sequence=] MUST have a finite set of keys that appear in each [=logical view iteration=].
 In any particular [=logical view iteration=], the value of a key MAY be a null value.
 
-Each [=logical view iteration=] has at least following keys: 
-- An [=index key=] `#` with as corresponding values the position of the current [=logical view iteration=] in the sequence defined by the <a data-cite="RML-Core#dfn-iterator">logical iterator</a> of the <a data-cite="RML-Core#dfn-abstract-logical-source">abstract logical source</a> of the [=logical view=].
-- A [=record key=] `<it>` with as corresponding values the <a data-cite="RML-Core##dfn-iteration">logical iterations</a> produced by the <a data-cite="RML-Core##dfn-abstract-logical-source">abstract logical source</a> of the [=logical view=].
+Each [=logical view iteration=] has at least the following keys:
+- A "root" [=record key=] `<it>` with as corresponding values the [=iterable records=] produced by the <a data-cite="RML-Core##dfn-abstract-logical-source">abstract logical source</a> in the sequence defined by the <a data-cite="RML-Core#dfn-iterator">logical iterator</a> of the [=logical view=].
+- An accompanying "root" [=index key=] `#`.
 
-The other key-value pairs are defined by the [=fields=] of the [=logical view=].
+Additional keys-value pairs with custom [=record keys=] can be defined by the [=fields=] of the [=logical view=],
+which is further detailed in [[[#fields]]].
 
 ### Logical view expressions {#logicalviewexpressions}
 
 A <dfn>logical view reference</dfn> is a <a data-cite="RML-Core#dfn-reference-expression">reference expression</a> that references a defined [=referenceable key=] in a [=logical view iteration=].
-A <dfn>referenceable key</dfn> is either a [=record key=] of an [=expression field=] or an [=index key=].
-A [=record key=] of an [=iterable field=] and the [=record key=] `<it>` can not be referenced.
+A <dfn>referenceable key</dfn> is either
+
+- a [=record key=] of an [=expression record=], or
+- an [=index key=].
+
+A [=record key=] of an [=iterable record=] (including the [=record key=] `<it>`) cannot be referenced.
 
 The <a data-cite="RML-Core#dfn-expression-evaluation-result">expression evaluation result</a> of a [=logical view reference=] is the value corresponding to the referenced key. 
 
-The <a data-cite="RML-Core##dfn-natural-rdf-datatype">natural RDF datatype</a> of an [=index key=] is [xsd:integer](https://www.w3.org/TR/xmlschema11-2/#integer).
-The <a data-cite="RML-Core##dfn-natural-rdf-datatype">natural RDF datatype</a> of a [=record key=] of an [=expression field=] is obtained by applying the <a data-cite="RML-Core##dfn-natural-mapping">natural mapping</a> of the <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a> used to retrieve the [=record=].
+The <a data-cite="RML-Core##dfn-natural-rdf-datatype">natural RDF datatype</a> of an [=index key=]'s values is [xsd:integer](https://www.w3.org/TR/xmlschema11-2/#integer).
+The <a data-cite="RML-Core##dfn-natural-rdf-datatype">natural RDF datatype</a> of an [=expression record=] is obtained by applying the <a data-cite="RML-Core##dfn-natural-mapping">natural mapping</a> of the <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a> used to retrieve the [=record=].
 
 A [=logical view reference=] can be used in <a data-cite="RML-Core#dfn-expression-map">expression maps</a> just as any other <a data-cite="RML-Core#dfn-reference-expression">reference expression</a>.
 
@@ -180,6 +198,11 @@ Note some columns in the table below have been shortened for brevity.
 </tr>
 </table>
 
+</aside>
+
+<aside class="note">
+Note that this tabular representation of the [=logical view iteration sequence=] is just one possible way of representing a [=logical view iteration sequence=].
+The underlined keys represent [=referenceable keys=].
 </aside>
 
 <aside class=ex-mapping>

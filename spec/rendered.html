@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en" dir="ltr"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 35.2.2">
+<meta name="generator" content="ReSpec 35.3.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -215,6 +215,23 @@ as well as additional information about their fields, through structural annotat
 .hljs-link{text-decoration:underline}
 </style>
 <style>
+var:hover{text-decoration:underline;cursor:pointer}
+var.respec-hl{color:var(--color,#000);background-color:var(--bg-color);box-shadow:0 0 0 2px var(--bg-color)}
+@media (prefers-color-scheme:dark){
+var.respec-hl{filter:saturate(.9) brightness(.9)}
+}
+var.respec-hl-c1{--bg-color:#f4d200}
+var.respec-hl-c2{--bg-color:#ff87a2}
+var.respec-hl-c3{--bg-color:#96e885}
+var.respec-hl-c4{--bg-color:#3eeed2}
+var.respec-hl-c5{--bg-color:#eacfb6}
+var.respec-hl-c6{--bg-color:#82ddff}
+var.respec-hl-c7{--bg-color:#ffbcf2}
+@media print{
+var.respec-hl{background:0 0;color:#000;box-shadow:unset}
+}
+</style>
+<style>
 var{position:relative;cursor:pointer}
 var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
 var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#222}
@@ -225,37 +242,19 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "preProcess": [
     null
   ],
-  "localBiblio": {
-    "RML-Core": {
-      "title": "RML-Core",
-      "href": "https://w3id.org/rml/core/spec",
-      "status": "Draft Community Group Report",
-      "publisher": "W3C",
-      "date": "16 February 2024",
-      "id": "rml-core"
-    },
-    "RML-IO": {
-      "title": "RML-IO",
-      "href": "https://w3id.org/rml/io/spec",
-      "status": "Draft Community Group Report",
-      "publisher": "W3C",
-      "date": "27 September 2023"
-    }
-  },
   "doRdfa": "true",
   "processVersion": 2024,
   "specStatus": "CG-DRAFT",
   "shortName": "rml-lv",
-  "publishDate": "2025-02-18",
   "copyrightStart": "2024",
   "edDraftURI": "https://w3id.org/rml/lv/spec",
   "editors": [
     {
       "name": "Pano Maria",
       "mailto": "pano@skemu.com",
-      "url": "mailto:pano@skemu.com",
       "company": "Skemu",
-      "companyURL": "https://skemu.com"
+      "companyURL": "https://skemu.com",
+      "url": "mailto:pano@skemu.com"
     },
     {
       "name": "Els de Vleeschauwer",
@@ -324,8 +323,25 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       ]
     }
   ],
-  "publishISODate": "2025-02-18T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 18 February 2025"
+  "localBiblio": {
+    "RML-Core": {
+      "title": "RML-Core",
+      "href": "https://w3id.org/rml/core/spec",
+      "status": "Draft Community Group Report",
+      "publisher": "W3C",
+      "date": "16 February 2024",
+      "id": "rml-core"
+    },
+    "RML-IO": {
+      "title": "RML-IO",
+      "href": "https://w3id.org/rml/io/spec",
+      "status": "Draft Community Group Report",
+      "publisher": "W3C",
+      "date": "27 September 2023"
+    }
+  },
+  "publishISODate": "2025-03-28T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 28 March 2025"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
 <body class="h-entry"><div class="head">
@@ -333,7 +349,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">RML Logical Views</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2025-02-18">18 February 2025</time>
+      <time class="dt-published" datetime="2025-03-28">28 March 2025</time>
     </p>
     <dl>
       
@@ -435,7 +451,7 @@ the following namespace prefix bindings unless otherwise stated:</p>
 <td><a href="http://example.org/">http://example.org/</a></td>
 </tr>
 </tbody></table>
-<p>The examples are contained in color-coded boxes. We use the Turtle syntax [<cite><a class="bibref" data-link-type="biblio" href="#bib-turtle" title="RDF 1.1 Turtle">Turtle</a></cite>] to write RDF.</p>
+<p>The examples are contained in color-coded boxes. We use the Turtle syntax [<cite><a class="bibref" data-link-type="biblio" href="#bib-turtle" title="RDF 1.1 Turtle">turtle</a></cite>] to write RDF.</p>
 <aside class="ex-input">
 # This box contains an example input
 </aside>
@@ -453,7 +469,7 @@ the following namespace prefix bindings unless otherwise stated:</p>
 </aside></section><section id="conformance"><div class="header-wrapper"><h3 id="x1-2-conformance"><bdi class="secno">1.2 </bdi>Conformance</h3><a class="self-link" href="#conformance" aria-label="Permalink for Section 1.2"></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
         The key words <em class="rfc2119">MAY</em>, <em class="rfc2119">MUST</em>, and <em class="rfc2119">SHOULD</em> in this document
         are to be interpreted as described in
-        <a href="https://datatracker.ietf.org/doc/html/bcp14">BCP 14</a>
+        <a href="https://www.rfc-editor.org/info/bcp14">BCP 14</a>
         [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">RFC2119</a></cite>] [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8174" title="Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words">RFC8174</a></cite>]
         when, and only when, they appear in all capitals, as shown here.
       </p> </section>
@@ -594,7 +610,7 @@ bob,flower
 <tbody><tr>
 <td><code>rml:viewOn</code></td>
 <td><code>rml:LogicalView</code></td>
-<td><code>rml:LogicalSource</code></td>
+<td><code>rml:AbstractLogicalSource</code></td>
 </tr>
 <tr>
 <td><code>rml:field</code></td>
@@ -612,25 +628,38 @@ bob,flower
 <td><code>rml:LogicalViewJoin</code></td>
 </tr>
 </tbody></table>
-<section id="logical-view-iterator"><div class="header-wrapper"><h3 id="logicalviewiterator"><bdi class="secno">3.1 </bdi>Logical view iterator</h3><a class="self-link" href="#logicalviewiterator" aria-label="Permalink for Section 3.1"></a></div><p>The <a href="https://w3id.org/rml/core/spec##dfn-iterator">logical iterator</a> of a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-3">logical view</a> produces a <dfn id="dfn-logical-view-iteration-sequence" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">logical view iteration sequence</dfn>, i.e. an ordered sequence of sets of key-value pairs, where each key is a string and each value a <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-1">record</a> or a positive integer.
-A <dfn data-plurals="records" id="dfn-record" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">record</dfn> is either a <a href="https://w3id.org/rml/core/spec#dfn-iteration">logical iteration</a> or one element of an <a href="https://w3id.org/rml/core//kg-construct.github.io/rml-core/spec/docs/#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a>.
-A <dfn id="dfn-record-key" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">record key</dfn> has a <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-2">record</a> as value. 
-An <dfn id="dfn-index-key" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">index key</dfn> has a positive integer as value, indicating the position of the corresponding record in  the sequence of the <a href="https://w3id.org/rml/core/spec#dfn-iteration">logical iteration</a> or in the <a href="https://w3id.org/rml/core//kg-construct.github.io/rml-core/spec/docs/#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a> from which it is derived.
-Each set of key-value pairs represents a <a href="https://w3id.org/rml/core/spec#dfn-iteration">logical iteration</a> of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-4">logical view</a> , called a <dfn id="dfn-logical-view-iteration" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">logical view iteration</dfn>.
-A <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration-sequence" class="internalDFN" id="ref-for-dfn-logical-view-iteration-sequence-1">logical view iteration sequence</a> <em class="rfc2119">MUST</em> have a finite set of keys that appear in each <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration" class="internalDFN" id="ref-for-dfn-logical-view-iteration-1">logical view iteration</a>.
-In any particular <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration" class="internalDFN" id="ref-for-dfn-logical-view-iteration-2">logical view iteration</a>, the value of a key <em class="rfc2119">MAY</em> be a null value.</p>
-<p>Each <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration" class="internalDFN" id="ref-for-dfn-logical-view-iteration-3">logical view iteration</a> has at least following keys: </p>
+<section id="logical-view-iterator"><div class="header-wrapper"><h3 id="logicalviewiterator"><bdi class="secno">3.1 </bdi>Logical view iterator</h3><a class="self-link" href="#logicalviewiterator" aria-label="Permalink for Section 3.1"></a></div><p>The <a href="https://w3id.org/rml/core/spec##dfn-iterator">logical iterator</a> of a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-3">logical view</a> produces a <dfn id="dfn-logical-view-iteration-sequence" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">logical view iteration sequence</dfn>, i.e. an ordered sequence of sets of key-value pairs.
+Each set of key-value pairs represents a <a href="https://w3id.org/rml/core/spec#dfn-iteration">logical iteration</a> of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-4">logical view</a>, called a <dfn id="dfn-logical-view-iteration" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">logical view iteration</dfn>.</p>
+<p>Each key in a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration-sequence" class="internalDFN" id="ref-for-dfn-logical-view-iteration-sequence-1">logical view iteration sequence</a> is a string and each value is a <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-1">record</a> or a non-negative integer.
+A <dfn data-plurals="records" id="dfn-record" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">record</dfn> is either an <a data-link-type="dfn|abstract-op" href="#dfn-iterable-record" class="internalDFN" id="ref-for-dfn-iterable-record-1">iterable record</a> or an <a data-link-type="dfn|abstract-op" href="#dfn-expression-record" class="internalDFN" id="ref-for-dfn-expression-record-1">expression record</a>.</p>
+<p>An <dfn data-plurals="iterable records" id="dfn-iterable-record" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">iterable record</dfn> is a <a href="https://w3id.org/rml/core/spec#dfn-iteration">logical iteration</a>, i.e. an item on which expressions can be evaluated.</p>
+<p>An <dfn data-plurals="expression records" id="dfn-expression-record" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">expression record</dfn> is one element of an <a href="https://w3id.org/rml/core//kg-construct.github.io/rml-core/spec/docs/#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a>.</p>
+<p>A <dfn data-plurals="record keys" id="dfn-record-key" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">record key</dfn> has a <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-2">record</a> as value. 
+Each <a data-link-type="dfn|abstract-op" href="#dfn-record-key" class="internalDFN" id="ref-for-dfn-record-key-1">record key</a> is accompanied with an <a data-link-type="dfn|abstract-op" href="#dfn-index-key" class="internalDFN" id="ref-for-dfn-index-key-1">index key</a>.</p>
+<p>An <dfn id="dfn-index-key" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">index key</dfn> has a non-negative integer as value, indicating the zero-based position of the corresponding record.</p>
 <ul>
-<li>An <a data-link-type="dfn|abstract-op" href="#dfn-index-key" class="internalDFN" id="ref-for-dfn-index-key-1">index key</a> <code>#</code> with as corresponding values the position of the current <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration" class="internalDFN" id="ref-for-dfn-logical-view-iteration-4">logical view iteration</a> in the sequence defined by the <a href="https://w3id.org/rml/core/spec#dfn-iterator">logical iterator</a> of the <a href="https://w3id.org/rml/core/spec#dfn-abstract-logical-source">abstract logical source</a> of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-5">logical view</a>.</li>
-<li>A <a data-link-type="dfn|abstract-op" href="#dfn-record-key" class="internalDFN" id="ref-for-dfn-record-key-1">record key</a> <code>&lt;it&gt;</code> with as corresponding values the <a href="https://w3id.org/rml/core/spec##dfn-iteration">logical iterations</a> produced by the <a href="https://w3id.org/rml/core/spec##dfn-abstract-logical-source">abstract logical source</a> of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-6">logical view</a>.</li>
+<li>For <a data-link-type="dfn|abstract-op" href="#dfn-iterable-record" class="internalDFN" id="ref-for-dfn-iterable-record-2">iterable records</a>, the index value denotes the position in the sequence of the <a href="https://w3id.org/rml/core/spec#dfn-iteration">logical iteration</a>. For example: the second CSV row will be denoted with index value <code>1</code>.</li>
+<li>For <a data-link-type="dfn|abstract-op" href="#dfn-expression-record" class="internalDFN" id="ref-for-dfn-expression-record-2">expression records</a>, the index value denotes the position of the element in the <a href="https://w3id.org/rml/core//kg-construct.github.io/rml-core/spec/docs/#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a>. For example, JSON object <code>{"elements": ["a", "b", "c"]}</code> with JSONPath expression <code>$.elements[*]</code> will return <code>"a"</code>, <code>"b"</code>, and <code>"c"</code> as <a href="https://w3id.org/rml/core//kg-construct.github.io/rml-core/spec/docs/#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a> elements. Element <code>"c"</code> will be denoted with index value <code>2</code>.</li>
 </ul>
-<p>The other key-value pairs are defined by the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-3">fields</a> of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-7">logical view</a>.</p>
-</section><section id="logical-view-expressions"><div class="header-wrapper"><h3 id="logicalviewexpressions"><bdi class="secno">3.2 </bdi>Logical view expressions</h3><a class="self-link" href="#logicalviewexpressions" aria-label="Permalink for Section 3.2"></a></div><p>A <dfn data-plurals="logical view references" id="dfn-logical-view-reference" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">logical view reference</dfn> is a <a href="https://w3id.org/rml/core/spec#dfn-reference-expression">reference expression</a> that references a defined <a data-link-type="dfn|abstract-op" href="#dfn-referenceable-key" class="internalDFN" id="ref-for-dfn-referenceable-key-1">referenceable key</a> in a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration" class="internalDFN" id="ref-for-dfn-logical-view-iteration-5">logical view iteration</a>.
-A <dfn data-plurals="referenceable keys" id="dfn-referenceable-key" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">referenceable key</dfn> is either a <a data-link-type="dfn|abstract-op" href="#dfn-record-key" class="internalDFN" id="ref-for-dfn-record-key-2">record key</a> of an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-1">expression field</a> or an <a data-link-type="dfn|abstract-op" href="#dfn-index-key" class="internalDFN" id="ref-for-dfn-index-key-2">index key</a>.
-A <a data-link-type="dfn|abstract-op" href="#dfn-record-key" class="internalDFN" id="ref-for-dfn-record-key-3">record key</a> of an <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-1">iterable field</a> and the <a data-link-type="dfn|abstract-op" href="#dfn-record-key" class="internalDFN" id="ref-for-dfn-record-key-4">record key</a> <code>&lt;it&gt;</code> can not be referenced.</p>
+<p>A <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration-sequence" class="internalDFN" id="ref-for-dfn-logical-view-iteration-sequence-2">logical view iteration sequence</a> <em class="rfc2119">MUST</em> have a finite set of keys that appear in each <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration" class="internalDFN" id="ref-for-dfn-logical-view-iteration-1">logical view iteration</a>.
+In any particular <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration" class="internalDFN" id="ref-for-dfn-logical-view-iteration-2">logical view iteration</a>, the value of a key <em class="rfc2119">MAY</em> be a null value.</p>
+<p>Each <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration" class="internalDFN" id="ref-for-dfn-logical-view-iteration-3">logical view iteration</a> has at least the following keys:</p>
+<ul>
+<li>A "root" <a data-link-type="dfn|abstract-op" href="#dfn-record-key" class="internalDFN" id="ref-for-dfn-record-key-2">record key</a> <code>&lt;it&gt;</code> with as corresponding values the <a data-link-type="dfn|abstract-op" href="#dfn-iterable-record" class="internalDFN" id="ref-for-dfn-iterable-record-3">iterable records</a> produced by the <a href="https://w3id.org/rml/core/spec##dfn-abstract-logical-source">abstract logical source</a> in the sequence defined by the <a href="https://w3id.org/rml/core/spec#dfn-iterator">logical iterator</a> of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-5">logical view</a>.</li>
+<li>An accompanying "root" <a data-link-type="dfn|abstract-op" href="#dfn-index-key" class="internalDFN" id="ref-for-dfn-index-key-2">index key</a> <code>#</code>.</li>
+</ul>
+<p>Additional keys-value pairs with custom <a data-link-type="dfn|abstract-op" href="#dfn-record-key" class="internalDFN" id="ref-for-dfn-record-key-3">record keys</a> can be defined by the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-3">fields</a> of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-6">logical view</a>,
+which is further detailed in <a href="#fields" data-matched-text="[[[#fields]]]" class="sec-ref"><bdi class="secno">4. </bdi>Fields</a>.</p>
+</section><section id="logical-view-expressions"><div class="header-wrapper"><h3 id="logicalviewexpressions"><bdi class="secno">3.2 </bdi>Logical view expressions</h3><a class="self-link" href="#logicalviewexpressions" aria-label="Permalink for Section 3.2"></a></div><p>A <dfn data-plurals="logical view references" id="dfn-logical-view-reference" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">logical view reference</dfn> is a <a href="https://w3id.org/rml/core/spec#dfn-reference-expression">reference expression</a> that references a defined <a data-link-type="dfn|abstract-op" href="#dfn-referenceable-key" class="internalDFN" id="ref-for-dfn-referenceable-key-1">referenceable key</a> in a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration" class="internalDFN" id="ref-for-dfn-logical-view-iteration-4">logical view iteration</a>.
+A <dfn data-plurals="referenceable keys" id="dfn-referenceable-key" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">referenceable key</dfn> is either</p>
+<ul>
+<li>a <a data-link-type="dfn|abstract-op" href="#dfn-record-key" class="internalDFN" id="ref-for-dfn-record-key-4">record key</a> of an <a data-link-type="dfn|abstract-op" href="#dfn-expression-record" class="internalDFN" id="ref-for-dfn-expression-record-3">expression record</a>, or</li>
+<li>an <a data-link-type="dfn|abstract-op" href="#dfn-index-key" class="internalDFN" id="ref-for-dfn-index-key-3">index key</a>.</li>
+</ul>
+<p>A <a data-link-type="dfn|abstract-op" href="#dfn-record-key" class="internalDFN" id="ref-for-dfn-record-key-5">record key</a> of an <a data-link-type="dfn|abstract-op" href="#dfn-iterable-record" class="internalDFN" id="ref-for-dfn-iterable-record-4">iterable record</a> (including the <a data-link-type="dfn|abstract-op" href="#dfn-record-key" class="internalDFN" id="ref-for-dfn-record-key-6">record key</a> <code>&lt;it&gt;</code>) cannot be referenced.</p>
 <p>The <a href="https://w3id.org/rml/core/spec#dfn-expression-evaluation-result">expression evaluation result</a> of a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-reference" class="internalDFN" id="ref-for-dfn-logical-view-reference-1">logical view reference</a> is the value corresponding to the referenced key. </p>
-<p>The <a href="https://w3id.org/rml/core/spec##dfn-natural-rdf-datatype">natural RDF datatype</a> of an <a data-link-type="dfn|abstract-op" href="#dfn-index-key" class="internalDFN" id="ref-for-dfn-index-key-3">index key</a> is <a href="https://www.w3.org/TR/xmlschema11-2/#integer">xsd:integer</a>.
-The <a href="https://w3id.org/rml/core/spec##dfn-natural-rdf-datatype">natural RDF datatype</a> of a <a data-link-type="dfn|abstract-op" href="#dfn-record-key" class="internalDFN" id="ref-for-dfn-record-key-5">record key</a> of an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-2">expression field</a> is obtained by applying the <a href="https://w3id.org/rml/core/spec##dfn-natural-mapping">natural mapping</a> of the <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a> used to retrieve the <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-3">record</a>.</p>
+<p>The <a href="https://w3id.org/rml/core/spec##dfn-natural-rdf-datatype">natural RDF datatype</a> of an <a data-link-type="dfn|abstract-op" href="#dfn-index-key" class="internalDFN" id="ref-for-dfn-index-key-4">index key</a>'s values is <a href="https://www.w3.org/TR/xmlschema11-2/#integer">xsd:integer</a>.
+The <a href="https://w3id.org/rml/core/spec##dfn-natural-rdf-datatype">natural RDF datatype</a> of an <a data-link-type="dfn|abstract-op" href="#dfn-expression-record" class="internalDFN" id="ref-for-dfn-expression-record-4">expression record</a> is obtained by applying the <a href="https://w3id.org/rml/core/spec##dfn-natural-mapping">natural mapping</a> of the <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a> used to retrieve the <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-3">record</a>.</p>
 <p>A <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-reference" class="internalDFN" id="ref-for-dfn-logical-view-reference-2">logical view reference</a> can be used in <a href="https://w3id.org/rml/core/spec#dfn-expression-map">expression maps</a> just as any other <a href="https://w3id.org/rml/core/spec#dfn-reference-expression">reference expression</a>.</p>
 <p>When a non-existing or a non-referenceable key is referenced, RML processors should report an error. </p>
 <aside class="example" id="ex-field-in-triples-map"><div class="marker">
@@ -753,6 +782,11 @@ The <a href="https://w3id.org/rml/core/spec##dfn-natural-rdf-datatype">natural R
 
 </aside>
 
+<div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="4"><span>Note</span></div><aside class="">
+Note that this tabular representation of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration-sequence" class="internalDFN" id="ref-for-dfn-logical-view-iteration-sequence-3">logical view iteration sequence</a> is just one possible way of representing a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration-sequence" class="internalDFN" id="ref-for-dfn-logical-view-iteration-sequence-4">logical view iteration sequence</a>.
+The underlined keys represent <a data-link-type="dfn|abstract-op" href="#dfn-referenceable-key" class="internalDFN" id="ref-for-dfn-referenceable-key-2">referenceable keys</a>.
+</aside></div>
+
 <aside class="ex-mapping">
 
 <pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:triplesMapPerson</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:TriplesMap</span> ;
@@ -815,10 +849,10 @@ The <a href="https://w3id.org/rml/core/spec##dfn-natural-rdf-datatype">natural R
 
 </aside></section></section>
 
-<section id="fields-0"><div class="header-wrapper"><h2 id="fields"><bdi class="secno">4. </bdi>Fields</h2><a class="self-link" href="#fields" aria-label="Permalink for Section 4."></a></div><p>A <dfn data-plurals="fields" id="dfn-field" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">field</dfn> gives a name to data derived from the <a href="https://w3id.org/rml/core/spec#dfn-abstract-logical-source">abstract logical source</a> on which the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-8">logical view</a> is defined.</p>
+<section id="fields-0"><div class="header-wrapper"><h2 id="fields"><bdi class="secno">4. </bdi>Fields</h2><a class="self-link" href="#fields" aria-label="Permalink for Section 4."></a></div><p>A <dfn data-plurals="fields" id="dfn-field" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">field</dfn> gives a name to data derived from the <a href="https://w3id.org/rml/core/spec#dfn-abstract-logical-source">abstract logical source</a> on which the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-7">logical view</a> is defined.</p>
 <p>A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-4">field</a> (<code>rml:Field</code>) is represented by a resource that <em class="rfc2119">MUST</em> contain:</p>
 <ul>
-<li>exactly one field name property (<code>rml:fieldName</code>), that specifies the <a data-link-type="dfn" href="https://www.w3.org/TR/vc-data-model/#dfn-name">name</a> of the field</li>
+<li>exactly one field name property (<code>rml:fieldName</code>), that specifies the <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-1">declared name</a> of the field</li>
 <li>zero or more field properties (<code>rml:field</code>), to describe nested <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-5">field</a>, also of the type <code>rml:Field</code></li>
 </ul>
 <table>
@@ -840,22 +874,22 @@ The <a href="https://w3id.org/rml/core/spec##dfn-natural-rdf-datatype">natural R
 <td><code>rml:Field</code></td>
 </tr>
 </tbody></table>
-<p>There are two types of fields: an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-3">expression field</a> and an <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-2">iterable field</a>.</p>
+<p>There are two types of fields: an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-1">expression field</a> and an <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-1">iterable field</a>.</p>
 <p>An <dfn id="dfn-expression-field" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">expression field</dfn> (<code>rml:ExpressionField</code>) is a type of <a href="https://w3id.org/rml/core/spec#dfn-expression-map">expression map</a>.
-Consequently, an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-4">expression field</a> <em class="rfc2119">MUST</em> have an <a href="https://w3id.org/rml/core/spec#dfn-expressions">expression</a>. </p>
+Consequently, an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-2">expression field</a> <em class="rfc2119">MUST</em> have an <a href="https://w3id.org/rml/core/spec#dfn-expressions">expression</a>. </p>
 <p>An <dfn id="dfn-iterable-field" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">iterable field</dfn> (<code>rml:IterableField</code>) is a type of <a href="https://w3id.org/rml/core/spec#dfn-iterable">iterable</a>. 
-Consequently, an <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-3">iterable field</a> <em class="rfc2119">MUST</em> have a <a href="https://w3id.org/rml/core/spec##dfn-reference-formulation">reference formulation</a> and a <a href="https://w3id.org/rml/core/spec#dfn-iterator">logical iterator</a>.
-If no reference formulation is declared for an <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-4">iterable field</a>, the reference formulation of the field's <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-1">parent</a> is implied. </p>
-<section id="field-parents"><div class="header-wrapper"><h3 id="fieldparents"><bdi class="secno">4.1 </bdi>Field parents</h3><a class="self-link" href="#fieldparents" aria-label="Permalink for Section 4.1"></a></div><p>A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-6">field</a> <em class="rfc2119">MUST</em> have a <dfn id="dfn-parent" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">parent</dfn> that is either the <a href="https://w3id.org/rml/core/spec##dfn-abstract-logical-source">abstract logical source</a> of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-9">logical view</a> or another <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-7">field</a>. The parent relation <em class="rfc2119">MUST</em> not contain cycles: it is tree-shaped with a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-10">logical view</a> as its root. The transitive parents of a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-8">field</a>, i.e., the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-9">field</a>'s parent, the parent of the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-10">field</a>'s parent, etcetera, are fittingly called the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-11">field</a>'s <dfn id="dfn-ancestors" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn" class="respec-offending-element" title="Found definition for &quot;ancestors&quot;, but nothing links to it. This is usually a spec bug!">ancestors</dfn>. </p>
+Consequently, an <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-2">iterable field</a> <em class="rfc2119">MUST</em> have a <a href="https://w3id.org/rml/core/spec##dfn-reference-formulation">reference formulation</a> and a <a href="https://w3id.org/rml/core/spec#dfn-iterator">logical iterator</a>.
+If no reference formulation is declared for an <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-3">iterable field</a>, the reference formulation of the field's <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-1">parent</a> is implied. </p>
+<section id="field-parents"><div class="header-wrapper"><h3 id="fieldparents"><bdi class="secno">4.1 </bdi>Field parents</h3><a class="self-link" href="#fieldparents" aria-label="Permalink for Section 4.1"></a></div><p>A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-6">field</a> <em class="rfc2119">MUST</em> have a <dfn id="dfn-parent" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">parent</dfn> that is either the <a href="https://w3id.org/rml/core/spec##dfn-abstract-logical-source">abstract logical source</a> of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-8">logical view</a> or another <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-7">field</a>. The parent relation <em class="rfc2119">MUST</em> not contain cycles: it is tree-shaped with a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-9">logical view</a> as its root. The transitive parents of a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-8">field</a>, i.e., the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-9">field</a>'s parent, the parent of the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-10">field</a>'s parent, etcetera, are fittingly called the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-11">field</a>'s <dfn id="dfn-ancestors" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn" class="respec-offending-element" title="Found definition for &quot;ancestors&quot;, but nothing links to it. This is usually a spec bug!">ancestors</dfn>. </p>
 </section><section id="field-names"><div class="header-wrapper"><h3 id="fieldnames"><bdi class="secno">4.2 </bdi>Field names</h3><a class="self-link" href="#fieldnames" aria-label="Permalink for Section 4.2"></a></div><p>A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-12">field</a> <em class="rfc2119">MUST</em> have a <dfn id="dfn-declared-name" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">declared name</dfn> that is an alphanumerical string. Fields with the same <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-2">parent</a> <em class="rfc2119">MUST</em> have different declared names. 
-We distinguish between the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-13">field</a>'s <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-1">declared name</a> and the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-14">field</a>'s <a data-link-type="dfn|abstract-op" href="#dfn-absolute-name" class="internalDFN" id="ref-for-dfn-absolute-name-1">absolute name</a>. 
+We distinguish between the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-13">field</a>'s <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-2">declared name</a> and the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-14">field</a>'s <a data-link-type="dfn|abstract-op" href="#dfn-absolute-name" class="internalDFN" id="ref-for-dfn-absolute-name-1">absolute name</a>. 
 If a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-15">field</a>'s parent is another <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-16">field</a>, the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-17">field</a>'s <dfn id="dfn-absolute-name" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">absolute name</dfn> is the concatenation of the name of the parent <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-18">field</a>, a dot <code>.</code>, and the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-19">field</a>'s declared name. 
-Otherwise, the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-20">field</a>'s <a data-link-type="dfn|abstract-op" href="#dfn-absolute-name" class="internalDFN" id="ref-for-dfn-absolute-name-2">absolute name</a> equals its <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-2">declared name</a>.  </p>
+Otherwise, the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-20">field</a>'s <a data-link-type="dfn|abstract-op" href="#dfn-absolute-name" class="internalDFN" id="ref-for-dfn-absolute-name-2">absolute name</a> equals its <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-3">declared name</a>.  </p>
 <aside class="example" id="ex-fieldnames"><div class="marker">
     <a class="self-link" href="#ex-fieldnames">Example<bdi> 5</bdi></a>
   </div>
 
-<p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-21">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-3">declared name</a> "name" is declared and added to the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-11">logical view</a>. The parent of the field with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-4">declared name</a> "name" is the <a href="https://w3id.org/rml/core/spec##dfn-logical-source">logical source</a> <code>:jsonSource</code>.</p>
+<p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-21">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-4">declared name</a> "name" is declared and added to the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-10">logical view</a>. The parent of the field with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-5">declared name</a> "name" is the <a href="https://w3id.org/rml/core/spec##dfn-logical-source">logical source</a> <code>:jsonSource</code>.</p>
 <aside class="ex-input">
 
 <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
@@ -954,22 +988,22 @@ Otherwise, the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="inte
 </tbody></table>
 </aside>
 </aside>
-<div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="4"><span>Note</span></div><aside class="">
-Note that the tabular representation of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration-sequence" class="internalDFN" id="ref-for-dfn-logical-view-iteration-sequence-2">logical view iteration sequence</a> in <a href="#ex-fieldnames" data-matched-text="[[[#ex-fieldnames]]]" class="box-ref">Example<bdi> 5</bdi></a> is just one possible way of representing a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration-sequence" class="internalDFN" id="ref-for-dfn-logical-view-iteration-sequence-3">logical view iteration sequence</a>.
-The underlined keys represent <a data-link-type="dfn|abstract-op" href="#dfn-referenceable-key" class="internalDFN" id="ref-for-dfn-referenceable-key-2">referenceable keys</a>.
-</aside></div>
 
-</section><section id="field-records"><div class="header-wrapper"><h3 id="fieldrecords"><bdi class="secno">4.3 </bdi>Field records</h3><a class="self-link" href="#fieldrecords" aria-label="Permalink for Section 4.3"></a></div><p>A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-22">field</a> defines <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-4">records</a>, that are obtained by consecutively applying resp. the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-23">field</a>'s <a href="https://w3id.org/rml/core/spec#dfn-expressions">expression</a> (in case of an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-5">expression field</a>) or the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-24">field</a>'s <a href="https://w3id.org/rml/core/spec##dfn-reference-formulation">reference formulation</a> and a <a href="https://w3id.org/rml/core/spec#dfn-iterator">logical iterator</a> (in case of an <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-5">iterable field</a>) on the <a data-link-type="dfn|abstract-op" href="#dfn-parent-records" class="internalDFN" id="ref-for-dfn-parent-records-1">parent records</a>, the <dfn data-plurals="parent record" id="dfn-parent-records" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">parent records</dfn> being the <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-5">records</a> defined by the field's <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-3">parent</a>. </p>
-<p>A field adds following keys and corresponding values to the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration-sequence" class="internalDFN" id="ref-for-dfn-logical-view-iteration-sequence-4">logical view iteration sequence</a>:</p>
+</section><section id="field-records"><div class="header-wrapper"><h3 id="fieldrecords"><bdi class="secno">4.3 </bdi>Field records</h3><a class="self-link" href="#fieldrecords" aria-label="Permalink for Section 4.3"></a></div><p>A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-22">field</a> defines <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-4">records</a>:</p>
 <ul>
-<li>An <a data-link-type="dfn|abstract-op" href="#dfn-index-key" class="internalDFN" id="ref-for-dfn-index-key-4">index key</a> <code>{absoluteFieldName}.#</code> with as values the position of the current <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-6">record</a> in the sequence of <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-7">records</a> derived from its <a data-link-type="dfn|abstract-op" href="#dfn-parent-records" class="internalDFN" id="ref-for-dfn-parent-records-2">parent record</a>.</li>
-<li>A <a data-link-type="dfn|abstract-op" href="#dfn-record-key" class="internalDFN" id="ref-for-dfn-record-key-6">record key</a> <code>{absoluteFieldName}</code> with as values the <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-8">records</a> defined by the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-25">field</a>.</li>
+<li><a data-link-type="dfn|abstract-op" href="#dfn-iterable-record" class="internalDFN" id="ref-for-dfn-iterable-record-5">iterable records</a> obtained by consecutively applying the <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-3">expression field</a>'s <a href="https://w3id.org/rml/core/spec#dfn-expressions">expression</a>, or</li>
+<li><a data-link-type="dfn|abstract-op" href="#dfn-expression-record" class="internalDFN" id="ref-for-dfn-expression-record-5">expression records</a> obtained by consecutively applying the <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-4">iterable field</a>'s <a href="https://w3id.org/rml/core/spec##dfn-reference-formulation">reference formulation</a> and <a href="https://w3id.org/rml/core/spec#dfn-iterator">logical iterator</a> on the <a data-link-type="dfn|abstract-op" href="#dfn-parent-records" class="internalDFN" id="ref-for-dfn-parent-records-1">parent records</a>, the <dfn data-plurals="parent record" id="dfn-parent-records" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">parent records</dfn> being the <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-5">records</a> defined by the field's <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-3">parent</a>.</li>
+</ul>
+<p>A field adds following keys and corresponding values to the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration-sequence" class="internalDFN" id="ref-for-dfn-logical-view-iteration-sequence-5">logical view iteration sequence</a>:</p>
+<ul>
+<li>A <a data-link-type="dfn|abstract-op" href="#dfn-record-key" class="internalDFN" id="ref-for-dfn-record-key-7">record key</a> <code>{absoluteFieldName}</code> with as values the <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-6">records</a> defined by the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-23">field</a>.</li>
+<li>An accompanying <a data-link-type="dfn|abstract-op" href="#dfn-index-key" class="internalDFN" id="ref-for-dfn-index-key-5">index key</a> <code>{absoluteFieldName}.#</code> with as values the position of the current <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-7">record</a> in the sequence of <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-8">records</a> derived from its <a data-link-type="dfn|abstract-op" href="#dfn-parent-records" class="internalDFN" id="ref-for-dfn-parent-records-2">parent record</a>.</li>
 </ul>
 <aside class="example" id="ex-field-record-sequence"><div class="marker">
     <a class="self-link" href="#ex-field-record-sequence">Example<bdi> 6</bdi></a>
   </div>
 
-<p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-26">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-5">declared name</a> "item" is added to the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-12">logical view</a> from <a href="#ex-fieldnames" data-matched-text="[[[#ex-fieldnames]]]" class="box-ref">Example<bdi> 5</bdi></a>. Additionally a nested <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-27">field</a> "type" and a nested <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-28">field</a> "weight" are added to the "item" <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-29">field</a>.</p>
+<p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-24">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-6">declared name</a> "item" is added to the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-11">logical view</a> from <a href="#ex-fieldnames" data-matched-text="[[[#ex-fieldnames]]]" class="box-ref">Example<bdi> 5</bdi></a>. Additionally a nested <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-25">field</a> "type" and a nested <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-26">field</a> "weight" are added to the "item" <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-27">field</a>.</p>
 <aside class="ex-mapping">
 
 <pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonView</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
@@ -1087,20 +1121,20 @@ The underlined keys represent <a data-link-type="dfn|abstract-op" href="#dfn-ref
 
 </aside>
 
-</section><section id="field-reference-formulations"><div class="header-wrapper"><h3 id="fieldreferenceformulations"><bdi class="secno">4.4 </bdi>Field reference formulations</h3><a class="self-link" href="#fieldreferenceformulations" aria-label="Permalink for Section 4.4"></a></div><p>For the evaluation of the expression of an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-6">expression field</a> (<code>rml:ExpressionField</code>) on the records of the field's <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-4">parent</a>, the parent's <a href="https://w3id.org/rml/core/spec##dfn-reference-formulation">reference formulation</a> is used. 
-Consequently, the parent of an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-7">expression field</a> <em class="rfc2119">MUST</em> be an <a href="https://w3id.org/rml/core/spec##dfn-iterable">iterable</a>, i.e. an <a href="https://w3id.org/rml/core/spec##dfn-abstract-logical-source">abstract logical source</a> or <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-6">iterable field</a>.  </p>
-<p>The default <a href="https://w3id.org/rml/core/spec##dfn-reference-formulation">reference formulation</a> of an <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-7">iterable field</a> (<code>rml:IterableField</code>) is the <a href="https://w3id.org/rml/core/spec##dfn-reference-formulation">reference formulation</a> of the field's <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-5">parent</a>. 
-If the <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-8">iterable field</a>'s <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-6">parent</a> is an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-8">expression field</a>, a <a href="https://w3id.org/rml/core/spec##dfn-reference-formulation">reference formulation</a> <em class="rfc2119">MUST</em> be declared for the <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-9">iterable field</a>.
-Declaring a new <a href="https://w3id.org/rml/core/spec##dfn-reference-formulation">reference formulation</a>, i.e. a <a href="https://w3id.org/rml/core/spec##dfn-reference-formulation">reference formulation</a> that is different from the <a href="https://w3id.org/rml/core/spec##dfn-reference-formulation">reference formulation</a> of the field's <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-7">parent</a>, is only allowed when the field's <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-8">parent</a> is an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-9">expression field</a>. </p>
+</section><section id="field-reference-formulations"><div class="header-wrapper"><h3 id="fieldreferenceformulations"><bdi class="secno">4.4 </bdi>Field reference formulations</h3><a class="self-link" href="#fieldreferenceformulations" aria-label="Permalink for Section 4.4"></a></div><p>For the evaluation of the expression of an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-4">expression field</a> (<code>rml:ExpressionField</code>) on the records of the field's <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-4">parent</a>, the parent's <a href="https://w3id.org/rml/core/spec##dfn-reference-formulation">reference formulation</a> is used. 
+Consequently, the parent of an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-5">expression field</a> <em class="rfc2119">MUST</em> be an <a href="https://w3id.org/rml/core/spec##dfn-iterable">iterable</a>, i.e. an <a href="https://w3id.org/rml/core/spec##dfn-abstract-logical-source">abstract logical source</a> or <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-5">iterable field</a>.  </p>
+<p>The default <a href="https://w3id.org/rml/core/spec##dfn-reference-formulation">reference formulation</a> of an <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-6">iterable field</a> (<code>rml:IterableField</code>) is the <a href="https://w3id.org/rml/core/spec##dfn-reference-formulation">reference formulation</a> of the field's <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-5">parent</a>. 
+If the <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-7">iterable field</a>'s <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-6">parent</a> is an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-6">expression field</a>, a <a href="https://w3id.org/rml/core/spec##dfn-reference-formulation">reference formulation</a> <em class="rfc2119">MUST</em> be declared for the <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-8">iterable field</a>.
+Declaring a new <a href="https://w3id.org/rml/core/spec##dfn-reference-formulation">reference formulation</a>, i.e. a <a href="https://w3id.org/rml/core/spec##dfn-reference-formulation">reference formulation</a> that is different from the <a href="https://w3id.org/rml/core/spec##dfn-reference-formulation">reference formulation</a> of the field's <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-7">parent</a>, is only allowed when the field's <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-8">parent</a> is an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-7">expression field</a>. </p>
 <aside class="example" id="ex-mixed-format-json-csv"><div class="marker">
     <a class="self-link" href="#ex-mixed-format-json-csv">Example<bdi> 7</bdi></a>
   </div>
 
-<p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-13">logical view</a> is defined on a <a href="https://w3id.org/rml/core/spec#dfn-logical-source">logical source</a> with reference formulation <code>rml:JSONPath</code>.
-The <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-30">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-6">declared name</a> "items" is evaluated using this <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a>.
-The nested <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-31">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-7">declared name</a> "item" has a declared <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a> <code>rml:CSV</code> and CSV row as implicit iterator. 
+<p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-12">logical view</a> is defined on a <a href="https://w3id.org/rml/core/spec#dfn-logical-source">logical source</a> with reference formulation <code>rml:JSONPath</code>.
+The <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-28">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-7">declared name</a> "items" is evaluated using this <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a>.
+The nested <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-29">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-8">declared name</a> "item" has a declared <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a> <code>rml:CSV</code> and CSV row as implicit iterator. 
 Its records are a sequence of logical iterations defined by its iterator. 
-The nested fields with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-8">declared name</a> "type" and "weight" are evaluated using the reference formulation <code>rml:CSV</code> from their parent field with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-9">declared name</a> "item".</p>
+The nested fields with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-9">declared name</a> "type" and "weight" are evaluated using the reference formulation <code>rml:CSV</code> from their parent field with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-10">declared name</a> "item".</p>
 <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
@@ -1214,14 +1248,17 @@ Note some columns in the table below have been shortened for brevity.
 </tbody></table>
 </aside></section></section>
 
-<section id="logical-view-joins"><div class="header-wrapper"><h2 id="viewjoins"><bdi class="secno">5. </bdi>Logical view joins</h2><a class="self-link" href="#viewjoins" aria-label="Permalink for Section 5."></a></div><p>A <dfn id="dfn-logical-view-join" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">logical view join</dfn> (<code>rml:LogicalViewJoin</code>) is an operation that extends the logical iteration of one logical view (the <a data-link-type="dfn|abstract-op" href="#dfn-child-logical-view" class="internalDFN" id="ref-for-dfn-child-logical-view-1">child logical view</a>) with fields derived from another logical view (the <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="internalDFN" id="ref-for-dfn-parent-logical-view-1">parent logical view</a>).</p>
-<p>A <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-2">logical view join</a> (<code>rml:LogicalViewJoin</code>) <em class="rfc2119">MUST</em> contain:</p>
+<section id="logical-view-joins"><div class="header-wrapper"><h2 id="viewjoins"><bdi class="secno">5. </bdi>Logical view joins</h2><a class="self-link" href="#viewjoins" aria-label="Permalink for Section 5."></a></div><p>A <dfn id="dfn-logical-view-join" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">logical view join</dfn> (<code>rml:LogicalViewJoin</code>) is an operation that extends the logical iteration of one logical view (the <a data-link-type="dfn|abstract-op" href="#dfn-child-logical-view" class="internalDFN" id="ref-for-dfn-child-logical-view-1">child logical view</a>) with fields derived from another logical view (the <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="internalDFN" id="ref-for-dfn-parent-logical-view-1">parent logical view</a>),
+using a <a href="https://w3id.org/rml/core/spec#dfn-join-condition">join condition</a>.</p>
+<p>A <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-2">logical view join</a> <em class="rfc2119">MUST</em> contain:</p>
 <ul>
-<li>exactly one parent logical view property (<code>rml:parentLogicalView</code>), whose value is a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-14">logical view</a> (<code>rml:LogicalView</code>) that supplies the additional fields, fulfills the role of the <a href="">parent logical source</a> in the <a href="https://w3id.org/rml/core/spec#dfn-join-condition">join condition(s)</a> of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-3">logical view join</a>, and is referred to as <dfn id="dfn-parent-logical-view" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">parent logical view</dfn>.</li>
+<li>exactly one parent logical view property (<code>rml:parentLogicalView</code>), whose value is a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-13">logical view</a> (<code>rml:LogicalView</code>) that supplies the additional fields. This is referred to as the <dfn id="dfn-parent-logical-view" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">parent logical view</dfn>.</li>
 <li>at least one join condition property (<code>rml:joinCondition</code>), whose value is a <a href="https://w3id.org/rml/core/spec#dfn-join-condition">join condition</a>.</li>
-<li>at least one field property (<code>rml:field</code>), whose value is an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-10">expression field</a> (<code>rml:ExpressionField</code>). This field <em class="rfc2119">SHOULD</em> only contain <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-reference" class="internalDFN" id="ref-for-dfn-logical-view-reference-3">logical view references</a> that can be evaluated on the parent logical view.</li>
+<li>at least one field property (<code>rml:field</code>), whose value is an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-8">expression field</a> (<code>rml:ExpressionField</code>). This field <em class="rfc2119">SHOULD</em> only contain <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-reference" class="internalDFN" id="ref-for-dfn-logical-view-reference-3">logical view references</a> that can be evaluated on the parent logical view.</li>
 </ul>
-<p>The <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-15">logical view</a> in the subject position of the <a data-link-type="dfn|abstract-op" href="#dfn-join-property" class="internalDFN" id="ref-for-dfn-join-property-1">join property</a>, fulfills the role of <a href="">child logical source</a> in the <a href="https://w3id.org/rml/core/spec#dfn-join-condition">join condition(s)</a> of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-4">logical view join</a>, and is referred to as <dfn id="dfn-child-logical-view" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">child logical view</dfn>.</p>
+<p>Similar to how  <a href="https://w3id.org/rml/core/spec#joins">joins are defined in RML-Core</a>,
+the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-14">logical view</a> in the subject position of the <a data-link-type="dfn|abstract-op" href="#dfn-join-property" class="internalDFN" id="ref-for-dfn-join-property-1">join property</a> fulfills the role of <a href="">child logical source</a> in the <a href="https://w3id.org/rml/core/spec#dfn-join-condition">join condition(s)</a>, but of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-3">logical view join</a>, and is referred to as <dfn id="dfn-child-logical-view" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">child logical view</dfn>.
+The <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="internalDFN" id="ref-for-dfn-parent-logical-view-2">parent logical view</a> fulfills the role of the <a href="">parent logical source</a> in the <a href="https://w3id.org/rml/core/spec#dfn-join-condition">join condition(s)</a>, but of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-4">logical view join</a>.</p>
 <table>
 <thead>
 <tr>
@@ -1247,7 +1284,7 @@ Note some columns in the table below have been shortened for brevity.
 </tr>
 </tbody></table>
 <section id="join-types"><div class="header-wrapper"><h3 id="dfn-join-type"><bdi class="secno">5.1 </bdi>Join types</h3><a class="self-link" href="#dfn-join-type" aria-label="Permalink for Section 5.1"></a></div><p>The <dfn id="dfn-join-property" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">join property</dfn> specifies the join type of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-5">logical view join</a>, i.e. a <a data-link-type="dfn|abstract-op" href="#dfn-left-join" class="internalDFN" id="ref-for-dfn-left-join-1">left join</a> or an <a data-link-type="dfn|abstract-op" href="#dfn-inner-join" class="internalDFN" id="ref-for-dfn-inner-join-1">inner join</a>.</p>
-<p>A <dfn id="dfn-left-join" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">left join</dfn> (<code>rml:leftJoin</code>) is the equivalent of a left (outer) join in SQL, where the <a data-link-type="dfn|abstract-op" href="#dfn-child-logical-view" class="internalDFN" id="ref-for-dfn-child-logical-view-2">child logical view</a> is the left part of the join, and the <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="internalDFN" id="ref-for-dfn-parent-logical-view-2">parent logical view</a> is the right part of the join. If any of the <a href="https://w3id.org/rml/core/spec#dfn-join-condition">join conditions</a> evaluates to <code>false</code>, the fields from the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-6">logical view join</a> in the extended logical iteration contain a null value.</p>
+<p>A <dfn id="dfn-left-join" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">left join</dfn> (<code>rml:leftJoin</code>) is the equivalent of a left (outer) join in SQL, where the <a data-link-type="dfn|abstract-op" href="#dfn-child-logical-view" class="internalDFN" id="ref-for-dfn-child-logical-view-2">child logical view</a> is the left part of the join, and the <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="internalDFN" id="ref-for-dfn-parent-logical-view-3">parent logical view</a> is the right part of the join. If any of the <a href="https://w3id.org/rml/core/spec#dfn-join-condition">join conditions</a> evaluates to <code>false</code>, the fields from the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-6">logical view join</a> in the extended logical iteration contain a null value.</p>
 <p>An <dfn id="dfn-inner-join" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">inner join</dfn> (<code>rml:innerJoin</code>) is the equivalent of an inner join in SQL. If any of the <a href="https://w3id.org/rml/core/spec#dfn-join-condition">join conditions</a> evaluates to <code>false</code>, the logical iteration is removed from the <a data-link-type="dfn|abstract-op" href="#dfn-child-logical-view" class="internalDFN" id="ref-for-dfn-child-logical-view-3">child logical view</a>.</p>
 </section><section id="logical-view-join-examples"><div class="header-wrapper"><h3 id="x5-2-logical-view-join-examples"><bdi class="secno">5.2 </bdi>Logical view join examples</h3><a class="self-link" href="#logical-view-join-examples" aria-label="Permalink for Section 5.2"></a></div>
 <section id="left-join"><div class="header-wrapper"><h4 id="x5-2-1-left-join"><bdi class="secno">5.2.1 </bdi>Left join</h4><a class="self-link" href="#left-join" aria-label="Permalink for Section 5.2.1"></a></div>
@@ -1255,7 +1292,7 @@ Note some columns in the table below have been shortened for brevity.
     <a class="self-link" href="#ex-leftjoin">Example<bdi> 8</bdi></a>
   </div>
 
-<p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-16">logical view</a> with fields built with data from the logical source <code>:csvSource</code> is joined with the logical view from <a href="#ex-field-record-sequence" data-matched-text="[[[#ex-field-record-sequence]]]" class="box-ref">Example<bdi> 6</bdi></a>. 
+<p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-15">logical view</a> with fields built with data from the logical source <code>:csvSource</code> is joined with the logical view from <a href="#ex-field-record-sequence" data-matched-text="[[[#ex-field-record-sequence]]]" class="box-ref">Example<bdi> 6</bdi></a>. 
 In case of a left join (as in the example), this results in 4 logical iterations in the logical view. 
 If an inner joins would have been used, the logical view would have only 3 logical iterations. </p>
 <aside class="ex-input">
@@ -1314,6 +1351,8 @@ tobias,2005
         <th><u>name</u></th>
         <th><u>birthyear.#</u></th>
         <th><u>birthyear</u></th>
+        <th><u>item.#</u></th>
+        <th>item</th>
         <th><u>item_type.#</u></th>
         <th><u>item_type</u></th>
         <th><u>item_weight.#</u></th>
@@ -1327,6 +1366,13 @@ tobias,2005
         <td>0</td>
         <td>1995</td>
         <td>0</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">
+{...}
+</code></pre>
+</td>
+        <td>0</td>
         <td>sword</td>
         <td>0</td>
         <td>1500 </td>
@@ -1339,8 +1385,15 @@ tobias,2005
         <td>0</td>
         <td>1995</td>
         <td>1</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">
+{...}
+</code></pre>
+</td>
+        <td>0</td>
         <td>shield</td>
-        <td>1</td>
+        <td>0</td>
         <td>2500 </td>
     </tr>
     <tr>
@@ -1350,6 +1403,13 @@ tobias,2005
         <td>bob</td>
         <td>0</td>
         <td>1999</td>
+        <td>0</td>
+        <td>
+
+<pre><code class="json hljs" aria-busy="false">
+{...}
+</code></pre>
+</td>
         <td>0</td>
         <td>flower</td>
         <td>0</td>
@@ -1362,6 +1422,8 @@ tobias,2005
         <td>tobias</td>
         <td>0</td>
         <td>2005</td>
+        <td>null</td>
+        <td>null</td>
         <td>null</td>
         <td>null</td>
         <td>null</td>
@@ -1421,10 +1483,12 @@ tobias,2005
         <th><u>name</u></th>
         <th><u>birthyear.#</u></th>
         <th><u>birthyear</u></th>
+        <th><u>item.#</u></th>
+        <th>item</th>
         <th><u>item_type.#</u></th>
         <th><u>item_type</u></th>
         <th><u>item_weight.#</u></th>
-        <th><u>item_weight </u></th>
+        <th><u>item_weight</u></th>
     </tr>
     <tr>
         <td>0</td>
@@ -1433,6 +1497,13 @@ tobias,2005
         <td>alice</td>
         <td>0</td>
         <td>1995</td>
+        <td>0</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">
+{...}
+</code></pre>
+</td>
         <td>0</td>
         <td>sword</td>
         <td>0</td>
@@ -1446,8 +1517,15 @@ tobias,2005
         <td>0</td>
         <td>1995</td>
         <td>1</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">
+{...}
+</code></pre>
+</td>
+        <td>0</td>
         <td>shield</td>
-        <td>1</td>
+        <td>0</td>
         <td>2500 </td>
     </tr>
     <tr>
@@ -1457,6 +1535,13 @@ tobias,2005
         <td>bob</td>
         <td>0</td>
         <td>1999</td>
+        <td>0</td>
+        <td>
+
+<pre><code class="json hljs" aria-busy="false">
+{...}
+</code></pre>
+</td>
         <td>0</td>
         <td>flower</td>
         <td>0</td>
@@ -1473,7 +1558,7 @@ tobias,2005
     <a class="self-link" href="#ex-twoleftjoins">Example<bdi> 10</bdi></a>
   </div>
 
-<p>In this example a second <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-7">logical view join</a> is added to the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-17">logical view</a> from <a href="#ex-leftjoin" data-matched-text="[[[#ex-leftjoin]]]" class="box-ref">Example<bdi> 8</bdi></a>. The <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="internalDFN" id="ref-for-dfn-parent-logical-view-3">parent logical view</a> of this second join is derived from logical source <code>:additionalCsvSource</code> with below input data.</p>
+<p>In this example a second <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-7">logical view join</a> is added to the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-16">logical view</a> from <a href="#ex-leftjoin" data-matched-text="[[[#ex-leftjoin]]]" class="box-ref">Example<bdi> 8</bdi></a>. The <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="internalDFN" id="ref-for-dfn-parent-logical-view-4">parent logical view</a> of this second join is derived from logical source <code>:additionalCsvSource</code> with below input data.</p>
 <aside class="ex-input">
 
 <pre><code class="csv hljs" aria-busy="false">name,id
@@ -1551,11 +1636,13 @@ tobias,789
         <th><u>name</u></th>
         <th><u>birthyear.#</u></th>
         <th><u>birthyear</u></th>
+        <th><u>item.#</u></th>
+        <th>item</th>
         <th><u>item_type.#</u></th>
         <th><u>item_type</u></th>
         <th><u>item_weight.#</u></th>
         <th><u>item_weight</u></th>
-        <th><u>id#</u></th>
+        <th><u>id.#</u></th>
         <th><u>id</u></th>
     </tr>
     <tr>
@@ -1565,6 +1652,13 @@ tobias,789
         <td>alice</td>
         <td>0</td>
         <td>1995</td>
+        <td>0</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">
+{...}
+</code></pre>
+</td>
         <td>0</td>
         <td>sword</td>
         <td>0</td>
@@ -1580,8 +1674,15 @@ tobias,789
         <td>0</td>
         <td>1995</td>
         <td>1</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">
+{...}
+</code></pre>
+</td>        
+        <td>0</td>
         <td>shield</td>
-        <td>1</td>
+        <td>0</td>
         <td>2500 </td>
         <td>0</td>
         <td>123</td>
@@ -1593,6 +1694,13 @@ tobias,789
         <td>bob</td>
         <td>0</td>
         <td>1999</td>
+        <td>0</td>
+<td>
+
+<pre><code class="json hljs" aria-busy="false">
+{...}
+</code></pre>
+</td>
         <td>0</td>
         <td>flower</td>
         <td>0</td>
@@ -1610,6 +1718,8 @@ tobias,789
         <td>null</td>
         <td>null</td>
         <td>null</td>
+        <td>null</td>
+        <td>null</td>
         <td>null </td>
         <td>0</td>
         <td>789</td>
@@ -1620,7 +1730,7 @@ tobias,789
 </aside></section></section></section>
 
 <section id="structural-annotations"><div class="header-wrapper"><h2 id="annotations"><bdi class="secno">6. </bdi>Structural Annotations</h2><a class="self-link" href="#annotations" aria-label="Permalink for Section 6."></a></div><p><dfn data-plurals="structural annotation" id="dfn-structural-annotations" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Structural annotations</dfn> provide a mechanism to express relationships between logical views, as well as additional information about fields.</p>
-<p>Each <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-18">logical view</a> <em class="rfc2119">MAY</em> have zero or more <a data-link-type="dfn|abstract-op" href="#dfn-structural-annotations" class="internalDFN" id="ref-for-dfn-structural-annotations-1">structural annotation</a> properties (<code>rml:structuralAnnotation</code>), connecting the logical view to a structural annotation object (i.e., of type <code>rml:StructuralAnnotation</code>).</p>
+<p>Each <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-17">logical view</a> <em class="rfc2119">MAY</em> have zero or more <a data-link-type="dfn|abstract-op" href="#dfn-structural-annotations" class="internalDFN" id="ref-for-dfn-structural-annotations-1">structural annotation</a> properties (<code>rml:structuralAnnotation</code>), connecting the logical view to a structural annotation object (i.e., of type <code>rml:StructuralAnnotation</code>).</p>
 <table>
 <thead>
 <tr>
@@ -1662,7 +1772,7 @@ tobias,789
 <section id="invariance-principle"><div class="header-wrapper"><h3 id="x6-1-invariance-principle"><bdi class="secno">6.1 </bdi>Invariance Principle</h3><a class="self-link" href="#invariance-principle" aria-label="Permalink for Section 6.1"></a></div>
 <p>Structural annotations provide additional information about the data that might be used by the RML processor to optimize the KG construction process. If this additional information is incorrect, then the RML processor might either fail or produce wrong results. When using structural annotations, users should make sure that the following invariance principle is satisfied:</p>
 <p><i>For any source instances, the RDF graph produced by the RML engine using an <a href="https://w3id.org/rml/core/spec#dfn-rml-mapping">RML mapping</a> with annotations, and the same  <a href="https://w3id.org/rml/core/spec#dfn-rml-mapping">RML mapping</a> where annotations have been removed, <em class="rfc2119">MUST</em> be the same.</i></p>
-<p>We emphasize that RML engines might exploit structural annotations, as they could totally ignore them. It is responsibility of the user to make sure that the annotations provided are indeed correct (that is, the data complies with the annotations). Sanity checks <em class="rfc2119">MAY</em> be provided by the RML engines themselves, but this is not mandatory. Note that providing wrong annotations to an engine that takes into account for annotations, for instance for applying optimizations, could result in a violation of the invariance principle, with unpredictable results.</p>
+<p>We emphasize that RML engines might exploit structural annotations, as they could totally ignore them. It is responsibility of the user to make sure that the annotations provided are indeed correct (that is, the data complies with the annotations). Sanity checks <em class="rfc2119">MAY</em> be provided by the RML engines themselves, but this is not mandatory. Note that providing wrong annotations to an engine that takes annotations into account, for instance for applying optimizations, could result in a violation of the invariance principle, with unpredictable results.</p>
 </section><section id="irisafe"><div class="header-wrapper"><h3 id="x6-2-irisafe"><bdi class="secno">6.2 </bdi>IriSafe</h3><a class="self-link" href="#irisafe" aria-label="Permalink for Section 6.2"></a></div>
 <p>An <dfn data-lt="IriSafe annotation|IriSafe structural annotation" id="dfn-irisafe-annotation" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">IriSafe structural annotation</dfn> (<code>rml:IriSafeAnnotation</code>) <a data-link-type="dfn|abstract-op" href="#dfn-on-fields" class="internalDFN" id="ref-for-dfn-on-fields-2">on fields</a> <em>F</em> indicates that the content of each field in <em>F</em> is <a href="https://www.w3.org/TR/r2rml/#dfn-iri-safe">IRI safe</a>, that is, each field in <em>F</em> does not contain any character that is not in the <a href="http://tools.ietf.org/html/rfc3987#section-2.2"><code>iunreserved</code> production</a> in <a href="http://tools.ietf.org/html/rfc3987">RFC3987</a>.</p>
 </section><section id="primarykey"><div class="header-wrapper"><h3 id="x6-3-primarykey"><bdi class="secno">6.3 </bdi>PrimaryKey</h3><a class="self-link" href="#primarykey" aria-label="Permalink for Section 6.3"></a></div>
@@ -1671,7 +1781,7 @@ tobias,789
 <li>no duplicate record sequences are present over the list of fields <em>(f1, ..., fn)</em>;</li>
 <li>No <code>NULL</code> value is admitted in any of the field <em>f1, ..., fn</em>.</li>
 </ul>
-<p>Each <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-19">logical view</a> <em class="rfc2119">MAY</em> specify AT MOST ONE <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annotation" class="internalDFN" id="ref-for-dfn-primarykey-annotation-2">PrimaryKey annotation</a>.</p>
+<p>Each <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-18">logical view</a> <em class="rfc2119">MAY</em> specify AT MOST ONE <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annotation" class="internalDFN" id="ref-for-dfn-primarykey-annotation-2">PrimaryKey annotation</a>.</p>
 <aside class="example" id="primary-key"><div class="marker">
     <a class="self-link" href="#primary-key">Example<bdi> 11</bdi></a>
   </div>
@@ -1743,7 +1853,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annota
 <li>each NULL-free record sequence over the list of fields <em>(f1, ..., fn)</em> occurs also as a record sequence in <em>(tf1,...,tfn)</em>;</li>
 <li>Target view <i>lv</i> defines a <a data-link-type="dfn|abstract-op" href="#dfn-unique-annotation" class="internalDFN" id="ref-for-dfn-unique-annotation-4">Unique annotation</a> <a data-link-type="dfn|abstract-op" href="#dfn-on-fields" class="internalDFN" id="ref-for-dfn-on-fields-7">on fields</a> <em>(tf1,...,tfn)</em>.</li>
 </ul>
-<p>The <dfn id="dfn-target-view" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">target view</dfn> is a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-20">logical view</a> specified through the property <code>rml:targetView</code>, whereas the <dfn id="dfn-target-fields" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">target fields</dfn> are an RDF list of field names specified through the property <code>rml:targetFields</code>. These two properties are specified as follows:</p>
+<p>The <dfn id="dfn-target-view" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">target view</dfn> is a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-19">logical view</a> specified through the property <code>rml:targetView</code>, whereas the <dfn id="dfn-target-fields" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">target fields</dfn> are an RDF list of field names specified through the property <code>rml:targetFields</code>. These two properties are specified as follows:</p>
 <table>
 <thead>
 <tr>
@@ -1772,7 +1882,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annota
     <a class="self-link" href="#foreign-key">Example<bdi> 12</bdi></a>
   </div>
 
-<p>Consider the following XML file containing information about warriors.</p>
+<p>Consider the following JSON file containing information about warriors.</p>
 <aside class="ex-input">
 
 <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
@@ -1806,13 +1916,13 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annota
 
 <p>Now, assume that we know:</p>
 <ul>
-<li>Attribute <code>name</code> in the CSV is "UNIQUE" and "NOT NULL";</li>
-<li>All warriors in our domain are contained in the CSV file.</li>
+<li>Attribute <code>name</code> in the CSV of <a href="#primary-key" data-matched-text="[[[#primary-key]]]" class="box-ref">Example<bdi> 11</bdi></a> is "UNIQUE" and "NOT NULL";</li>
+<li>All warriors in our domain are contained in the JSON of <a href="#foreign-key" data-matched-text="[[[#foreign-key]]]" class="box-ref">Example<bdi> 12</bdi></a>.</li>
 </ul>
 <p>The first constraint naturally corresponds to the notion of <code>PRIMARY KEY</code> from the world of relational databases. This fact could be valuable information for the RML engine, especially in the virtual setting. However, note that constraints cannot be expressed on CSV files.</p>
-<p>The second constraint naturally corresponds to a <code>FOREIGN KEY</code> constraint from the world of relational databases. However, being the involved values spread across  different (and diverse) sources, it obviously cannot be expressed as such. Also this one could provide valuable information for the RML engine.</p>
-<p>We can exploit the mechanism of structural annotations to inform the RML engine about the existence of such "relational-like" constraint. We here work-out an example.</p>
-<p>First, we need to specify the logical sources. The logical source corresponding to the CSV:</p>
+<p>The second constraint naturally corresponds to a <code>FOREIGN KEY</code> constraint from the world of relational databases. However, as the involved values spread across different (and diverse) sources, it cannot be expressed as such. Also this one could provide valuable information for the RML engine.</p>
+<p>We can exploit the mechanism of structural annotations to inform the RML engine about the existence of such "relational-like" constraint. We here work out an example.</p>
+<p>First, we need to specify the logical sources. The logical source corresponding to the CSV of <a href="#primary-key" data-matched-text="[[[#primary-key]]]" class="box-ref">Example<bdi> 11</bdi></a>:</p>
 <aside class="ex-mapping">
 
 <pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:csvSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalSource</span> ;
@@ -1821,7 +1931,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annota
 </code></pre>
 </aside>
 
-<p>The logical source corresponding to the JSON:</p>
+<p>The logical source corresponding to the JSON of <a href="#foreign-key" data-matched-text="[[[#foreign-key]]]" class="box-ref">Example<bdi> 12</bdi></a>:</p>
 <aside class="ex-mapping">
 
 <pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalSource</span> ;
@@ -1893,7 +2003,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annota
 <ul>
 <li>each NULL-free record sequence over the list of fields <em>(f1, ..., fn)</em> occurs also as a record sequence in <em>(tf1,...,tfn)</em>;</li>
 </ul>
-<p>As for <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annotation" class="internalDFN" id="ref-for-dfn-foreignkey-annotation-3">ForeignKey annotation</a>, the <a data-link-type="dfn|abstract-op" href="#dfn-target-view" class="internalDFN" id="ref-for-dfn-target-view-3">target view</a> <em class="rfc2119">MUST</em> be a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-21">logical view</a> specified through the property <code>rml:targetView</code>, whereas the <def>target fields</def> <em class="rfc2119">MUST</em> be an RDF list of field names specified through the property <code>rml:targetFields</code>.</p>
+<p>As for <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annotation" class="internalDFN" id="ref-for-dfn-foreignkey-annotation-3">ForeignKey annotation</a>, the <a data-link-type="dfn|abstract-op" href="#dfn-target-view" class="internalDFN" id="ref-for-dfn-target-view-3">target view</a> <em class="rfc2119">MUST</em> be a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-20">logical view</a> specified through the property <code>rml:targetView</code>, whereas the <def>target fields</def> <em class="rfc2119">MUST</em> be an RDF list of field names specified through the property <code>rml:targetFields</code>.</p>
 <p>Therefore, each inclusion annotation <em class="rfc2119">MUST</em> specify (additionally to the inherited <code>rml:onFields</code> property):</p>
 <ul>
 <li>Exactly one <code>rml:targetView</code> property</li>
@@ -1915,10 +2025,8 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <a href="https://www.rfc-editor.org/rfc/rfc9535"><cite>JSONPath: Query Expressions for JSON</cite></a>. S. Gössner, Ed.; G. Normington, Ed.; C. Bormann, Ed. IETF. February 2024. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc9535">https://www.rfc-editor.org/rfc/rfc9535</a>
     </dd><dt id="bib-rml-core">[RML-Core]</dt><dd>
       <a href="https://w3id.org/rml/core/spec"><cite>RML-Core</cite></a>.  W3C. 16 February 2024. Draft Community Group Report. URL: <a href="https://w3id.org/rml/core/spec">https://w3id.org/rml/core/spec</a>
-    </dd><dt id="bib-turtle">[Turtle]</dt><dd>
+    </dd><dt id="bib-turtle">[turtle]</dt><dd>
       <a href="https://www.w3.org/TR/turtle/"><cite>RDF 1.1 Turtle</cite></a>. Eric Prud'hommeaux; Gavin Carothers.  W3C. 25 February 2014. W3C Recommendation. URL: <a href="https://www.w3.org/TR/turtle/">https://www.w3.org/TR/turtle/</a>
-    </dd><dt id="bib-vc-data-model">[vc-data-model]</dt><dd>
-      <a href="https://www.w3.org/TR/vc-data-model/"><cite>Verifiable Credentials Data Model v1.1</cite></a>. Manu Sporny; Grant Noble; Dave Longley; Daniel Burnett; Brent Zundel; Kyle Den Hartog.  W3C. 3 March 2022. W3C Recommendation. URL: <a href="https://www.w3.org/TR/vc-data-model/">https://www.w3.org/TR/vc-data-model/</a>
     </dd></dl>
   </section></section><p role="navigation" id="back-to-top">
     <a href="#title"><abbr title="Back to Top">↑</abbr></a>
@@ -1933,31 +2041,31 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
     <li>
       <a href="#ref-for-dfn-logical-view-1" title="§ 3. Logical views">§ 3. Logical views</a> <a href="#ref-for-dfn-logical-view-2" title="Reference 2">(2)</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-3" title="§ 3.1 Logical view iterator">§ 3.1 Logical view iterator</a> <a href="#ref-for-dfn-logical-view-4" title="Reference 2">(2)</a> <a href="#ref-for-dfn-logical-view-5" title="Reference 3">(3)</a> <a href="#ref-for-dfn-logical-view-6" title="Reference 4">(4)</a> <a href="#ref-for-dfn-logical-view-7" title="Reference 5">(5)</a> 
+      <a href="#ref-for-dfn-logical-view-3" title="§ 3.1 Logical view iterator">§ 3.1 Logical view iterator</a> <a href="#ref-for-dfn-logical-view-4" title="Reference 2">(2)</a> <a href="#ref-for-dfn-logical-view-5" title="Reference 3">(3)</a> <a href="#ref-for-dfn-logical-view-6" title="Reference 4">(4)</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-8" title="§ 4. Fields">§ 4. Fields</a> 
+      <a href="#ref-for-dfn-logical-view-7" title="§ 4. Fields">§ 4. Fields</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-9" title="§ 4.1 Field parents">§ 4.1 Field parents</a> <a href="#ref-for-dfn-logical-view-10" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-logical-view-8" title="§ 4.1 Field parents">§ 4.1 Field parents</a> <a href="#ref-for-dfn-logical-view-9" title="Reference 2">(2)</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-11" title="§ 4.2 Field names">§ 4.2 Field names</a> 
+      <a href="#ref-for-dfn-logical-view-10" title="§ 4.2 Field names">§ 4.2 Field names</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-12" title="§ 4.3 Field records">§ 4.3 Field records</a> 
+      <a href="#ref-for-dfn-logical-view-11" title="§ 4.3 Field records">§ 4.3 Field records</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-13" title="§ 4.4 Field reference formulations">§ 4.4 Field reference formulations</a> 
+      <a href="#ref-for-dfn-logical-view-12" title="§ 4.4 Field reference formulations">§ 4.4 Field reference formulations</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-14" title="§ 5. Logical view joins">§ 5. Logical view joins</a> <a href="#ref-for-dfn-logical-view-15" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-logical-view-13" title="§ 5. Logical view joins">§ 5. Logical view joins</a> <a href="#ref-for-dfn-logical-view-14" title="Reference 2">(2)</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-16" title="§ 5.2.1 Left join">§ 5.2.1 Left join</a> 
+      <a href="#ref-for-dfn-logical-view-15" title="§ 5.2.1 Left join">§ 5.2.1 Left join</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-17" title="§ 5.2.3 Two left joins">§ 5.2.3 Two left joins</a> 
+      <a href="#ref-for-dfn-logical-view-16" title="§ 5.2.3 Two left joins">§ 5.2.3 Two left joins</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-18" title="§ 6. Structural Annotations">§ 6. Structural Annotations</a> 
+      <a href="#ref-for-dfn-logical-view-17" title="§ 6. Structural Annotations">§ 6. Structural Annotations</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-19" title="§ 6.3 PrimaryKey">§ 6.3 PrimaryKey</a> 
+      <a href="#ref-for-dfn-logical-view-18" title="§ 6.3 PrimaryKey">§ 6.3 PrimaryKey</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-20" title="§ 6.6 ForeignKey">§ 6.6 ForeignKey</a> 
+      <a href="#ref-for-dfn-logical-view-19" title="§ 6.6 ForeignKey">§ 6.6 ForeignKey</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-21" title="§ 6.7 Inclusion">§ 6.7 Inclusion</a> 
+      <a href="#ref-for-dfn-logical-view-20" title="§ 6.7 Inclusion">§ 6.7 Inclusion</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-logical-view-iteration-sequence" aria-label="Links in this document to definition: logical view iteration sequence">
@@ -1969,11 +2077,25 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-logical-view-iteration-sequence-1" title="§ 3.1 Logical view iterator">§ 3.1 Logical view iterator</a> 
+      <a href="#ref-for-dfn-logical-view-iteration-sequence-1" title="§ 3.1 Logical view iterator">§ 3.1 Logical view iterator</a> <a href="#ref-for-dfn-logical-view-iteration-sequence-2" title="Reference 2">(2)</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-iteration-sequence-2" title="§ 4.2 Field names">§ 4.2 Field names</a> <a href="#ref-for-dfn-logical-view-iteration-sequence-3" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-logical-view-iteration-sequence-3" title="§ 3.2 Logical view expressions">§ 3.2 Logical view expressions</a> <a href="#ref-for-dfn-logical-view-iteration-sequence-4" title="Reference 2">(2)</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-iteration-sequence-4" title="§ 4.3 Field records">§ 4.3 Field records</a> 
+      <a href="#ref-for-dfn-logical-view-iteration-sequence-5" title="§ 4.3 Field records">§ 4.3 Field records</a> 
+    </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-logical-view-iteration" aria-label="Links in this document to definition: logical view iteration">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-logical-view-iteration" aria-label="Permalink for definition: logical view iteration. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-logical-view-iteration-1" title="§ 3.1 Logical view iterator">§ 3.1 Logical view iterator</a> <a href="#ref-for-dfn-logical-view-iteration-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-logical-view-iteration-3" title="Reference 3">(3)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-logical-view-iteration-4" title="§ 3.2 Logical view expressions">§ 3.2 Logical view expressions</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-record" aria-label="Links in this document to definition: record">
@@ -1992,6 +2114,38 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <a href="#ref-for-dfn-record-4" title="§ 4.3 Field records">§ 4.3 Field records</a> <a href="#ref-for-dfn-record-5" title="Reference 2">(2)</a> <a href="#ref-for-dfn-record-6" title="Reference 3">(3)</a> <a href="#ref-for-dfn-record-7" title="Reference 4">(4)</a> <a href="#ref-for-dfn-record-8" title="Reference 5">(5)</a> 
     </li>
   </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-iterable-record" aria-label="Links in this document to definition: iterable record">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-iterable-record" aria-label="Permalink for definition: iterable record. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-iterable-record-1" title="§ 3.1 Logical view iterator">§ 3.1 Logical view iterator</a> <a href="#ref-for-dfn-iterable-record-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-iterable-record-3" title="Reference 3">(3)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-iterable-record-4" title="§ 3.2 Logical view expressions">§ 3.2 Logical view expressions</a> 
+    </li><li>
+      <a href="#ref-for-dfn-iterable-record-5" title="§ 4.3 Field records">§ 4.3 Field records</a> 
+    </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-expression-record" aria-label="Links in this document to definition: expression record">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-expression-record" aria-label="Permalink for definition: expression record. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-expression-record-1" title="§ 3.1 Logical view iterator">§ 3.1 Logical view iterator</a> <a href="#ref-for-dfn-expression-record-2" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-expression-record-3" title="§ 3.2 Logical view expressions">§ 3.2 Logical view expressions</a> <a href="#ref-for-dfn-expression-record-4" title="Reference 2">(2)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-expression-record-5" title="§ 4.3 Field records">§ 4.3 Field records</a> 
+    </li>
+  </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-record-key" aria-label="Links in this document to definition: record key">
       <span class="caret"></span>
       <div>
@@ -2001,11 +2155,11 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-record-key-1" title="§ 3.1 Logical view iterator">§ 3.1 Logical view iterator</a> 
+      <a href="#ref-for-dfn-record-key-1" title="§ 3.1 Logical view iterator">§ 3.1 Logical view iterator</a> <a href="#ref-for-dfn-record-key-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-record-key-3" title="Reference 3">(3)</a> 
     </li><li>
-      <a href="#ref-for-dfn-record-key-2" title="§ 3.2 Logical view expressions">§ 3.2 Logical view expressions</a> <a href="#ref-for-dfn-record-key-3" title="Reference 2">(2)</a> <a href="#ref-for-dfn-record-key-4" title="Reference 3">(3)</a> <a href="#ref-for-dfn-record-key-5" title="Reference 4">(4)</a> 
+      <a href="#ref-for-dfn-record-key-4" title="§ 3.2 Logical view expressions">§ 3.2 Logical view expressions</a> <a href="#ref-for-dfn-record-key-5" title="Reference 2">(2)</a> <a href="#ref-for-dfn-record-key-6" title="Reference 3">(3)</a> 
     </li><li>
-      <a href="#ref-for-dfn-record-key-6" title="§ 4.3 Field records">§ 4.3 Field records</a> 
+      <a href="#ref-for-dfn-record-key-7" title="§ 4.3 Field records">§ 4.3 Field records</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-index-key" aria-label="Links in this document to definition: index key">
@@ -2017,25 +2171,11 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-index-key-1" title="§ 3.1 Logical view iterator">§ 3.1 Logical view iterator</a> 
+      <a href="#ref-for-dfn-index-key-1" title="§ 3.1 Logical view iterator">§ 3.1 Logical view iterator</a> <a href="#ref-for-dfn-index-key-2" title="Reference 2">(2)</a> 
     </li><li>
-      <a href="#ref-for-dfn-index-key-2" title="§ 3.2 Logical view expressions">§ 3.2 Logical view expressions</a> <a href="#ref-for-dfn-index-key-3" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-index-key-3" title="§ 3.2 Logical view expressions">§ 3.2 Logical view expressions</a> <a href="#ref-for-dfn-index-key-4" title="Reference 2">(2)</a> 
     </li><li>
-      <a href="#ref-for-dfn-index-key-4" title="§ 4.3 Field records">§ 4.3 Field records</a> 
-    </li>
-  </ul>
-    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-logical-view-iteration" aria-label="Links in this document to definition: logical view iteration">
-      <span class="caret"></span>
-      <div>
-        <a class="self-link" href="#dfn-logical-view-iteration" aria-label="Permalink for definition: logical view iteration. Activate to close this dialog.">Permalink</a>
-         
-      </div>
-      <p><b>Referenced in:</b></p>
-      <ul>
-    <li>
-      <a href="#ref-for-dfn-logical-view-iteration-1" title="§ 3.1 Logical view iterator">§ 3.1 Logical view iterator</a> <a href="#ref-for-dfn-logical-view-iteration-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-logical-view-iteration-3" title="Reference 3">(3)</a> <a href="#ref-for-dfn-logical-view-iteration-4" title="Reference 4">(4)</a> 
-    </li><li>
-      <a href="#ref-for-dfn-logical-view-iteration-5" title="§ 3.2 Logical view expressions">§ 3.2 Logical view expressions</a> 
+      <a href="#ref-for-dfn-index-key-5" title="§ 4.3 Field records">§ 4.3 Field records</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-logical-view-reference" aria-label="Links in this document to definition: logical view reference">
@@ -2061,9 +2201,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-referenceable-key-1" title="§ 3.2 Logical view expressions">§ 3.2 Logical view expressions</a> 
-    </li><li>
-      <a href="#ref-for-dfn-referenceable-key-2" title="§ 4.2 Field names">§ 4.2 Field names</a> 
+      <a href="#ref-for-dfn-referenceable-key-1" title="§ 3.2 Logical view expressions">§ 3.2 Logical view expressions</a> <a href="#ref-for-dfn-referenceable-key-2" title="Reference 2">(2)</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-field" aria-label="Links in this document to definition: field">
@@ -2085,9 +2223,9 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
     </li><li>
       <a href="#ref-for-dfn-field-12" title="§ 4.2 Field names">§ 4.2 Field names</a> <a href="#ref-for-dfn-field-13" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-14" title="Reference 3">(3)</a> <a href="#ref-for-dfn-field-15" title="Reference 4">(4)</a> <a href="#ref-for-dfn-field-16" title="Reference 5">(5)</a> <a href="#ref-for-dfn-field-17" title="Reference 6">(6)</a> <a href="#ref-for-dfn-field-18" title="Reference 7">(7)</a> <a href="#ref-for-dfn-field-19" title="Reference 8">(8)</a> <a href="#ref-for-dfn-field-20" title="Reference 9">(9)</a> <a href="#ref-for-dfn-field-21" title="Reference 10">(10)</a> 
     </li><li>
-      <a href="#ref-for-dfn-field-22" title="§ 4.3 Field records">§ 4.3 Field records</a> <a href="#ref-for-dfn-field-23" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-24" title="Reference 3">(3)</a> <a href="#ref-for-dfn-field-25" title="Reference 4">(4)</a> <a href="#ref-for-dfn-field-26" title="Reference 5">(5)</a> <a href="#ref-for-dfn-field-27" title="Reference 6">(6)</a> <a href="#ref-for-dfn-field-28" title="Reference 7">(7)</a> <a href="#ref-for-dfn-field-29" title="Reference 8">(8)</a> 
+      <a href="#ref-for-dfn-field-22" title="§ 4.3 Field records">§ 4.3 Field records</a> <a href="#ref-for-dfn-field-23" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-24" title="Reference 3">(3)</a> <a href="#ref-for-dfn-field-25" title="Reference 4">(4)</a> <a href="#ref-for-dfn-field-26" title="Reference 5">(5)</a> <a href="#ref-for-dfn-field-27" title="Reference 6">(6)</a> 
     </li><li>
-      <a href="#ref-for-dfn-field-30" title="§ 4.4 Field reference formulations">§ 4.4 Field reference formulations</a> <a href="#ref-for-dfn-field-31" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-field-28" title="§ 4.4 Field reference formulations">§ 4.4 Field reference formulations</a> <a href="#ref-for-dfn-field-29" title="Reference 2">(2)</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-expression-field" aria-label="Links in this document to definition: expression field">
@@ -2099,15 +2237,13 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-expression-field-1" title="§ 3.2 Logical view expressions">§ 3.2 Logical view expressions</a> <a href="#ref-for-dfn-expression-field-2" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-expression-field-1" title="§ 4. Fields">§ 4. Fields</a> <a href="#ref-for-dfn-expression-field-2" title="Reference 2">(2)</a> 
     </li><li>
-      <a href="#ref-for-dfn-expression-field-3" title="§ 4. Fields">§ 4. Fields</a> <a href="#ref-for-dfn-expression-field-4" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-expression-field-3" title="§ 4.3 Field records">§ 4.3 Field records</a> 
     </li><li>
-      <a href="#ref-for-dfn-expression-field-5" title="§ 4.3 Field records">§ 4.3 Field records</a> 
+      <a href="#ref-for-dfn-expression-field-4" title="§ 4.4 Field reference formulations">§ 4.4 Field reference formulations</a> <a href="#ref-for-dfn-expression-field-5" title="Reference 2">(2)</a> <a href="#ref-for-dfn-expression-field-6" title="Reference 3">(3)</a> <a href="#ref-for-dfn-expression-field-7" title="Reference 4">(4)</a> 
     </li><li>
-      <a href="#ref-for-dfn-expression-field-6" title="§ 4.4 Field reference formulations">§ 4.4 Field reference formulations</a> <a href="#ref-for-dfn-expression-field-7" title="Reference 2">(2)</a> <a href="#ref-for-dfn-expression-field-8" title="Reference 3">(3)</a> <a href="#ref-for-dfn-expression-field-9" title="Reference 4">(4)</a> 
-    </li><li>
-      <a href="#ref-for-dfn-expression-field-10" title="§ 5. Logical view joins">§ 5. Logical view joins</a> 
+      <a href="#ref-for-dfn-expression-field-8" title="§ 5. Logical view joins">§ 5. Logical view joins</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-iterable-field" aria-label="Links in this document to definition: iterable field">
@@ -2119,13 +2255,11 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-iterable-field-1" title="§ 3.2 Logical view expressions">§ 3.2 Logical view expressions</a> 
+      <a href="#ref-for-dfn-iterable-field-1" title="§ 4. Fields">§ 4. Fields</a> <a href="#ref-for-dfn-iterable-field-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-iterable-field-3" title="Reference 3">(3)</a> 
     </li><li>
-      <a href="#ref-for-dfn-iterable-field-2" title="§ 4. Fields">§ 4. Fields</a> <a href="#ref-for-dfn-iterable-field-3" title="Reference 2">(2)</a> <a href="#ref-for-dfn-iterable-field-4" title="Reference 3">(3)</a> 
+      <a href="#ref-for-dfn-iterable-field-4" title="§ 4.3 Field records">§ 4.3 Field records</a> 
     </li><li>
-      <a href="#ref-for-dfn-iterable-field-5" title="§ 4.3 Field records">§ 4.3 Field records</a> 
-    </li><li>
-      <a href="#ref-for-dfn-iterable-field-6" title="§ 4.4 Field reference formulations">§ 4.4 Field reference formulations</a> <a href="#ref-for-dfn-iterable-field-7" title="Reference 2">(2)</a> <a href="#ref-for-dfn-iterable-field-8" title="Reference 3">(3)</a> <a href="#ref-for-dfn-iterable-field-9" title="Reference 4">(4)</a> 
+      <a href="#ref-for-dfn-iterable-field-5" title="§ 4.4 Field reference formulations">§ 4.4 Field reference formulations</a> <a href="#ref-for-dfn-iterable-field-6" title="Reference 2">(2)</a> <a href="#ref-for-dfn-iterable-field-7" title="Reference 3">(3)</a> <a href="#ref-for-dfn-iterable-field-8" title="Reference 4">(4)</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-parent" aria-label="Links in this document to definition: parent">
@@ -2165,11 +2299,13 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-declared-name-1" title="§ 4.2 Field names">§ 4.2 Field names</a> <a href="#ref-for-dfn-declared-name-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-declared-name-3" title="Reference 3">(3)</a> <a href="#ref-for-dfn-declared-name-4" title="Reference 4">(4)</a> 
+      <a href="#ref-for-dfn-declared-name-1" title="§ 4. Fields">§ 4. Fields</a> 
     </li><li>
-      <a href="#ref-for-dfn-declared-name-5" title="§ 4.3 Field records">§ 4.3 Field records</a> 
+      <a href="#ref-for-dfn-declared-name-2" title="§ 4.2 Field names">§ 4.2 Field names</a> <a href="#ref-for-dfn-declared-name-3" title="Reference 2">(2)</a> <a href="#ref-for-dfn-declared-name-4" title="Reference 3">(3)</a> <a href="#ref-for-dfn-declared-name-5" title="Reference 4">(4)</a> 
     </li><li>
-      <a href="#ref-for-dfn-declared-name-6" title="§ 4.4 Field reference formulations">§ 4.4 Field reference formulations</a> <a href="#ref-for-dfn-declared-name-7" title="Reference 2">(2)</a> <a href="#ref-for-dfn-declared-name-8" title="Reference 3">(3)</a> <a href="#ref-for-dfn-declared-name-9" title="Reference 4">(4)</a> 
+      <a href="#ref-for-dfn-declared-name-6" title="§ 4.3 Field records">§ 4.3 Field records</a> 
+    </li><li>
+      <a href="#ref-for-dfn-declared-name-7" title="§ 4.4 Field reference formulations">§ 4.4 Field reference formulations</a> <a href="#ref-for-dfn-declared-name-8" title="Reference 2">(2)</a> <a href="#ref-for-dfn-declared-name-9" title="Reference 3">(3)</a> <a href="#ref-for-dfn-declared-name-10" title="Reference 4">(4)</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-absolute-name" aria-label="Links in this document to definition: absolute name">
@@ -2223,11 +2359,11 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-parent-logical-view-1" title="§ 5. Logical view joins">§ 5. Logical view joins</a> 
+      <a href="#ref-for-dfn-parent-logical-view-1" title="§ 5. Logical view joins">§ 5. Logical view joins</a> <a href="#ref-for-dfn-parent-logical-view-2" title="Reference 2">(2)</a> 
     </li><li>
-      <a href="#ref-for-dfn-parent-logical-view-2" title="§ 5.1 Join types">§ 5.1 Join types</a> 
+      <a href="#ref-for-dfn-parent-logical-view-3" title="§ 5.1 Join types">§ 5.1 Join types</a> 
     </li><li>
-      <a href="#ref-for-dfn-parent-logical-view-3" title="§ 5.2.3 Two left joins">§ 5.2.3 Two left joins</a> 
+      <a href="#ref-for-dfn-parent-logical-view-4" title="§ 5.2.3 Two left joins">§ 5.2.3 Two left joins</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-child-logical-view" aria-label="Links in this document to definition: child logical view">
@@ -2434,7 +2570,104 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <a href="#ref-for-dfn-inclusion-annotation-2" title="§ 6.7 Inclusion">§ 6.7 Inclusion</a> <a href="#ref-for-dfn-inclusion-annotation-3" title="Reference 2">(2)</a> 
     </li>
   </ul>
-    </div><script id="respec-dfn-panel">(() => {
+    </div><script id="respec-highlight-vars">(() => {
+// @ts-check
+
+if (document.respec) {
+  document.respec.ready.then(setupVarHighlighter);
+} else {
+  setupVarHighlighter();
+}
+
+function setupVarHighlighter() {
+  document
+    .querySelectorAll("var")
+    .forEach(varElem => varElem.addEventListener("click", highlightListener));
+}
+
+function highlightListener(ev) {
+  ev.stopPropagation();
+  const { target: varElem } = ev;
+  const hightligtedElems = highlightVars(varElem);
+  const resetListener = () => {
+    const hlColor = getHighlightColor(varElem);
+    hightligtedElems.forEach(el => removeHighlight(el, hlColor));
+    [...HL_COLORS.keys()].forEach(key => HL_COLORS.set(key, true));
+  };
+  if (hightligtedElems.length) {
+    document.body.addEventListener("click", resetListener, { once: true });
+  }
+}
+
+// availability of highlight colors. colors from var.css
+const HL_COLORS = new Map([
+  ["respec-hl-c1", true],
+  ["respec-hl-c2", true],
+  ["respec-hl-c3", true],
+  ["respec-hl-c4", true],
+  ["respec-hl-c5", true],
+  ["respec-hl-c6", true],
+  ["respec-hl-c7", true],
+]);
+
+function getHighlightColor(target) {
+  // return current colors if applicable
+  const { value } = target.classList;
+  const re = /respec-hl-\w+/;
+  const activeClass = re.test(value) && value.match(re);
+  if (activeClass) return activeClass[0];
+
+  // first color preference
+  if (HL_COLORS.get("respec-hl-c1") === true) return "respec-hl-c1";
+
+  // otherwise get some other available color
+  return [...HL_COLORS.keys()].find(c => HL_COLORS.get(c)) || "respec-hl-c1";
+}
+
+function highlightVars(varElem) {
+  const textContent = norm(varElem.textContent);
+  const parent = varElem.closest(".algorithm, section");
+  const highlightColor = getHighlightColor(varElem);
+
+  const varsToHighlight = [...parent.querySelectorAll("var")].filter(
+    el =>
+      norm(el.textContent) === textContent &&
+      el.closest(".algorithm, section") === parent
+  );
+
+  // update availability of highlight color
+  const colorStatus = varsToHighlight[0].classList.contains("respec-hl");
+  HL_COLORS.set(highlightColor, colorStatus);
+
+  // highlight vars
+  if (colorStatus) {
+    varsToHighlight.forEach(el => removeHighlight(el, highlightColor));
+    return [];
+  } else {
+    varsToHighlight.forEach(el => addHighlight(el, highlightColor));
+  }
+  return varsToHighlight;
+}
+
+function removeHighlight(el, highlightColor) {
+  el.classList.remove("respec-hl", highlightColor);
+  // clean up empty class attributes so they don't come in export
+  if (!el.classList.length) el.removeAttribute("class");
+}
+
+function addHighlight(elem, highlightColor) {
+  elem.classList.add("respec-hl", highlightColor);
+}
+
+/**
+ * Same as `norm` from src/core/utils, but our build process doesn't allow
+ * imports in runtime scripts, so duplicated here.
+ * @param {string} str
+ */
+function norm(str) {
+  return str.trim().replace(/\s+/g, " ");
+}
+})()</script><script id="respec-dfn-panel">(() => {
 // @ts-check
 if (document.respec) {
   document.respec.ready.then(setupPanel);

@@ -21,29 +21,6 @@ async function loadTurtle() {
 }
 var respecConfig = {
   preProcess: [loadTurtle],
-  localBiblio: {
-    "RDF11-Concepts": {
-      title: "RDF 1.1 Concepts and Abstract Syntax",
-      href: "https://www.w3.org/TR/rdf11-concepts/",
-      status: "W3C Recommendation",
-      publisher: "W3C",
-      date: "25 February 2014",
-    },
-    "Turtle": {
-      title: "RDF 1.1 Turtle",
-      href: "https://www.w3.org/TR/turtle/",
-      status: "W3C Recommendation",
-      publisher: "W3C",
-      date: "25 February 2014",
-    },
-    "RML": {
-      title: "RDF Mapping Language",
-      href: "https://rml.io/specs/rml/",
-      status: "Unofficial draft",
-      publisher: "https://rml.io",
-      date: "06 October 2020",
-    }
-  },
   // These may become useful if the document gets a more 'official' status
   // postProcess : [ postProc ],
   doRdfa: "true",
@@ -74,7 +51,7 @@ var respecConfig = {
     {
       name: "Pano Maria",
       mailto: "pano@skemu.com",
-      url: "https://panomaria.com",
+      // url: "https://panomaria.com",
       company: "Skemu",
       companyURL: "https://skemu.com"
     },
