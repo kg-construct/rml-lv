@@ -87,22 +87,22 @@ var respecConfig = {
   ],
   // name of the WG, should be listed at https://respec.org/w3c/groups/
   group: "kg-construct",
-  latestVersion: "https://w3id.org/rml/lv/spec/",
+  latestVersion: "https://kg-construct.github.io/rml-lv/spec/docs/",
   issueBase: "https://github.com/kg-construct/rml-lv/issues",
   noRecTrack: "true",
   otherLinks: [
     {
       key: "This Version",
       data: [{
-        value: "https://w3id.org/rml/lv/spec/%thisDate%/",
-        href: "https://w3id.org/rml/lv/spec/%thisDate%/"
+        value: "https://kg-construct.github.io/rml-lv/spec/docs/%thisDate%/",
+        href: "https://kg-construct.github.io/rml-lv/spec/docs/%thisDate%/"
       }]
     },
     {
       key: "Previous Version",
       data: [{
-        value: "https://w3id.org/rml/lv/spec/%prevDate%/",
-        href: "https://w3id.org/rml/lv/spec/%prevDate%/"
+        value: "https://kg-construct.github.io/rml-lv/spec/docs/%prevDate%/",
+        href: "https://kg-construct.github.io/rml-lv/spec/docs/%prevDate%/"
       }]
     },
     {
