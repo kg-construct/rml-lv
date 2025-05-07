@@ -1,22 +1,22 @@
-## RMLLVTC0007b
-
-**Title**: Change Reference Formulations: CSV including JSON object
-
-**Description**: Test a change of reference formulations: csv source including json object
-
-**Error expected?** No
-
-**Input**
-```
+## RMLLVTC0007b
+
+**Title**: Change Reference Formulations: CSV including JSON object
+
+**Description**: Test a change of reference formulations: csv source including json object
+
+**Error expected?** No
+
+**Input**
+```
 name,item
 alice,"{""type"":""sword"",""weight"":1500}"
 alice,"{""type"":""shield"",""weight"":2500}"
 bob,"{""type"":""flower"",""weight"":15}"
-
-```
-
-**Mapping**
-```
+
+```
+
+**Mapping**
+```
 @prefix rml: <http://w3id.org/rml/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://example.org/> .
@@ -75,17 +75,17 @@ bob,"{""type"":""flower"",""weight"":15}"
       rml:datatype xsd:integer ;
     ] ;
   ] .
-
-```
-
-**Output**
-```
+
+```
+
+**Output**
+```
 <http://example.org/item_0_0> <http://example.org/hasType> "sword" .
 <http://example.org/item_0_0> <http://example.org/hasWeight> "1500"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://example.org/item_1_0> <http://example.org/hasType> "shield" .
 <http://example.org/item_1_0> <http://example.org/hasWeight> "2500"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://example.org/item_2_0> <http://example.org/hasType> "flower" .
 <http://example.org/item_2_0> <http://example.org/hasWeight> "15"^^<http://www.w3.org/2001/XMLSchema#integer> .
-
-```
-
+
+```
+

@@ -1,13 +1,13 @@
-## RMLLVTC0003b
-
-**Title**: Index Key: Iterable Field
-
-**Description**: Test a reference to the index key of an iterable field
-
-**Error expected?** No
-
-**Input**
-```
+## RMLLVTC0003b
+
+**Title**: Index Key: Iterable Field
+
+**Description**: Test a reference to the index key of an iterable field
+
+**Error expected?** No
+
+**Input**
+```
 {
   "people": [
     {
@@ -34,11 +34,11 @@
     }
   ]
 }
-
-```
-
-**Mapping**
-```
+
+```
+
+**Mapping**
+```
 @prefix rml: <http://w3id.org/rml/> .
 @prefix : <http://example.org/> .
 
@@ -80,15 +80,15 @@
       rml:reference "item.type" ;
     ] ;
   ] .
-
-```
-
-**Output**
-```
+
+```
+
+**Output**
+```
 <http://example.org/person/alice/item/0> <http://example.org/hasType> "sword" .
 <http://example.org/person/alice/item/1> <http://example.org/hasType> "shield" .
 <http://example.org/person/bob/item/0> <http://example.org/hasType> "flower" .
 
-
-```
-
+
+```
+

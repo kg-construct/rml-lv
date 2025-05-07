@@ -1,13 +1,13 @@
-## RMLLVTC0006e
-
-**Title**: Two Inner Joins
-
-**Description**: Test two left joins in one logical view
-
-**Error expected?** No
-
-**Input**
-```
+## RMLLVTC0006e
+
+**Title**: Two Inner Joins
+
+**Description**: Test two left joins in one logical view
+
+**Error expected?** No
+
+**Input**
+```
 {
   "people": [
     {
@@ -25,27 +25,27 @@
     }
   ]
 }
-
-```
-
-**Input 1**
-```
+
+```
+
+**Input 1**
+```
 name,birthyear
 alice,1995
 bob,1999
 tobias,2005
-
-```
-
-**Input 2**
-```
+
+```
+
+**Input 2**
+```
 name,id
 alice,123
-
-```
-
-**Mapping**
-```
+
+```
+
+**Mapping**
+```
 @prefix rml: <http://w3id.org/rml/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://example.org/> .
@@ -158,14 +158,14 @@ alice,123
       rml:template "http://example.org/person/{csv2_id}/item/{json_item}" ;
     ] ;
   ] .
-
-```
-
-**Output**
-```
+
+```
+
+**Output**
+```
 <http://example.org/person/123> <http://example.org/hasBirthYear> "1995"^^<http://www.w3.org/2001/XMLSchema#gYear> .
 <http://example.org/person/123> <http://example.org/hasItem> <http://example.org/person/123/item/sword> .
 <http://example.org/person/123> <http://example.org/hasItem> <http://example.org/person/123/item/shield> .
-
-```
-
+
+```
+

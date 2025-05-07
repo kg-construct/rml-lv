@@ -1,13 +1,13 @@
-## RMLLVTC0008b
-
-**Title**: Cycle: Joins
-
-**Description**: Test a cycle in two joins of two logical views
-
-**Error expected?** No
-
-**Input**
-```
+## RMLLVTC0008b
+
+**Title**: Cycle: Joins
+
+**Description**: Test a cycle in two joins of two logical views
+
+**Error expected?** Yes
+
+**Input**
+```
 {
   "people": [
     {
@@ -25,20 +25,20 @@
     }
   ]
 }
-
-```
-
-**Input 1**
-```
+
+```
+
+**Input 1**
+```
 name,birthyear
 alice,1995
 bob,1999
 tobias,2005
-
-```
-
-**Mapping**
-```
+
+```
+
+**Mapping**
+```
 @prefix rml: <http://w3id.org/rml/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://example.org/> .
@@ -129,17 +129,6 @@ tobias,2005
       rml:template "http://example.org/person/{name}/item/{json_item}" ;
     ] ;
   ] .
-
-```
-
-**Output**
-```
-<http://example.org/person/alice> <http://example.org/hasBirthYear> "1995"^^<http://www.w3.org/2001/XMLSchema#gYear> .
-<http://example.org/person/alice> <http://example.org/hasItem> <http://example.org/person/alice/item/sword> .
-<http://example.org/person/alice> <http://example.org/hasItem> <http://example.org/person/alice/item/shield> .
-<http://example.org/person/bob> <http://example.org/hasBirthYear> "1999"^^<http://www.w3.org/2001/XMLSchema#gYear> .
-<http://example.org/person/bob> <http://example.org/hasItem> <http://example.org/person/bob/item/flower> .
-<http://example.org/person/tobias> <http://example.org/hasBirthYear> "2005"^^<http://www.w3.org/2001/XMLSchema#gYear> .
-
-```
-
+
+```
+

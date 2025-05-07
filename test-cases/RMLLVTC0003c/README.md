@@ -1,13 +1,13 @@
-## RMLLVTC0003c
-
-**Title**: Index Key: Expression field
-
-**Description**: Test a reference to the index key of an expression field
-
-**Error expected?** No
-
-**Input**
-```
+## RMLLVTC0003c
+
+**Title**: Index Key: Expression field
+
+**Description**: Test a reference to the index key of an expression field
+
+**Error expected?** No
+
+**Input**
+```
 {
   "people": [
     {
@@ -25,11 +25,11 @@
     }
   ]
 }
-
-```
-
-**Mapping**
-```
+
+```
+
+**Mapping**
+```
 @prefix rml: <http://w3id.org/rml/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://example.org/> .
@@ -67,14 +67,14 @@
       rml:reference "item" ;
     ] ;
   ] .
-
-```
-
-**Output**
-```
+
+```
+
+**Output**
+```
 <http://example.org/person/alice/item/0> <http://example.org/hasType> "sword" .
 <http://example.org/person/alice/item/1> <http://example.org/hasType> "shield" .
 <http://example.org/person/bob/item/0> <http://example.org/hasType> "flower" .
-
-```
-
+
+```
+

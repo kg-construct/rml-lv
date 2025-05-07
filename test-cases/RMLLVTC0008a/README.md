@@ -1,13 +1,13 @@
-## RMLLVTC0008a
-
-**Title**: Cycle: Abstract Logical Source
-
-**Description**: Test a cycle in the abstract logical source of a logical view
-
-**Error expected?** Yes
-
-**Mapping**
-```
+## RMLLVTC0008a
+
+**Title**: Cycle: Abstract Logical Source
+
+**Description**: Test a cycle in the abstract logical source of a logical view
+
+**Error expected?** Yes
+
+**Mapping**
+```
 @prefix rml: <http://w3id.org/rml/> .
 @prefix : <http://example.org/> .
 
@@ -38,6 +38,6 @@
       rml:reference "name2" ;
     ] ;
   ] .
-
-```
-
+
+```
+
