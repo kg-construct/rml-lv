@@ -1,6 +1,6 @@
 # RML LV test cases
 
-Manifest of test cases can be generated as followed:
+The test cases publication (html pages) can be generated as followed:
 
 1. Add the testcase description in `descriptions.csv` or fetch it from the [Google spreadsheet](https://docs.google.com/spreadsheets/d/1Ui216z2cF8bNAbdZvws-JoAhcjj4M2k_NlfzmCh1jh8/edit?gid=1769343477#gid=1769343477).
 2. Navigate to folder ./test-cases
