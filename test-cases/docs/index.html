@@ -145,6 +145,7 @@ dd{margin-left:0}
 .removeOnSave{display:none}
 }
 </style>
+<meta id="ConnectiveDocSignExtentionInstalled" name="ConnectiveDocSignExtentionInstalled" data-extension-version="1.0.7">
 <meta name="color-scheme" content="light">
 <meta name="description" content="This document defines the RML-LV test cases to the determine the RML-LV specification conformance of tools.">
 <style>
@@ -253,14 +254,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "copyrightStart": "2024",
   "doJsonLd": true,
   "group": "kg-construct",
-  "_ijt": "tgoohqga5hl7n0kt56f4kpa9qd",
+  "_ijt": "uri3h85pqki7gebpn8rgcemdri",
   "_ij_reload": "RELOAD_ON_SAVE",
   "publishISODate": "2025-05-08T00:00:00.000Z",
   "generatedSubtitle": "Draft Community Group Report 08 May 2025"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
 
-<body class="h-entry informative"><div class="head">
+<body class="h-entry informative toc-inline"><div class="head">
     
     <h1 id="title" class="title">RML-LV: Test Cases</h1> 
     <p id="w3c-state">
@@ -372,8 +373,7 @@ Each test case is contained in a single folder, containing three types of files:
 <p><strong>Description</strong>: Test a view on a hierarchical source</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -399,11 +399,9 @@ Each test case is contained in a single folder, containing three types of files:
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
 :jsonSource a <span class="hljs-attribute">rml</span>:LogicalSource ;
@@ -434,13 +432,10 @@ Each test case is contained in a single folder, containing three types of files:
       rml:reference <span class="hljs-string">"name"</span> ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-&lt;http://example.org/person/alice&gt; &lt;http://example.org/hasName&gt; <span class="hljs-string">"alice"</span> .
+<pre><code aria-busy="false" class="hljs css">&lt;http://example.org/person/alice&gt; &lt;http://example.org/hasName&gt; <span class="hljs-string">"alice"</span> .
 &lt;http://example.org/person/bob&gt; &lt;http://example.org/hasName&gt; <span class="hljs-string">"bob"</span> .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0000b"><div class="header-wrapper"><h2 id="x5-rmllvtc0000b"><bdi class="secno">5. </bdi>RMLLVTC0000b</h2><a class="self-link" href="#RMLLVTC0000b" aria-label="Permalink for Section 5."></a></div>
@@ -448,16 +443,13 @@ Each test case is contained in a single folder, containing three types of files:
 <p><strong>Description</strong>: Test a view on a tabular source</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs">
-name,birthyear
+<pre><code aria-busy="false" class="hljs">name,birthyear
 alice,1995
 bob,1999
 tobias,2005
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
 :csvSource a <span class="hljs-attribute">rml</span>:LogicalSource ;
@@ -487,11 +479,9 @@ tobias,2005
       rml:reference <span class="hljs-string">"name"</span> ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-&lt;http://example.org/person/alice&gt; &lt;http://example.org/hasName&gt; <span class="hljs-string">"alice"</span> .
+<pre><code aria-busy="false" class="hljs css">&lt;http://example.org/person/alice&gt; &lt;http://example.org/hasName&gt; <span class="hljs-string">"alice"</span> .
 &lt;http://example.org/person/bob&gt; &lt;http://example.org/hasName&gt; <span class="hljs-string">"bob"</span> .
 &lt;http://example.org/person/tobias&gt; &lt;http://example.org/hasName&gt; <span class="hljs-string">"tobias"</span> .
 </code></pre>
@@ -501,8 +491,7 @@ tobias,2005
 <p><strong>Description</strong>: Test a view on a logical view</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -528,11 +517,9 @@ tobias,2005
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
 :jsonSource a <span class="hljs-attribute">rml</span>:LogicalSource ;
@@ -571,13 +558,10 @@ tobias,2005
       rml:reference <span class="hljs-string">"newName"</span> ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-&lt;http://example.org/person/alice&gt; &lt;http://example.org/hasName&gt; <span class="hljs-string">"alice"</span> .
+<pre><code aria-busy="false" class="hljs css">&lt;http://example.org/person/alice&gt; &lt;http://example.org/hasName&gt; <span class="hljs-string">"alice"</span> .
 &lt;http://example.org/person/bob&gt; &lt;http://example.org/hasName&gt; <span class="hljs-string">"bob"</span> .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0001a"><div class="header-wrapper"><h2 id="x7-rmllvtc0001a"><bdi class="secno">7. </bdi>RMLLVTC0001a</h2><a class="self-link" href="#RMLLVTC0001a" aria-label="Permalink for Section 7."></a></div>
@@ -585,8 +569,7 @@ tobias,2005
 <p><strong>Description</strong>: Test a reference in an expression field</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -612,11 +595,9 @@ tobias,2005
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
 :jsonSource a <span class="hljs-attribute">rml</span>:LogicalSource ;
@@ -647,13 +628,10 @@ tobias,2005
       rml:reference <span class="hljs-string">"name"</span> ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-&lt;http://example.org/person/alice&gt; &lt;http://example.org/hasName&gt; <span class="hljs-string">"alice"</span> .
+<pre><code aria-busy="false" class="hljs css">&lt;http://example.org/person/alice&gt; &lt;http://example.org/hasName&gt; <span class="hljs-string">"alice"</span> .
 &lt;http://example.org/person/bob&gt; &lt;http://example.org/hasName&gt; <span class="hljs-string">"bob"</span> .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0001b"><div class="header-wrapper"><h2 id="x8-rmllvtc0001b"><bdi class="secno">8. </bdi>RMLLVTC0001b</h2><a class="self-link" href="#RMLLVTC0001b" aria-label="Permalink for Section 8."></a></div>
@@ -661,8 +639,7 @@ tobias,2005
 <p><strong>Description</strong>: Test a template in an expression field</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -688,11 +665,9 @@ tobias,2005
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
 :jsonSource a <span class="hljs-attribute">rml</span>:LogicalSource ;
@@ -728,13 +703,10 @@ tobias,2005
       rml:reference <span class="hljs-string">"race"</span> ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-&lt;http://example.org/person/alice&gt; &lt;http://example.org/hasRace&gt; <span class="hljs-string">"human"</span> .
+<pre><code aria-busy="false" class="hljs css">&lt;http://example.org/person/alice&gt; &lt;http://example.org/hasRace&gt; <span class="hljs-string">"human"</span> .
 &lt;http://example.org/person/bob&gt; &lt;http://example.org/hasRace&gt; <span class="hljs-string">"human"</span> .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0001c"><div class="header-wrapper"><h2 id="x9-rmllvtc0001c"><bdi class="secno">9. </bdi>RMLLVTC0001c</h2><a class="self-link" href="#RMLLVTC0001c" aria-label="Permalink for Section 9."></a></div>
@@ -742,8 +714,7 @@ tobias,2005
 <p><strong>Description</strong>: Test a constant expression in an expression field</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -771,11 +742,9 @@ tobias,2005
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
 :jsonSource a <span class="hljs-attribute">rml</span>:LogicalSource ;
@@ -811,13 +780,10 @@ tobias,2005
       rml:reference <span class="hljs-string">"fullName"</span> ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-&lt;http://example.org/person/alice&gt; &lt;http://example.org/hasFullName&gt; <span class="hljs-string">"alice smith"</span> .
+<pre><code aria-busy="false" class="hljs css">&lt;http://example.org/person/alice&gt; &lt;http://example.org/hasFullName&gt; <span class="hljs-string">"alice smith"</span> .
 &lt;http://example.org/person/bob&gt; &lt;http://example.org/hasFullName&gt; <span class="hljs-string">"bob jones"</span> .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0001d"><div class="header-wrapper"><h2 id="x10-rmllvtc0001d"><bdi class="secno">10. </bdi>RMLLVTC0001d</h2><a class="self-link" href="#RMLLVTC0001d" aria-label="Permalink for Section 10."></a></div>
@@ -825,8 +791,7 @@ tobias,2005
 <p><strong>Description</strong>: Test multiple expression fields with the same parent</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -854,11 +819,9 @@ tobias,2005
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
 :jsonSource a <span class="hljs-attribute">rml</span>:LogicalSource ;
@@ -895,13 +858,10 @@ tobias,2005
       rml:termType rml:Literal ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-&lt;http://example.org/person/alice&gt; &lt;http://example.org/hasFullName&gt; <span class="hljs-string">"alice smith"</span> .
+<pre><code aria-busy="false" class="hljs css">&lt;http://example.org/person/alice&gt; &lt;http://example.org/hasFullName&gt; <span class="hljs-string">"alice smith"</span> .
 &lt;http://example.org/person/bob&gt; &lt;http://example.org/hasFullName&gt; <span class="hljs-string">"bob jones"</span> .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0002a"><div class="header-wrapper"><h2 id="x11-rmllvtc0002a"><bdi class="secno">11. </bdi>RMLLVTC0002a</h2><a class="self-link" href="#RMLLVTC0002a" aria-label="Permalink for Section 11."></a></div>
@@ -909,8 +869,7 @@ tobias,2005
 <p><strong>Description</strong>: Test a nested field construction: iterable field with expression field as child</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -936,11 +895,9 @@ tobias,2005
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix <span class="hljs-attribute">xsd</span>: &lt;<span class="hljs-attribute">http</span>://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
@@ -982,14 +939,11 @@ tobias,2005
       rml:template <span class="hljs-string">"http://example.org/person/{name}/item/{item.type}"</span> ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs javascript">
-&lt;<span class="hljs-attr">http</span>:<span class="hljs-comment">//example.org/person/alice&gt; &lt;http://example.org/hasItem&gt; &lt;http://example.org/person/alice/item/sword&gt; .</span>
+<pre><code aria-busy="false" class="hljs javascript">&lt;<span class="hljs-attr">http</span>:<span class="hljs-comment">//example.org/person/alice&gt; &lt;http://example.org/hasItem&gt; &lt;http://example.org/person/alice/item/sword&gt; .</span>
 <span class="language-xml">&lt;http://example.org/person/alice&gt;</span> <span class="language-xml">&lt;http://example.org/hasItem&gt;</span> <span class="language-xml">&lt;http://example.org/person/alice/item/shield&gt;</span> .
 &lt;<span class="hljs-attr">http</span>:<span class="hljs-comment">//example.org/person/bob&gt; &lt;http://example.org/hasItem&gt; &lt;http://example.org/person/bob/item/flower&gt; .</span>
-
 </code></pre>
 </section>
 <section id="RMLLVTC0002b"><div class="header-wrapper"><h2 id="x12-rmllvtc0002b"><bdi class="secno">12. </bdi>RMLLVTC0002b</h2><a class="self-link" href="#RMLLVTC0002b" aria-label="Permalink for Section 12."></a></div>
@@ -997,8 +951,7 @@ tobias,2005
 <p><strong>Description</strong>: Test a nested field construction: iterable field with mulitple expression fields as children</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -1024,11 +977,9 @@ tobias,2005
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix <span class="hljs-attribute">xsd</span>: &lt;<span class="hljs-attribute">http</span>://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
@@ -1082,17 +1033,14 @@ tobias,2005
       rml:datatype xsd:integer ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-&lt;http://example.org/person/alice/item/sword&gt; &lt;http://example.org/hasName&gt; <span class="hljs-string">"sword"</span> .
+<pre><code aria-busy="false" class="hljs css">&lt;http://example.org/person/alice/item/sword&gt; &lt;http://example.org/hasName&gt; <span class="hljs-string">"sword"</span> .
 &lt;http://example.org/person/alice/item/sword&gt; &lt;http://example.org/hasWeight&gt; <span class="hljs-string">"1500"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
 &lt;http://example.org/person/alice/item/shield&gt; &lt;http://example.org/hasName&gt; <span class="hljs-string">"shield"</span> .
 &lt;http://example.org/person/alice/item/shield&gt; &lt;http://example.org/hasWeight&gt; <span class="hljs-string">"2500"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
 &lt;http://example.org/person/bob/item/flower&gt; &lt;http://example.org/hasName&gt; <span class="hljs-string">"flower"</span> .
 &lt;http://example.org/person/bob/item/flower&gt; &lt;http://example.org/hasWeight&gt; <span class="hljs-string">"15"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0002c"><div class="header-wrapper"><h2 id="x13-rmllvtc0002c"><bdi class="secno">13. </bdi>RMLLVTC0002c</h2><a class="self-link" href="#RMLLVTC0002c" aria-label="Permalink for Section 13."></a></div>
@@ -1100,8 +1048,7 @@ tobias,2005
 <p><strong>Description</strong>: Test a nested field construction: iterable field with an iterable field as child</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -1135,11 +1082,9 @@ tobias,2005
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix <span class="hljs-attribute">xsd</span>: &lt;<span class="hljs-attribute">http</span>://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
@@ -1196,14 +1141,11 @@ tobias,2005
       rml:datatype xsd:integer ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-&lt;http://example.org/person/alice/item/sword&gt; &lt;http://example.org/hasWeight&gt; <span class="hljs-string">"1500"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
+<pre><code aria-busy="false" class="hljs css">&lt;http://example.org/person/alice/item/sword&gt; &lt;http://example.org/hasWeight&gt; <span class="hljs-string">"1500"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
 &lt;http://example.org/person/alice/item/shield&gt; &lt;http://example.org/hasWeight&gt; <span class="hljs-string">"2500"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
 &lt;http://example.org/person/bob/item/flower&gt; &lt;http://example.org/hasWeight&gt; <span class="hljs-string">"15"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0003a"><div class="header-wrapper"><h2 id="x14-rmllvtc0003a"><bdi class="secno">14. </bdi>RMLLVTC0003a</h2><a class="self-link" href="#RMLLVTC0003a" aria-label="Permalink for Section 14."></a></div>
@@ -1211,8 +1153,7 @@ tobias,2005
 <p><strong>Description</strong>: Test a reference to the index key #</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -1238,11 +1179,9 @@ tobias,2005
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix <span class="hljs-attribute">xsd</span>: &lt;<span class="hljs-attribute">http</span>://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
@@ -1275,13 +1214,10 @@ tobias,2005
       rml:datatype xsd:integer ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-&lt;http://example.org/person/alice&gt; &lt;http://example.org/hasSequenceNumber&gt; <span class="hljs-string">"0"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
+<pre><code aria-busy="false" class="hljs css">&lt;http://example.org/person/alice&gt; &lt;http://example.org/hasSequenceNumber&gt; <span class="hljs-string">"0"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
 &lt;http://example.org/person/bob&gt; &lt;http://example.org/hasSequenceNumber&gt; <span class="hljs-string">"1"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0003b"><div class="header-wrapper"><h2 id="x15-rmllvtc0003b"><bdi class="secno">15. </bdi>RMLLVTC0003b</h2><a class="self-link" href="#RMLLVTC0003b" aria-label="Permalink for Section 15."></a></div>
@@ -1289,8 +1225,7 @@ tobias,2005
 <p><strong>Description</strong>: Test a reference to the index key of an iterable field</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -1316,11 +1251,9 @@ tobias,2005
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
 :jsonSource a <span class="hljs-attribute">rml</span>:LogicalSource ;
@@ -1361,14 +1294,11 @@ tobias,2005
       rml:reference <span class="hljs-string">"item.type"</span> ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-&lt;http://example.org/person/alice/item/<span class="hljs-number">0</span>&gt; &lt;http://example.org/hasType&gt; <span class="hljs-string">"sword"</span> .
+<pre><code aria-busy="false" class="hljs css">&lt;http://example.org/person/alice/item/<span class="hljs-number">0</span>&gt; &lt;http://example.org/hasType&gt; <span class="hljs-string">"sword"</span> .
 &lt;http://example.org/person/alice/item/<span class="hljs-number">1</span>&gt; &lt;http://example.org/hasType&gt; <span class="hljs-string">"shield"</span> .
 &lt;http://example.org/person/bob/item/<span class="hljs-number">0</span>&gt; &lt;http://example.org/hasType&gt; <span class="hljs-string">"flower"</span> .
-
 
 </code></pre>
 </section>
@@ -1377,8 +1307,7 @@ tobias,2005
 <p><strong>Description</strong>: Test a reference to the index key of an expression field</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -1395,11 +1324,9 @@ tobias,2005
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix <span class="hljs-attribute">xsd</span>: &lt;<span class="hljs-attribute">http</span>://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
@@ -1436,14 +1363,11 @@ tobias,2005
       rml:reference <span class="hljs-string">"item"</span> ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-&lt;http://example.org/person/alice/item/<span class="hljs-number">0</span>&gt; &lt;http://example.org/hasType&gt; <span class="hljs-string">"sword"</span> .
+<pre><code aria-busy="false" class="hljs css">&lt;http://example.org/person/alice/item/<span class="hljs-number">0</span>&gt; &lt;http://example.org/hasType&gt; <span class="hljs-string">"sword"</span> .
 &lt;http://example.org/person/alice/item/<span class="hljs-number">1</span>&gt; &lt;http://example.org/hasType&gt; <span class="hljs-string">"shield"</span> .
 &lt;http://example.org/person/bob/item/<span class="hljs-number">0</span>&gt; &lt;http://example.org/hasType&gt; <span class="hljs-string">"flower"</span> .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0004a"><div class="header-wrapper"><h2 id="x17-rmllvtc0004a"><bdi class="secno">17. </bdi>RMLLVTC0004a</h2><a class="self-link" href="#RMLLVTC0004a" aria-label="Permalink for Section 17."></a></div>
@@ -1451,8 +1375,7 @@ tobias,2005
 <p><strong>Description</strong>: Test the natural datatype mapping for the index #</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -1478,11 +1401,9 @@ tobias,2005
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
 :jsonSource a <span class="hljs-attribute">rml</span>:LogicalSource ;
@@ -1513,13 +1434,10 @@ tobias,2005
       rml:reference <span class="hljs-string">"#"</span> ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-&lt;http://example.org/person/alice&gt; &lt;http://example.org/hasSequenceNumber&gt; <span class="hljs-string">"0"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
+<pre><code aria-busy="false" class="hljs css">&lt;http://example.org/person/alice&gt; &lt;http://example.org/hasSequenceNumber&gt; <span class="hljs-string">"0"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
 &lt;http://example.org/person/bob&gt; &lt;http://example.org/hasSequenceNumber&gt; <span class="hljs-string">"1"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0004b"><div class="header-wrapper"><h2 id="x18-rmllvtc0004b"><bdi class="secno">18. </bdi>RMLLVTC0004b</h2><a class="self-link" href="#RMLLVTC0004b" aria-label="Permalink for Section 18."></a></div>
@@ -1527,8 +1445,7 @@ tobias,2005
 <p><strong>Description</strong>: Test the natural datatype mapping for the index of an expression field</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -1554,11 +1471,9 @@ tobias,2005
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
 :jsonSource a <span class="hljs-attribute">rml</span>:LogicalSource ;
@@ -1599,14 +1514,11 @@ tobias,2005
       rml:reference <span class="hljs-string">"item.#"</span> ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-&lt;http://example.org/person/alice/item/sword&gt; &lt;http://example.org/hasSequenceNumber&gt; <span class="hljs-string">"0"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
+<pre><code aria-busy="false" class="hljs css">&lt;http://example.org/person/alice/item/sword&gt; &lt;http://example.org/hasSequenceNumber&gt; <span class="hljs-string">"0"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
 &lt;http://example.org/person/alice/item/shield&gt; &lt;http://example.org/hasSequenceNumber&gt; <span class="hljs-string">"1"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
 &lt;http://example.org/person/bob/item/flower&gt; &lt;http://example.org/hasSequenceNumber&gt; <span class="hljs-string">"0"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0004c"><div class="header-wrapper"><h2 id="x19-rmllvtc0004c"><bdi class="secno">19. </bdi>RMLLVTC0004c</h2><a class="self-link" href="#RMLLVTC0004c" aria-label="Permalink for Section 19."></a></div>
@@ -1614,8 +1526,7 @@ tobias,2005
 <p><strong>Description</strong>: Test the natural datatype mapping for the index of an iterable field</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -1632,11 +1543,9 @@ tobias,2005
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix <span class="hljs-attribute">xsd</span>: &lt;<span class="hljs-attribute">http</span>://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
@@ -1673,14 +1582,11 @@ tobias,2005
       rml:reference <span class="hljs-string">"item.#"</span> ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-&lt;http://example.org/person/alice/item/sword&gt; &lt;http://example.org/hasSequenceNumber&gt; <span class="hljs-string">"0"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
+<pre><code aria-busy="false" class="hljs css">&lt;http://example.org/person/alice/item/sword&gt; &lt;http://example.org/hasSequenceNumber&gt; <span class="hljs-string">"0"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
 &lt;http://example.org/person/alice/item/shield&gt; &lt;http://example.org/hasSequenceNumber&gt; <span class="hljs-string">"1"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
 &lt;http://example.org/person/bob/item/flower&gt; &lt;http://example.org/hasSequenceNumber&gt; <span class="hljs-string">"0"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0004d"><div class="header-wrapper"><h2 id="x20-rmllvtc0004d"><bdi class="secno">20. </bdi>RMLLVTC0004d</h2><a class="self-link" href="#RMLLVTC0004d" aria-label="Permalink for Section 20."></a></div>
@@ -1688,8 +1594,7 @@ tobias,2005
 <p><strong>Description</strong>: Test the natural datatype mapping  for a record of an expression field</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -1701,11 +1606,9 @@ tobias,2005
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix <span class="hljs-attribute">xsd</span>: &lt;<span class="hljs-attribute">http</span>://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
@@ -1742,13 +1645,10 @@ tobias,2005
       rml:reference <span class="hljs-string">"birthyear"</span> ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-&lt;http://example.org/person/alice&gt; &lt;http://example.org/hasBirthYear&gt; <span class="hljs-string">"1995"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
+<pre><code aria-busy="false" class="hljs css">&lt;http://example.org/person/alice&gt; &lt;http://example.org/hasBirthYear&gt; <span class="hljs-string">"1995"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
 &lt;http://example.org/person/bob&gt; &lt;http://example.org/hasBirthYear&gt; <span class="hljs-string">"1999"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0005a"><div class="header-wrapper"><h2 id="x21-rmllvtc0005a"><bdi class="secno">21. </bdi>RMLLVTC0005a</h2><a class="self-link" href="#RMLLVTC0005a" aria-label="Permalink for Section 21."></a></div>
@@ -1756,8 +1656,7 @@ tobias,2005
 <p><strong>Description</strong>: Test a reference to a non-existing key</p>
 <p><strong>Error expected?</strong> Yes</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -1783,11 +1682,9 @@ tobias,2005
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
 :jsonSource a <span class="hljs-attribute">rml</span>:LogicalSource ;
@@ -1818,7 +1715,6 @@ tobias,2005
       rml:reference <span class="hljs-string">"Name"</span> ;
     ] ;
   ] .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0005b"><div class="header-wrapper"><h2 id="x22-rmllvtc0005b"><bdi class="secno">22. </bdi>RMLLVTC0005b</h2><a class="self-link" href="#RMLLVTC0005b" aria-label="Permalink for Section 22."></a></div>
@@ -1826,8 +1722,7 @@ tobias,2005
 <p><strong>Description</strong>: Test a reference to the record key <it></it></p>
 <p><strong>Error expected?</strong> Yes</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -1853,11 +1748,9 @@ tobias,2005
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
 :jsonSource a <span class="hljs-attribute">rml</span>:LogicalSource ;
@@ -1888,7 +1781,6 @@ tobias,2005
       rml:reference <span class="hljs-string">"&lt;it&gt;"</span> ;
     ] ;
   ] .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0005c"><div class="header-wrapper"><h2 id="x23-rmllvtc0005c"><bdi class="secno">23. </bdi>RMLLVTC0005c</h2><a class="self-link" href="#RMLLVTC0005c" aria-label="Permalink for Section 23."></a></div>
@@ -1896,8 +1788,7 @@ tobias,2005
 <p><strong>Description</strong>: Test a reference to the record key of an iterable field</p>
 <p><strong>Error expected?</strong> Yes</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -1923,11 +1814,9 @@ tobias,2005
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix <span class="hljs-attribute">xsd</span>: &lt;<span class="hljs-attribute">http</span>://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
@@ -1969,7 +1858,6 @@ tobias,2005
       rml:template <span class="hljs-string">"http://example.org/person/{name}/{item}"</span> ;
     ] ;
   ] .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0006a"><div class="header-wrapper"><h2 id="x24-rmllvtc0006a"><bdi class="secno">24. </bdi>RMLLVTC0006a</h2><a class="self-link" href="#RMLLVTC0006a" aria-label="Permalink for Section 24."></a></div>
@@ -1977,8 +1865,7 @@ tobias,2005
 <p><strong>Description</strong>: Test a left join</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -1995,19 +1882,15 @@ tobias,2005
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Input 1</strong></p>
-<pre><code aria-busy="false" class="hljs">
-name,birthyear
+<pre><code aria-busy="false" class="hljs">name,birthyear
 alice,1995
 bob,1999
 tobias,2005
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs">
-@prefix rml: &lt;http://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs">@prefix rml: &lt;http://w3id.org/rml/&gt; .
 @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
 @prefix : &lt;http://example.org/&gt; .
 
@@ -2085,17 +1968,14 @@ tobias,2005
       rml:template "http://example.org/person/{name}/item/{json_item}" ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-&lt;http://example.org/person/alice&gt; &lt;http://example.org/hasBirthYear&gt; <span class="hljs-string">"1995"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#gYear&gt; .
+<pre><code aria-busy="false" class="hljs css">&lt;http://example.org/person/alice&gt; &lt;http://example.org/hasBirthYear&gt; <span class="hljs-string">"1995"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#gYear&gt; .
 &lt;http://example.org/person/alice&gt; &lt;http://example.org/hasItem&gt; &lt;http://example.org/person/alice/item/sword&gt; .
 &lt;http://example.org/person/alice&gt; &lt;http://example.org/hasItem&gt; &lt;http://example.org/person/alice/item/shield&gt; .
 &lt;http://example.org/person/bob&gt; &lt;http://example.org/hasBirthYear&gt; <span class="hljs-string">"1999"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#gYear&gt; .
 &lt;http://example.org/person/bob&gt; &lt;http://example.org/hasItem&gt; &lt;http://example.org/person/bob/item/flower&gt; .
 &lt;http://example.org/person/tobias&gt; &lt;http://example.org/hasBirthYear&gt; <span class="hljs-string">"2005"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#gYear&gt; .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0006b"><div class="header-wrapper"><h2 id="x25-rmllvtc0006b"><bdi class="secno">25. </bdi>RMLLVTC0006b</h2><a class="self-link" href="#RMLLVTC0006b" aria-label="Permalink for Section 25."></a></div>
@@ -2103,8 +1983,7 @@ tobias,2005
 <p><strong>Description</strong>: Test an inner join</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -2121,19 +2000,15 @@ tobias,2005
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Input 1</strong></p>
-<pre><code aria-busy="false" class="hljs">
-name,birthyear
+<pre><code aria-busy="false" class="hljs">name,birthyear
 alice,1995
 bob,1999
 tobias,2005
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix <span class="hljs-attribute">xsd</span>: &lt;<span class="hljs-attribute">http</span>://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
@@ -2211,16 +2086,13 @@ tobias,2005
       rml:template <span class="hljs-string">"http://example.org/person/{name}/item/{json_item}"</span> ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs javascript">
-&lt;<span class="hljs-attr">http</span>:<span class="hljs-comment">//example.org/person/alice&gt; &lt;http://example.org/hasBirthYear&gt; "1995"^^&lt;http://www.w3.org/2001/XMLSchema#gYear&gt; .</span>
+<pre><code aria-busy="false" class="hljs javascript">&lt;<span class="hljs-attr">http</span>:<span class="hljs-comment">//example.org/person/alice&gt; &lt;http://example.org/hasBirthYear&gt; "1995"^^&lt;http://www.w3.org/2001/XMLSchema#gYear&gt; .</span>
 <span class="language-xml">&lt;http://example.org/person/alice&gt;</span> <span class="language-xml">&lt;http://example.org/hasItem&gt;</span> <span class="language-xml">&lt;http://example.org/person/alice/item/sword&gt;</span> .
 &lt;<span class="hljs-attr">http</span>:<span class="hljs-comment">//example.org/person/alice&gt; &lt;http://example.org/hasItem&gt; &lt;http://example.org/person/alice/item/shield&gt; .</span>
 <span class="language-xml">&lt;http://example.org/person/bob&gt;</span> <span class="language-xml">&lt;http://example.org/hasBirthYear&gt;</span> <span class="hljs-string">"1999"</span>^^<span class="language-xml">&lt;http://www.w3.org/2001/XMLSchema#gYear&gt; .
 &lt;http://example.org/person/bob&gt; &lt;http://example.org/hasItem&gt; &lt;http://example.org/person/bob/item/flower&gt; .
-
 </span></code></pre>
 </section>
 <section id="RMLLVTC0006c"><div class="header-wrapper"><h2 id="x26-rmllvtc0006c"><bdi class="secno">26. </bdi>RMLLVTC0006c</h2><a class="self-link" href="#RMLLVTC0006c" aria-label="Permalink for Section 26."></a></div>
@@ -2228,8 +2100,7 @@ tobias,2005
 <p><strong>Description</strong>: Test two left joins in one logical view</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -2246,27 +2117,21 @@ tobias,2005
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Input 1</strong></p>
-<pre><code aria-busy="false" class="hljs">
-name,birthyear
+<pre><code aria-busy="false" class="hljs">name,birthyear
 alice,1995
 bob,1999
 tobias,2005
-
 </code></pre>
 <p><strong>Input 2</strong></p>
-<pre><code aria-busy="false" class="hljs">
-name,id
+<pre><code aria-busy="false" class="hljs">name,id
 alice,123
 bob,456
 tobias,789
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs">
-@prefix rml: &lt;http://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs">@prefix rml: &lt;http://w3id.org/rml/&gt; .
 @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
 @prefix : &lt;http://example.org/&gt; .
 
@@ -2378,17 +2243,14 @@ tobias,789
       rml:template "http://example.org/person/{csv2_id}/item/{json_item}" ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-&lt;http://example.org/person/<span class="hljs-number">123</span>&gt; &lt;http://example.org/hasBirthYear&gt; <span class="hljs-string">"1995"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#gYear&gt; .
+<pre><code aria-busy="false" class="hljs css">&lt;http://example.org/person/<span class="hljs-number">123</span>&gt; &lt;http://example.org/hasBirthYear&gt; <span class="hljs-string">"1995"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#gYear&gt; .
 &lt;http://example.org/person/<span class="hljs-number">123</span>&gt; &lt;http://example.org/hasItem&gt; &lt;http://example.org/person/<span class="hljs-number">123</span>/item/sword&gt; .
 &lt;http://example.org/person/<span class="hljs-number">123</span>&gt; &lt;http://example.org/hasItem&gt; &lt;http://example.org/person/<span class="hljs-number">123</span>/item/shield&gt; .
 &lt;http://example.org/person/<span class="hljs-number">456</span>&gt; &lt;http://example.org/hasBirthYear&gt; <span class="hljs-string">"1999"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#gYear&gt; .
 &lt;http://example.org/person/<span class="hljs-number">456</span>&gt; &lt;http://example.org/hasItem&gt; &lt;http://example.org/person/<span class="hljs-number">456</span>/item/flower&gt; .
 &lt;http://example.org/person/<span class="hljs-number">789</span>&gt; &lt;http://example.org/hasBirthYear&gt; <span class="hljs-string">"2005"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#gYear&gt; .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0006d"><div class="header-wrapper"><h2 id="x27-rmllvtc0006d"><bdi class="secno">27. </bdi>RMLLVTC0006d</h2><a class="self-link" href="#RMLLVTC0006d" aria-label="Permalink for Section 27."></a></div>
@@ -2396,8 +2258,7 @@ tobias,789
 <p><strong>Description</strong>: Test an inner join and a left join in one logical view</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -2414,27 +2275,21 @@ tobias,789
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Input 1</strong></p>
-<pre><code aria-busy="false" class="hljs">
-name,birthyear
+<pre><code aria-busy="false" class="hljs">name,birthyear
 alice,1995
 bob,1999
 tobias,2005
-
 </code></pre>
 <p><strong>Input 2</strong></p>
-<pre><code aria-busy="false" class="hljs">
-name,id
+<pre><code aria-busy="false" class="hljs">name,id
 alice,123
 bob,456
 tobias,789
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs">
-@prefix rml: &lt;http://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs">@prefix rml: &lt;http://w3id.org/rml/&gt; .
 @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
 @prefix : &lt;http://example.org/&gt; .
 
@@ -2546,16 +2401,13 @@ tobias,789
       rml:template "http://example.org/person/{csv2_id}/item/{json_item}" ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs javascript">
-&lt;<span class="hljs-attr">http</span>:<span class="hljs-comment">//example.org/person/123&gt; &lt;http://example.org/hasBirthYear&gt; "1995"^^&lt;http://www.w3.org/2001/XMLSchema#gYear&gt; .</span>
+<pre><code aria-busy="false" class="hljs javascript">&lt;<span class="hljs-attr">http</span>:<span class="hljs-comment">//example.org/person/123&gt; &lt;http://example.org/hasBirthYear&gt; "1995"^^&lt;http://www.w3.org/2001/XMLSchema#gYear&gt; .</span>
 <span class="language-xml">&lt;http://example.org/person/123&gt;</span> <span class="language-xml">&lt;http://example.org/hasItem&gt;</span> <span class="language-xml">&lt;http://example.org/person/123/item/sword&gt;</span> .
 &lt;<span class="hljs-attr">http</span>:<span class="hljs-comment">//example.org/person/123&gt; &lt;http://example.org/hasItem&gt; &lt;http://example.org/person/123/item/shield&gt; .</span>
 <span class="language-xml">&lt;http://example.org/person/456&gt;</span> <span class="language-xml">&lt;http://example.org/hasBirthYear&gt;</span> <span class="hljs-string">"1999"</span>^^<span class="language-xml">&lt;http://www.w3.org/2001/XMLSchema#gYear&gt; .
 &lt;http://example.org/person/456&gt; &lt;http://example.org/hasItem&gt; &lt;http://example.org/person/456/item/flower&gt; .
-
 </span></code></pre>
 </section>
 <section id="RMLLVTC0006e"><div class="header-wrapper"><h2 id="x28-rmllvtc0006e"><bdi class="secno">28. </bdi>RMLLVTC0006e</h2><a class="self-link" href="#RMLLVTC0006e" aria-label="Permalink for Section 28."></a></div>
@@ -2563,8 +2415,7 @@ tobias,789
 <p><strong>Description</strong>: Test two left joins in one logical view</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -2581,25 +2432,19 @@ tobias,789
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Input 1</strong></p>
-<pre><code aria-busy="false" class="hljs">
-name,birthyear
+<pre><code aria-busy="false" class="hljs">name,birthyear
 alice,1995
 bob,1999
 tobias,2005
-
 </code></pre>
 <p><strong>Input 2</strong></p>
-<pre><code aria-busy="false" class="hljs">
-name,id
+<pre><code aria-busy="false" class="hljs">name,id
 alice,123
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix <span class="hljs-attribute">xsd</span>: &lt;<span class="hljs-attribute">http</span>://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
@@ -2711,14 +2556,11 @@ alice,123
       rml:template <span class="hljs-string">"http://example.org/person/{csv2_id}/item/{json_item}"</span> ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs javascript">
-&lt;<span class="hljs-attr">http</span>:<span class="hljs-comment">//example.org/person/123&gt; &lt;http://example.org/hasBirthYear&gt; "1995"^^&lt;http://www.w3.org/2001/XMLSchema#gYear&gt; .</span>
+<pre><code aria-busy="false" class="hljs javascript">&lt;<span class="hljs-attr">http</span>:<span class="hljs-comment">//example.org/person/123&gt; &lt;http://example.org/hasBirthYear&gt; "1995"^^&lt;http://www.w3.org/2001/XMLSchema#gYear&gt; .</span>
 <span class="language-xml">&lt;http://example.org/person/123&gt;</span> <span class="language-xml">&lt;http://example.org/hasItem&gt;</span> <span class="language-xml">&lt;http://example.org/person/123/item/sword&gt;</span> .
 &lt;<span class="hljs-attr">http</span>:<span class="hljs-comment">//example.org/person/123&gt; &lt;http://example.org/hasItem&gt; &lt;http://example.org/person/123/item/shield&gt; .</span>
-
 </code></pre>
 </section>
 <section id="RMLLVTC0006f"><div class="header-wrapper"><h2 id="x29-rmllvtc0006f"><bdi class="secno">29. </bdi>RMLLVTC0006f</h2><a class="self-link" href="#RMLLVTC0006f" aria-label="Permalink for Section 29."></a></div>
@@ -2726,8 +2568,7 @@ alice,123
 <p><strong>Description</strong>: Test references to indexes of fields from a join</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -2744,19 +2585,15 @@ alice,123
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Input 1</strong></p>
-<pre><code aria-busy="false" class="hljs">
-name,birthyear
+<pre><code aria-busy="false" class="hljs">name,birthyear
 alice,1995
 tobias,2005
 bob,1999
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix <span class="hljs-attribute">xsd</span>: &lt;<span class="hljs-attribute">http</span>://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
@@ -2834,16 +2671,13 @@ bob,1999
       rml:template <span class="hljs-string">"http://example.org/person/{#}/item/{json_item.#}/{json_item}"</span> ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs javascript">
-&lt;<span class="hljs-attr">http</span>:<span class="hljs-comment">//example.org/person/0&gt; &lt;http://example.org/hasBirthYear&gt; "1995"^^&lt;http://www.w3.org/2001/XMLSchema#gYear&gt; .</span>
+<pre><code aria-busy="false" class="hljs javascript">&lt;<span class="hljs-attr">http</span>:<span class="hljs-comment">//example.org/person/0&gt; &lt;http://example.org/hasBirthYear&gt; "1995"^^&lt;http://www.w3.org/2001/XMLSchema#gYear&gt; .</span>
 <span class="language-xml">&lt;http://example.org/person/0&gt;</span> <span class="language-xml">&lt;http://example.org/hasItem&gt;</span> <span class="language-xml">&lt;http://example.org/person/0/item/0/sword&gt;</span> .
 &lt;<span class="hljs-attr">http</span>:<span class="hljs-comment">//example.org/person/0&gt; &lt;http://example.org/hasItem&gt; &lt;http://example.org/person/0/item/1/shield&gt; .</span>
 <span class="language-xml">&lt;http://example.org/person/2&gt;</span> <span class="language-xml">&lt;http://example.org/hasBirthYear&gt;</span> <span class="hljs-string">"1999"</span>^^<span class="language-xml">&lt;http://www.w3.org/2001/XMLSchema#gYear&gt; .
 &lt;http://example.org/person/2&gt; &lt;http://example.org/hasItem&gt; &lt;http://example.org/person/2/item/0/flower&gt; .
-
 
 </span></code></pre>
 </section>
@@ -2852,15 +2686,12 @@ bob,1999
 <p><strong>Description</strong>: Test a change of reference formulations: csv source including json array</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-name,items
+<pre><code aria-busy="false" class="hljs css">name,items
 alice,"<span class="hljs-selector-attr">[{<span class="hljs-string">""</span>type<span class="hljs-string">""</span>:<span class="hljs-string">""</span>sword<span class="hljs-string">""</span>,<span class="hljs-string">""</span>weight<span class="hljs-string">""</span>:1500},{<span class="hljs-string">""</span>type<span class="hljs-string">""</span>:<span class="hljs-string">""</span>shield<span class="hljs-string">""</span>,<span class="hljs-string">""</span>weight<span class="hljs-string">""</span>:2500}]</span>"
 bob,"<span class="hljs-selector-attr">[{<span class="hljs-string">""</span>type<span class="hljs-string">""</span>:<span class="hljs-string">""</span>flower<span class="hljs-string">""</span>,<span class="hljs-string">""</span>weight<span class="hljs-string">""</span>:15}]</span>"
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix <span class="hljs-attribute">xsd</span>: &lt;<span class="hljs-attribute">http</span>://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
@@ -2919,17 +2750,14 @@ bob,"<span class="hljs-selector-attr">[{<span class="hljs-string">""</span>type<
       rml:datatype xsd:integer ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-&lt;http://example.org/item_0_0&gt; &lt;http://example.org/hasType&gt; <span class="hljs-string">"sword"</span> .
+<pre><code aria-busy="false" class="hljs css">&lt;http://example.org/item_0_0&gt; &lt;http://example.org/hasType&gt; <span class="hljs-string">"sword"</span> .
 &lt;http://example.org/item_0_0&gt; &lt;http://example.org/hasWeight&gt; <span class="hljs-string">"1500"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
 &lt;http://example.org/item_0_1&gt; &lt;http://example.org/hasType&gt; <span class="hljs-string">"shield"</span> .
 &lt;http://example.org/item_0_1&gt; &lt;http://example.org/hasWeight&gt; <span class="hljs-string">"2500"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
 &lt;http://example.org/item_1_0&gt; &lt;http://example.org/hasType&gt; <span class="hljs-string">"flower"</span> .
 &lt;http://example.org/item_1_0&gt; &lt;http://example.org/hasWeight&gt; <span class="hljs-string">"15"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0007b"><div class="header-wrapper"><h2 id="x31-rmllvtc0007b"><bdi class="secno">31. </bdi>RMLLVTC0007b</h2><a class="self-link" href="#RMLLVTC0007b" aria-label="Permalink for Section 31."></a></div>
@@ -2937,16 +2765,13 @@ bob,"<span class="hljs-selector-attr">[{<span class="hljs-string">""</span>type<
 <p><strong>Description</strong>: Test a change of reference formulations: csv source including json object</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs javascript">
-name,item
+<pre><code aria-busy="false" class="hljs javascript">name,item
 alice,<span class="hljs-string">"{"</span><span class="hljs-string">"type"</span><span class="hljs-string">":"</span><span class="hljs-string">"sword"</span><span class="hljs-string">","</span><span class="hljs-string">"weight"</span><span class="hljs-string">":1500}"</span>
 alice,<span class="hljs-string">"{"</span><span class="hljs-string">"type"</span><span class="hljs-string">":"</span><span class="hljs-string">"shield"</span><span class="hljs-string">","</span><span class="hljs-string">"weight"</span><span class="hljs-string">":2500}"</span>
 bob,<span class="hljs-string">"{"</span><span class="hljs-string">"type"</span><span class="hljs-string">":"</span><span class="hljs-string">"flower"</span><span class="hljs-string">","</span><span class="hljs-string">"weight"</span><span class="hljs-string">":15}"</span>
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix <span class="hljs-attribute">xsd</span>: &lt;<span class="hljs-attribute">http</span>://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
@@ -3004,17 +2829,14 @@ bob,<span class="hljs-string">"{"</span><span class="hljs-string">"type"</span><
       rml:datatype xsd:integer ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-&lt;http://example.org/item_0_0&gt; &lt;http://example.org/hasType&gt; <span class="hljs-string">"sword"</span> .
+<pre><code aria-busy="false" class="hljs css">&lt;http://example.org/item_0_0&gt; &lt;http://example.org/hasType&gt; <span class="hljs-string">"sword"</span> .
 &lt;http://example.org/item_0_0&gt; &lt;http://example.org/hasWeight&gt; <span class="hljs-string">"1500"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
 &lt;http://example.org/item_1_0&gt; &lt;http://example.org/hasType&gt; <span class="hljs-string">"shield"</span> .
 &lt;http://example.org/item_1_0&gt; &lt;http://example.org/hasWeight&gt; <span class="hljs-string">"2500"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
 &lt;http://example.org/item_2_0&gt; &lt;http://example.org/hasType&gt; <span class="hljs-string">"flower"</span> .
 &lt;http://example.org/item_2_0&gt; &lt;http://example.org/hasWeight&gt; <span class="hljs-string">"15"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0007c"><div class="header-wrapper"><h2 id="x32-rmllvtc0007c"><bdi class="secno">32. </bdi>RMLLVTC0007c</h2><a class="self-link" href="#RMLLVTC0007c" aria-label="Permalink for Section 32."></a></div>
@@ -3022,8 +2844,7 @@ bob,<span class="hljs-string">"{"</span><span class="hljs-string">"type"</span><
 <p><strong>Description</strong>: Test a change of reference formulations: json source including csv data</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -3035,11 +2856,9 @@ bob,<span class="hljs-string">"{"</span><span class="hljs-string">"type"</span><
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix <span class="hljs-attribute">xsd</span>: &lt;<span class="hljs-attribute">http</span>://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
@@ -3098,17 +2917,14 @@ bob,<span class="hljs-string">"{"</span><span class="hljs-string">"type"</span><
       rml:datatype xsd:integer ;
     ] ;
   ] .
-
 </code></pre>
 <p><strong>Output</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-&lt;http://example.org/item_0_0&gt; &lt;http://example.org/hasType&gt; <span class="hljs-string">"sword"</span> .
+<pre><code aria-busy="false" class="hljs css">&lt;http://example.org/item_0_0&gt; &lt;http://example.org/hasType&gt; <span class="hljs-string">"sword"</span> .
 &lt;http://example.org/item_0_0&gt; &lt;http://example.org/hasWeight&gt; <span class="hljs-string">"1500"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
 &lt;http://example.org/item_0_1&gt; &lt;http://example.org/hasType&gt; <span class="hljs-string">"shield"</span> .
 &lt;http://example.org/item_0_1&gt; &lt;http://example.org/hasWeight&gt; <span class="hljs-string">"2500"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
 &lt;http://example.org/item_1_0&gt; &lt;http://example.org/hasType&gt; <span class="hljs-string">"flower"</span> .
 &lt;http://example.org/item_1_0&gt; &lt;http://example.org/hasWeight&gt; <span class="hljs-string">"15"</span>^^&lt;http://www.w3.org/<span class="hljs-number">2001</span>/XMLSchema#integer&gt; .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0008a"><div class="header-wrapper"><h2 id="x33-rmllvtc0008a"><bdi class="secno">33. </bdi>RMLLVTC0008a</h2><a class="self-link" href="#RMLLVTC0008a" aria-label="Permalink for Section 33."></a></div>
@@ -3116,8 +2932,7 @@ bob,<span class="hljs-string">"{"</span><span class="hljs-string">"type"</span><
 <p><strong>Description</strong>: Test a cycle in the abstract logical source of a logical view</p>
 <p><strong>Error expected?</strong> Yes</p>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs css">
-<span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs css"><span class="hljs-keyword">@prefix</span> <span class="hljs-attribute">rml</span>: &lt;<span class="hljs-attribute">http</span>://w3id.org/rml/&gt; .
 @prefix : &lt;<span class="hljs-attribute">http</span>://example.org/&gt; .
 
 :view1 a <span class="hljs-attribute">rml</span>:LogicalView ;
@@ -3147,7 +2962,6 @@ bob,<span class="hljs-string">"{"</span><span class="hljs-string">"type"</span><
       rml:reference <span class="hljs-string">"name2"</span> ;
     ] ;
   ] .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0008b"><div class="header-wrapper"><h2 id="x34-rmllvtc0008b"><bdi class="secno">34. </bdi>RMLLVTC0008b</h2><a class="self-link" href="#RMLLVTC0008b" aria-label="Permalink for Section 34."></a></div>
@@ -3155,8 +2969,7 @@ bob,<span class="hljs-string">"{"</span><span class="hljs-string">"type"</span><
 <p><strong>Description</strong>: Test a cycle in two joins of two logical views</p>
 <p><strong>Error expected?</strong> Yes</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -3173,19 +2986,15 @@ bob,<span class="hljs-string">"{"</span><span class="hljs-string">"type"</span><
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Input 1</strong></p>
-<pre><code aria-busy="false" class="hljs">
-name,birthyear
+<pre><code aria-busy="false" class="hljs">name,birthyear
 alice,1995
 bob,1999
 tobias,2005
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs">
-@prefix rml: &lt;http://w3id.org/rml/&gt; .
+<pre><code aria-busy="false" class="hljs">@prefix rml: &lt;http://w3id.org/rml/&gt; .
 @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
 @prefix : &lt;http://example.org/&gt; .
 
@@ -3275,7 +3084,6 @@ tobias,2005
       rml:template "http://example.org/person/{name}/item/{json_item}" ;
     ] ;
   ] .
-
 </code></pre>
 </section>
 <section id="RMLLVTC0008c"><div class="header-wrapper"><h2 id="x35-rmllvtc0008c"><bdi class="secno">35. </bdi>RMLLVTC0008c</h2><a class="self-link" href="#RMLLVTC0008c" aria-label="Permalink for Section 35."></a></div>
@@ -3283,8 +3091,7 @@ tobias,2005
 <p><strong>Description</strong>: Test a cycle in a join of a logical view: self-join</p>
 <p><strong>Error expected?</strong> Yes</p>
 <p><strong>Input</strong></p>
-<pre><code aria-busy="false" class="hljs json">
-<span class="hljs-punctuation">{</span>
+<pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -3310,11 +3117,9 @@ tobias,2005
     <span class="hljs-punctuation">}</span>
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
-
 </code></pre>
 <p><strong>Mapping</strong></p>
-<pre><code aria-busy="false" class="hljs javascript">
-@prefix <span class="hljs-attr">rml</span>: <span class="language-xml">&lt;http://w3id.org/rml/&gt;</span> .
+<pre><code aria-busy="false" class="hljs javascript">@prefix <span class="hljs-attr">rml</span>: <span class="language-xml">&lt;http://w3id.org/rml/&gt;</span> .
 @prefix : <span class="language-xml">&lt;http://example.org/&gt;</span> .
 
 :jsonSource a <span class="hljs-attr">rml</span>:<span class="hljs-title class_">LogicalSource</span> ;
@@ -3357,7 +3162,6 @@ tobias,2005
       <span class="hljs-attr">rml</span>:reference <span class="hljs-string">"newName"</span> ;
     ] ;
   ] .
-
 </code></pre>
 </section>
 

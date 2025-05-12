@@ -1,13 +1,13 @@
-## RMLLVTC0005b
-
-**Title**: Referencing the Record Key <it>
-
-**Description**: Test a reference to the record key <it>
-
-**Error expected?** Yes
-
-**Input**
-```
+## RMLLVTC0005b
+
+**Title**: Referencing the Record Key <it>
+
+**Description**: Test a reference to the record key <it>
+
+**Error expected?** Yes
+
+**Input**
+```
 {
   "people": [
     {
@@ -34,11 +34,11 @@
     }
   ]
 }
-
-```
-
-**Mapping**
-```
+
+```
+
+**Mapping**
+```
 @prefix rml: <http://w3id.org/rml/> .
 @prefix : <http://example.org/> .
 
@@ -70,6 +70,6 @@
       rml:reference "<it>" ;
     ] ;
   ] .
-
-```
-
+
+```
+

@@ -1,13 +1,13 @@
-## RMLLVTC0008b
-
-**Title**: Cycle: Joins
-
-**Description**: Test a cycle in two joins of two logical views
-
-**Error expected?** Yes
-
-**Input**
-```
+## RMLLVTC0008b
+
+**Title**: Cycle: Joins
+
+**Description**: Test a cycle in two joins of two logical views
+
+**Error expected?** Yes
+
+**Input**
+```
 {
   "people": [
     {
@@ -25,20 +25,20 @@
     }
   ]
 }
-
-```
-
-**Input 1**
-```
+
+```
+
+**Input 1**
+```
 name,birthyear
 alice,1995
 bob,1999
 tobias,2005
-
-```
-
-**Mapping**
-```
+
+```
+
+**Mapping**
+```
 @prefix rml: <http://w3id.org/rml/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://example.org/> .
@@ -129,6 +129,6 @@ tobias,2005
       rml:template "http://example.org/person/{name}/item/{json_item}" ;
     ] ;
   ] .
-
-```
-
+
+```
+

@@ -1,13 +1,13 @@
-## RMLLVTC0002a
-
-**Title**: Iterable Field
-
-**Description**: Test a nested field construction: iterable field with expression field as child
-
-**Error expected?** No
-
-**Input**
-```
+## RMLLVTC0002a
+
+**Title**: Iterable Field
+
+**Description**: Test a nested field construction: iterable field with expression field as child
+
+**Error expected?** No
+
+**Input**
+```
 {
   "people": [
     {
@@ -34,11 +34,11 @@
     }
   ]
 }
-
-```
-
-**Mapping**
-```
+
+```
+
+**Mapping**
+```
 @prefix rml: <http://w3id.org/rml/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://example.org/> .
@@ -81,14 +81,14 @@
       rml:template "http://example.org/person/{name}/item/{item.type}" ;
     ] ;
   ] .
-
-```
-
-**Output**
-```
+
+```
+
+**Output**
+```
 <http://example.org/person/alice> <http://example.org/hasItem> <http://example.org/person/alice/item/sword> .
 <http://example.org/person/alice> <http://example.org/hasItem> <http://example.org/person/alice/item/shield> .
 <http://example.org/person/bob> <http://example.org/hasItem> <http://example.org/person/bob/item/flower> .
-
-```
-
+
+```
+

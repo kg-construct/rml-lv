@@ -1,13 +1,13 @@
-## RMLLVTC0005c
-
-**Title**: Referencing the Record Key of an Iterable Field
-
-**Description**: Test a reference to the record key of an iterable field
-
-**Error expected?** Yes
-
-**Input**
-```
+## RMLLVTC0005c
+
+**Title**: Referencing the Record Key of an Iterable Field
+
+**Description**: Test a reference to the record key of an iterable field
+
+**Error expected?** Yes
+
+**Input**
+```
 {
   "people": [
     {
@@ -34,11 +34,11 @@
     }
   ]
 }
-
-```
-
-**Mapping**
-```
+
+```
+
+**Mapping**
+```
 @prefix rml: <http://w3id.org/rml/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://example.org/> .
@@ -81,6 +81,6 @@
       rml:template "http://example.org/person/{name}/{item}" ;
     ] ;
   ] .
-
-```
-
+
+```
+

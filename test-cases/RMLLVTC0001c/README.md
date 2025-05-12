@@ -1,13 +1,13 @@
-## RMLLVTC0001c
-
-**Title**: Expression Field: Constant
-
-**Description**: Test a constant expression in an expression field
-
-**Error expected?** No
-
-**Input**
-```
+## RMLLVTC0001c
+
+**Title**: Expression Field: Constant
+
+**Description**: Test a constant expression in an expression field
+
+**Error expected?** No
+
+**Input**
+```
 {
   "people": [
     {
@@ -36,11 +36,11 @@
     }
   ]
 }
-
-```
-
-**Mapping**
-```
+
+```
+
+**Mapping**
+```
 @prefix rml: <http://w3id.org/rml/> .
 @prefix : <http://example.org/> .
 
@@ -77,13 +77,13 @@
       rml:reference "fullName" ;
     ] ;
   ] .
-
-```
-
-**Output**
-```
+
+```
+
+**Output**
+```
 <http://example.org/person/alice> <http://example.org/hasFullName> "alice smith" .
 <http://example.org/person/bob> <http://example.org/hasFullName> "bob jones" .
-
-```
-
+
+```
+

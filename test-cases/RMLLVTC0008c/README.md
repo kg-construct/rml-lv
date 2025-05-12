@@ -1,13 +1,13 @@
-## RMLLVTC0008c
-
-**Title**: Cycle: Self-Join
-
-**Description**: Test a cycle in a join of a logical view: self-join
-
-**Error expected?** Yes
-
-**Input**
-```
+## RMLLVTC0008c
+
+**Title**: Cycle: Self-Join
+
+**Description**: Test a cycle in a join of a logical view: self-join
+
+**Error expected?** Yes
+
+**Input**
+```
 {
   "people": [
     {
@@ -34,11 +34,11 @@
     }
   ]
 }
-
-```
-
-**Mapping**
-```
+
+```
+
+**Mapping**
+```
 @prefix rml: <http://w3id.org/rml/> .
 @prefix : <http://example.org/> .
 
@@ -82,6 +82,6 @@
       rml:reference "newName" ;
     ] ;
   ] .
-
-```
-
+
+```
+

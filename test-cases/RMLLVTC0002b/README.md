@@ -1,13 +1,13 @@
-## RMLLVTC0002b
-
-**Title**: Iterable Field with Multiple Children
-
-**Description**: Test a nested field construction: iterable field with mulitple expression fields as children
-
-**Error expected?** No
-
-**Input**
-```
+## RMLLVTC0002b
+
+**Title**: Iterable Field with Multiple Children
+
+**Description**: Test a nested field construction: iterable field with mulitple expression fields as children
+
+**Error expected?** No
+
+**Input**
+```
 {
   "people": [
     {
@@ -34,11 +34,11 @@
     }
   ]
 }
-
-```
-
-**Mapping**
-```
+
+```
+
+**Mapping**
+```
 @prefix rml: <http://w3id.org/rml/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://example.org/> .
@@ -93,17 +93,17 @@
       rml:datatype xsd:integer ;
     ] ;
   ] .
-
-```
-
-**Output**
-```
+
+```
+
+**Output**
+```
 <http://example.org/person/alice/item/sword> <http://example.org/hasName> "sword" .
 <http://example.org/person/alice/item/sword> <http://example.org/hasWeight> "1500"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://example.org/person/alice/item/shield> <http://example.org/hasName> "shield" .
 <http://example.org/person/alice/item/shield> <http://example.org/hasWeight> "2500"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://example.org/person/bob/item/flower> <http://example.org/hasName> "flower" .
 <http://example.org/person/bob/item/flower> <http://example.org/hasWeight> "15"^^<http://www.w3.org/2001/XMLSchema#integer> .
-
-```
-
+
+```
+

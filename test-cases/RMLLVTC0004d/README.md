@@ -1,13 +1,13 @@
-## RMLLVTC0004d
-
-**Title**: Natural Datatype: Record Expression Field
-
-**Description**: Test the natural datatype mapping  for a record of an expression field
-
-**Error expected?** No
-
-**Input**
-```
+## RMLLVTC0004d
+
+**Title**: Natural Datatype: Record Expression Field
+
+**Description**: Test the natural datatype mapping  for a record of an expression field
+
+**Error expected?** No
+
+**Input**
+```
 {
   "people": [
     {
@@ -20,11 +20,11 @@
     }
   ]
 }
-
-```
-
-**Mapping**
-```
+
+```
+
+**Mapping**
+```
 @prefix rml: <http://w3id.org/rml/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://example.org/> .
@@ -62,13 +62,13 @@
       rml:reference "birthyear" ;
     ] ;
   ] .
-
-```
-
-**Output**
-```
+
+```
+
+**Output**
+```
 <http://example.org/person/alice> <http://example.org/hasBirthYear> "1995"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://example.org/person/bob> <http://example.org/hasBirthYear> "1999"^^<http://www.w3.org/2001/XMLSchema#integer> .
-
-```
-
+
+```
+

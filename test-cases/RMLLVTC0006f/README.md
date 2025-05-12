@@ -1,13 +1,13 @@
-## RMLLVTC0006f
-
-**Title**: Index Key of Field in Join
-
-**Description**: Test references to indexes of fields from a join
-
-**Error expected?** No
-
-**Input**
-```
+## RMLLVTC0006f
+
+**Title**: Index Key of Field in Join
+
+**Description**: Test references to indexes of fields from a join
+
+**Error expected?** No
+
+**Input**
+```
 {
   "people": [
     {
@@ -25,20 +25,20 @@
     }
   ]
 }
-
-```
-
-**Input 1**
-```
+
+```
+
+**Input 1**
+```
 name,birthyear
 alice,1995
 tobias,2005
 bob,1999
-
-```
-
-**Mapping**
-```
+
+```
+
+**Mapping**
+```
 @prefix rml: <http://w3id.org/rml/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://example.org/> .
@@ -117,17 +117,17 @@ bob,1999
       rml:template "http://example.org/person/{#}/item/{json_item.#}/{json_item}" ;
     ] ;
   ] .
-
-```
-
-**Output**
-```
+
+```
+
+**Output**
+```
 <http://example.org/person/0> <http://example.org/hasBirthYear> "1995"^^<http://www.w3.org/2001/XMLSchema#gYear> .
 <http://example.org/person/0> <http://example.org/hasItem> <http://example.org/person/0/item/0/sword> .
 <http://example.org/person/0> <http://example.org/hasItem> <http://example.org/person/0/item/1/shield> .
 <http://example.org/person/2> <http://example.org/hasBirthYear> "1999"^^<http://www.w3.org/2001/XMLSchema#gYear> .
 <http://example.org/person/2> <http://example.org/hasItem> <http://example.org/person/2/item/0/flower> .
 
-
-```
-
+
+```
+
