@@ -5,6 +5,8 @@ import sys
 import glob
 import csv
 
+LINESEP = os.linesep
+
 def get_title_description(testcase: str):
     with open ('descriptions.csv') as csvfile:
         reader = csv.reader(csvfile)
@@ -74,14 +76,14 @@ def main(spec: str):
                              output3, error])
             lines = []
             # Title and description
-            lines.append(f'## {testcase}\n\n')
-            lines.append(f'**Title**: {title}\n\n')
-            lines.append(f'**Description**: {description}\n\n')
+            lines.append(f'## {testcase}{LINESEP}{LINESEP}')
+            lines.append(f'**Title**: {title}{LINESEP}{LINESEP}')
+            lines.append(f'**Description**: {description}{LINESEP}{LINESEP}')
             if error == 'true':
                 error_html = 'Yes'
             else:
                 error_html = 'No'
-            lines.append(f'**Error expected?** {error_html}\n\n')
+            lines.append(f'**Error expected?** {error_html}{LINESEP}{LINESEP}')
 
             # Input
             inputCount = ''
@@ -91,24 +93,24 @@ def main(spec: str):
                     break
 
                 if 'http://w3id.org/rml/resources' in i:
-                    input_html = f'**Input{inputCount}**\n [{i}]({i})\n\n'
+                    input_html = f'**Input{inputCount}**{LINESEP} [{i}]({i}){LINESEP}{LINESEP}'
                 else:
                     try:
                         with open(os.path.join(testcase, i)) as f:
-                            input_html = f'**Input{inputCount}**\n```\n{f.read()}\n```\n\n'
+                            input_html = f'**Input{inputCount}**{LINESEP}```{LINESEP}{f.read()}{LINESEP}```{LINESEP}{LINESEP}'
                     except UnicodeDecodeError:
                         try:
                             with open(os.path.join(testcase, i), encoding='utf-16') as f:
-                                input_html = f'**Input{inputCount}**\n```\n{f.read()}\n```\n\n'
+                                input_html = f'**Input{inputCount}**{LINESEP}```{LINESEP}{f.read()}{LINESEP}```{LINESEP}{LINESEP}'
                         except UnicodeDecodeError:
-                            input_html = f'**Input{inputCount}**\n `{i}`\n\n'
+                            input_html = f'**Input{inputCount}**{LINESEP} `{i}`{LINESEP}{LINESEP}'
 
                 lines.append(input_html)
                 inputCount = f' {index + 1}'
 
             # Mapping
             with open(os.path.join(testcase, mapping_file)) as f:
-                mapping_html = f'**Mapping**\n```\n{f.read()}\n```\n\n'
+                mapping_html = f'**Mapping**{LINESEP}```{LINESEP}{f.read()}{LINESEP}```{LINESEP}{LINESEP}'
                 lines.append(mapping_html)
 
             # Output
@@ -121,17 +123,17 @@ def main(spec: str):
                     break
 
                 if 'http://w3id.org/rml/resources' in i:
-                    output_html = f'**Output{outputCount}**\n [{i}]({i})\n\n'
+                    output_html = f'**Output{outputCount}**{LINESEP} [{i}]({i}){LINESEP}{LINESEP}'
                 else:
                     try:
                         with open(os.path.join(testcase, i)) as f:
-                            output_html = f'**Output{outputCount}**\n```\n{f.read()}\n```\n\n'
+                            output_html = f'**Output{outputCount}**{LINESEP}```{LINESEP}{f.read()}{LINESEP}```{LINESEP}{LINESEP}'
                     except UnicodeDecodeError:
                         try:
                             with open(os.path.join(testcase, i), encoding='utf-16') as f:
-                                output_html = f'**Output{outputCount}**\n```\n{f.read()}\n```\n\n'
+                                output_html = f'**Output{outputCount}**{LINESEP}```{LINESEP}{f.read()}{LINESEP}```{LINESEP}{LINESEP}'
                         except UnicodeDecodeError:
-                            output_html = f'**Output{outputCount}**\n `{i}`\n\n'
+                            output_html = f'**Output{outputCount}**{LINESEP} `{i}`{LINESEP}{LINESEP}'
 
                 lines.append(output_html)
                 outputCount = f' {index + 2}'
