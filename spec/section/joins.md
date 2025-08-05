@@ -96,8 +96,6 @@ tobias,2005
         <th><u>name</u></th>
         <th><u>birthyear.#</u></th>
         <th><u>birthyear</u></th>
-        <th><u>item.#</u></th>
-        <th>item</th>
         <th><u>item_type.#</u></th>
         <th><u>item_type</u></th>
         <th><u>item_weight.#</u></th>
@@ -111,15 +109,6 @@ tobias,2005
         <td>0</td>
         <td>1995</td>
         <td>0</td>
-<td>
-
-```json 
-
-{...}
-```
-
-</td>
-        <td>0</td>
         <td>sword</td>
         <td>0</td>
         <td>1500 </td>
@@ -132,17 +121,8 @@ tobias,2005
         <td>0</td>
         <td>1995</td>
         <td>1</td>
-<td>
-
-```json 
-
-{...}
-```
-
-</td>
-        <td>0</td>
         <td>shield</td>
-        <td>0</td>
+        <td>1</td>
         <td>2500 </td>
     </tr>
     <tr>
@@ -152,15 +132,6 @@ tobias,2005
         <td>bob</td>
         <td>0</td>
         <td>1999</td>
-        <td>0</td>
-        <td>
-
-```json 
-
-{...}
-```
-
-</td>
         <td>0</td>
         <td>flower</td>
         <td>0</td>
@@ -173,8 +144,6 @@ tobias,2005
         <td>tobias</td>
         <td>0</td>
         <td>2005</td>
-        <td>null</td>
-        <td>null</td>
         <td>null</td>
         <td>null</td>
         <td>null</td>
@@ -235,8 +204,6 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
         <th><u>name</u></th>
         <th><u>birthyear.#</u></th>
         <th><u>birthyear</u></th>
-        <th><u>item.#</u></th>
-        <th>item</th>
         <th><u>item_type.#</u></th>
         <th><u>item_type</u></th>
         <th><u>item_weight.#</u></th>
@@ -250,15 +217,6 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
         <td>0</td>
         <td>1995</td>
         <td>0</td>
-<td>
-
-```json 
-
-{...}
-```
-
-</td>
-        <td>0</td>
         <td>sword</td>
         <td>0</td>
         <td>1500 </td>
@@ -271,17 +229,8 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
         <td>0</td>
         <td>1995</td>
         <td>1</td>
-<td>
-
-```json 
-
-{...}
-```
-
-</td>
-        <td>0</td>
         <td>shield</td>
-        <td>0</td>
+        <td>1</td>
         <td>2500 </td>
     </tr>
     <tr>
@@ -291,15 +240,6 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
         <td>bob</td>
         <td>0</td>
         <td>1999</td>
-        <td>0</td>
-        <td>
-
-```json 
-
-{...}
-```
-
-</td>
         <td>0</td>
         <td>flower</td>
         <td>0</td>
@@ -396,8 +336,6 @@ tobias,789
         <th><u>name</u></th>
         <th><u>birthyear.#</u></th>
         <th><u>birthyear</u></th>
-        <th><u>item.#</u></th>
-        <th>item</th>
         <th><u>item_type.#</u></th>
         <th><u>item_type</u></th>
         <th><u>item_weight.#</u></th>
@@ -413,15 +351,6 @@ tobias,789
         <td>0</td>
         <td>1995</td>
         <td>0</td>
-<td>
-
-```json 
-
-{...}
-```
-
-</td>
-        <td>0</td>
         <td>sword</td>
         <td>0</td>
         <td>1500 </td>
@@ -436,17 +365,8 @@ tobias,789
         <td>0</td>
         <td>1995</td>
         <td>1</td>
-<td>
-
-```json 
-
-{...}
-```
-
-</td>        
-        <td>0</td>
         <td>shield</td>
-        <td>0</td>
+        <td>1</td>
         <td>2500 </td>
         <td>0</td>
         <td>123</td>
@@ -458,15 +378,6 @@ tobias,789
         <td>bob</td>
         <td>0</td>
         <td>1999</td>
-        <td>0</td>
-<td>
-
-```json 
-
-{...}
-```
-
-</td>
         <td>0</td>
         <td>flower</td>
         <td>0</td>
@@ -481,8 +392,6 @@ tobias,789
         <td>tobias</td>
         <td>0</td>
         <td>2005</td>
-        <td>null</td>
-        <td>null</td>
         <td>null</td>
         <td>null</td>
         <td>null</td>
