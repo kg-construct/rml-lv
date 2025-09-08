@@ -23,7 +23,8 @@ If no reference formulation is declared for an [=iterable field=], the reference
 
 ### Field parents {#fieldparents}
 
-A [=field=] MUST have a <dfn>parent</dfn> that is either the <a data-cite="RML-Core##dfn-abstract-logical-source">abstract logical source</a> of the [=logical view=] or another [=field=]. The parent relation MUST not contain cycles: it is tree-shaped with a [=logical view=] as its root. The transitive parents of a [=field=], i.e., the [=field=]'s parent, the parent of the [=field=]'s parent, etcetera, are fittingly called the [=field=]'s <dfn>ancestors</dfn>. 
+A [=field=] MUST have a <dfn>parent</dfn> that is either the <a data-cite="RML-Core##dfn-abstract-logical-source">abstract logical source</a> of the [=logical view=] or another [=field=]. The parent relation MUST not contain cycles: it is tree-shaped with a [=logical view=] as its root. The transitive parents of a [=field=], i.e., the [=field=]'s parent, the parent of the [=field=]'s parent, etcetera, are fittingly called the [=field=]'s <dfn>ancestors</dfn>.
+A [=field=]'s <dfn>parent records</dfn> are the [=records=] defined by the field's [=parent=].
 
 ### Field names {#fieldnames}
 
@@ -148,14 +149,11 @@ In this example a [=field=] with [=declared name=] "name" is declared and added 
 A [=field=] defines [=records=]:
 
 - [=iterable records=] obtained by consecutively applying the [=iterable field=]'s <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> and <a data-cite="RML-Core#dfn-iterator">logical iterator</a> on the [=parent records=], or 
-- [=expression records=] obtained by consecutively applying the [=expression field=]'s <a data-cite="RML-Core#dfn-expressions">expression</a> on the [=parent records=],  
-
-the <dfn>parent records</dfn> being the [=records=] defined by the field's [=parent=].
+- [=expression records=] obtained by consecutively applying the [=expression field=]'s <a data-cite="RML-Core#dfn-expressions">expression</a> on the [=parent records=].
 
 A field adds following keys and corresponding values to the [=logical view iteration sequence=]:
-
-- A [=record key=] `{absoluteFieldName}` with as values the [=records=] defined by the [=field=].
-- An accompanying [=index key=] `{absoluteFieldName}.#` with as values the position of the current [=record=] in the sequence of [=records=] derived from its [=parent record=].
+- a [=record key=] `{absoluteFieldName}` with as values the [=records=] defined by the [=field=].
+- an accompanying [=index key=] `{absoluteFieldName}.#` with as values the position of the current [=record=] in the sequence of [=records=] derived from its [=parent record=].
 
 <aside class=example id=ex-field-record-sequence>
 
