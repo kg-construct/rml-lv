@@ -31,9 +31,9 @@ var respecConfig = {
   shortName: "rml-lv",
   // if your specification has a subtitle that goes below the main
   // formal title, define it here
-  // subtitle   :  "White Paper",
+  // subtitle :  "White Paper",
   // if you wish the publication date to be other than the last modification, set this
-  // publishDate:  "2025-08-04",
+  publishDate: "2025-09-08",
   // if the specification's copyright date is a range of years, specify
   // the start date here:
   copyrightStart: "2024",

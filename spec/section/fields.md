@@ -147,8 +147,10 @@ In this example a [=field=] with [=declared name=] "name" is declared and added 
 
 A [=field=] defines [=records=]:
 
-- [=iterable records=] obtained by consecutively applying the [=expression field=]'s <a data-cite="RML-Core#dfn-expressions">expression</a>, or
-- [=expression records=] obtained by consecutively applying the [=iterable field=]'s <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> and <a data-cite="RML-Core#dfn-iterator">logical iterator</a> on the [=parent records=], the <dfn>parent records</dfn> being the [=records=] defined by the field's [=parent=].
+- [=iterable records=] obtained by consecutively applying the [=iterable field=]'s <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> and <a data-cite="RML-Core#dfn-iterator">logical iterator</a> on the [=parent records=], or 
+- [=expression records=] obtained by consecutively applying the [=expression field=]'s <a data-cite="RML-Core#dfn-expressions">expression</a> on the [=parent records=],  
+
+the <dfn>parent records</dfn> being the [=records=] defined by the field's [=parent=].
 
 A field adds following keys and corresponding values to the [=logical view iteration sequence=]:
 
