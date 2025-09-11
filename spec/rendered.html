@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en" dir="ltr"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 35.4.3">
+<meta name="generator" content="ReSpec 35.5.1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -246,7 +246,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "processVersion": 2024,
   "specStatus": "CG-DRAFT",
   "shortName": "rml-lv",
-  "publishDate": "2025-08-04",
+  "publishDate": "2025-09-08",
   "copyrightStart": "2024",
   "edDraftURI": "https://w3id.org/rml/lv/spec",
   "editors": [
@@ -341,10 +341,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "date": "27 September 2023"
     }
   },
-  "_ijt": "mbaodtkguur2edputm2kts027u",
-  "_ij_reload": "RELOAD_ON_SAVE",
-  "publishISODate": "2025-08-04T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 04 August 2025"
+  "publishISODate": "2025-09-08T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 08 September 2025"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
 <body class="h-entry"><div class="head">
@@ -352,7 +350,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">RML Logical Views</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2025-08-04">04 August 2025</time>
+      <time class="dt-published" datetime="2025-09-08">08 September 2025</time>
     </p>
     <dl>
       
@@ -884,16 +882,17 @@ Consequently, an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field
 <p>An <dfn id="dfn-iterable-field" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">iterable field</dfn> (<code>rml:IterableField</code>) is a type of <a href="https://w3id.org/rml/core/spec#dfn-iterable">iterable</a>. 
 Consequently, an <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-2">iterable field</a> <em class="rfc2119">MUST</em> have a <a href="https://w3id.org/rml/core/spec##dfn-reference-formulation">reference formulation</a> and a <a href="https://w3id.org/rml/core/spec#dfn-iterator">logical iterator</a>.
 If no reference formulation is declared for an <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-3">iterable field</a>, the reference formulation of the field's <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-1">parent</a> is implied. </p>
-<section id="field-parents"><div class="header-wrapper"><h3 id="fieldparents"><bdi class="secno">4.1 </bdi>Field parents</h3><a class="self-link" href="#fieldparents" aria-label="Permalink for Section 4.1"></a></div><p>A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-6">field</a> <em class="rfc2119">MUST</em> have a <dfn id="dfn-parent" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">parent</dfn> that is either the <a href="https://w3id.org/rml/core/spec##dfn-abstract-logical-source">abstract logical source</a> of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-8">logical view</a> or another <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-7">field</a>. The parent relation <em class="rfc2119">MUST</em> not contain cycles: it is tree-shaped with a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-9">logical view</a> as its root. The transitive parents of a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-8">field</a>, i.e., the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-9">field</a>'s parent, the parent of the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-10">field</a>'s parent, etcetera, are fittingly called the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-11">field</a>'s <dfn id="dfn-ancestors" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn" class="respec-offending-element" title="Found definition for &quot;ancestors&quot;, but nothing links to it. This is usually a spec bug!">ancestors</dfn>. </p>
-</section><section id="field-names"><div class="header-wrapper"><h3 id="fieldnames"><bdi class="secno">4.2 </bdi>Field names</h3><a class="self-link" href="#fieldnames" aria-label="Permalink for Section 4.2"></a></div><p>A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-12">field</a> <em class="rfc2119">MUST</em> have a <dfn id="dfn-declared-name" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">declared name</dfn> that is an alphanumerical string. Fields with the same <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-2">parent</a> <em class="rfc2119">MUST</em> have different declared names. 
-We distinguish between the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-13">field</a>'s <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-2">declared name</a> and the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-14">field</a>'s <a data-link-type="dfn|abstract-op" href="#dfn-absolute-name" class="internalDFN" id="ref-for-dfn-absolute-name-1">absolute name</a>. 
-If a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-15">field</a>'s parent is another <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-16">field</a>, the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-17">field</a>'s <dfn id="dfn-absolute-name" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">absolute name</dfn> is the concatenation of the name of the parent <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-18">field</a>, a dot <code>.</code>, and the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-19">field</a>'s declared name. 
-Otherwise, the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-20">field</a>'s <a data-link-type="dfn|abstract-op" href="#dfn-absolute-name" class="internalDFN" id="ref-for-dfn-absolute-name-2">absolute name</a> equals its <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-3">declared name</a>.  </p>
+<section id="field-parents"><div class="header-wrapper"><h3 id="fieldparents"><bdi class="secno">4.1 </bdi>Field parents</h3><a class="self-link" href="#fieldparents" aria-label="Permalink for Section 4.1"></a></div><p>A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-6">field</a> <em class="rfc2119">MUST</em> have a <dfn id="dfn-parent" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">parent</dfn> that is either the <a href="https://w3id.org/rml/core/spec##dfn-abstract-logical-source">abstract logical source</a> of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-8">logical view</a> or another <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-7">field</a>. The parent relation <em class="rfc2119">MUST</em> not contain cycles: it is tree-shaped with a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-9">logical view</a> as its root. The transitive parents of a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-8">field</a>, i.e., the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-9">field</a>'s parent, the parent of the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-10">field</a>'s parent, etcetera, are fittingly called the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-11">field</a>'s <dfn id="dfn-ancestors" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn" class="respec-offending-element" title="Found definition for &quot;ancestors&quot;, but nothing links to it. This is usually a spec bug!">ancestors</dfn>.
+A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-12">field</a>'s <dfn data-plurals="parent record" id="dfn-parent-records" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">parent records</dfn> are the <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-4">records</a> defined by the field's <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-2">parent</a>.</p>
+</section><section id="field-names"><div class="header-wrapper"><h3 id="fieldnames"><bdi class="secno">4.2 </bdi>Field names</h3><a class="self-link" href="#fieldnames" aria-label="Permalink for Section 4.2"></a></div><p>A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-13">field</a> <em class="rfc2119">MUST</em> have a <dfn id="dfn-declared-name" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">declared name</dfn> that is an alphanumerical string. Fields with the same <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-3">parent</a> <em class="rfc2119">MUST</em> have different declared names. 
+We distinguish between the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-14">field</a>'s <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-2">declared name</a> and the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-15">field</a>'s <a data-link-type="dfn|abstract-op" href="#dfn-absolute-name" class="internalDFN" id="ref-for-dfn-absolute-name-1">absolute name</a>. 
+If a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-16">field</a>'s parent is another <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-17">field</a>, the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-18">field</a>'s <dfn id="dfn-absolute-name" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">absolute name</dfn> is the concatenation of the name of the parent <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-19">field</a>, a dot <code>.</code>, and the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-20">field</a>'s declared name. 
+Otherwise, the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-21">field</a>'s <a data-link-type="dfn|abstract-op" href="#dfn-absolute-name" class="internalDFN" id="ref-for-dfn-absolute-name-2">absolute name</a> equals its <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-3">declared name</a>.  </p>
 <aside class="example" id="ex-fieldnames"><div class="marker">
     <a class="self-link" href="#ex-fieldnames">Example<bdi> 5</bdi></a>
   </div>
 
-<p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-21">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-4">declared name</a> "name" is declared and added to the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-10">logical view</a>. The parent of the field with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-5">declared name</a> "name" is the <a href="https://w3id.org/rml/core/spec##dfn-logical-source">logical source</a> <code>:jsonSource</code>.</p>
+<p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-22">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-4">declared name</a> "name" is declared and added to the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-10">logical view</a>. The parent of the field with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-5">declared name</a> "name" is the <a href="https://w3id.org/rml/core/spec##dfn-logical-source">logical source</a> <code>:jsonSource</code>.</p>
 <aside class="ex-input">
 
 <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
@@ -993,21 +992,21 @@ Otherwise, the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="inte
 </aside>
 </aside>
 
-</section><section id="field-records"><div class="header-wrapper"><h3 id="fieldrecords"><bdi class="secno">4.3 </bdi>Field records</h3><a class="self-link" href="#fieldrecords" aria-label="Permalink for Section 4.3"></a></div><p>A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-22">field</a> defines <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-4">records</a>:</p>
+</section><section id="field-records"><div class="header-wrapper"><h3 id="fieldrecords"><bdi class="secno">4.3 </bdi>Field records</h3><a class="self-link" href="#fieldrecords" aria-label="Permalink for Section 4.3"></a></div><p>A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-23">field</a> defines <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-5">records</a>:</p>
 <ul>
-<li><a data-link-type="dfn|abstract-op" href="#dfn-iterable-record" class="internalDFN" id="ref-for-dfn-iterable-record-5">iterable records</a> obtained by consecutively applying the <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-3">expression field</a>'s <a href="https://w3id.org/rml/core/spec#dfn-expressions">expression</a>, or</li>
-<li><a data-link-type="dfn|abstract-op" href="#dfn-expression-record" class="internalDFN" id="ref-for-dfn-expression-record-5">expression records</a> obtained by consecutively applying the <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-4">iterable field</a>'s <a href="https://w3id.org/rml/core/spec##dfn-reference-formulation">reference formulation</a> and <a href="https://w3id.org/rml/core/spec#dfn-iterator">logical iterator</a> on the <a data-link-type="dfn|abstract-op" href="#dfn-parent-records" class="internalDFN" id="ref-for-dfn-parent-records-1">parent records</a>, the <dfn data-plurals="parent record" id="dfn-parent-records" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">parent records</dfn> being the <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-5">records</a> defined by the field's <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-3">parent</a>.</li>
+<li><a data-link-type="dfn|abstract-op" href="#dfn-iterable-record" class="internalDFN" id="ref-for-dfn-iterable-record-5">iterable records</a> obtained by consecutively applying the <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-4">iterable field</a>'s <a href="https://w3id.org/rml/core/spec##dfn-reference-formulation">reference formulation</a> and <a href="https://w3id.org/rml/core/spec#dfn-iterator">logical iterator</a> on the <a data-link-type="dfn|abstract-op" href="#dfn-parent-records" class="internalDFN" id="ref-for-dfn-parent-records-1">parent records</a>, or </li>
+<li><a data-link-type="dfn|abstract-op" href="#dfn-expression-record" class="internalDFN" id="ref-for-dfn-expression-record-5">expression records</a> obtained by consecutively applying the <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-3">expression field</a>'s <a href="https://w3id.org/rml/core/spec#dfn-expressions">expression</a> on the <a data-link-type="dfn|abstract-op" href="#dfn-parent-records" class="internalDFN" id="ref-for-dfn-parent-records-2">parent records</a>.</li>
 </ul>
 <p>A field adds following keys and corresponding values to the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration-sequence" class="internalDFN" id="ref-for-dfn-logical-view-iteration-sequence-5">logical view iteration sequence</a>:</p>
 <ul>
-<li>A <a data-link-type="dfn|abstract-op" href="#dfn-record-key" class="internalDFN" id="ref-for-dfn-record-key-7">record key</a> <code>{absoluteFieldName}</code> with as values the <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-6">records</a> defined by the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-23">field</a>.</li>
-<li>An accompanying <a data-link-type="dfn|abstract-op" href="#dfn-index-key" class="internalDFN" id="ref-for-dfn-index-key-5">index key</a> <code>{absoluteFieldName}.#</code> with as values the position of the current <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-7">record</a> in the sequence of <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-8">records</a> derived from its <a data-link-type="dfn|abstract-op" href="#dfn-parent-records" class="internalDFN" id="ref-for-dfn-parent-records-2">parent record</a>.</li>
+<li>a <a data-link-type="dfn|abstract-op" href="#dfn-record-key" class="internalDFN" id="ref-for-dfn-record-key-7">record key</a> <code>{absoluteFieldName}</code> with as values the <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-6">records</a> defined by the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-24">field</a>.</li>
+<li>an accompanying <a data-link-type="dfn|abstract-op" href="#dfn-index-key" class="internalDFN" id="ref-for-dfn-index-key-5">index key</a> <code>{absoluteFieldName}.#</code> with as values the position of the current <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-7">record</a> in the sequence of <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-8">records</a> derived from its <a data-link-type="dfn|abstract-op" href="#dfn-parent-records" class="internalDFN" id="ref-for-dfn-parent-records-3">parent record</a>.</li>
 </ul>
 <aside class="example" id="ex-field-record-sequence"><div class="marker">
     <a class="self-link" href="#ex-field-record-sequence">Example<bdi> 6</bdi></a>
   </div>
 
-<p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-24">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-6">declared name</a> "item" is added to the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-11">logical view</a> from <a href="#ex-fieldnames" data-matched-text="[[[#ex-fieldnames]]]" class="box-ref">Example<bdi> 5</bdi></a>. Additionally a nested <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-25">field</a> "type" and a nested <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-26">field</a> "weight" are added to the "item" <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-27">field</a>.</p>
+<p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-25">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-6">declared name</a> "item" is added to the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-11">logical view</a> from <a href="#ex-fieldnames" data-matched-text="[[[#ex-fieldnames]]]" class="box-ref">Example<bdi> 5</bdi></a>. Additionally a nested <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-26">field</a> "type" and a nested <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-27">field</a> "weight" are added to the "item" <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-28">field</a>.</p>
 <aside class="ex-mapping">
 
 <pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonView</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
@@ -1135,8 +1134,8 @@ Declaring a new <a href="https://w3id.org/rml/core/spec##dfn-reference-formulati
   </div>
 
 <p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-12">logical view</a> is defined on a <a href="https://w3id.org/rml/core/spec#dfn-logical-source">logical source</a> with reference formulation <code>rml:JSONPath</code>.
-The <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-28">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-7">declared name</a> "items" is evaluated using this <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a>.
-The nested <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-29">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-8">declared name</a> "item" has a declared <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a> <code>rml:CSV</code> and CSV row as implicit iterator. 
+The <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-29">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-7">declared name</a> "items" is evaluated using this <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a>.
+The nested <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-30">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-8">declared name</a> "item" has a declared <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a> <code>rml:CSV</code> and CSV row as implicit iterator. 
 Its records are a sequence of logical iterations defined by its iterator. 
 The nested fields with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-9">declared name</a> "type" and "weight" are evaluated using the reference formulation <code>rml:CSV</code> from their parent field with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-10">declared name</a> "item".</p>
 <pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
@@ -1945,7 +1944,22 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
 
 
 
-<div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-logical-view" aria-label="Links in this document to definition: logical view">
+<section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-references"><bdi class="secno">A. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="a-1-normative-references"><bdi class="secno">A.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix A.1"></a></div>
+    
+    <dl class="bibliography"><dt id="bib-rfc2119">[RFC2119]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>
+    </dd><dt id="bib-rfc8174">[RFC8174]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc8174"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>
+    </dd><dt id="bib-rfc9535">[RFC9535]</dt><dd>
+      <a href="https://www.rfc-editor.org/rfc/rfc9535"><cite>JSONPath: Query Expressions for JSON</cite></a>. S. Gössner, Ed.; G. Normington, Ed.; C. Bormann, Ed. IETF. February 2024. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc9535">https://www.rfc-editor.org/rfc/rfc9535</a>
+    </dd><dt id="bib-rml-core">[RML-Core]</dt><dd>
+      <a href="https://w3id.org/rml/core/spec"><cite>RML-Core</cite></a>.  W3C. 16 February 2024. Draft Community Group Report. URL: <a href="https://w3id.org/rml/core/spec">https://w3id.org/rml/core/spec</a>
+    </dd><dt id="bib-turtle">[turtle]</dt><dd>
+      <a href="https://www.w3.org/TR/turtle/"><cite>RDF 1.1 Turtle</cite></a>. Eric Prud'hommeaux; Gavin Carothers.  W3C. 25 February 2014. W3C Recommendation. URL: <a href="https://www.w3.org/TR/turtle/">https://www.w3.org/TR/turtle/</a>
+    </dd></dl>
+  </section></section><p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-logical-view" aria-label="Links in this document to definition: logical view">
       <span class="caret"></span>
       <div>
         <a class="self-link" href="#dfn-logical-view" aria-label="Permalink for definition: logical view. Activate to close this dialog.">Permalink</a>
@@ -2026,7 +2040,9 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
     </li><li>
       <a href="#ref-for-dfn-record-3" title="§ 3.2 Logical view expressions">§ 3.2 Logical view expressions</a> 
     </li><li>
-      <a href="#ref-for-dfn-record-4" title="§ 4.3 Field records">§ 4.3 Field records</a> <a href="#ref-for-dfn-record-5" title="Reference 2">(2)</a> <a href="#ref-for-dfn-record-6" title="Reference 3">(3)</a> <a href="#ref-for-dfn-record-7" title="Reference 4">(4)</a> <a href="#ref-for-dfn-record-8" title="Reference 5">(5)</a> 
+      <a href="#ref-for-dfn-record-4" title="§ 4.1 Field parents">§ 4.1 Field parents</a> 
+    </li><li>
+      <a href="#ref-for-dfn-record-5" title="§ 4.3 Field records">§ 4.3 Field records</a> <a href="#ref-for-dfn-record-6" title="Reference 2">(2)</a> <a href="#ref-for-dfn-record-7" title="Reference 3">(3)</a> <a href="#ref-for-dfn-record-8" title="Reference 4">(4)</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-iterable-record" aria-label="Links in this document to definition: iterable record">
@@ -2134,13 +2150,13 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
     </li><li>
       <a href="#ref-for-dfn-field-4" title="§ 4. Fields">§ 4. Fields</a> <a href="#ref-for-dfn-field-5" title="Reference 2">(2)</a> 
     </li><li>
-      <a href="#ref-for-dfn-field-6" title="§ 4.1 Field parents">§ 4.1 Field parents</a> <a href="#ref-for-dfn-field-7" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-8" title="Reference 3">(3)</a> <a href="#ref-for-dfn-field-9" title="Reference 4">(4)</a> <a href="#ref-for-dfn-field-10" title="Reference 5">(5)</a> <a href="#ref-for-dfn-field-11" title="Reference 6">(6)</a> 
+      <a href="#ref-for-dfn-field-6" title="§ 4.1 Field parents">§ 4.1 Field parents</a> <a href="#ref-for-dfn-field-7" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-8" title="Reference 3">(3)</a> <a href="#ref-for-dfn-field-9" title="Reference 4">(4)</a> <a href="#ref-for-dfn-field-10" title="Reference 5">(5)</a> <a href="#ref-for-dfn-field-11" title="Reference 6">(6)</a> <a href="#ref-for-dfn-field-12" title="Reference 7">(7)</a> 
     </li><li>
-      <a href="#ref-for-dfn-field-12" title="§ 4.2 Field names">§ 4.2 Field names</a> <a href="#ref-for-dfn-field-13" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-14" title="Reference 3">(3)</a> <a href="#ref-for-dfn-field-15" title="Reference 4">(4)</a> <a href="#ref-for-dfn-field-16" title="Reference 5">(5)</a> <a href="#ref-for-dfn-field-17" title="Reference 6">(6)</a> <a href="#ref-for-dfn-field-18" title="Reference 7">(7)</a> <a href="#ref-for-dfn-field-19" title="Reference 8">(8)</a> <a href="#ref-for-dfn-field-20" title="Reference 9">(9)</a> <a href="#ref-for-dfn-field-21" title="Reference 10">(10)</a> 
+      <a href="#ref-for-dfn-field-13" title="§ 4.2 Field names">§ 4.2 Field names</a> <a href="#ref-for-dfn-field-14" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-15" title="Reference 3">(3)</a> <a href="#ref-for-dfn-field-16" title="Reference 4">(4)</a> <a href="#ref-for-dfn-field-17" title="Reference 5">(5)</a> <a href="#ref-for-dfn-field-18" title="Reference 6">(6)</a> <a href="#ref-for-dfn-field-19" title="Reference 7">(7)</a> <a href="#ref-for-dfn-field-20" title="Reference 8">(8)</a> <a href="#ref-for-dfn-field-21" title="Reference 9">(9)</a> <a href="#ref-for-dfn-field-22" title="Reference 10">(10)</a> 
     </li><li>
-      <a href="#ref-for-dfn-field-22" title="§ 4.3 Field records">§ 4.3 Field records</a> <a href="#ref-for-dfn-field-23" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-24" title="Reference 3">(3)</a> <a href="#ref-for-dfn-field-25" title="Reference 4">(4)</a> <a href="#ref-for-dfn-field-26" title="Reference 5">(5)</a> <a href="#ref-for-dfn-field-27" title="Reference 6">(6)</a> 
+      <a href="#ref-for-dfn-field-23" title="§ 4.3 Field records">§ 4.3 Field records</a> <a href="#ref-for-dfn-field-24" title="Reference 2">(2)</a> <a href="#ref-for-dfn-field-25" title="Reference 3">(3)</a> <a href="#ref-for-dfn-field-26" title="Reference 4">(4)</a> <a href="#ref-for-dfn-field-27" title="Reference 5">(5)</a> <a href="#ref-for-dfn-field-28" title="Reference 6">(6)</a> 
     </li><li>
-      <a href="#ref-for-dfn-field-28" title="§ 4.4 Field reference formulations">§ 4.4 Field reference formulations</a> <a href="#ref-for-dfn-field-29" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-field-29" title="§ 4.4 Field reference formulations">§ 4.4 Field reference formulations</a> <a href="#ref-for-dfn-field-30" title="Reference 2">(2)</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-expression-field" aria-label="Links in this document to definition: expression field">
@@ -2188,9 +2204,9 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
     <li>
       <a href="#ref-for-dfn-parent-1" title="§ 4. Fields">§ 4. Fields</a> 
     </li><li>
-      <a href="#ref-for-dfn-parent-2" title="§ 4.2 Field names">§ 4.2 Field names</a> 
+      <a href="#ref-for-dfn-parent-2" title="§ 4.1 Field parents">§ 4.1 Field parents</a> 
     </li><li>
-      <a href="#ref-for-dfn-parent-3" title="§ 4.3 Field records">§ 4.3 Field records</a> 
+      <a href="#ref-for-dfn-parent-3" title="§ 4.2 Field names">§ 4.2 Field names</a> 
     </li><li>
       <a href="#ref-for-dfn-parent-4" title="§ 4.4 Field reference formulations">§ 4.4 Field reference formulations</a> <a href="#ref-for-dfn-parent-5" title="Reference 2">(2)</a> <a href="#ref-for-dfn-parent-6" title="Reference 3">(3)</a> <a href="#ref-for-dfn-parent-7" title="Reference 4">(4)</a> <a href="#ref-for-dfn-parent-8" title="Reference 5">(5)</a> 
     </li>
@@ -2205,6 +2221,18 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <ul>
       <li>Not referenced in this document.</li>
     </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-parent-records" aria-label="Links in this document to definition: parent records">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-parent-records" aria-label="Permalink for definition: parent records. Activate to close this dialog.">Permalink</a>
+         
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-parent-records-1" title="§ 4.3 Field records">§ 4.3 Field records</a> <a href="#ref-for-dfn-parent-records-2" title="Reference 2">(2)</a> <a href="#ref-for-dfn-parent-records-3" title="Reference 3">(3)</a> 
+    </li>
+  </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-declared-name" aria-label="Links in this document to definition: declared name">
       <span class="caret"></span>
       <div>
@@ -2233,18 +2261,6 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <ul>
     <li>
       <a href="#ref-for-dfn-absolute-name-1" title="§ 4.2 Field names">§ 4.2 Field names</a> <a href="#ref-for-dfn-absolute-name-2" title="Reference 2">(2)</a> 
-    </li>
-  </ul>
-    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-parent-records" aria-label="Links in this document to definition: parent records">
-      <span class="caret"></span>
-      <div>
-        <a class="self-link" href="#dfn-parent-records" aria-label="Permalink for definition: parent records. Activate to close this dialog.">Permalink</a>
-         
-      </div>
-      <p><b>Referenced in:</b></p>
-      <ul>
-    <li>
-      <a href="#ref-for-dfn-parent-records-1" title="§ 4.3 Field records">§ 4.3 Field records</a> <a href="#ref-for-dfn-parent-records-2" title="Reference 2">(2)</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-logical-view-join" aria-label="Links in this document to definition: logical view join">
@@ -2485,58 +2501,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <a href="#ref-for-dfn-inclusion-annotation-2" title="§ 6.7 Inclusion">§ 6.7 Inclusion</a> <a href="#ref-for-dfn-inclusion-annotation-3" title="Reference 2">(2)</a> 
     </li>
   </ul>
-    </div><script>
-(function() {
-  var ws = new WebSocket('ws://' + window.location.host + 
-             '/jb-server-page?reloadMode=RELOAD_ON_SAVE&'+
-             'referrer=' + encodeURIComponent(window.location.pathname));
-  ws.onmessage = function (msg) {
-      if (msg.data === 'reload') {
-          window.location.reload();
-      }
-      if (msg.data.startsWith('update-css ')) {
-          var messageId = msg.data.substring(11);
-          var links = document.getElementsByTagName('link');
-          for (var i = 0; i < links.length; i++) {
-              var link = links[i];
-              if (link.rel !== 'stylesheet') continue;
-              var clonedLink = link.cloneNode(true);
-              var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
-              if (newHref !== link.href) {
-                clonedLink.href = newHref;
-              }
-              else {
-                var indexOfQuest = newHref.indexOf('?');
-                if (indexOfQuest >= 0) {
-                  // to support ?foo#hash 
-                  clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' + 
-                                    newHref.substring(indexOfQuest + 1);
-                }
-                else {
-                  clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
-                }
-              }
-              link.replaceWith(clonedLink);
-          }
-      }
-  };
-})();
-</script><section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-references"><bdi class="secno">A. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="a-1-normative-references"><bdi class="secno">A.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix A.1"></a></div>
-    
-    <dl class="bibliography"><dt id="bib-rfc2119">[RFC2119]</dt><dd>
-      <a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>
-    </dd><dt id="bib-rfc8174">[RFC8174]</dt><dd>
-      <a href="https://www.rfc-editor.org/rfc/rfc8174"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>
-    </dd><dt id="bib-rfc9535">[RFC9535]</dt><dd>
-      <a href="https://www.rfc-editor.org/rfc/rfc9535"><cite>JSONPath: Query Expressions for JSON</cite></a>. S. Gössner, Ed.; G. Normington, Ed.; C. Bormann, Ed. IETF. February 2024. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc9535">https://www.rfc-editor.org/rfc/rfc9535</a>
-    </dd><dt id="bib-rml-core">[RML-Core]</dt><dd>
-      <a href="https://w3id.org/rml/core/spec"><cite>RML-Core</cite></a>.  W3C. 16 February 2024. Draft Community Group Report. URL: <a href="https://w3id.org/rml/core/spec">https://w3id.org/rml/core/spec</a>
-    </dd><dt id="bib-turtle">[turtle]</dt><dd>
-      <a href="https://www.w3.org/TR/turtle/"><cite>RDF 1.1 Turtle</cite></a>. Eric Prud'hommeaux; Gavin Carothers.  W3C. 25 February 2014. W3C Recommendation. URL: <a href="https://www.w3.org/TR/turtle/">https://www.w3.org/TR/turtle/</a>
-    </dd></dl>
-  </section></section><p role="navigation" id="back-to-top">
-    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
-  </p><script id="respec-highlight-vars">(() => {
+    </div><script id="respec-highlight-vars">(() => {
 // @ts-check
 
 if (document.respec) {
