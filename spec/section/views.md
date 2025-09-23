@@ -40,7 +40,7 @@ An <dfn>index key</dfn> has a non-negative integer as value, indicating the zero
 <aside class="note">
 The order of logical view iterations produced, may differ between RML processors.
 Implementations are not required to guarantee a specific or stable iteration order.
-This may result in differences in the index values of fields retrieved from other logical views, depending on the RML processor used.
+This may result in differences in the index values of fields across different mapping executions.
 Furthermore, other <a data-cite="RML-Core#dfn-reference-formulation">reference formulations</a>, e.g., `rml:SQLQuery`, may not have a deterministic logical iteration order, potentially leading to differences in index values across mapping executions.
 </aside>
 
