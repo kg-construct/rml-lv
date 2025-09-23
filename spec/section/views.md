@@ -38,7 +38,7 @@ An <dfn>index key</dfn> has a non-negative integer as value, indicating the zero
 - For [=expression records=], the index value denotes the position of the element in the <a data-cite="RML-Core#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a>. For example, JSON object `{"elements": ["a", "b", "c"]}` with JSONPath expression `$.elements[*]` will return `"a"`, `"b"`, and `"c"` as <a data-cite="RML-Core#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a> elements. Element `"c"` will be denoted with index value `2`.
 
 <aside class="note">
-The order of logical view iterations may differ between RML processors.
+The order of logical view iterations produced, may differ between RML processors.
 Implementations are not required to guarantee a specific or stable iteration order.
 This may result in differences in the index values of fields retrieved from other logical views, depending on the RML processor used.
 Furthermore, other <a data-cite="RML-Core#dfn-reference-formulation">reference formulations</a>, e.g., `rml:SQLQuery`, may not have a deterministic logical iteration order, potentially leading to differences in index values across mapping executions.
