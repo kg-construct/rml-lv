@@ -246,7 +246,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "processVersion": 2024,
   "specStatus": "CG-DRAFT",
   "shortName": "rml-lv",
-  "publishDate": "2025-09-08",
+  "publishDate": "2025-09-24",
   "copyrightStart": "2024",
   "edDraftURI": "https://w3id.org/rml/lv/spec",
   "editors": [
@@ -300,8 +300,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "key": "This Version",
       "data": [
         {
-          "value": "https://w3id.org/rml/lv/spec/%thisDate%/",
-          "href": "https://w3id.org/rml/lv/spec/%thisDate%/"
+          "value": "https://kg-construct.github.io/rml-lv/spec/docs/%thisDate%/",
+          "href": "https://kg-construct.github.io/rml-lv/spec/docs/%thisDate%/"
         }
       ]
     },
@@ -309,8 +309,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "key": "Previous Version",
       "data": [
         {
-          "value": "https://w3id.org/rml/lv/spec/%prevDate%/",
-          "href": "https://w3id.org/rml/lv/spec/%prevDate%/"
+          "value": "https://kg-construct.github.io/rml-lv/spec/docs/%prevDate%/",
+          "href": " https://kg-construct.github.io/rml-lv/spec/docs/%prevDate%/"
         }
       ]
     },
@@ -341,8 +341,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "date": "27 September 2023"
     }
   },
-  "publishISODate": "2025-09-08T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 08 September 2025"
+  "publishISODate": "2025-09-24T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 24 September 2025"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
 <body class="h-entry"><div class="head">
@@ -350,7 +350,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">RML Logical Views</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2025-09-08">08 September 2025</time>
+      <time class="dt-published" datetime="2025-09-24">24 September 2025</time>
     </p>
     <dl>
       
@@ -377,9 +377,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </dd>
       
       <dt>This Version</dt><dd>
-    <a href="https://w3id.org/rml/lv/spec/%thisDate%/">https://w3id.org/rml/lv/spec/%thisDate%/</a>
+    <a href="https://kg-construct.github.io/rml-lv/spec/docs/%thisDate%/">https://kg-construct.github.io/rml-lv/spec/docs/%thisDate%/</a>
   </dd><dt>Previous Version</dt><dd>
-    <a href="https://w3id.org/rml/lv/spec/%prevDate%/">https://w3id.org/rml/lv/spec/%prevDate%/</a>
+    <a href=" https://kg-construct.github.io/rml-lv/spec/docs/%prevDate%/">https://kg-construct.github.io/rml-lv/spec/docs/%prevDate%/</a>
   </dd><dt>Website</dt><dd>
     <a href="https://github.com/kg-construct/rml-lv/">https://github.com/kg-construct/rml-lv/</a>
   </dd>
@@ -643,6 +643,13 @@ Each <a data-link-type="dfn|abstract-op" href="#dfn-record-key" class="internalD
 <li>For <a data-link-type="dfn|abstract-op" href="#dfn-iterable-record" class="internalDFN" id="ref-for-dfn-iterable-record-2">iterable records</a>, the index value denotes the position in the sequence of the <a href="https://w3id.org/rml/core/spec#dfn-iteration">logical iteration</a>. For example: the second CSV row will be denoted with index value <code>1</code>.</li>
 <li>For <a data-link-type="dfn|abstract-op" href="#dfn-expression-record" class="internalDFN" id="ref-for-dfn-expression-record-2">expression records</a>, the index value denotes the position of the element in the <a href="https://w3id.org/rml/core//kg-construct.github.io/rml-core/spec/docs/#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a>. For example, JSON object <code>{"elements": ["a", "b", "c"]}</code> with JSONPath expression <code>$.elements[*]</code> will return <code>"a"</code>, <code>"b"</code>, and <code>"c"</code> as <a href="https://w3id.org/rml/core//kg-construct.github.io/rml-core/spec/docs/#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a> elements. Element <code>"c"</code> will be denoted with index value <code>2</code>.</li>
 </ul>
+<div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="4"><span>Note</span></div><aside class="">
+The order of logical view iterations produced, may differ between RML processors.
+Implementations are not required to guarantee a specific or stable iteration order.
+This may result in differences in the index values of fields across different mapping executions.
+Furthermore, other <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulations</a>, e.g., <code>rml:SQLQuery</code>, may not have a deterministic logical iteration order, potentially leading to differences in index values across mapping executions.
+</aside></div>
+
 <p>A <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration-sequence" class="internalDFN" id="ref-for-dfn-logical-view-iteration-sequence-2">logical view iteration sequence</a> <em class="rfc2119">MUST</em> have a finite set of keys that appear in each <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration" class="internalDFN" id="ref-for-dfn-logical-view-iteration-1">logical view iteration</a>.
 In any particular <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration" class="internalDFN" id="ref-for-dfn-logical-view-iteration-2">logical view iteration</a>, the value of a key <em class="rfc2119">MAY</em> be a null value.</p>
 <p>Each <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration" class="internalDFN" id="ref-for-dfn-logical-view-iteration-3">logical view iteration</a> has at least the following keys:</p>
@@ -784,7 +791,7 @@ The <a href="https://w3id.org/rml/core/spec##dfn-natural-rdf-datatype">natural R
 
 </aside>
 
-<div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="4"><span>Note</span></div><aside class="">
+<div class="note" role="note" id="issue-container-generatedID-0"><div role="heading" class="note-title marker" id="h-note-0" aria-level="4"><span>Note</span></div><aside class="">
 Note that this tabular representation of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration-sequence" class="internalDFN" id="ref-for-dfn-logical-view-iteration-sequence-3">logical view iteration sequence</a> is just one possible way of representing a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration-sequence" class="internalDFN" id="ref-for-dfn-logical-view-iteration-sequence-4">logical view iteration sequence</a>.
 The underlined keys represent <a data-link-type="dfn|abstract-op" href="#dfn-referenceable-key" class="internalDFN" id="ref-for-dfn-referenceable-key-2">referenceable keys</a>.
 </aside></div>
@@ -1772,7 +1779,7 @@ lukas, 1986
 <p>Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annotation" class="internalDFN" id="ref-for-dfn-primarykey-annotation-3">PrimaryKey annotation</a> is, as a matter of fact, also a <a data-link-type="dfn|abstract-op" href="#dfn-unique-annotation" class="internalDFN" id="ref-for-dfn-unique-annotation-3">Unique annotation</a>.</p>
 </section><section id="notnull"><div class="header-wrapper"><h3 id="x6-5-notnull"><bdi class="secno">6.5 </bdi>NotNull</h3><a class="self-link" href="#notnull" aria-label="Permalink for Section 6.5"></a></div>
 <p>The <dfn data-lt="NotNull annotation|NotNull structural annotation" id="dfn-notnull-annotation" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">NotNull structural annotation</dfn> (<code>rml:NotNullAnnotation</code>) is analogous to the notion of <i>NOT NULL constraints</i> in databases. Specifically, a <a data-link-type="dfn|abstract-op" href="#dfn-notnull-annotation" class="internalDFN" id="ref-for-dfn-notnull-annotation-2">NotNull annotation</a> <a data-link-type="dfn|abstract-op" href="#dfn-on-fields" class="internalDFN" id="ref-for-dfn-on-fields-5">on fields</a>  <em>F</em>  imposes that each field in <em>F</em> does not contain NULL values.</p>
-<div class="note" role="note" id="issue-container-generatedID-0"><div role="heading" class="note-title marker" id="h-note-0" aria-level="4"><span>Note</span></div><aside class="">
+<div class="note" role="note" id="issue-container-generatedID-1"><div role="heading" class="note-title marker" id="h-note-1" aria-level="4"><span>Note</span></div><aside class="">
 Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annotation" class="internalDFN" id="ref-for-dfn-primarykey-annotation-4">PrimaryKey annotation</a> is, as a matter of fact, also a <a data-link-type="dfn|abstract-op" href="#dfn-notnull-annotation" class="internalDFN" id="ref-for-dfn-notnull-annotation-3">NotNull annotation</a>.
 </aside></div>
 
@@ -1938,7 +1945,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annota
 <li>Exactly one <code>rml:targetView</code> property</li>
 <li>Exactly one <code>rml:targetFields</code> property.</li>
 </ul>
-<div class="note" role="note" id="issue-container-generatedID-1"><div role="heading" class="note-title marker" id="h-note-1" aria-level="4"><span>Note</span></div><aside class="">
+<div class="note" role="note" id="issue-container-generatedID-2"><div role="heading" class="note-title marker" id="h-note-2" aria-level="4"><span>Note</span></div><aside class="">
 Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annotation" class="internalDFN" id="ref-for-dfn-foreignkey-annotation-4">ForeignKey annotation</a> is also an <a data-link-type="dfn|abstract-op" href="#dfn-inclusion-annotation" class="internalDFN" id="ref-for-dfn-inclusion-annotation-3">Inclusion annotation</a>.
 </aside></div></section></section>
 
