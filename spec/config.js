@@ -33,7 +33,7 @@ var respecConfig = {
   // formal title, define it here
   // subtitle :  "White Paper",
   // if you wish the publication date to be other than the last modification, set this
-  publishDate: "2025-09-08",
+  publishDate: "2025-09-24",
   // if the specification's copyright date is a range of years, specify
   // the start date here:
   copyrightStart: "2024",
@@ -94,15 +94,15 @@ var respecConfig = {
     {
       key: "This Version",
       data: [{
-        value: "https://w3id.org/rml/lv/spec/%thisDate%/",
-        href: "https://w3id.org/rml/lv/spec/%thisDate%/"
+        value: "https://kg-construct.github.io/rml-lv/spec/docs/%thisDate%/",
+        href: "https://kg-construct.github.io/rml-lv/spec/docs/%thisDate%/"
       }]
     },
     {
       key: "Previous Version",
       data: [{
-        value: "https://w3id.org/rml/lv/spec/%prevDate%/",
-        href: "https://w3id.org/rml/lv/spec/%prevDate%/"
+        value: "https://kg-construct.github.io/rml-lv/spec/docs/%prevDate%/",
+        href: " https://kg-construct.github.io/rml-lv/spec/docs/%prevDate%/"
       }]
     },
     {
