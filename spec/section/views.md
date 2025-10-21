@@ -88,7 +88,7 @@ When a non-existing or a non-referenceable key is referenced, RML processors sho
   rml:field [
     a rml:IterableField ;
     rml:fieldName "item" ;
-    rml:reference "$.items[*]" ;
+    rml:iterator "$.items[*]" ;
     rml:field [
       a rml:ExpressionField ;
       rml:fieldName "type" ;
