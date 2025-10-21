@@ -18,12 +18,12 @@ An <dfn>expression field</dfn> (`rml:ExpressionField`) is a type of <a data-cite
 Consequently, an [=expression field=] MUST have an <a data-cite="RML-Core#dfn-expressions">expression</a>. 
 
 An <dfn>iterable field</dfn> (`rml:IterableField`) is a type of <a data-cite="RML-Core#dfn-iterable">iterable</a>. 
-Consequently, an [=iterable field=] MUST have a <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> and a <a data-cite="RML-Core#dfn-iterator">logical iterator</a>.
+Consequently, an [=iterable field=] MUST have a <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a> and a <a data-cite="RML-Core#dfn-iterator">logical iterator</a>.
 If no reference formulation is declared for an [=iterable field=], the reference formulation of the field's [=parent=] is implied. 
 
 ### Field parents {#fieldparents}
 
-A [=field=] MUST have a <dfn>parent</dfn> that is either the <a data-cite="RML-Core##dfn-abstract-logical-source">abstract logical source</a> of the [=logical view=] or another [=field=]. The parent relation MUST not contain cycles: it is tree-shaped with a [=logical view=] as its root. The transitive parents of a [=field=], i.e., the [=field=]'s parent, the parent of the [=field=]'s parent, etcetera, are fittingly called the [=field=]'s <dfn>ancestors</dfn>.
+A [=field=] MUST have a <dfn>parent</dfn> that is either the <a data-cite="RML-Core#dfn-abstract-logical-source">abstract logical source</a> of the [=logical view=] or another [=field=]. The parent relation MUST not contain cycles: it is tree-shaped with a [=logical view=] as its root. The transitive parents of a [=field=], i.e., the [=field=]'s parent, the parent of the [=field=]'s parent, etcetera, are fittingly called the [=field=]'s <dfn>ancestors</dfn>.
 A [=field=]'s <dfn>parent records</dfn> are the [=records=] defined by the field's [=parent=].
 
 ### Field names {#fieldnames}
@@ -35,7 +35,7 @@ Otherwise, the [=field=]'s [=absolute name=] equals its [=declared name=].
 
 <aside class=example id=ex-fieldnames>
 
-In this example a [=field=] with [=declared name=] "name" is declared and added to the [=logical view=]. The parent of the field with [=declared name=] "name" is the <a data-cite="RML-Core##dfn-logical-source">logical source</a> `:jsonSource`.
+In this example a [=field=] with [=declared name=] "name" is declared and added to the [=logical view=]. The parent of the field with [=declared name=] "name" is the <a data-cite="RML-Core#dfn-logical-source">logical source</a> `:jsonSource`.
 
 <aside class=ex-input>
 
@@ -148,7 +148,7 @@ In this example a [=field=] with [=declared name=] "name" is declared and added 
 
 A [=field=] defines [=records=]:
 
-- [=iterable records=] obtained by consecutively applying the [=iterable field=]'s <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> and <a data-cite="RML-Core#dfn-iterator">logical iterator</a> on the [=parent records=], or 
+- [=iterable records=] obtained by consecutively applying the [=iterable field=]'s <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a> and <a data-cite="RML-Core#dfn-iterator">logical iterator</a> on the [=parent records=], or 
 - [=expression records=] obtained by consecutively applying the [=expression field=]'s <a data-cite="RML-Core#dfn-expressions">expression</a> on the [=parent records=].
 
 A field adds following keys and corresponding values to the [=logical view iteration sequence=]:
@@ -293,12 +293,12 @@ Note some columns in the table below have been shortened for brevity.
 
 ### Field reference formulations {#fieldreferenceformulations}
 
-For the evaluation of the expression of an [=expression field=] (`rml:ExpressionField`) on the records of the field's [=parent=], the parent's <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> is used. 
-Consequently, the parent of an [=expression field=] MUST be an <a data-cite="RML-Core##dfn-iterable">iterable</a>, i.e. an <a data-cite="RML-Core##dfn-abstract-logical-source">abstract logical source</a> or [=iterable field=].  
+For the evaluation of the expression of an [=expression field=] (`rml:ExpressionField`) on the records of the field's [=parent=], the parent's <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a> is used. 
+Consequently, the parent of an [=expression field=] MUST be an <a data-cite="RML-Core#dfn-iterable">iterable</a>, i.e. an <a data-cite="RML-Core#dfn-abstract-logical-source">abstract logical source</a> or [=iterable field=].  
 
-The default <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> of an [=iterable field=] (`rml:IterableField`) is the <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> of the field's [=parent=]. 
-If the [=iterable field=]'s [=parent=] is an [=expression field=], a <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> MUST be declared for the [=iterable field=].
-Declaring a new <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a>, i.e. a <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> that is different from the <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> of the field's [=parent=], is only allowed when the field's [=parent=] is an [=expression field=]. 
+The default <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a> of an [=iterable field=] (`rml:IterableField`) is the <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a> of the field's [=parent=]. 
+If the [=iterable field=]'s [=parent=] is an [=expression field=], a <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a> MUST be declared for the [=iterable field=].
+Declaring a new <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a>, i.e. a <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a> that is different from the <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a> of the field's [=parent=], is only allowed when the field's [=parent=] is an [=expression field=]. 
 
 <aside class=example id=ex-mixed-format-json-csv>
 
@@ -430,4 +430,6 @@ Note some columns in the table below have been shortened for brevity.
 </table>
 </aside>
 
-
+<aside class="note">
+Declaring a new <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a> within an [=iterable field=] affects all aspects of that <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a>. For example, the `rml:namespace` of `rml:XPath` can be (re)declared in an [=iterable field=]. However, it is not possible to redeclare properties defined at the <a data-cite="RML-IO#dfn-source">source</a> level, such as `rml:null`, `rml:compression`, or `rml:encoding`. Those properties  are inherited from the <a data-cite="RML-Core#dfn-abstract-logical-source">abstract logical source</a> of the [=logical view=].
+</aside>
