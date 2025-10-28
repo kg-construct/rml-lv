@@ -1,8 +1,8 @@
 ## RMLLVTC0008a
 
-**Title**: Cycle: Abstract Logical Source
+**Title**: Cycle: Fields
 
-**Description**: Test a cycle in the abstract logical source of a logical view
+**Description**: Test a cycle in nested fields
 
 **Error expected?** Yes
 
@@ -11,33 +11,29 @@
 @prefix rml: <http://w3id.org/rml/> .
 @prefix : <http://example.org/> .
 
-:view1 a rml:LogicalView ;
-  rml:viewOn :view2 ;
-  rml:field [
-    a rml:ExpressionField ;
-    rml:fieldName "name1" ;
-    rml:reference "name2" ;
-  ] .
-
-:view2 a rml:LogicalView ;
-  rml:viewOn :view1 ;
-  rml:field [
-    a rml:ExpressionField ;
-    rml:fieldName "name2" ;
-    rml:reference "name1" ;
-  ] .
-
-:triplesMapPerson a rml:TriplesMap ;
-  rml:logicalSource :view2 ;
-  rml:subjectMap [
-    rml:template "http://example.org/person/{name2}" ;
+:jsonSource a rml:LogicalSource ;
+  rml:source [
+    a rml:RelativePathSource , rml:Source ;
+    rml:root rml:MappingDirectory ;
+    rml:path "people.json" ;
   ] ;
-  rml:predicateObjectMap [
-    rml:predicate :hasName ;
-    rml:objectMap [
-      rml:reference "name2" ;
-    ] ;
-  ] .
+  rml:referenceFormulation rml:JSONPath ;
+  rml:iterator "$.people[*]" .
+
+:jsonView a rml:LogicalView ;
+  rml:viewOn :jsonSource ;
+  rml:field :field1 .
+
+:field1 a rml:IterableField ;
+  rml:fieldName "item" ;
+  rml:referenceFormulation rml:JSONPath ;
+  rml:iterator "$.items[*]" ;
+  rml:field :field2.
+
+:field2 a rml:ExpressionField ;
+  rml:fieldName "type" ;
+  rml:reference "$.type" ;
+  rml:field :field1.
 
 ```
 
