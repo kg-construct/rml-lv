@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en" dir="ltr"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 35.5.1">
+<meta name="generator" content="ReSpec 35.6.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -141,7 +141,7 @@ dfn{cursor:pointer}
 <script data-goatcounter="https://rml-fields.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
     
 <noscript>
-        &lt;img src="https://rml-fields.goatcounter.com/count?p=/test-noscript"&gt;
+        &amp;lt;img src="https://rml-fields.goatcounter.com/count?p=/test-noscript"&amp;gt;
     </noscript>
 
 <style id="respec-mainstyle">
@@ -246,7 +246,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "processVersion": 2024,
   "specStatus": "CG-DRAFT",
   "shortName": "rml-lv",
-  "publishDate": "2025-09-24",
+  "publishDate": "2025-11-13",
   "copyrightStart": "2024",
   "edDraftURI": "https://w3id.org/rml/lv/spec",
   "editors": [
@@ -338,11 +338,12 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "href": "https://w3id.org/rml/io/spec",
       "status": "Draft Community Group Report",
       "publisher": "W3C",
-      "date": "27 September 2023"
+      "date": "27 September 2023",
+      "id": "rml-io"
     }
   },
-  "publishISODate": "2025-09-24T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 24 September 2025"
+  "publishISODate": "2025-11-13T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 13 November 2025"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
 <body class="h-entry"><div class="head">
@@ -350,7 +351,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">RML Logical Views</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2025-09-24">24 September 2025</time>
+      <time class="dt-published" datetime="2025-11-13">13 November 2025</time>
     </p>
     <dl>
       
@@ -468,7 +469,7 @@ the following namespace prefix bindings unless otherwise stated:</p>
 <aside class="ex-output">
 # This box contains the example output
 </aside></section><section id="conformance"><div class="header-wrapper"><h3 id="x1-2-conformance"><bdi class="secno">1.2 </bdi>Conformance</h3><a class="self-link" href="#conformance" aria-label="Permalink for Section 1.2"></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
-        The key words <em class="rfc2119">MAY</em>, <em class="rfc2119">MUST</em>, and <em class="rfc2119">SHOULD</em> in this document
+        The key words <em class="rfc2119">MAY</em> and <em class="rfc2119">MUST</em> in this document
         are to be interpreted as described in
         <a href="https://www.rfc-editor.org/info/bcp14">BCP 14</a>
         [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">RFC2119</a></cite>] [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8174" title="Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words">RFC8174</a></cite>]
@@ -538,11 +539,11 @@ It is not possible to declare the construction of below output triples from belo
 
 
 </section><section id="mixed-data-formats"><div class="header-wrapper"><h3 id="x2-2-mixed-data-formats"><bdi class="secno">2.2 </bdi>Mixed data formats</h3><a class="self-link" href="#mixed-data-formats" aria-label="Permalink for Section 2.2"></a></div>
-<p>Data in one format can contain multiple or composite values stored in another format, e.g. a CSV dataset could contain columns containing JSON values. To define the expected form of references to input data <a href="https://kg-construct.github.io/rml-core/spec/docs/">RML-Core</a> employs the notion of a <a href="https://kg-construct.github.io/rml-io/spec/docs/#reference-formulations">reference formulation</a> that is a property of every <a href="https://kg-construct.github.io/rml-io/spec/docs/#defining-logical-sources">logical source</a>. However, currently a logical source is limited to having a single reference formulation, meaning mixed format data can only be referenced using a query language that supports just one of the formats.</p>
+<p>Data in one format can contain multiple or composite values stored in another format, e.g. a CSV dataset could contain columns containing JSON values. To define the expected form of references to input data <a href="https://kg-construct.github.io/rml-core/spec/docs/">RML-Core</a> employs the notion of a <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a>. A <a href="https://w3id.org/rml/io/spec###dfn-dfn-logical-source">logical source</a> is limited to having a single reference formulation, meaning mixed format data can only be referenced using a query language that supports just one of the formats.</p>
 <aside class="example" id="ex-mixed-format-problem"><div class="marker">
     <a class="self-link" href="#ex-mixed-format-problem">Example<bdi> 2</bdi></a>
   </div>
-It is not possible to declare the construction of below output triples from below data source with RML-Core. 
+It is not possible to declare the construction of below output triples from below data source with RML-Core and RML-IO. 
 <aside class="ex-input">
 
 <pre><code class="csv hljs" aria-busy="false">name,item  
@@ -659,7 +660,7 @@ In any particular <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-it
 </ul>
 <p>Additional keys-value pairs with custom <a data-link-type="dfn|abstract-op" href="#dfn-record-key" class="internalDFN" id="ref-for-dfn-record-key-3">record keys</a> can be defined by the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-3">fields</a> of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-6">logical view</a>,
 which is further detailed in <a href="#fields" data-matched-text="[[[#fields]]]" class="sec-ref"><bdi class="secno">4. </bdi>Fields</a>.</p>
-</section><section id="logical-view-expressions"><div class="header-wrapper"><h3 id="logicalviewexpressions"><bdi class="secno">3.2 </bdi>Logical view expressions</h3><a class="self-link" href="#logicalviewexpressions" aria-label="Permalink for Section 3.2"></a></div><p>A <dfn data-plurals="logical view references" id="dfn-logical-view-reference" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">logical view reference</dfn> is a <a href="https://w3id.org/rml/core/spec#dfn-reference-expression">reference expression</a> that references a defined <a data-link-type="dfn|abstract-op" href="#dfn-referenceable-key" class="internalDFN" id="ref-for-dfn-referenceable-key-1">referenceable key</a> in a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration" class="internalDFN" id="ref-for-dfn-logical-view-iteration-4">logical view iteration</a>.
+</section><section id="logical-view-expressions"><div class="header-wrapper"><h3 id="logicalviewexpressions"><bdi class="secno">3.2 </bdi>Logical view expressions</h3><a class="self-link" href="#logicalviewexpressions" aria-label="Permalink for Section 3.2"></a></div><p>A <dfn id="dfn-logical-view-reference" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">logical view reference</dfn> is a <a href="https://w3id.org/rml/core/spec#dfn-reference-expression">reference expression</a> that references a defined <a data-link-type="dfn|abstract-op" href="#dfn-referenceable-key" class="internalDFN" id="ref-for-dfn-referenceable-key-1">referenceable key</a> in a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration" class="internalDFN" id="ref-for-dfn-logical-view-iteration-4">logical view iteration</a>.
 A <dfn data-plurals="referenceable keys" id="dfn-referenceable-key" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">referenceable key</dfn> is either</p>
 <ul>
 <li>a <a data-link-type="dfn|abstract-op" href="#dfn-record-key" class="internalDFN" id="ref-for-dfn-record-key-4">record key</a> of an <a data-link-type="dfn|abstract-op" href="#dfn-expression-record" class="internalDFN" id="ref-for-dfn-expression-record-3">expression record</a>, or</li>
@@ -687,7 +688,7 @@ The <a href="https://w3id.org/rml/core/spec##dfn-natural-rdf-datatype">natural R
   <span class="hljs-symbol">rml:field</span> [
     <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:IterableField</span> ;
     <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"item"</span> ;
-    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.items[*]"</span> ;
+    <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.items[*]"</span> ;
     <span class="hljs-symbol">rml:field</span> [
       <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
       <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"type"</span> ;
@@ -1264,11 +1265,11 @@ using a <a href="https://w3id.org/rml/core/spec#dfn-join-condition">join conditi
 <ul>
 <li>exactly one parent logical view property (<code>rml:parentLogicalView</code>), whose value is a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-13">logical view</a> (<code>rml:LogicalView</code>) that supplies the additional fields. This is referred to as the <dfn id="dfn-parent-logical-view" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">parent logical view</dfn>.</li>
 <li>at least one join condition property (<code>rml:joinCondition</code>), whose value is a <a href="https://w3id.org/rml/core/spec#dfn-join-condition">join condition</a>.</li>
-<li>at least one field property (<code>rml:field</code>), whose value is an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-8">expression field</a> (<code>rml:ExpressionField</code>). This field <em class="rfc2119">SHOULD</em> only contain <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-reference" class="internalDFN" id="ref-for-dfn-logical-view-reference-3">logical view references</a> that can be evaluated on the parent logical view.</li>
+<li>at least one field property (<code>rml:field</code>), whose value is a <strong><a href="https://w3id.org/rml/core/spec##dfn-reference-valued-expression-map">reference-valued</a></strong> <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-8">expression field</a> (<code>rml:ExpressionField</code>) <strong>without nested fields.</strong> This field <em class="rfc2119">MUST</em> contain a valid <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-reference" class="internalDFN" id="ref-for-dfn-logical-view-reference-3">logical view reference</a> that can be evaluated on the parent logical view.</li>
 </ul>
 <p>Similar to how  <a href="https://w3id.org/rml/core/spec#joins">joins are defined in RML-Core</a>,
-the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-14">logical view</a> in the subject position of the <a data-link-type="dfn|abstract-op" href="#dfn-join-property" class="internalDFN" id="ref-for-dfn-join-property-1">join property</a> fulfills the role of <a href="">child logical source</a> in the <a href="https://w3id.org/rml/core/spec#dfn-join-condition">join condition(s)</a>, but of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-3">logical view join</a>, and is referred to as <dfn id="dfn-child-logical-view" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">child logical view</dfn>.
-The <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="internalDFN" id="ref-for-dfn-parent-logical-view-2">parent logical view</a> fulfills the role of the <a href="">parent logical source</a> in the <a href="https://w3id.org/rml/core/spec#dfn-join-condition">join condition(s)</a>, but of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-4">logical view join</a>.</p>
+the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-14">logical view</a> in the subject position of the <a data-link-type="dfn|abstract-op" href="#dfn-join-property" class="internalDFN" id="ref-for-dfn-join-property-1">join property</a> fulfills the role of <a href="https://w3id.org/rml/core/spec#child-logical-source">child logical source</a> in the <a href="https://w3id.org/rml/core/spec#dfn-join-condition">join condition(s)</a>, but of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-3">logical view join</a>, and is referred to as <dfn id="dfn-child-logical-view" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">child logical view</dfn>.
+The <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="internalDFN" id="ref-for-dfn-parent-logical-view-2">parent logical view</a> fulfills the role of the <a href="https://w3id.org/rml/core/spec#parent-logical-source">parent logical source</a> in the <a href="https://w3id.org/rml/core/spec#dfn-join-condition">join condition(s)</a>, but of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-4">logical view join</a>.</p>
 <table>
 <thead>
 <tr>
@@ -1961,6 +1962,8 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <a href="https://www.rfc-editor.org/rfc/rfc9535"><cite>JSONPath: Query Expressions for JSON</cite></a>. S. Gössner, Ed.; G. Normington, Ed.; C. Bormann, Ed. IETF. February 2024. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc9535">https://www.rfc-editor.org/rfc/rfc9535</a>
     </dd><dt id="bib-rml-core">[RML-Core]</dt><dd>
       <a href="https://w3id.org/rml/core/spec"><cite>RML-Core</cite></a>.  W3C. 16 February 2024. Draft Community Group Report. URL: <a href="https://w3id.org/rml/core/spec">https://w3id.org/rml/core/spec</a>
+    </dd><dt id="bib-rml-io">[RML-IO]</dt><dd>
+      <a href="https://w3id.org/rml/io/spec"><cite>RML-IO</cite></a>.  W3C. 27 September 2023. Draft Community Group Report. URL: <a href="https://w3id.org/rml/io/spec">https://w3id.org/rml/io/spec</a>
     </dd><dt id="bib-turtle">[turtle]</dt><dd>
       <a href="https://www.w3.org/TR/turtle/"><cite>RDF 1.1 Turtle</cite></a>. Eric Prud'hommeaux; Gavin Carothers.  W3C. 25 February 2014. W3C Recommendation. URL: <a href="https://www.w3.org/TR/turtle/">https://www.w3.org/TR/turtle/</a>
     </dd></dl>
