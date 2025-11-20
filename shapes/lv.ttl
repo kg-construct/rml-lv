@@ -240,46 +240,33 @@ rmlsh:LogicalViewJoinShape a sh:NodeShape ;
         A field of the logical view join.
         """ ;
         sh:message """
-        At least one rml:field property must be specified for a rml:LogicalViewJoin, with a reference-valued expression field without nested fields as its value.
+        At least one rml:field property must be specified for a rml:LogicalViewJoin, with a leaf expression field as its value.
         """ ;
         sh:path rml:field ;
         sh:minCount 1 ;
         sh:nodeKind sh:BlankNodeOrIRI ;
-        sh:node rmlsh:JoinFieldShape ;
+        sh:node rmlsh:LeafExpressionFieldShape ;
     ] .
 
-rmlsh:JoinFieldShape a sh:NodeShape ;
-    rdfs:label "Field in Logical View Join" ;
+rmlsh:LeafExpressionFieldShape a sh:NodeShape ;
+    rdfs:label "Leaf Expression Field" ;
     rdfs:comment """
-    Each logical view join has one rml:field property must be specified for a rml:LogicalViewJoin, with a reference-valued expression field without nested fields as its value, here reference as join field .
+    A leaf expression field is an expression field without nested fields.
     """ ;
     sh:message """
-    Node must have a valid rml:ExpressionField description, with exactly one rml:reference property and without rml:field properties.
+    Node must have a valid rml:ExpressionField description.
     """ ;
     sh:node rmlsh:ExpressionFieldShape ;
     sh:property [
         sh:description """
-        Nested fields are not allowed in a join field.
+        A leaf expression field is an expression field without nested fields.
         """ ;
         sh:message """
-        A field in a logical view join MUST not have nested fields.
+        A leaf expression field has no nested fields.
         """ ;
         sh:path rml:field ;
         sh:maxCount 0 ;
-    ] ;
-    sh:property [
-        sh:description """
-        Each join field has exactly one rml:reference property.
-        """ ;
-        sh:message """
-        The value of a rml:reference property for a join field must be a logical view reference that can be evaluated on the parent logical view.
-        """ ;
-        sh:path rml:reference ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ; 
-        sh:nodeKind sh:Literal ;
     ] .
-
 
 rmlsh:StructuralAnnotationShape a sh:NodeShape;
     rdfs:label "StructuralAnnotation" ;
