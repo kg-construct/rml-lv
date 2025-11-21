@@ -1,13 +1,13 @@
 ## Logical views {#logicalviews}
 
-A <dfn>logical view</dfn> is a type of <a data-cite="RML-Core##dfn-abstract-logical-source">abstract logical source</a> that is derived from another <a data-cite="RML-Core##dfn-abstract-logical-source">abstract logical source</a> by defining [=fields=] with data from said <a data-cite="RML-Core##dfn-abstract-logical-source">abstract logical source</a>.
+A <dfn>logical view</dfn> is a type of <a data-cite="RML-Core#dfn-abstract-logical-source">abstract logical source</a> that is derived from another <a data-cite="RML-Core#dfn-abstract-logical-source">abstract logical source</a> by defining [=fields=] with data from said <a data-cite="RML-Core#dfn-abstract-logical-source">abstract logical source</a>.
 
 A [=logical view=] (`rml:LogicalView`) is represented by a resource that MUST contain:
-- exactly one view on property (`rml:viewOn`), whose value is a <a data-cite="RML-Core##dfn-abstract-logical-source">abstract logical source</a> (`rml:AbstractLogicalSource`),
+- exactly one view on property (`rml:viewOn`), whose value is a <a data-cite="RML-Core#dfn-abstract-logical-source">abstract logical source</a> (`rml:AbstractLogicalSource`),
 - at least one field property (`rml:field`), whose value is a [=field=] (`rml:Field`).
 - zero or more join properties (`rml:leftJoin`, `rml:innerJoin`), whose value is a [=logical view join=] (`rml:LogicalViewJoin`).
 
-A [=logical view=] (`rml:LogicalView`) has an implicit default <a data-cite="RML-Core##dfn-reference-formulation">reference formulation</a> (`rml:referenceFormulation`) and <a data-cite="RML-Core##dfn-iterator">logical iterator</a>  (`rml:iterator`), which MUST not be overwritten.
+A [=logical view=] (`rml:LogicalView`) has an implicit default <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a> (`rml:referenceFormulation`) and <a data-cite="RML-Core#dfn-iterator">logical iterator</a>  (`rml:iterator`), which MUST not be overwritten.
 
 | Property        | Domain                           | Range                       |
 |-----------------|----------------------------------|-----------------------------|
@@ -19,7 +19,7 @@ A [=logical view=] (`rml:LogicalView`) has an implicit default <a data-cite="RML
 
 ### Logical view iterator {#logicalviewiterator}
 
-The <a data-cite="RML-Core##dfn-iterator">logical iterator</a> of a [=logical view=] produces a <dfn>logical view iteration sequence</dfn>, i.e. an ordered sequence of sets of key-value pairs.
+The <a data-cite="RML-Core#dfn-iterator">logical iterator</a> of a [=logical view=] produces a <dfn>logical view iteration sequence</dfn>, i.e. an ordered sequence of sets of key-value pairs.
 Each set of key-value pairs represents a <a data-cite="RML-Core#dfn-iteration">logical iteration</a> of the [=logical view=], called a <dfn>logical view iteration</dfn>.
 
 Each key in a [=logical view iteration sequence=] is a string and each value is a [=record=] or a non-negative integer.
@@ -48,7 +48,7 @@ A [=logical view iteration sequence=] MUST have a finite set of keys that appear
 In any particular [=logical view iteration=], the value of a key MAY be a null value.
 
 Each [=logical view iteration=] has at least the following keys:
-- A "root" [=record key=] `<it>` with as corresponding values the [=iterable records=] produced by the <a data-cite="RML-Core##dfn-abstract-logical-source">abstract logical source</a> in the sequence defined by the <a data-cite="RML-Core#dfn-iterator">logical iterator</a> of the [=logical view=].
+- A "root" [=record key=] `<it>` with as corresponding values the [=iterable records=] produced by the <a data-cite="RML-Core#dfn-abstract-logical-source">abstract logical source</a> in the sequence defined by the <a data-cite="RML-Core#dfn-iterator">logical iterator</a> of the [=logical view=].
 - An accompanying "root" [=index key=] `#`.
 
 Additional keys-value pairs with custom [=record keys=] can be defined by the [=fields=] of the [=logical view=],
@@ -66,8 +66,8 @@ A [=record key=] of an [=iterable record=] (including the [=record key=] `<it>`)
 
 The <a data-cite="RML-Core#dfn-expression-evaluation-result">expression evaluation result</a> of a [=logical view reference=] is the value corresponding to the referenced key. 
 
-The <a data-cite="RML-Core##dfn-natural-rdf-datatype">natural RDF datatype</a> of an [=index key=]'s values is [xsd:integer](https://www.w3.org/TR/xmlschema11-2/#integer).
-The <a data-cite="RML-Core##dfn-natural-rdf-datatype">natural RDF datatype</a> of an [=expression record=] is obtained by applying the <a data-cite="RML-Core##dfn-natural-mapping">natural mapping</a> of the <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a> used to retrieve the [=record=].
+The <a data-cite="RML-Core#dfn-natural-rdf-datatype">natural RDF datatype</a> of an [=index key=]'s values is [xsd:integer](https://www.w3.org/TR/xmlschema11-2/#integer).
+The <a data-cite="RML-Core#dfn-natural-rdf-datatype">natural RDF datatype</a> of an [=expression record=] is obtained by applying the <a data-cite="RML-Core#dfn-natural-mapping">natural mapping</a> of the <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a> used to retrieve the [=record=].
 
 A [=logical view reference=] can be used in <a data-cite="RML-Core#dfn-expression-map">expression maps</a> just as any other <a data-cite="RML-Core#dfn-reference-expression">reference expression</a>.
 
