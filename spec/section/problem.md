@@ -67,10 +67,10 @@ It is not possible to declare the construction of below output triples from belo
 
 ### Mixed data formats
 
-Data in one format can contain multiple or composite values stored in another format, e.g. a CSV dataset could contain columns containing JSON values. To define the expected form of references to input data [RML-Core](https://kg-construct.github.io/rml-core/spec/docs/) employs the notion of a <!-- TODO reference to core, dependent on https://github.com/kg-construct/rml-core/issues/127-->[reference formulation](https://kg-construct.github.io/rml-io/spec/docs/#reference-formulations) that is a property of every <!-- TODO reference to core, dependent on https://github.com/kg-construct/rml-core/issues/127-->[logical source](https://kg-construct.github.io/rml-io/spec/docs/#defining-logical-sources). However, currently a logical source is limited to having a single reference formulation, meaning mixed format data can only be referenced using a query language that supports just one of the formats.
+Data in one format can contain multiple or composite values stored in another format, e.g. a CSV dataset could contain columns containing JSON values. To define the expected form of references to input data [RML-Core](https://kg-construct.github.io/rml-core/spec/docs/) employs the notion of a <a data-cite="RML-Core#dfn-reference-formulation">reference formulation</a>. A <a data-cite="RML-IO###dfn-dfn-logical-source">logical source</a> is limited to having a single reference formulation, meaning mixed format data can only be referenced using a query language that supports just one of the formats.
 
 <aside class=example id=ex-mixed-format-problem>
-It is not possible to declare the construction of below output triples from below data source with RML-Core. 
+It is not possible to declare the construction of below output triples from below data source with RML-Core and RML-IO. 
 <aside class=ex-input>
 
 ```csv

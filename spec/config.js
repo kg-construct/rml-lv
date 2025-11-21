@@ -33,7 +33,7 @@ var respecConfig = {
   // formal title, define it here
   // subtitle :  "White Paper",
   // if you wish the publication date to be other than the last modification, set this
-  publishDate: "2025-10-23",
+  publishDate: "2025-11-20",
   // if the specification's copyright date is a range of years, specify
   // the start date here:
   copyrightStart: "2024",

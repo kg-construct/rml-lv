@@ -6,11 +6,13 @@ using a <a data-cite="RML-Core#dfn-join-condition">join condition</a>.
 A [=logical view join=] MUST contain:
 - exactly one parent logical view property (`rml:parentLogicalView`), whose value is a [=logical view=] (`rml:LogicalView`) that supplies the additional fields. This is referred to as the <dfn>parent logical view</dfn>.
 - at least one join condition property (`rml:joinCondition`), whose value is a <a data-cite="RML-Core#dfn-join-condition">join condition</a>.
-- at least one field property (`rml:field`), whose value is an [=expression field=] (`rml:ExpressionField`). This field SHOULD only contain [=logical view references=] that can be evaluated on the parent logical view. 
+- at least one field property (`rml:field`), whose value is a <dfn>leaf expression field</dfn>, i.e., an [=expression field=] (`rml:ExpressionField`) without nested fields.
+This field MUST contain only [=logical view references=] that can be evaluated on the parent logical view.
+The [=declared name=] of this field MUST be different from the [=absolute name=] of every other field in the [=child logical view=].
 
 Similar to how  <a data-cite="RML-Core#joins">joins are defined in RML-Core</a>,
-the [=logical view=] in the subject position of the [=join property=] fulfills the role of <!-- TODO reference to core child logical source when available-->[child logical source]() in the <a data-cite="RML-Core#dfn-join-condition">join condition(s)</a>, but of the [=logical view join=], and is referred to as <dfn>child logical view</dfn>.
-The [=parent logical view=] fulfills the role of the <!-- TODO reference to core parent logical source when available-->[parent logical source]() in the <a data-cite="RML-Core#dfn-join-condition">join condition(s)</a>, but of the [=logical view join=].
+the [=logical view=] in the subject position of the [=join property=] fulfills the role of <a data-cite="RML-Core#child-logical-source">child logical source</a> in the <a data-cite="RML-Core#dfn-join-condition">join condition(s)</a>, but of the [=logical view join=], and is referred to as <dfn>child logical view</dfn>.
+The [=parent logical view=] fulfills the role of the <a data-cite="RML-Core#parent-logical-source">parent logical source</a> in the <a data-cite="RML-Core#dfn-join-condition">join condition(s)</a>, but of the [=logical view join=].
 
 | Property                | Domain                | Range                 |
 |-------------------------|-----------------------|-----------------------|
