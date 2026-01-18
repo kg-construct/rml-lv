@@ -1,8 +1,8 @@
 ## RMLLVTC0001c
 
-**Title**: Expression Field: Constant
+**Title**: Expression Field: Template
 
-**Description**: Test a constant expression in an expression field
+**Description**: Test a template-valued expression field
 
 **Error expected?** No
 

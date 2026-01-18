@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en" dir="ltr"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 35.6.0">
+<meta name="generator" content="ReSpec 35.6.1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -141,7 +141,7 @@ dfn{cursor:pointer}
 <script data-goatcounter="https://rml-fields.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
     
 <noscript>
-        &amp;lt;img src="https://rml-fields.goatcounter.com/count?p=/test-noscript"&amp;gt;
+        &lt;img src="https://rml-fields.goatcounter.com/count?p=/test-noscript"&gt;
     </noscript>
 
 <style id="respec-mainstyle">
@@ -246,7 +246,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "processVersion": 2024,
   "specStatus": "CG-DRAFT",
   "shortName": "rml-lv",
-  "publishDate": "2025-11-20",
+  "publishDate": "2026-01-08",
   "copyrightStart": "2024",
   "edDraftURI": "https://w3id.org/rml/lv/spec",
   "editors": [
@@ -342,8 +342,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "rml-io"
     }
   },
-  "publishISODate": "2025-11-20T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 20 November 2025"
+  "publishISODate": "2026-01-08T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 08 January 2026"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
 <body class="h-entry"><div class="head">
@@ -351,7 +351,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">RML Logical Views</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2025-11-20">20 November 2025</time>
+      <time class="dt-published" datetime="2026-01-08">08 January 2026</time>
     </p>
     <dl>
       
@@ -389,7 +389,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <p class="copyright">
           <a href="https://www.w3.org/policies/#copyright">Copyright</a>
           ©
-          2024-2025
+          2024-2026
           
           the Contributors to the RML Logical Views
           Specification, published by the
@@ -427,7 +427,7 @@ as well as additional information about their fields, through structural annotat
     <p data-format="markdown"><p>This is an early draft,
 yet efforts are made to keep things stable.</p>
 </p>
-</section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">1. </bdi>Overview</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#conventions"><bdi class="secno">1.1 </bdi>Document conventions</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1.2 </bdi>Conformance</a></li></ol></li><li class="tocline"><a class="tocxref" href="#problem"><bdi class="secno">2. </bdi>Problem</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#nested-data-structures"><bdi class="secno">2.1 </bdi>Nested data structures</a></li><li class="tocline"><a class="tocxref" href="#mixed-data-formats"><bdi class="secno">2.2 </bdi>Mixed data formats</a></li><li class="tocline"><a class="tocxref" href="#joining-of-data-sources"><bdi class="secno">2.3 </bdi>Joining of data sources</a></li></ol></li><li class="tocline"><a class="tocxref" href="#logicalviews"><bdi class="secno">3. </bdi>Logical views</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#logicalviewiterator"><bdi class="secno">3.1 </bdi>Logical view iterator</a></li><li class="tocline"><a class="tocxref" href="#logicalviewexpressions"><bdi class="secno">3.2 </bdi>Logical view expressions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#fields"><bdi class="secno">4. </bdi>Fields</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#fieldparents"><bdi class="secno">4.1 </bdi>Field parents</a></li><li class="tocline"><a class="tocxref" href="#fieldnames"><bdi class="secno">4.2 </bdi>Field names</a></li><li class="tocline"><a class="tocxref" href="#fieldrecords"><bdi class="secno">4.3 </bdi>Field records</a></li><li class="tocline"><a class="tocxref" href="#fieldreferenceformulations"><bdi class="secno">4.4 </bdi>Field reference formulations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#viewjoins"><bdi class="secno">5. </bdi>Logical view joins</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#dfn-join-type"><bdi class="secno">5.1 </bdi>Join types</a></li><li class="tocline"><a class="tocxref" href="#logical-view-join-examples"><bdi class="secno">5.2 </bdi>Logical view join examples</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#left-join"><bdi class="secno">5.2.1 </bdi>Left join</a></li><li class="tocline"><a class="tocxref" href="#inner-join"><bdi class="secno">5.2.2 </bdi>Inner join</a></li><li class="tocline"><a class="tocxref" href="#two-left-joins"><bdi class="secno">5.2.3 </bdi>Two left joins</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#annotations"><bdi class="secno">6. </bdi>Structural Annotations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#invariance-principle"><bdi class="secno">6.1 </bdi>Invariance Principle</a></li><li class="tocline"><a class="tocxref" href="#irisafe"><bdi class="secno">6.2 </bdi>IriSafe</a></li><li class="tocline"><a class="tocxref" href="#primarykey"><bdi class="secno">6.3 </bdi>PrimaryKey</a></li><li class="tocline"><a class="tocxref" href="#unique"><bdi class="secno">6.4 </bdi>Unique</a></li><li class="tocline"><a class="tocxref" href="#notnull"><bdi class="secno">6.5 </bdi>NotNull</a></li><li class="tocline"><a class="tocxref" href="#foreignkey"><bdi class="secno">6.6 </bdi>ForeignKey</a></li><li class="tocline"><a class="tocxref" href="#inclusion"><bdi class="secno">6.7 </bdi>Inclusion</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">A.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">A.2 </bdi>Informative references</a></li></ol></li></ol></nav>
+</section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">1. </bdi>Overview</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#conventions"><bdi class="secno">1.1 </bdi>Document conventions</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1.2 </bdi>Conformance</a></li></ol></li><li class="tocline"><a class="tocxref" href="#problem"><bdi class="secno">2. </bdi>Problem</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#nested-data-structures"><bdi class="secno">2.1 </bdi>Nested data structures</a></li><li class="tocline"><a class="tocxref" href="#mixed-data-formats"><bdi class="secno">2.2 </bdi>Mixed data formats</a></li><li class="tocline"><a class="tocxref" href="#joining-of-data-sources"><bdi class="secno">2.3 </bdi>Joining of data sources</a></li></ol></li><li class="tocline"><a class="tocxref" href="#logicalviews"><bdi class="secno">3. </bdi>Logical views</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#logicalviewiterator"><bdi class="secno">3.1 </bdi>Logical view iterator</a></li><li class="tocline"><a class="tocxref" href="#logicalviewexpressions"><bdi class="secno">3.2 </bdi>Logical view expressions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#fields"><bdi class="secno">4. </bdi>Fields</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#fieldparents"><bdi class="secno">4.1 </bdi>Field parents</a></li><li class="tocline"><a class="tocxref" href="#fieldnames"><bdi class="secno">4.2 </bdi>Field names</a></li><li class="tocline"><a class="tocxref" href="#fieldrecords"><bdi class="secno">4.3 </bdi>Field records</a></li><li class="tocline"><a class="tocxref" href="#fieldreferenceformulations"><bdi class="secno">4.4 </bdi>Field reference formulations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#viewjoins"><bdi class="secno">5. </bdi>Logical view joins</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#dfn-join-type"><bdi class="secno">5.1 </bdi>Join types</a></li><li class="tocline"><a class="tocxref" href="#logical-view-join-examples"><bdi class="secno">5.2 </bdi>Logical view join examples</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#left-join"><bdi class="secno">5.2.1 </bdi>Left join</a></li><li class="tocline"><a class="tocxref" href="#inner-join"><bdi class="secno">5.2.2 </bdi>Inner join</a></li><li class="tocline"><a class="tocxref" href="#two-left-joins"><bdi class="secno">5.2.3 </bdi>Two left joins</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#annotations"><bdi class="secno">6. </bdi>Structural Annotations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#invariance-principle"><bdi class="secno">6.1 </bdi>Invariance Principle</a></li><li class="tocline"><a class="tocxref" href="#irisafe"><bdi class="secno">6.2 </bdi>IriSafe</a></li><li class="tocline"><a class="tocxref" href="#primarykey"><bdi class="secno">6.3 </bdi>PrimaryKey</a></li><li class="tocline"><a class="tocxref" href="#unique"><bdi class="secno">6.4 </bdi>Unique</a></li><li class="tocline"><a class="tocxref" href="#notnull"><bdi class="secno">6.5 </bdi>NotNull</a></li><li class="tocline"><a class="tocxref" href="#foreignkey"><bdi class="secno">6.6 </bdi>ForeignKey</a></li><li class="tocline"><a class="tocxref" href="#inclusion"><bdi class="secno">6.7 </bdi>Inclusion</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">A.1 </bdi>Normative references</a></li></ol></li></ol></nav>
 
 <section id="overview-0"><div class="header-wrapper"><h2 id="overview"><bdi class="secno">1. </bdi>Overview</h2><a class="self-link" href="#overview" aria-label="Permalink for Section 1."></a></div><p><em>This section is non-normative.</em></p>
 <section id="document-conventions"><div class="header-wrapper"><h3 id="conventions"><bdi class="secno">1.1 </bdi>Document conventions</h3><a class="self-link" href="#conventions" aria-label="Permalink for Section 1.1"></a></div><p>We assume readers have basic familiarity with RDF and RML concepts.</p>
@@ -1274,7 +1274,7 @@ This field <em class="rfc2119">MUST</em> contain only <a data-link-type="dfn|abs
 The <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-11">declared name</a> of this field <em class="rfc2119">MUST</em> be different from the <a data-link-type="dfn|abstract-op" href="#dfn-absolute-name" class="internalDFN" id="ref-for-dfn-absolute-name-3">absolute name</a> of every other field in the <a data-link-type="dfn|abstract-op" href="#dfn-child-logical-view" class="internalDFN" id="ref-for-dfn-child-logical-view-2">child logical view</a>.</li>
 </ul>
 <p>Similar to how  <a href="https://w3id.org/rml/core/spec#joins">joins are defined in RML-Core</a>,
-the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-14">logical view</a> in the subject position of the <a data-link-type="dfn|abstract-op" href="#dfn-join-property" class="internalDFN" id="ref-for-dfn-join-property-1">join property</a> fulfills the role of <a href="https://w3id.org/rml/core/spec#child-logical-source">child logical source</a> in the <a href="https://w3id.org/rml/core/spec#dfn-join-condition">join condition(s)</a>, but of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-3">logical view join</a>, and is referred to as <dfn id="dfn-child-logical-view" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">child logical view</dfn>.
+the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-15">logical view</a> in the subject position of the <a data-link-type="dfn|abstract-op" href="#dfn-join-property" class="internalDFN" id="ref-for-dfn-join-property-1">join property</a> fulfills the role of <a href="https://w3id.org/rml/core/spec#child-logical-source">child logical source</a> in the <a href="https://w3id.org/rml/core/spec#dfn-join-condition">join condition(s)</a>, but of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-3">logical view join</a>, and is referred to as <dfn id="dfn-child-logical-view" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">child logical view</dfn>.
 The <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="internalDFN" id="ref-for-dfn-parent-logical-view-2">parent logical view</a> fulfills the role of the <a href="https://w3id.org/rml/core/spec#parent-logical-source">parent logical source</a> in the <a href="https://w3id.org/rml/core/spec#dfn-join-condition">join condition(s)</a>, but of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-4">logical view join</a>.</p>
 <table>
 <thead>
@@ -1807,12 +1807,12 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annota
 </thead>
 <tbody><tr>
 <td><code>rml:targetView</code></td>
-<td><code>rml:InclusionAnnotation</code></td>
+<td><code>rml:ForeignKeyAnnotation</code></td>
 <td><code>rml:LogicalView</code></td>
 </tr>
 <tr>
 <td><code>rml:targetFields</code></td>
-<td><code>rml:InclusionAnnotation</code></td>
+<td><code>rml:ForeignKeyAnnotation</code></td>
 <td><code>rdf:List</code></td>
 </tr>
 </tbody></table>
@@ -1972,11 +1972,6 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <a href="https://w3id.org/rml/io/spec"><cite>RML-IO</cite></a>.  W3C. 27 September 2023. Draft Community Group Report. URL: <a href="https://w3id.org/rml/io/spec">https://w3id.org/rml/io/spec</a>
     </dd><dt id="bib-turtle">[turtle]</dt><dd>
       <a href="https://www.w3.org/TR/turtle/"><cite>RDF 1.1 Turtle</cite></a>. Eric Prud'hommeaux; Gavin Carothers.  W3C. 25 February 2014. W3C Recommendation. URL: <a href="https://www.w3.org/TR/turtle/">https://www.w3.org/TR/turtle/</a>
-    </dd></dl>
-  </section><section id="informative-references"><div class="header-wrapper"><h3 id="a-2-informative-references"><bdi class="secno">A.2 </bdi>Informative references</h3><a class="self-link" href="#informative-references" aria-label="Permalink for Appendix A.2"></a></div>
-    
-    <dl class="bibliography"><dt id="bib-rml-io">[RML-IO]</dt><dd>
-      <a href="https://w3id.org/rml/io/spec"><cite>RML-IO</cite></a>.  W3C. 27 September 2023. Draft Community Group Report. URL: <a href="https://w3id.org/rml/io/spec">https://w3id.org/rml/io/spec</a>
     </dd></dl>
   </section></section><p role="navigation" id="back-to-top">
     <a href="#title"><abbr title="Back to Top">↑</abbr></a>

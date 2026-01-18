@@ -125,10 +125,10 @@ The <dfn data-lt="ForeignKey annotation">ForeignKey structural annotation</dfn> 
 
 The <dfn>target view</dfn> is a [=logical view=] specified through the property `rml:targetView`, whereas the <dfn>target fields</dfn> are an RDF list of field names specified through the property `rml:targetFields`. These two properties are specified as follows:
 
-| Property           | Domain                    | Range             |
-|--------------------|---------------------------|-------------------|
-| `rml:targetView`   | `rml:InclusionAnnotation` | `rml:LogicalView` |
-| `rml:targetFields` | `rml:InclusionAnnotation` | `rdf:List`        |
+| Property           | Domain                     | Range             |
+|--------------------|----------------------------|-------------------|
+| `rml:targetView`   | `rml:ForeignKeyAnnotation` | `rml:LogicalView` |
+| `rml:targetFields` | `rml:ForeignKeyAnnotation` | `rdf:List`        |
 
 Therefore, each ForeignKey annotation MUST specify (additionally to the inherited `rml:onFields` property):
 
