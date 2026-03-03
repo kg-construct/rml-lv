@@ -76,7 +76,7 @@ var respecConfig = {
       date: "12 March 2024",
     },
   },
-  publishDate:  "2026-01-08",
+  publishDate:  "2026-03-03",
   otherLinks: [],
   shortName: "RML-LV-Testcases",
   specStatus: "CG-DRAFT",

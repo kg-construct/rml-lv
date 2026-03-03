@@ -10,6 +10,7 @@
 _:source 
     rml:source [
       a rml:RelativePathSource ;
+      rml:root rml:MappingDirectory;
       rml:path "metadata.csv" ;
       rml:null "";
     ];
