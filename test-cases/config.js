@@ -24,35 +24,35 @@ var respecConfig = {
   // check https://respec.org/docs/ for the meaning of these keys
   preProcess: [loadTurtle],
   authors: [
-    {
-      name: "Pano Maria",
-      mailto: "pano@skemu.com",
-      url: "https://panomaria.com",
-      company: "Skemu",
-      companyURL: "https://skemu.com"
-    },
+     {
+              name: "Pano Maria",
+              company: "ModelDesk",
+              url: "https://modeldesk.io",
+              orcid: "0009-0000-2598-1894",
+              companyURL: "https://modeldesk.io"
+            },
     {
       name: "Els de Vleeschauwer",
       mailto: "els.devleeschauwer@ugent.be",
       company: "Ghent University &ndash; imec &ndash; IDLab",
-      orcidid: "0000-0002-8630-3947",
+      orcid: "0000-0002-8630-3947",
       companyURL: "https://idlab.technology/"
     }
   ],
   edDraftURI: "https://w3id.org/rml/lv/test-cases/",
   editors: [
-    {
-      name: "Pano Maria",
-      mailto: "pano@skemu.com",
-      url: "https://panomaria.com",
-      company: "Skemu",
-      companyURL: "https://skemu.com"
-    },
+     {
+              name: "Pano Maria",
+              company: "ModelDesk",
+              url: "https://modeldesk.io",
+              orcid: "0009-0000-2598-1894",
+              companyURL: "https://modeldesk.io"
+            },
     {
       name: "Els de Vleeschauwer",
       mailto: "els.devleeschauwer@ugent.be",
       company: "Ghent University &ndash; imec &ndash; IDLab",
-      orcidid: "0000-0002-8630-3947",
+      orcid: "0000-0002-8630-3947",
       companyURL: "https://idlab.technology/"
     }
   ],
@@ -76,8 +76,10 @@ var respecConfig = {
       date: "12 March 2024",
     },
   },
-  publishDate:  "2026-03-03",
+  //publishDate:  "2026-03-03",
   otherLinks: [],
+  latestVersion: null,
+  prevVersion: "https://kg-construct.github.io/rml-lv/test-cases/docs/20260303/",
   shortName: "RML-LV-Testcases",
   specStatus: "CG-DRAFT",
   // W3C config

@@ -33,7 +33,7 @@ var respecConfig = {
   // formal title, define it here
   // subtitle :  "White Paper",
   // if you wish the publication date to be other than the last modification, set this
-  publishDate: "2026-01-08",
+  //publishDate: "2026-01-08",
   // if the specification's copyright date is a range of years, specify
   // the start date here:
   copyrightStart: "2024",
@@ -48,40 +48,41 @@ var respecConfig = {
   // editors, add as many as you like
   // only "name" is required
   editors: [
-    {
-      name: "Pano Maria",
-      mailto: "pano@skemu.com",
-      // url: "https://panomaria.com",
-      company: "Skemu",
-      companyURL: "https://skemu.com"
-    },
+     {
+              name: "Pano Maria",
+              company: "ModelDesk",
+              url: "https://modeldesk.io",
+              orcid: "0009-0000-2598-1894",
+              companyURL: "https://modeldesk.io"
+            },
     {
       name: "Els de Vleeschauwer",
       mailto: "els.devleeschauwer@ugent.be",
       company: "Ghent University &ndash; imec &ndash; IDLab",
-      orcidid: "0000-0002-8630-3947",
+      orcid: "0000-0002-8630-3947",
       companyURL: "https://idlab.technology/"
     }
   ],
   authors: [
-    {
-      name: "Pano Maria",
-      mailto: "pano@skemu.com",
-      company: "Skemu",
-      companyURL: "https://skemu.com"
-    },
+     {
+              name: "Pano Maria",
+              company: "ModelDesk",
+              url: "https://modeldesk.io",
+              orcid: "0009-0000-2598-1894",
+              companyURL: "https://modeldesk.io"
+     },
     {
       name: "Els de Vleeschauwer",
       mailto: "els.devleeschauwer@ugent.be",
       company: "Ghent University &ndash; imec &ndash; IDLab",
-      orcidid: "0000-0002-8630-3947",
+      orcid: "0000-0002-8630-3947",
       companyURL: "https://idlab.technology/"
     },
     {
       name: "Davide Lanti",
       mailto: "dalanti@unibz.it",
       company: "Free University of Bozen-Bolzano",
-      orcidid: "0000-0003-1097-2965",
+      orcid: "0000-0003-1097-2965",
       companyURL: "https://www.unibz.it/"
     }
   ],
@@ -94,15 +95,15 @@ var respecConfig = {
     {
       key: "This Version",
       data: [{
-        value: "https://kg-construct.github.io/rml-lv/spec/docs/%thisDate%/",
-        href: "https://kg-construct.github.io/rml-lv/spec/docs/%thisDate%/"
+        value: "https://kg-construct.github.io/rml-lv/spec/docs/20260316/",
+        href: "https://kg-construct.github.io/rml-lv/spec/docs/20260316/"
       }]
     },
     {
       key: "Previous Version",
       data: [{
-        value: "https://kg-construct.github.io/rml-lv/spec/docs/%prevDate%/",
-        href: " https://kg-construct.github.io/rml-lv/spec/docs/%prevDate%/"
+        value: "https://kg-construct.github.io/rml-lv/spec/docs/20260108/",
+        href: " https://kg-construct.github.io/rml-lv/spec/docs/20260108/"
       }]
     },
     {
