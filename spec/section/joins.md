@@ -176,7 +176,7 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
     rml:fieldName "birthyear" ;
     rml:reference "birthyear" ;
   ] ;
-  rml:leftJoin [
+  rml:innerJoin [
     rml:parentLogicalView :jsonView
     rml:joinCondition [
       rml:parent "name" ;
