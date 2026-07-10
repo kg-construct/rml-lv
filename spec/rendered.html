@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en" dir="ltr"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 35.6.1">
+<meta name="generator" content="ReSpec 37.1.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -36,6 +36,7 @@ dfn{cursor:pointer}
 .dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
 .dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
 .dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel .marker.cddl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
 .dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
 .dfn-panel a[href]:hover{border-bottom-width:1px}
 .dfn-panel ul{padding:0}
@@ -141,7 +142,7 @@ dfn{cursor:pointer}
 <script data-goatcounter="https://rml-fields.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
     
 <noscript>
-        &lt;img src="https://rml-fields.goatcounter.com/count?p=/test-noscript"&gt;
+        &amp;lt;img src="https://rml-fields.goatcounter.com/count?p=/test-noscript"&amp;gt;
     </noscript>
 
 <style id="respec-mainstyle">
@@ -160,13 +161,17 @@ a.bibref{text-decoration:none}
 .respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
 }
 #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+@media (prefers-color-scheme:dark){
+#references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
+}
+body:has(input[name=color-scheme][value=dark]:checked) #references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
 cite .bibref{font-style:italic}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
 ol.tof,ul.tof{list-style:none outside none}
 .caption{margin-top:.5em;font-style:italic}
 #issue-summary>ul{column-count:2}
-#issue-summary li{list-style:none;display:inline-block}
+#issue-summary li{list-style:none}
 details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
 details.respec-tests-details>*{padding-right:2em}
 details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
@@ -176,7 +181,7 @@ details.respec-tests-details>li{padding-left:1em}
 .self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
 aside.example .marker>a.self-link{color:inherit}
 .header-wrapper{display:flex;align-items:baseline}
-:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2){position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2):has(+a.self-link){position:relative;left:-.5em}
 :is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.5}
 :is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
 :is(h2,h3)+a.self-link{top:-.2em}
@@ -187,6 +192,8 @@ dd{margin-left:0}
 @media print{
 .removeOnSave{display:none}
 }
+body:has(input[name=color-scheme][value=light]:checked),head:not(:has(meta[name=color-scheme][content~=dark]))+body{color-scheme:light}
+body:has(input[name=color-scheme][value=dark]:checked){color-scheme:dark}
 </style>
 <meta name="color-scheme" content="light">
 <meta name="description" content="RML logical views is an extension of the RDF Mapping Language (RML) that increases the language's capability to
@@ -197,9 +204,36 @@ over one or more existing data sources.
 Additionally, it provides a mechanism to express relationships between data sources,
 as well as additional information about their fields, through structural annotations.">
 <style>
-.hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
+.hljs,body:has(input[name=color-scheme][value=light]:checked) .hljs,head:not(:has(meta[name=color-scheme][content~=dark]))+body .hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
 @media (prefers-color-scheme:dark){
-.hljs{--base:#282c34;--mono-1:#abb2bf;--mono-2:#818896;--mono-3:#5c6370;--hue-1:#56b6c2;--hue-2:#61aeee;--hue-3:#c678dd;--hue-4:#98c379;--hue-5:#e06c75;--hue-5-2:#be5046;--hue-6:#d19a66;--hue-6-2:#e6c07b}
+.hljs{
+  --base: #282c34;
+  --mono-1: #abb2bf;
+  --mono-2: #818896;
+  --mono-3: #5c6370;
+  --hue-1: #56b6c2;
+  --hue-2: #61aeee;
+  --hue-3: #c678dd;
+  --hue-4: #98c379;
+  --hue-5: #e06c75;
+  --hue-5-2: #be5046;
+  --hue-6: #d19a66;
+  --hue-6-2: #e6c07b;
+}
+}
+body:has(input[name=color-scheme][value=dark]:checked) .hljs{
+  --base: #282c34;
+  --mono-1: #abb2bf;
+  --mono-2: #818896;
+  --mono-3: #5c6370;
+  --hue-1: #56b6c2;
+  --hue-2: #61aeee;
+  --hue-3: #c678dd;
+  --hue-4: #98c379;
+  --hue-5: #e06c75;
+  --hue-5-2: #be5046;
+  --hue-6: #d19a66;
+  --hue-6-2: #e6c07b;
 }
 .hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;color:var(--mono-1,#383a42);background:#fafafa;background:var(--base,#fafafa)}
 .hljs-comment,.hljs-quote{color:#717277;color:var(--mono-3,#717277);font-style:italic}
@@ -232,7 +266,7 @@ var.respec-hl{background:0 0;color:#000;box-shadow:unset}
 }
 </style>
 <style>
-var{position:relative;cursor:pointer}
+var[data-type]{position:relative}
 var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
 var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#222}
 var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#222;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
@@ -246,22 +280,21 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "processVersion": 2024,
   "specStatus": "CG-DRAFT",
   "shortName": "rml-lv",
-  "publishDate": "2026-01-08",
   "copyrightStart": "2024",
   "edDraftURI": "https://w3id.org/rml/lv/spec",
   "editors": [
     {
       "name": "Pano Maria",
-      "mailto": "pano@skemu.com",
-      "company": "Skemu",
-      "companyURL": "https://skemu.com",
-      "url": "mailto:pano@skemu.com"
+      "company": "ModelDesk",
+      "url": "https://modeldesk.io",
+      "orcid": "https://orcid.org/0009-0000-2598-1894",
+      "companyURL": "https://modeldesk.io"
     },
     {
       "name": "Els de Vleeschauwer",
       "mailto": "els.devleeschauwer@ugent.be",
       "company": "Ghent University &ndash; imec &ndash; IDLab",
-      "orcidid": "0000-0002-8630-3947",
+      "orcid": "https://orcid.org/0000-0002-8630-3947",
       "companyURL": "https://idlab.technology/",
       "url": "mailto:els.devleeschauwer@ugent.be"
     }
@@ -269,16 +302,16 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "authors": [
     {
       "name": "Pano Maria",
-      "mailto": "pano@skemu.com",
-      "company": "Skemu",
-      "companyURL": "https://skemu.com",
-      "url": "mailto:pano@skemu.com"
+      "company": "ModelDesk",
+      "url": "https://modeldesk.io",
+      "orcid": "https://orcid.org/0009-0000-2598-1894",
+      "companyURL": "https://modeldesk.io"
     },
     {
       "name": "Els de Vleeschauwer",
       "mailto": "els.devleeschauwer@ugent.be",
       "company": "Ghent University &ndash; imec &ndash; IDLab",
-      "orcidid": "0000-0002-8630-3947",
+      "orcid": "https://orcid.org/0000-0002-8630-3947",
       "companyURL": "https://idlab.technology/",
       "url": "mailto:els.devleeschauwer@ugent.be"
     },
@@ -286,7 +319,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "name": "Davide Lanti",
       "mailto": "dalanti@unibz.it",
       "company": "Free University of Bozen-Bolzano",
-      "orcidid": "0000-0003-1097-2965",
+      "orcid": "https://orcid.org/0000-0003-1097-2965",
       "companyURL": "https://www.unibz.it/",
       "url": "mailto:dalanti@unibz.it"
     }
@@ -300,8 +333,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "key": "This Version",
       "data": [
         {
-          "value": "https://kg-construct.github.io/rml-lv/spec/docs/%thisDate%/",
-          "href": "https://kg-construct.github.io/rml-lv/spec/docs/%thisDate%/"
+          "value": "https://kg-construct.github.io/rml-lv/spec/docs/20260316/",
+          "href": "https://kg-construct.github.io/rml-lv/spec/docs/20260316/"
         }
       ]
     },
@@ -309,8 +342,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "key": "Previous Version",
       "data": [
         {
-          "value": "https://kg-construct.github.io/rml-lv/spec/docs/%prevDate%/",
-          "href": " https://kg-construct.github.io/rml-lv/spec/docs/%prevDate%/"
+          "value": "https://kg-construct.github.io/rml-lv/spec/docs/20260108/",
+          "href": " https://kg-construct.github.io/rml-lv/spec/docs/20260108/"
         }
       ]
     },
@@ -342,8 +375,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "rml-io"
     }
   },
-  "publishISODate": "2026-01-08T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 08 January 2026"
+  "publishISODate": "2026-07-06T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 06 July 2026"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
 <body class="h-entry"><div class="head">
@@ -351,7 +384,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">RML Logical Views</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2026-01-08">08 January 2026</time>
+      <time class="dt-published" datetime="2026-07-06">06 July 2026</time>
     </p>
     <dl>
       
@@ -363,24 +396,78 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       
       
       
-      <dt>Editors:</dt><dd class="editor p-author h-card vcard">
-    <a class="ed_mailto u-email email p-name" href="mailto:pano@skemu.com">Pano Maria</a> (<a class="p-org org h-org" href="https://skemu.com">Skemu</a>)
+      <dt>
+              Editors:
+            </dt><dd class="editor p-author h-card vcard">
+    <a class="u-url url p-name fn" href="https://modeldesk.io">Pano Maria</a><a class="p-name orcid" href="https://orcid.org/0009-0000-2598-1894"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+    <style>
+
+      .st1 {
+        fill: #fff;
+      }
+    
+</style>
+    <path d="M256 128c0 70.7-57.3 128-128 128S0 198.7 0 128 57.3 0 128 0s128 57.3 128 128z" fill="#a6ce39"></path>
+    <path class="st1" d="M86.3 186.2H70.9V79.1h15.4v107.1zM108.9 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.6-56.8 53.6h-41.8V79.1zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7C191.7 111.2 178 93 148 93h-23.7v79.4zM88.7 56.8c0 5.5-4.5 10.1-10.1 10.1s-10.1-4.6-10.1-10.1c0-5.6 4.5-10.1 10.1-10.1s10.1 4.6 10.1 10.1z"></path>
+  </svg></a> (<a class="p-org org h-org" href="https://modeldesk.io">ModelDesk</a>)
   </dd><dd class="editor p-author h-card vcard">
-    <a class="ed_mailto u-email email p-name" href="mailto:els.devleeschauwer@ugent.be">Els de Vleeschauwer</a> (<a class="p-org org h-org" href="https://idlab.technology/">Ghent University – imec – IDLab</a>)
+    <a class="ed_mailto u-email email p-name" href="mailto:els.devleeschauwer@ugent.be">Els de Vleeschauwer</a><a class="p-name orcid" href="https://orcid.org/0000-0002-8630-3947"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+    <style>
+
+      .st1 {
+        fill: #fff;
+      }
+    
+</style>
+    <path d="M256 128c0 70.7-57.3 128-128 128S0 198.7 0 128 57.3 0 128 0s128 57.3 128 128z" fill="#a6ce39"></path>
+    <path class="st1" d="M86.3 186.2H70.9V79.1h15.4v107.1zM108.9 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.6-56.8 53.6h-41.8V79.1zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7C191.7 111.2 178 93 148 93h-23.7v79.4zM88.7 56.8c0 5.5-4.5 10.1-10.1 10.1s-10.1-4.6-10.1-10.1c0-5.6 4.5-10.1 10.1-10.1s10.1 4.6 10.1 10.1z"></path>
+  </svg></a> (<a class="p-org org h-org" href="https://idlab.technology/">Ghent University – imec – IDLab</a>)
   </dd>
       
-      <dt>Authors:</dt><dd class="editor p-author h-card vcard">
-    <a class="ed_mailto u-email email p-name" href="mailto:pano@skemu.com">Pano Maria</a> (<a class="p-org org h-org" href="https://skemu.com">Skemu</a>)
+      <dt>
+              Authors:
+            </dt><dd class="editor p-author h-card vcard">
+    <a class="u-url url p-name fn" href="https://modeldesk.io">Pano Maria</a><a class="p-name orcid" href="https://orcid.org/0009-0000-2598-1894"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+    <style>
+
+      .st1 {
+        fill: #fff;
+      }
+    
+</style>
+    <path d="M256 128c0 70.7-57.3 128-128 128S0 198.7 0 128 57.3 0 128 0s128 57.3 128 128z" fill="#a6ce39"></path>
+    <path class="st1" d="M86.3 186.2H70.9V79.1h15.4v107.1zM108.9 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.6-56.8 53.6h-41.8V79.1zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7C191.7 111.2 178 93 148 93h-23.7v79.4zM88.7 56.8c0 5.5-4.5 10.1-10.1 10.1s-10.1-4.6-10.1-10.1c0-5.6 4.5-10.1 10.1-10.1s10.1 4.6 10.1 10.1z"></path>
+  </svg></a> (<a class="p-org org h-org" href="https://modeldesk.io">ModelDesk</a>)
   </dd><dd class="editor p-author h-card vcard">
-    <a class="ed_mailto u-email email p-name" href="mailto:els.devleeschauwer@ugent.be">Els de Vleeschauwer</a> (<a class="p-org org h-org" href="https://idlab.technology/">Ghent University – imec – IDLab</a>)
+    <a class="ed_mailto u-email email p-name" href="mailto:els.devleeschauwer@ugent.be">Els de Vleeschauwer</a><a class="p-name orcid" href="https://orcid.org/0000-0002-8630-3947"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+    <style>
+
+      .st1 {
+        fill: #fff;
+      }
+    
+</style>
+    <path d="M256 128c0 70.7-57.3 128-128 128S0 198.7 0 128 57.3 0 128 0s128 57.3 128 128z" fill="#a6ce39"></path>
+    <path class="st1" d="M86.3 186.2H70.9V79.1h15.4v107.1zM108.9 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.6-56.8 53.6h-41.8V79.1zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7C191.7 111.2 178 93 148 93h-23.7v79.4zM88.7 56.8c0 5.5-4.5 10.1-10.1 10.1s-10.1-4.6-10.1-10.1c0-5.6 4.5-10.1 10.1-10.1s10.1 4.6 10.1 10.1z"></path>
+  </svg></a> (<a class="p-org org h-org" href="https://idlab.technology/">Ghent University – imec – IDLab</a>)
   </dd><dd class="editor p-author h-card vcard">
-    <a class="ed_mailto u-email email p-name" href="mailto:dalanti@unibz.it">Davide Lanti</a> (<a class="p-org org h-org" href="https://www.unibz.it/">Free University of Bozen-Bolzano</a>)
+    <a class="ed_mailto u-email email p-name" href="mailto:dalanti@unibz.it">Davide Lanti</a><a class="p-name orcid" href="https://orcid.org/0000-0003-1097-2965"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+    <style>
+
+      .st1 {
+        fill: #fff;
+      }
+    
+</style>
+    <path d="M256 128c0 70.7-57.3 128-128 128S0 198.7 0 128 57.3 0 128 0s128 57.3 128 128z" fill="#a6ce39"></path>
+    <path class="st1" d="M86.3 186.2H70.9V79.1h15.4v107.1zM108.9 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.6-56.8 53.6h-41.8V79.1zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7C191.7 111.2 178 93 148 93h-23.7v79.4zM88.7 56.8c0 5.5-4.5 10.1-10.1 10.1s-10.1-4.6-10.1-10.1c0-5.6 4.5-10.1 10.1-10.1s10.1 4.6 10.1 10.1z"></path>
+  </svg></a> (<a class="p-org org h-org" href="https://www.unibz.it/">Free University of Bozen-Bolzano</a>)
   </dd>
       
       <dt>This Version</dt><dd>
-    <a href="https://kg-construct.github.io/rml-lv/spec/docs/%thisDate%/">https://kg-construct.github.io/rml-lv/spec/docs/%thisDate%/</a>
+    <a href="https://kg-construct.github.io/rml-lv/spec/docs/20260316/">https://kg-construct.github.io/rml-lv/spec/docs/20260316/</a>
   </dd><dt>Previous Version</dt><dd>
-    <a href=" https://kg-construct.github.io/rml-lv/spec/docs/%prevDate%/">https://kg-construct.github.io/rml-lv/spec/docs/%prevDate%/</a>
+    <a href=" https://kg-construct.github.io/rml-lv/spec/docs/20260108/">https://kg-construct.github.io/rml-lv/spec/docs/20260108/</a>
   </dd><dt>Website</dt><dd>
     <a href="https://github.com/kg-construct/rml-lv/">https://github.com/kg-construct/rml-lv/</a>
   </dd>
@@ -456,17 +543,11 @@ the following namespace prefix bindings unless otherwise stated:</p>
 <p>The examples are contained in color-coded boxes. We use the Turtle syntax [<cite><a class="bibref" data-link-type="biblio" href="#bib-turtle" title="RDF 1.1 Turtle">turtle</a></cite>] to write RDF.</p>
 <aside class="ex-input">
 # This box contains an example input
-</aside>
-
-<aside class="ex-mapping">
+</aside><aside class="ex-mapping">
 # This box contains an example mapping
-</aside>
-
-<aside class="ex-intermediate">
+</aside><aside class="ex-intermediate">
 # This box contains the example intermediate representation
-</aside>
-
-<aside class="ex-output">
+</aside><aside class="ex-output">
 # This box contains the example output
 </aside></section><section id="conformance"><div class="header-wrapper"><h3 id="x1-2-conformance"><bdi class="secno">1.2 </bdi>Conformance</h3><a class="self-link" href="#conformance" aria-label="Permalink for Section 1.2"></a></div><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
         The key words <em class="rfc2119">MAY</em> and <em class="rfc2119">MUST</em> in this document
@@ -475,9 +556,7 @@ the following namespace prefix bindings unless otherwise stated:</p>
         [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">RFC2119</a></cite>] [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8174" title="Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words">RFC8174</a></cite>]
         when, and only when, they appear in all
         capitals, as shown here.
-      </p> </section>
-
-</section>
+      </p> </section></section>
 
 <section id="problem-0"><div class="header-wrapper"><h2 id="problem"><bdi class="secno">2. </bdi>Problem</h2><a class="self-link" href="#problem" aria-label="Permalink for Section 2."></a></div><p><em>This section is non-normative.</em></p>
 <p>RML Logical Views aims to resolve challenges such as handling hierarchy of nested data, more flexible joining (also across data hierarchies), and handling data sources that mix source formats.</p>
@@ -494,9 +573,7 @@ When mapping constructs produce multiple results, the combining mapping construc
     <a class="self-link" href="#ex-nesting-problem">Example<bdi> 1</bdi></a>
   </div>
 It is not possible to declare the construction of below output triples from below data source with RML-Core. 
-<aside class="ex-input">
-
-<pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+<aside class="ex-input"><pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -523,11 +600,7 @@ It is not possible to declare the construction of below output triples from belo
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
 </code></pre>
-</aside>
-
-<aside class="ex-output">
-
-<pre><code class="turtle hljs" aria-busy="false">:person/alice/item/sword :hasName "sword" ;
+</aside><aside class="ex-output"><pre><code class="turtle hljs" aria-busy="false">:person/alice/item/sword :hasName "sword" ;
   :hasWeight 1500 .
 :person/alice/item/shield :hasName "shield" ;
   :hasWeight 2500 .
@@ -535,60 +608,39 @@ It is not possible to declare the construction of below output triples from belo
   :hasWeight 15 .
 </code></pre>
 </aside>
-</aside>
-
-
-</section><section id="mixed-data-formats"><div class="header-wrapper"><h3 id="x2-2-mixed-data-formats"><bdi class="secno">2.2 </bdi>Mixed data formats</h3><a class="self-link" href="#mixed-data-formats" aria-label="Permalink for Section 2.2"></a></div>
+</aside></section><section id="mixed-data-formats"><div class="header-wrapper"><h3 id="x2-2-mixed-data-formats"><bdi class="secno">2.2 </bdi>Mixed data formats</h3><a class="self-link" href="#mixed-data-formats" aria-label="Permalink for Section 2.2"></a></div>
 <p>Data in one format can contain multiple or composite values stored in another format, e.g. a CSV dataset could contain columns containing JSON values. To define the expected form of references to input data <a href="https://kg-construct.github.io/rml-core/spec/docs/">RML-Core</a> employs the notion of a <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a>. A <a href="https://w3id.org/rml/io/spec###dfn-dfn-logical-source">logical source</a> is limited to having a single reference formulation, meaning mixed format data can only be referenced using a query language that supports just one of the formats.</p>
 <aside class="example" id="ex-mixed-format-problem"><div class="marker">
     <a class="self-link" href="#ex-mixed-format-problem">Example<bdi> 2</bdi></a>
   </div>
 It is not possible to declare the construction of below output triples from below data source with RML-Core and RML-IO. 
-<aside class="ex-input">
-
-<pre><code class="csv hljs" aria-busy="false">name,item  
+<aside class="ex-input"><pre><code class="csv hljs" aria-busy="false">name,item  
 alice,"{""type"":""sword"",""weight"": 2500}" 
 alice,"{""type"":""shield"",""weight"": 1500}"  
 bob,"{""type"":""flower"",""weight"": 15 }"  
 </code></pre>
-</aside>
-
-<aside class="ex-output">
-
-<pre><code class="turtle hljs" aria-busy="false">:person/alice :hasItem "sword" , "shield" .
+</aside><aside class="ex-output"><pre><code class="turtle hljs" aria-busy="false">:person/alice :hasItem "sword" , "shield" .
 :person/bob :hasItem "flower" . 
 </code></pre>
 </aside>
-</aside>
-
-</section><section id="joining-of-data-sources"><div class="header-wrapper"><h3 id="x2-3-joining-of-data-sources"><bdi class="secno">2.3 </bdi>Joining of data sources</h3><a class="self-link" href="#joining-of-data-sources" aria-label="Permalink for Section 2.3"></a></div>
+</aside></section><section id="joining-of-data-sources"><div class="header-wrapper"><h3 id="x2-3-joining-of-data-sources"><bdi class="secno">2.3 </bdi>Joining of data sources</h3><a class="self-link" href="#joining-of-data-sources" aria-label="Permalink for Section 2.3"></a></div>
 <p><a href="https://kg-construct.github.io/rml-core/spec/docs/">RML-Core</a> restricts join operations to <a href="https://w3id.org/rml/core/spec#referencing-object-map">referencing object maps</a>. Since a referencing object map can only generate an object that is an IRI or blank node subject as specified by a parent triples map, it is not possible to combine data from two sources in one term, use data from a join on another position than the object, or generate a literal using data from a join.
 Moreover, <a href="https://kg-construct.github.io/rml-core/spec/docs/">RML-Core</a> cannot declare join operations correctly across hierarchies.</p>
 <aside class="example" id="ex-mixed-format-problem"><div class="marker">
     <a class="self-link" href="#ex-mixed-format-problem">Example<bdi> 3</bdi></a>
   </div>
 It is not possible to declare the construction of below output triples from below two data sources with RML-Core. 
-<aside class="ex-input">
-
-<pre><code class="csv hljs" aria-busy="false">name,id
+<aside class="ex-input"><pre><code class="csv hljs" aria-busy="false">name,id
 alice,123
 bob,456
 tobias,789
 </code></pre>
-</aside>
-
-<aside class="ex-input">
-
-<pre><code class="csv hljs" aria-busy="false">name,item_type
+</aside><aside class="ex-input"><pre><code class="csv hljs" aria-busy="false">name,item_type
 alice,sword
 alice,shield
 bob,flower
 </code></pre>
-</aside>
-
-<aside class="ex-output">
-
-<pre><code class="turtle hljs" aria-busy="false">:person/123 :hasItem "sword", "shield" . 
+</aside><aside class="ex-output"><pre><code class="turtle hljs" aria-busy="false">:person/123 :hasItem "sword", "shield" . 
 :person/456 :hasItem "flower" .
 </code></pre>
 </aside>
@@ -644,14 +696,12 @@ Each <a data-link-type="dfn|abstract-op" href="#dfn-record-key" class="internalD
 <li>For <a data-link-type="dfn|abstract-op" href="#dfn-iterable-record" class="internalDFN" id="ref-for-dfn-iterable-record-2">iterable records</a>, the index value denotes the position in the sequence of the <a href="https://w3id.org/rml/core/spec#dfn-iteration">logical iteration</a>. For example: the second CSV row will be denoted with index value <code>1</code>.</li>
 <li>For <a data-link-type="dfn|abstract-op" href="#dfn-expression-record" class="internalDFN" id="ref-for-dfn-expression-record-2">expression records</a>, the index value denotes the position of the element in the <a href="https://w3id.org/rml/core//kg-construct.github.io/rml-core/spec/docs/#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a>. For example, JSON object <code>{"elements": ["a", "b", "c"]}</code> with JSONPath expression <code>$.elements[*]</code> will return <code>"a"</code>, <code>"b"</code>, and <code>"c"</code> as <a href="https://w3id.org/rml/core//kg-construct.github.io/rml-core/spec/docs/#https://kg-construct.github.io/rml-core/spec/docs/#dfn-expression-evaluation-result">expression evaluation result</a> elements. Element <code>"c"</code> will be denoted with index value <code>2</code>.</li>
 </ul>
-<div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="4"><span>Note</span></div><aside class="">
+<div class="note" role="note" id="issue-container-generatedID"><div class="note-title marker" id="h-note"><span>Note</span></div><aside class="">
 The order of logical view iterations produced, may differ between RML processors.
 Implementations are not required to guarantee a specific or stable iteration order.
 This may result in differences in the index values of fields across different mapping executions.
 Furthermore, other <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulations</a>, e.g., <code>rml:SQLQuery</code>, may not have a deterministic logical iteration order, potentially leading to differences in index values across mapping executions.
-</aside></div>
-
-<p>A <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration-sequence" class="internalDFN" id="ref-for-dfn-logical-view-iteration-sequence-2">logical view iteration sequence</a> <em class="rfc2119">MUST</em> have a finite set of keys that appear in each <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration" class="internalDFN" id="ref-for-dfn-logical-view-iteration-1">logical view iteration</a>.
+</aside></div><p>A <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration-sequence" class="internalDFN" id="ref-for-dfn-logical-view-iteration-sequence-2">logical view iteration sequence</a> <em class="rfc2119">MUST</em> have a finite set of keys that appear in each <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration" class="internalDFN" id="ref-for-dfn-logical-view-iteration-1">logical view iteration</a>.
 In any particular <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration" class="internalDFN" id="ref-for-dfn-logical-view-iteration-2">logical view iteration</a>, the value of a key <em class="rfc2119">MAY</em> be a null value.</p>
 <p>Each <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration" class="internalDFN" id="ref-for-dfn-logical-view-iteration-3">logical view iteration</a> has at least the following keys:</p>
 <ul>
@@ -674,42 +724,34 @@ The <a href="https://w3id.org/rml/core/spec#dfn-natural-rdf-datatype">natural RD
 <p>When a non-existing or a non-referenceable key is referenced, RML processors should report an error. </p>
 <aside class="example" id="ex-field-in-triples-map"><div class="marker">
     <a class="self-link" href="#ex-field-in-triples-map">Example<bdi> 4</bdi></a>
-  </div>
-
-<aside class="ex-mapping">
-
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonView</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
-  <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:jsonSource</span> ;
-  <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span> ;
-    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.name"</span> ;
+  </div><aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:jsonView a rml:LogicalView ;
+  rml:viewOn :jsonSource ;
+  rml:field [
+    a rml:ExpressionField ;
+    rml:fieldName "name" ;
+    rml:reference "$.name" ;
   ] ;
-  <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:IterableField</span> ;
-    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"item"</span> ;
-    <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.items[*]"</span> ;
-    <span class="hljs-symbol">rml:field</span> [
-      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"type"</span> ;
-      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.type"</span> ;
+  rml:field [
+    a rml:IterableField ;
+    rml:fieldName "item" ;
+    rml:iterator "$.items[*]" ;
+    rml:field [
+      a rml:ExpressionField ;
+      rml:fieldName "type" ;
+      rml:reference "$.type" ;
     ] ;
-    <span class="hljs-symbol">rml:field</span> [
-      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"weight"</span> ;
-      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.weight"</span> ;
+    rml:field [
+      a rml:ExpressionField ;
+      rml:fieldName "weight" ;
+      rml:reference "$.weight" ;
     ] ;
   ] .
 </code></pre>
-</aside>
-
-<p>Note some columns in the table below have been shortened for brevity.</p>
+</aside><p>Note some columns in the table below have been shortened for brevity.</p>
 <aside class="ex-intermediate">
 <table>
 <tbody><tr><th><u>#</u></th>
-<th>
-
-<p><code>&lt;it&gt;</code></p>
+<th><p><code>&lt;it&gt;</code></p>
 </th>
 <th><u>name.#</u></th>
 <th><u>name</u></th>
@@ -721,17 +763,13 @@ The <a href="https://w3id.org/rml/core/spec#dfn-natural-rdf-datatype">natural RD
 <th><u>item.weight</u></th>
 </tr><tr>
 <td>0</td>
-<td>
-
-<pre><code class="json hljs" aria-busy="false">{...}
+<td><pre><code class="json hljs" aria-busy="false">{...}
 </code></pre>
 </td>
 <td>0</td>
 <td>alice</td>
 <td>0</td>
-<td>
-
-<pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+<td><pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"sword"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"weight"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1500</span>
 <span class="hljs-punctuation">}</span>
@@ -744,17 +782,13 @@ The <a href="https://w3id.org/rml/core/spec#dfn-natural-rdf-datatype">natural RD
 </tr>
 <tr>
 <td>0</td>
-<td>
-
-<pre><code class="json hljs" aria-busy="false">{...}
+<td><pre><code class="json hljs" aria-busy="false">{...}
 </code></pre>
 </td>
 <td>0</td>
 <td>alice</td>
 <td>1</td>
-<td>
-
-<pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+<td><pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"shield"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"weight"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2500</span>
 <span class="hljs-punctuation">}</span>
@@ -767,17 +801,13 @@ The <a href="https://w3id.org/rml/core/spec#dfn-natural-rdf-datatype">natural RD
 </tr>
 <tr>
 <td>1</td>
-<td>
-
-<pre><code class="json hljs" aria-busy="false">{...}
+<td><pre><code class="json hljs" aria-busy="false">{...}
 </code></pre>
 </td>
 <td>0</td>
 <td>bob</td>
 <td>0</td>
-<td>
-
-<pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+<td><pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"flower"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"weight"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">15</span>
 <span class="hljs-punctuation">}</span>
@@ -788,76 +818,62 @@ The <a href="https://w3id.org/rml/core/spec#dfn-natural-rdf-datatype">natural RD
 <td>0</td>
 <td>15</td>
 </tr>
-</tbody></table>
-
-</aside>
-
-<div class="note" role="note" id="issue-container-generatedID-0"><div role="heading" class="note-title marker" id="h-note-0" aria-level="4"><span>Note</span></div><aside class="">
+</tbody></table></aside><div class="note" role="note" id="issue-container-generatedID-0"><div class="note-title marker" id="h-note-0"><span>Note</span></div><aside class="">
 Note that this tabular representation of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration-sequence" class="internalDFN" id="ref-for-dfn-logical-view-iteration-sequence-3">logical view iteration sequence</a> is just one possible way of representing a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration-sequence" class="internalDFN" id="ref-for-dfn-logical-view-iteration-sequence-4">logical view iteration sequence</a>.
 The underlined keys represent <a data-link-type="dfn|abstract-op" href="#dfn-referenceable-key" class="internalDFN" id="ref-for-dfn-referenceable-key-2">referenceable keys</a>.
-</aside></div>
-
-<aside class="ex-mapping">
-
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:triplesMapPerson</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:TriplesMap</span> ;
-  <span class="hljs-symbol">rml:logicalSource</span> <span class="hljs-symbol">:jsonView</span> ;
-  <span class="hljs-symbol">rml:subjectMap</span> [
-    <span class="hljs-symbol">rml:template</span> <span class="hljs-string">"http://example.org/person/{name}"</span> ;
+</aside></div><aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:triplesMapPerson a rml:TriplesMap ;
+  rml:logicalSource :jsonView ;
+  rml:subjectMap [
+    rml:template "http://example.org/person/{name}" ;
   ] ;
-  <span class="hljs-symbol">rml:predicateObjectMap</span> [
-    <span class="hljs-symbol">rml:predicate</span> <span class="hljs-symbol">:hasName</span> ;
-    <span class="hljs-symbol">rml:objectMap</span> [
-      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"name"</span> ;
+  rml:predicateObjectMap [
+    rml:predicate :hasName ;
+    rml:objectMap [
+      rml:reference "name" ;
     ] ;
   ] ;
-  <span class="hljs-symbol">rml:predicateObjectMap</span> [
-    <span class="hljs-symbol">rml:predicate</span> <span class="hljs-symbol">:hasItem</span> ;
-    <span class="hljs-symbol">rml:objectMap</span> [
-      <span class="hljs-symbol">rml:parentTriplesMap</span> <span class="hljs-symbol">:triplesMapItem</span> ;
+  rml:predicateObjectMap [
+    rml:predicate :hasItem ;
+    rml:objectMap [
+      rml:parentTriplesMap :triplesMapItem ;
     ] ;
   ] .
 
-<span class="hljs-symbol">:triplesMapItem</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:TriplesMap</span> ;
-  <span class="hljs-symbol">rml:logicalSource</span> <span class="hljs-symbol">:jsonView</span> ;
-  <span class="hljs-symbol">rml:subjectMap</span> [
-    <span class="hljs-symbol">rml:template</span> <span class="hljs-string">"http://example.org/person/{name}/item/{item.#}"</span> ;
+:triplesMapItem a rml:TriplesMap ;
+  rml:logicalSource :jsonView ;
+  rml:subjectMap [
+    rml:template "http://example.org/person/{name}/item/{item.#}" ;
   ] ;
-  <span class="hljs-symbol">rml:predicateObjectMap</span> [
-    <span class="hljs-symbol">rml:predicate</span> <span class="hljs-symbol">:hasName</span> ;
-    <span class="hljs-symbol">rml:objectMap</span> [
-      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"item.type"</span> ;
+  rml:predicateObjectMap [
+    rml:predicate :hasName ;
+    rml:objectMap [
+      rml:reference "item.type" ;
     ] ;
   ] ;
-  <span class="hljs-symbol">rml:predicateObjectMap</span> [
-    <span class="hljs-symbol">rml:predicate</span> <span class="hljs-symbol">:hasWeight</span> ;
-    <span class="hljs-symbol">rml:objectMap</span> [
-      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"item.weight"</span> ;
+  rml:predicateObjectMap [
+    rml:predicate :hasWeight ;
+    rml:objectMap [
+      rml:reference "item.weight" ;
     ] ;
   ] .
 </code></pre>
-</aside>
+</aside><aside class="ex-output"><pre><code class="turtle hljs" aria-busy="false">&lt;http://example.org/person/alice&gt; :hasName "alice" ;
+  :hasItem &lt;http://example.org/person/alice/item/0&gt; ,
+           &lt;http://example.org/person/alice/item/1&gt; .
 
-<aside class="ex-output">
+&lt;http://example.org/person/bob&gt; :hasName "bob" ;
+  :hasItem &lt;http://example.org/person/bob/item/0&gt; .
 
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-literal">&lt;http://example.org/person/alice&gt;</span> <span class="hljs-symbol">:hasName</span> <span class="hljs-string">"alice"</span> ;
-  <span class="hljs-symbol">:hasItem</span> <span class="hljs-literal">&lt;http://example.org/person/alice/item/0&gt;</span> ,
-           <span class="hljs-literal">&lt;http://example.org/person/alice/item/1&gt;</span> .
+&lt;http://example.org/person/alice/item/0&gt; :hasName "sword" ;
+  :hasWeight 1500 .
 
-<span class="hljs-literal">&lt;http://example.org/person/bob&gt;</span> <span class="hljs-symbol">:hasName</span> <span class="hljs-string">"bob"</span> ;
-  <span class="hljs-symbol">:hasItem</span> <span class="hljs-literal">&lt;http://example.org/person/bob/item/0&gt;</span> .
+&lt;http://example.org/person/alice/item/1&gt; :hasName "shield" ;
+  :hasWeight 2500 .
 
-<span class="hljs-literal">&lt;http://example.org/person/alice/item/0&gt;</span> <span class="hljs-symbol">:hasName</span> <span class="hljs-string">"sword"</span> ;
-  <span class="hljs-symbol">:hasWeight</span> <span class="hljs-number">1500</span> .
-
-<span class="hljs-literal">&lt;http://example.org/person/alice/item/1&gt;</span> <span class="hljs-symbol">:hasName</span> <span class="hljs-string">"shield"</span> ;
-  <span class="hljs-symbol">:hasWeight</span> <span class="hljs-number">2500</span> .
-
-<span class="hljs-literal">&lt;http://example.org/person/bob/item/0&gt;</span> <span class="hljs-symbol">:hasName</span> <span class="hljs-string">"flower"</span> ;
-  <span class="hljs-symbol">:hasWeight</span> <span class="hljs-number">15</span> .
+&lt;http://example.org/person/bob/item/0&gt; :hasName "flower" ;
+  :hasWeight 15 .
 </code></pre>
-</aside>
-
-</aside></section></section>
+</aside></aside></section></section>
 
 <section id="fields-0"><div class="header-wrapper"><h2 id="fields"><bdi class="secno">4. </bdi>Fields</h2><a class="self-link" href="#fields" aria-label="Permalink for Section 4."></a></div><p>A <dfn data-plurals="fields" id="dfn-field" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">field</dfn> gives a name to data derived from the <a href="https://w3id.org/rml/core/spec#dfn-abstract-logical-source">abstract logical source</a> on which the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-7">logical view</a> is defined.</p>
 <p>A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-4">field</a> (<code>rml:Field</code>) is represented by a resource that <em class="rfc2119">MUST</em> contain:</p>
@@ -898,12 +914,8 @@ If a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" i
 Otherwise, the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-21">field</a>'s <a data-link-type="dfn|abstract-op" href="#dfn-absolute-name" class="internalDFN" id="ref-for-dfn-absolute-name-2">absolute name</a> equals its <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-3">declared name</a>.  </p>
 <aside class="example" id="ex-fieldnames"><div class="marker">
     <a class="self-link" href="#ex-fieldnames">Example<bdi> 5</bdi></a>
-  </div>
-
-<p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-22">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-4">declared name</a> "name" is declared and added to the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-10">logical view</a>. The parent of the field with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-5">declared name</a> "name" is the <a href="https://w3id.org/rml/core/spec#dfn-logical-source">logical source</a> <code>:jsonSource</code>.</p>
-<aside class="ex-input">
-
-<pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+  </div><p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-22">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-4">declared name</a> "name" is declared and added to the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-10">logical view</a>. The parent of the field with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-5">declared name</a> "name" is the <a href="https://w3id.org/rml/core/spec#dfn-logical-source">logical source</a> <code>:jsonSource</code>.</p>
+<aside class="ex-input"><pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -931,24 +943,20 @@ Otherwise, the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="inte
 <span class="hljs-punctuation">}</span>
 </code></pre>
 </aside>
-<aside class="ex-mapping">
-
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalSource</span> ;
-  <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:jsonFile</span> ;
-  <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:JSONPath</span> ;
-  <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.people[*]"</span> .
+<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:jsonSource a rml:LogicalSource ;
+  rml:source :jsonFile ;
+  rml:referenceFormulation rml:JSONPath ;
+  rml:iterator "$.people[*]" .
   
-<span class="hljs-symbol">:jsonView</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
-  <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:jsonSource</span> ;
-  <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span> ;
-    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.name"</span> ;
+:jsonView a rml:LogicalView ;
+  rml:viewOn :jsonSource ;
+  rml:field [
+    a rml:ExpressionField ;
+    rml:fieldName "name" ;
+    rml:reference "$.name" ;
   ] .
 </code></pre>
-</aside>
-
-<aside class="ex-intermediate">
+</aside><aside class="ex-intermediate">
 <table>
 <tbody><tr>
 <th><u>#</u></th>
@@ -958,9 +966,7 @@ Otherwise, the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="inte
 </tr>
 <tr>
 <td>0</td>
-<td>
-
-<pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+<td><pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"items"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
@@ -980,9 +986,7 @@ Otherwise, the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="inte
 </tr>
 <tr>
 <td>1</td>
-<td>
-
-<pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+<td><pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"bob"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"items"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
@@ -998,9 +1002,7 @@ Otherwise, the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="inte
 </tr>
 </tbody></table>
 </aside>
-</aside>
-
-</section><section id="field-records"><div class="header-wrapper"><h3 id="fieldrecords"><bdi class="secno">4.3 </bdi>Field records</h3><a class="self-link" href="#fieldrecords" aria-label="Permalink for Section 4.3"></a></div><p>A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-23">field</a> defines <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-5">records</a>:</p>
+</aside></section><section id="field-records"><div class="header-wrapper"><h3 id="fieldrecords"><bdi class="secno">4.3 </bdi>Field records</h3><a class="self-link" href="#fieldrecords" aria-label="Permalink for Section 4.3"></a></div><p>A <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-23">field</a> defines <a data-link-type="dfn|abstract-op" href="#dfn-record" class="internalDFN" id="ref-for-dfn-record-5">records</a>:</p>
 <ul>
 <li><a data-link-type="dfn|abstract-op" href="#dfn-iterable-record" class="internalDFN" id="ref-for-dfn-iterable-record-5">iterable records</a> obtained by consecutively applying the <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-4">iterable field</a>'s <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a> and <a href="https://w3id.org/rml/core/spec#dfn-iterator">logical iterator</a> on the <a data-link-type="dfn|abstract-op" href="#dfn-parent-records" class="internalDFN" id="ref-for-dfn-parent-records-1">parent records</a>, or </li>
 <li><a data-link-type="dfn|abstract-op" href="#dfn-expression-record" class="internalDFN" id="ref-for-dfn-expression-record-5">expression records</a> obtained by consecutively applying the <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-3">expression field</a>'s <a href="https://w3id.org/rml/core/spec#dfn-expressions">expression</a> on the <a data-link-type="dfn|abstract-op" href="#dfn-parent-records" class="internalDFN" id="ref-for-dfn-parent-records-2">parent records</a>.</li>
@@ -1012,37 +1014,31 @@ Otherwise, the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="inte
 </ul>
 <aside class="example" id="ex-field-record-sequence"><div class="marker">
     <a class="self-link" href="#ex-field-record-sequence">Example<bdi> 6</bdi></a>
-  </div>
-
-<p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-25">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-6">declared name</a> "item" is added to the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-11">logical view</a> from <a href="#ex-fieldnames" data-matched-text="[[[#ex-fieldnames]]]" class="box-ref">Example<bdi> 5</bdi></a>. Additionally a nested <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-26">field</a> "type" and a nested <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-27">field</a> "weight" are added to the "item" <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-28">field</a>.</p>
-<aside class="ex-mapping">
-
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonView</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
-  <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:jsonSource</span> ;
-  <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span> ;
-    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.name"</span> ;
+  </div><p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-25">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-6">declared name</a> "item" is added to the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-11">logical view</a> from <a href="#ex-fieldnames" data-matched-text="[[[#ex-fieldnames]]]" class="box-ref">Example<bdi> 5</bdi></a>. Additionally a nested <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-26">field</a> "type" and a nested <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-27">field</a> "weight" are added to the "item" <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-28">field</a>.</p>
+<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:jsonView a rml:LogicalView ;
+  rml:viewOn :jsonSource ;
+  rml:field [
+    a rml:ExpressionField ;
+    rml:fieldName "name" ;
+    rml:reference "$.name" ;
   ] ;
-  <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:IterableField</span> ;
-    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"item"</span> ;
-    <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.items[*]"</span> ;
-    <span class="hljs-symbol">rml:field</span> [
-      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ; 
-      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"type"</span> ;
-      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.type"</span> ;
+  rml:field [
+    a rml:IterableField ;
+    rml:fieldName "item" ;
+    rml:iterator "$.items[*]" ;
+    rml:field [
+      a rml:ExpressionField ; 
+      rml:fieldName "type" ;
+      rml:reference "$.type" ;
     ] ;
-    <span class="hljs-symbol">rml:field</span> [
-      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ; 
-      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"weight"</span> ;
-      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.weight"</span> ;
+    rml:field [
+      a rml:ExpressionField ; 
+      rml:fieldName "weight" ;
+      rml:reference "$.weight" ;
     ] ;
   ] .
 </code></pre>
-</aside>
-
-<p>Note some columns in the table below have been shortened for brevity.</p>
+</aside><p>Note some columns in the table below have been shortened for brevity.</p>
 <aside class="ex-intermediate">
 <table>
     <tbody><tr>
@@ -1059,17 +1055,13 @@ Otherwise, the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="inte
     </tr>
     <tr>
         <td>0</td>
-<td>
-
-<pre><code class="json hljs" aria-busy="false">{...}
+<td><pre><code class="json hljs" aria-busy="false">{...}
 </code></pre>
 </td>
         <td>0</td>
         <td>alice</td>
         <td>0</td>
-<td>
-
-<pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+<td><pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"sword"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"weight"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1500</span>
 <span class="hljs-punctuation">}</span>
@@ -1082,17 +1074,13 @@ Otherwise, the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="inte
     </tr>
     <tr>
     <td>0</td>
-<td>
-
-<pre><code class="json hljs" aria-busy="false">{...}
+<td><pre><code class="json hljs" aria-busy="false">{...}
 </code></pre>
 </td>
     <td>0</td>
     <td>alice</td>
     <td>1</td>
-<td>
-
-<pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+<td><pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"shield"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"weight"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2500</span>
 <span class="hljs-punctuation">}</span>
@@ -1105,17 +1093,13 @@ Otherwise, the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="inte
     </tr>
     <tr>
         <td>1</td>
-<td>
-
-<pre><code class="json hljs" aria-busy="false">{...}
+<td><pre><code class="json hljs" aria-busy="false">{...}
 </code></pre>
 </td>
         <td>0</td>
         <td>bob</td>
         <td>0</td>
-<td>
-
-<pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+<td><pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"flower"</span><span class="hljs-punctuation">,</span>
   <span class="hljs-attr">"weight"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">15</span>
 <span class="hljs-punctuation">}</span>
@@ -1126,22 +1110,14 @@ Otherwise, the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="inte
         <td>0</td>
         <td>15</td>
     </tr>
-</tbody></table>
-
-</aside>
-
-</aside>
-
-</section><section id="field-reference-formulations"><div class="header-wrapper"><h3 id="fieldreferenceformulations"><bdi class="secno">4.4 </bdi>Field reference formulations</h3><a class="self-link" href="#fieldreferenceformulations" aria-label="Permalink for Section 4.4"></a></div><p>For the evaluation of the expression of an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-4">expression field</a> (<code>rml:ExpressionField</code>) on the records of the field's <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-4">parent</a>, the parent's <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a> is used. 
+</tbody></table></aside></aside></section><section id="field-reference-formulations"><div class="header-wrapper"><h3 id="fieldreferenceformulations"><bdi class="secno">4.4 </bdi>Field reference formulations</h3><a class="self-link" href="#fieldreferenceformulations" aria-label="Permalink for Section 4.4"></a></div><p>For the evaluation of the expression of an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-4">expression field</a> (<code>rml:ExpressionField</code>) on the records of the field's <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-4">parent</a>, the parent's <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a> is used. 
 Consequently, the parent of an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-5">expression field</a> <em class="rfc2119">MUST</em> be an <a href="https://w3id.org/rml/core/spec#dfn-iterable">iterable</a>, i.e. an <a href="https://w3id.org/rml/core/spec#dfn-abstract-logical-source">abstract logical source</a> or <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-5">iterable field</a>.  </p>
 <p>The default <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a> of an <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-6">iterable field</a> (<code>rml:IterableField</code>) is the <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a> of the field's <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-5">parent</a>. 
 If the <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-7">iterable field</a>'s <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-6">parent</a> is an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-6">expression field</a>, a <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a> <em class="rfc2119">MUST</em> be declared for the <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-8">iterable field</a>.
 Declaring a new <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a>, i.e. a <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a> that is different from the <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a> of the field's <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-7">parent</a>, is only allowed when the field's <a data-link-type="dfn|abstract-op" href="#dfn-parent" class="internalDFN" id="ref-for-dfn-parent-8">parent</a> is an <a data-link-type="dfn|abstract-op" href="#dfn-expression-field" class="internalDFN" id="ref-for-dfn-expression-field-7">expression field</a>. </p>
 <aside class="example" id="ex-mixed-format-json-csv"><div class="marker">
     <a class="self-link" href="#ex-mixed-format-json-csv">Example<bdi> 7</bdi></a>
-  </div>
-
-<p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-12">logical view</a> is defined on a <a href="https://w3id.org/rml/core/spec#dfn-logical-source">logical source</a> with reference formulation <code>rml:JSONPath</code>.
+  </div><p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-12">logical view</a> is defined on a <a href="https://w3id.org/rml/core/spec#dfn-logical-source">logical source</a> with reference formulation <code>rml:JSONPath</code>.
 The <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-29">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-7">declared name</a> "items" is evaluated using this <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a>.
 The nested <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-30">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-8">declared name</a> "item" has a declared <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a> <code>rml:CSV</code> and CSV row as implicit iterator. 
 Its records are a sequence of logical iterations defined by its iterator. 
@@ -1160,31 +1136,29 @@ The nested fields with <a data-link-type="dfn|abstract-op" href="#dfn-declared-n
 <span class="hljs-punctuation">}</span>  
 </code></pre>
 </aside>
-<aside class="ex-mapping">
+<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:mixedJSONSource a rml:LogicalSource ;
+  rml:source :mixedJSONFile ;
+  rml:referenceFormulation rml:JSONPath ;
+  rml:iterator "$.people[*]" .
 
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:mixedJSONSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalSource</span> ;
-  <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:mixedJSONFile</span> ;
-  <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:JSONPath</span> ;
-  <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.people[*]"</span> .
-
-<span class="hljs-symbol">:mixedJSONView</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
-  <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:mixedJSONSource</span> ;
-  <span class="hljs-symbol">rml:field</span> [ 
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"items"</span> ;
-    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.items"</span> ;
-    <span class="hljs-symbol">rml:field</span> [ 
-      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:IterableField</span> ; 
-      <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:CSV;</span>
-      <span class="hljs-symbol">rml:field</span> [ 
-        <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ; 
-        <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"type"</span> ;
-        <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"type"</span> ;
+:mixedJSONView a rml:LogicalView ;
+  rml:viewOn :mixedJSONSource ;
+  rml:field [ 
+    a rml:ExpressionField ;
+    rml:fieldName "items" ;
+    rml:reference "$.items" ;
+    rml:field [ 
+      a rml:IterableField ; 
+      rml:referenceFormulation rml:CSV;
+      rml:field [ 
+        a rml:ExpressionField ; 
+        rml:fieldName "type" ;
+        rml:reference "type" ;
       ] ;
-      <span class="hljs-symbol">rml:field</span> [ 
-        <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField;</span>
-        <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"weight"</span> ;
-        <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"weight"</span> ;
+      rml:field [ 
+        a rml:ExpressionField;
+        rml:fieldName "weight" ;
+        rml:reference "weight" ;
       ] ;
     ] ; 
   ] .
@@ -1207,9 +1181,7 @@ Note some columns in the table below have been shortened for brevity.
 </tr>
 <tr>
 <td>0</td>
-<td>
-
-<pre><code class="json hljs" aria-busy="false">
+<td><pre><code class="json hljs" aria-busy="false">
 {...}
 </code></pre>
 </td>
@@ -1224,9 +1196,7 @@ Note some columns in the table below have been shortened for brevity.
 </tr>
 <tr>
 <td>0</td>
-<td>
-
-<pre><code class="json hljs" aria-busy="false">
+<td><pre><code class="json hljs" aria-busy="false">
 {...}
 </code></pre>
 </td>
@@ -1241,9 +1211,7 @@ Note some columns in the table below have been shortened for brevity.
 </tr>
 <tr>
 <td>1</td>
-<td>
-
-<pre><code class="json hljs" aria-busy="false">
+<td><pre><code class="json hljs" aria-busy="false">
 {...}
 </code></pre>
 </td>
@@ -1257,9 +1225,7 @@ Note some columns in the table below have been shortened for brevity.
 <td>0</td>
 </tr>
 </tbody></table>
-</aside>
-
-<div class="note" role="note" id="issue-container-generatedID-1"><div role="heading" class="note-title marker" id="h-note-1" aria-level="4"><span>Note</span></div><aside class="">
+</aside><div class="note" role="note" id="issue-container-generatedID-1"><div class="note-title marker" id="h-note-1"><span>Note</span></div><aside class="">
 Declaring a new <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a> within an <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-9">iterable field</a> affects all aspects of that <a href="https://w3id.org/rml/core/spec#dfn-reference-formulation">reference formulation</a>. For example, the <code>rml:namespace</code> of <code>rml:XPath</code> can be (re)declared in an <a data-link-type="dfn|abstract-op" href="#dfn-iterable-field" class="internalDFN" id="ref-for-dfn-iterable-field-10">iterable field</a>. However, it is not possible to redeclare properties defined at the <a href="https://w3id.org/rml/io/spec#dfn-source">source</a> level, such as <code>rml:null</code>, <code>rml:compression</code>, or <code>rml:encoding</code>. Those properties  are inherited from the <a href="https://w3id.org/rml/core/spec#dfn-abstract-logical-source">abstract logical source</a> of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-13">logical view</a>.
 </aside></div></section></section>
 
@@ -1307,59 +1273,49 @@ The <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="i
 <section id="left-join"><div class="header-wrapper"><h4 id="x5-2-1-left-join"><bdi class="secno">5.2.1 </bdi>Left join</h4><a class="self-link" href="#left-join" aria-label="Permalink for Section 5.2.1"></a></div>
 <aside class="example" id="ex-leftjoin"><div class="marker">
     <a class="self-link" href="#ex-leftjoin">Example<bdi> 8</bdi></a>
-  </div>
-
-<p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-16">logical view</a> with fields built with data from the logical source <code>:csvSource</code> is joined with the logical view from <a href="#ex-field-record-sequence" data-matched-text="[[[#ex-field-record-sequence]]]" class="box-ref">Example<bdi> 6</bdi></a>. 
+  </div><p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-16">logical view</a> with fields built with data from the logical source <code>:csvSource</code> is joined with the logical view from <a href="#ex-field-record-sequence" data-matched-text="[[[#ex-field-record-sequence]]]" class="box-ref">Example<bdi> 6</bdi></a>. 
 In case of a left join (as in the example), this results in 4 logical iterations in the logical view. 
 If an inner joins would have been used, the logical view would have only 3 logical iterations. </p>
-<aside class="ex-input">
-
-<pre><code class="csv hljs" aria-busy="false">name,birthyear
+<aside class="ex-input"><pre><code class="csv hljs" aria-busy="false">name,birthyear
 alice,1995
 bob,1999
 tobias,2005
 </code></pre>
-</aside>
-
-<aside class="ex-mapping">
-
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:csvSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalSource</span> ;
-  <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:csvFile</span> ;
-  <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:CSV</span> .
+</aside><aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:csvSource a rml:LogicalSource ;
+  rml:source :csvFile ;
+  rml:referenceFormulation rml:CSV .
   
-<span class="hljs-symbol">:csvView</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
-  <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:csvSource</span> ;
-  <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ; 
-    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span> ;
-    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"name"</span> ;
+:csvView a rml:LogicalView ;
+  rml:viewOn :csvSource ;
+  rml:field [
+    a rml:ExpressionField ; 
+    rml:fieldName "name" ;
+    rml:reference "name" ;
   ] ;
-  <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"birthyear"</span> ;
-    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"birthyear"</span> ;
+  rml:field [
+    a rml:ExpressionField ;
+    rml:fieldName "birthyear" ;
+    rml:reference "birthyear" ;
   ] ;
-  <span class="hljs-symbol">rml:leftJoin</span> [
-    <span class="hljs-symbol">rml:parentLogicalView</span> <span class="hljs-symbol">:jsonView</span> ;
-    <span class="hljs-symbol">rml:joinCondition</span> [
-      <span class="hljs-symbol">rml:parent</span> <span class="hljs-string">"name"</span> ;
-      <span class="hljs-symbol">rml:child</span> <span class="hljs-string">"name"</span> ;
+  rml:leftJoin [
+    rml:parentLogicalView :jsonView ;
+    rml:joinCondition [
+      rml:parent "name" ;
+      rml:child "name" ;
     ] ; 
-    <span class="hljs-symbol">rml:field</span> [
-      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ; 
-      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"item_type"</span> ;
-      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"item.type"</span> ;
+    rml:field [
+      a rml:ExpressionField ; 
+      rml:fieldName "item_type" ;
+      rml:reference "item.type" ;
     ] ;
-    <span class="hljs-symbol">rml:field</span> [
-      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"item_weight"</span> ;
-      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"item.weight"</span> ;
+    rml:field [
+      a rml:ExpressionField ;
+      rml:fieldName "item_weight" ;
+      rml:reference "item.weight" ;
     ] ;
   ] .
 </code></pre>
-</aside>
-
-<aside class="ex-intermediate">
+</aside><aside class="ex-intermediate">
 <table>
     <tbody><tr>
         <th><u>#</u></th>
@@ -1421,52 +1377,42 @@ tobias,2005
         <td>null</td>
         <td>null </td>
     </tr>
-</tbody></table>
-
-</aside>
-</aside>
-
-</section><section id="inner-join"><div class="header-wrapper"><h4 id="x5-2-2-inner-join"><bdi class="secno">5.2.2 </bdi>Inner join</h4><a class="self-link" href="#inner-join" aria-label="Permalink for Section 5.2.2"></a></div>
+</tbody></table></aside>
+</aside></section><section id="inner-join"><div class="header-wrapper"><h4 id="x5-2-2-inner-join"><bdi class="secno">5.2.2 </bdi>Inner join</h4><a class="self-link" href="#inner-join" aria-label="Permalink for Section 5.2.2"></a></div>
 <aside class="example" id="ex-innerjoin"><div class="marker">
     <a class="self-link" href="#ex-innerjoin">Example<bdi> 9</bdi></a>
-  </div>
-
-<p>When an inner join is used, the resulting logical view has only 3 logical iterations.</p>
-<aside class="ex-mapping">
-
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:csvView</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
-  <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:csvSource</span> ;
-  <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span> ;
-    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"name"</span> ;
+  </div><p>When an inner join is used, the resulting logical view has only 3 logical iterations.</p>
+<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:csvView a rml:LogicalView ;
+  rml:viewOn :csvSource ;
+  rml:field [
+    a rml:ExpressionField ;
+    rml:fieldName "name" ;
+    rml:reference "name" ;
   ] ;
-  <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"birthyear"</span> ;
-    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"birthyear"</span> ;
+  rml:field [
+    a rml:ExpressionField ;
+    rml:fieldName "birthyear" ;
+    rml:reference "birthyear" ;
   ] ;
-  <span class="hljs-symbol">rml:leftJoin</span> [
-    <span class="hljs-symbol">rml:parentLogicalView</span> <span class="hljs-symbol">:jsonView</span>
-    <span class="hljs-symbol">rml:joinCondition</span> [
-      <span class="hljs-symbol">rml:parent</span> <span class="hljs-string">"name"</span> ;
-      <span class="hljs-symbol">rml:child</span> <span class="hljs-string">"name"</span> ;
+  rml:innerJoin [
+    rml:parentLogicalView :jsonView
+    rml:joinCondition [
+      rml:parent "name" ;
+      rml:child "name" ;
     ] ; 
-    <span class="hljs-symbol">rml:field</span> [
-      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"item_type"</span> ;
-      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"item.type"</span> ;
+    rml:field [
+      a rml:ExpressionField ;
+      rml:fieldName "item_type" ;
+      rml:reference "item.type" ;
     ] ;
-    <span class="hljs-symbol">rml:field</span> [
-      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"item_weight"</span> ;
-      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"item.weight"</span> ;
+    rml:field [
+      a rml:ExpressionField ;
+      rml:fieldName "item_weight" ;
+      rml:reference "item.weight" ;
     ] ;
   ] .
 </code></pre>
-</aside>
-
-<aside class="ex-intermediate">
+</aside><aside class="ex-intermediate">
 <table>
     <tbody><tr>
         <th><u>#</u></th>
@@ -1516,87 +1462,72 @@ tobias,2005
         <td>0</td>
         <td>15 </td>
     </tr>
-</tbody></table>
-
-</aside>
-</aside>
-
-
-</section><section id="two-left-joins"><div class="header-wrapper"><h4 id="x5-2-3-two-left-joins"><bdi class="secno">5.2.3 </bdi>Two left joins</h4><a class="self-link" href="#two-left-joins" aria-label="Permalink for Section 5.2.3"></a></div>
+</tbody></table></aside>
+</aside></section><section id="two-left-joins"><div class="header-wrapper"><h4 id="x5-2-3-two-left-joins"><bdi class="secno">5.2.3 </bdi>Two left joins</h4><a class="self-link" href="#two-left-joins" aria-label="Permalink for Section 5.2.3"></a></div>
 <aside class="example" id="ex-twoleftjoins"><div class="marker">
     <a class="self-link" href="#ex-twoleftjoins">Example<bdi> 10</bdi></a>
-  </div>
-
-<p>In this example a second <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-7">logical view join</a> is added to the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-17">logical view</a> from <a href="#ex-leftjoin" data-matched-text="[[[#ex-leftjoin]]]" class="box-ref">Example<bdi> 8</bdi></a>. The <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="internalDFN" id="ref-for-dfn-parent-logical-view-4">parent logical view</a> of this second join is derived from logical source <code>:additionalCsvSource</code> with below input data.</p>
-<aside class="ex-input">
-
-<pre><code class="csv hljs" aria-busy="false">name,id
+  </div><p>In this example a second <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-7">logical view join</a> is added to the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-17">logical view</a> from <a href="#ex-leftjoin" data-matched-text="[[[#ex-leftjoin]]]" class="box-ref">Example<bdi> 8</bdi></a>. The <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="internalDFN" id="ref-for-dfn-parent-logical-view-4">parent logical view</a> of this second join is derived from logical source <code>:additionalCsvSource</code> with below input data.</p>
+<aside class="ex-input"><pre><code class="csv hljs" aria-busy="false">name,id
 alice,123
 bob,456
 tobias,789
 </code></pre>
-</aside>
-
-<aside class="ex-mapping">
-
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:additionalCsvView</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
-  <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:additioncalCsvSource</span> ;
-  <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span> ;
-    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"name"</span> ;
+</aside><aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:additionalCsvView a rml:LogicalView ;
+  rml:viewOn :additioncalCsvSource ;
+  rml:field [
+    a rml:ExpressionField ;
+    rml:fieldName "name" ;
+    rml:reference "name" ;
   ] ;
-  <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"id"</span> ;
-    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"id"</span> ;
+  rml:field [
+    a rml:ExpressionField ;
+    rml:fieldName "id" ;
+    rml:reference "id" ;
   ] . 
 
-<span class="hljs-symbol">:csvView</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
-  <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:csvSource</span> ;
-  <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span> ;
-    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"name"</span> ;
+:csvView a rml:LogicalView ;
+  rml:viewOn :csvSource ;
+  rml:field [
+    a rml:ExpressionField ;
+    rml:fieldName "name" ;
+    rml:reference "name" ;
   ] ;
-  <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"birthyear"</span> ;
-    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"birthyear"</span> ;
+  rml:field [
+    a rml:ExpressionField ;
+    rml:fieldName "birthyear" ;
+    rml:reference "birthyear" ;
   ] ;
-  <span class="hljs-symbol">rml:leftJoin</span> [
-    <span class="hljs-symbol">rml:parentLogicalView</span> <span class="hljs-symbol">:jsonView</span> ;
-    <span class="hljs-symbol">rml:joinCondition</span> [
-      <span class="hljs-symbol">rml:parent</span> <span class="hljs-string">"name"</span> ;
-      <span class="hljs-symbol">rml:child</span> <span class="hljs-string">"name"</span> ;
+  rml:leftJoin [
+    rml:parentLogicalView :jsonView ;
+    rml:joinCondition [
+      rml:parent "name" ;
+      rml:child "name" ;
     ] ; 
-    <span class="hljs-symbol">rml:field</span> [
-      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"item_type"</span> ;
-      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"item.type"</span> ;
+    rml:field [
+      a rml:ExpressionField ;
+      rml:fieldName "item_type" ;
+      rml:reference "item.type" ;
     ] ;
-    <span class="hljs-symbol">rml:field</span> [
-      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"item_weight"</span> ;
-      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"item.weight"</span> ;
+    rml:field [
+      a rml:ExpressionField ;
+      rml:fieldName "item_weight" ;
+      rml:reference "item.weight" ;
     ] ;
   ] ; 
-  <span class="hljs-symbol">rml:leftJoin</span> [
-    <span class="hljs-symbol">rml:parentLogicalView</span> <span class="hljs-symbol">:additionalCsvView</span> ;
-    <span class="hljs-symbol">rml:joinCondition</span> [
-      <span class="hljs-symbol">rml:parent</span> <span class="hljs-string">"name"</span> ;
-      <span class="hljs-symbol">rml:child</span> <span class="hljs-string">"name"</span> ;
+  rml:leftJoin [
+    rml:parentLogicalView :additionalCsvView ;
+    rml:joinCondition [
+      rml:parent "name" ;
+      rml:child "name" ;
     ] ; 
-    <span class="hljs-symbol">rml:field</span> [
-      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"id"</span> ;
-      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"id"</span> ;
+    rml:field [
+      a rml:ExpressionField ;
+      rml:fieldName "id" ;
+      rml:reference "id" ;
     ] ;
   ] .
 </code></pre>
-</aside>
-
-<aside class="ex-intermediate">
+</aside><aside class="ex-intermediate">
 <table>
     <tbody><tr>
         <th><u>#</u></th>
@@ -1668,9 +1599,7 @@ tobias,789
         <td>0</td>
         <td>789</td>
     </tr>
-</tbody></table>
-
-</aside>
+</tbody></table></aside>
 </aside></section></section></section>
 
 <section id="structural-annotations"><div class="header-wrapper"><h2 id="annotations"><bdi class="secno">6. </bdi>Structural Annotations</h2><a class="self-link" href="#annotations" aria-label="Permalink for Section 6."></a></div><p><dfn data-plurals="structural annotation" id="dfn-structural-annotations" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Structural annotations</dfn> provide a mechanism to express relationships between logical views, as well as additional information about fields.</p>
@@ -1728,57 +1657,43 @@ tobias,789
 <p>Each <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-19">logical view</a> <em class="rfc2119">MAY</em> specify AT MOST ONE <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annotation" class="internalDFN" id="ref-for-dfn-primarykey-annotation-2">PrimaryKey annotation</a>.</p>
 <aside class="example" id="primary-key"><div class="marker">
     <a class="self-link" href="#primary-key">Example<bdi> 11</bdi></a>
-  </div>
-
-<p> Consider the following CSV file containing birthdays of people:</p>
-<aside class="ex-input">
-
-<pre><code class="csv hljs" aria-busy="false">name,birthyear
+  </div><p> Consider the following CSV file containing birthdays of people:</p>
+<aside class="ex-input"><pre><code class="csv hljs" aria-busy="false">name,birthyear
 alice,1995
 bob,1999
 tobias,2005
 lukas, 1986
 </code></pre>
-</aside>
-
-<p>Now, assume that we know:</p>
+</aside><p>Now, assume that we know:</p>
 <ul>
 <li>Attribute <code>name</code> in the CSV is "UNIQUE" and "NOT NULL";</li>
 </ul>
 <p>Such a constraint naturally corresponds to the notion of <code>PRIMARY KEY</code> from the world of relational databases. This fact could be valuable information for the RML engine, especially in the virtual setting. However, CSV files do not support the definition of constraints. This limitation can be addressed by using structural annotations to inform the RML engine about the presence of such constraints. We illustrate this approach with a concrete example below.  </p>
 <p>First, we specify the logical source corresponding to the CSV file:</p>
-<aside class="ex-mapping">
-
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:csvSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalSource</span> ;
-  <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:csvFile</span> ;
-  <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:CSV</span> .
+<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:csvSource a rml:LogicalSource ;
+  rml:source :csvFile ;
+  rml:referenceFormulation rml:CSV .
 </code></pre>
-</aside>
-
-<p>We are now ready to specify our logical view and associated <code>rml:primaryKeyAnnotation</code>.</p>
-<aside class="ex-mapping">
-
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:csvSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
-  <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:csvSource</span> ;
-  <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span>;
-    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"name"</span>
+</aside><p>We are now ready to specify our logical view and associated <code>rml:primaryKeyAnnotation</code>.</p>
+<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:csvSource a rml:LogicalView ;
+  rml:viewOn :csvSource ;
+  rml:field [
+    a rml:ExpressionField ;
+    rml:fieldName "name";
+    rml:reference "name"
  ];
- <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"birthday"</span>;
-    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"birthday"</span>
+ rml:field [
+    a rml:ExpressionField ;
+    rml:fieldName "birthday";
+    rml:reference "birthday"
  ];
- <span class="hljs-symbol">rml:structuralAnnotation</span> [
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:primaryKeyAnnotation;</span>
-    <span class="hljs-symbol">rml:onFields</span> (<span class="hljs-string">"name"</span>)
+ rml:structuralAnnotation [
+    a rml:primaryKeyAnnotation;
+    rml:onFields ("name")
  ].
 </code></pre>
 </aside>
-</aside>
-
-</section><section id="unique"><div class="header-wrapper"><h3 id="x6-4-unique"><bdi class="secno">6.4 </bdi>Unique</h3><a class="self-link" href="#unique" aria-label="Permalink for Section 6.4"></a></div>
+</aside></section><section id="unique"><div class="header-wrapper"><h3 id="x6-4-unique"><bdi class="secno">6.4 </bdi>Unique</h3><a class="self-link" href="#unique" aria-label="Permalink for Section 6.4"></a></div>
 <p>The <dfn data-lt="Unique annotation|Unique structural annotation" id="dfn-unique-annotation" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Unique structural annotation</dfn> (<code>rml:UniqueAnnotation</code>) is analogous to the notion of <i>UNIQUE constraints</i> in databases. Specifically, a <a data-link-type="dfn|abstract-op" href="#dfn-unique-annotation" class="internalDFN" id="ref-for-dfn-unique-annotation-2">Unique annotation</a> <a data-link-type="dfn|abstract-op" href="#dfn-on-fields" class="internalDFN" id="ref-for-dfn-on-fields-4">on fields</a>  <em>(f1, ..., fn)</em>  imposes the following condition:</p>
 <ul>
 <li>no duplicate record sequences are present over the list of fields <em>(f1, ..., fn)</em>.</li>
@@ -1786,11 +1701,9 @@ lukas, 1986
 <p>Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annotation" class="internalDFN" id="ref-for-dfn-primarykey-annotation-3">PrimaryKey annotation</a> is, as a matter of fact, also a <a data-link-type="dfn|abstract-op" href="#dfn-unique-annotation" class="internalDFN" id="ref-for-dfn-unique-annotation-3">Unique annotation</a>.</p>
 </section><section id="notnull"><div class="header-wrapper"><h3 id="x6-5-notnull"><bdi class="secno">6.5 </bdi>NotNull</h3><a class="self-link" href="#notnull" aria-label="Permalink for Section 6.5"></a></div>
 <p>The <dfn data-lt="NotNull annotation|NotNull structural annotation" id="dfn-notnull-annotation" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">NotNull structural annotation</dfn> (<code>rml:NotNullAnnotation</code>) is analogous to the notion of <i>NOT NULL constraints</i> in databases. Specifically, a <a data-link-type="dfn|abstract-op" href="#dfn-notnull-annotation" class="internalDFN" id="ref-for-dfn-notnull-annotation-2">NotNull annotation</a> <a data-link-type="dfn|abstract-op" href="#dfn-on-fields" class="internalDFN" id="ref-for-dfn-on-fields-5">on fields</a>  <em>F</em>  imposes that each field in <em>F</em> does not contain NULL values.</p>
-<div class="note" role="note" id="issue-container-generatedID-2"><div role="heading" class="note-title marker" id="h-note-2" aria-level="4"><span>Note</span></div><aside class="">
+<div class="note" role="note" id="issue-container-generatedID-2"><div class="note-title marker" id="h-note-2"><span>Note</span></div><aside class="">
 Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annotation" class="internalDFN" id="ref-for-dfn-primarykey-annotation-4">PrimaryKey annotation</a> is, as a matter of fact, also a <a data-link-type="dfn|abstract-op" href="#dfn-notnull-annotation" class="internalDFN" id="ref-for-dfn-notnull-annotation-3">NotNull annotation</a>.
-</aside></div>
-
-</section><section id="foreignkey"><div class="header-wrapper"><h3 id="x6-6-foreignkey"><bdi class="secno">6.6 </bdi>ForeignKey</h3><a class="self-link" href="#foreignkey" aria-label="Permalink for Section 6.6"></a></div>
+</aside></div></section><section id="foreignkey"><div class="header-wrapper"><h3 id="x6-6-foreignkey"><bdi class="secno">6.6 </bdi>ForeignKey</h3><a class="self-link" href="#foreignkey" aria-label="Permalink for Section 6.6"></a></div>
 <p>The <dfn data-lt="ForeignKey annotation|ForeignKey structural annotation" id="dfn-foreignkey-annotation" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">ForeignKey structural annotation</dfn> (<code>rml:ForeignKeyAnnotation</code>) is analogous to the notion of <i>foreign key constraint</i> in databases. Specifically, a <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annotation" class="internalDFN" id="ref-for-dfn-foreignkey-annotation-2">ForeignKey annotation</a> <a data-link-type="dfn|abstract-op" href="#dfn-on-fields" class="internalDFN" id="ref-for-dfn-on-fields-6">on fields</a>  <em>(f1, ..., fn)</em> , <a data-link-type="dfn|abstract-op" href="#dfn-target-view" class="internalDFN" id="ref-for-dfn-target-view-1">target view</a> <i>lv</i>, and <a data-link-type="dfn|abstract-op" href="#dfn-target-fields" class="internalDFN" id="ref-for-dfn-target-fields-1">target fields</a> <em>(tf1,...,tfn)</em> imposes the following conditions:</p>
 <ul>
 <li>each NULL-free record sequence over the list of fields <em>(f1, ..., fn)</em> occurs also as a record sequence in <em>(tf1,...,tfn)</em>;</li>
@@ -1823,12 +1736,8 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annota
 </ul>
 <aside class="example" id="foreign-key"><div class="marker">
     <a class="self-link" href="#foreign-key">Example<bdi> 12</bdi></a>
-  </div>
-
-<p>Consider the following JSON file containing information about warriors.</p>
-<aside class="ex-input">
-
-<pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+  </div><p>Consider the following JSON file containing information about warriors.</p>
+<aside class="ex-input"><pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
     <span class="hljs-punctuation">{</span>
       <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
@@ -1855,9 +1764,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annota
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
 </code></pre>
-</aside>
-
-<p>Now, assume that we know:</p>
+</aside><p>Now, assume that we know:</p>
 <ul>
 <li>Attribute <code>name</code> in the CSV of <a href="#primary-key" data-matched-text="[[[#primary-key]]]" class="box-ref">Example<bdi> 11</bdi></a> is "UNIQUE" and "NOT NULL";</li>
 <li>All warriors in our domain are contained in the JSON of <a href="#foreign-key" data-matched-text="[[[#foreign-key]]]" class="box-ref">Example<bdi> 12</bdi></a>.</li>
@@ -1866,82 +1773,66 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annota
 <p>The second constraint naturally corresponds to a <code>FOREIGN KEY</code> constraint from the world of relational databases. However, as the involved values spread across different (and diverse) sources, it cannot be expressed as such. Also this one could provide valuable information for the RML engine.</p>
 <p>We can exploit the mechanism of structural annotations to inform the RML engine about the existence of such "relational-like" constraint. We here work out an example.</p>
 <p>First, we need to specify the logical sources. The logical source corresponding to the CSV of <a href="#primary-key" data-matched-text="[[[#primary-key]]]" class="box-ref">Example<bdi> 11</bdi></a>:</p>
-<aside class="ex-mapping">
-
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:csvSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalSource</span> ;
-  <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:csvFile</span> ;
-  <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:CSV</span> .
+<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:csvSource a rml:LogicalSource ;
+  rml:source :csvFile ;
+  rml:referenceFormulation rml:CSV .
 </code></pre>
-</aside>
-
-<p>The logical source corresponding to the JSON of <a href="#foreign-key" data-matched-text="[[[#foreign-key]]]" class="box-ref">Example<bdi> 12</bdi></a>:</p>
-<aside class="ex-mapping">
-
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalSource</span> ;
-  <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:jsonFile</span> ;
-  <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:JSONPath</span> ;
-  <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.people[*]"</span> .
+</aside><p>The logical source corresponding to the JSON of <a href="#foreign-key" data-matched-text="[[[#foreign-key]]]" class="box-ref">Example<bdi> 12</bdi></a>:</p>
+<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:jsonSource a rml:LogicalSource ;
+  rml:source :jsonFile ;
+  rml:referenceFormulation rml:JSONPath ;
+  rml:iterator "$.people[*]" .
 </code></pre>
-</aside>
-
-<p>We are now ready to specify our logical views, and associated structural annotations. The first logical view is the one corresponding to <code>:csvSource</code>.</p>
-<aside class="ex-mapping">
-
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:csvSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
-  <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:csvSource</span> ;
-  <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span>;
-    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"name"</span>
+</aside><p>We are now ready to specify our logical views, and associated structural annotations. The first logical view is the one corresponding to <code>:csvSource</code>.</p>
+<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:csvSource a rml:LogicalView ;
+  rml:viewOn :csvSource ;
+  rml:field [
+    a rml:ExpressionField ;
+    rml:fieldName "name";
+    rml:reference "name"
  ];
- <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"birthday"</span>;
-    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"birthday"</span>
+ rml:field [
+    a rml:ExpressionField ;
+    rml:fieldName "birthday";
+    rml:reference "birthday"
  ];
- <span class="hljs-symbol">rml:structuralAnnotation</span> [
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:PrimaryKeyAnnotation;</span>
-    <span class="hljs-symbol">rml:onFields</span> (<span class="hljs-string">"name"</span>);
+ rml:structuralAnnotation [
+    a rml:PrimaryKeyAnnotation;
+    rml:onFields ("name");
  ].
 </code></pre>
-</aside>
-
-<p>Now, we declare the logical view corresponding to <code>:jsonSource</code>. Note that this view contains a <code>rml:ForeignKeyAnnotation</code>:</p>
-<aside class="ex-mapping">
-
-<pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonView</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
-  <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:jsonSource</span> ;
-  <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span> ;
-    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.name"</span> ;
+</aside><p>Now, we declare the logical view corresponding to <code>:jsonSource</code>. Note that this view contains a <code>rml:ForeignKeyAnnotation</code>:</p>
+<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:jsonView a rml:LogicalView ;
+  rml:viewOn :jsonSource ;
+  rml:field [
+    a rml:ExpressionField ;
+    rml:fieldName "name" ;
+    rml:reference "$.name" ;
   ] ;
-  <span class="hljs-symbol">rml:field</span> [
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:IterableField</span> ;
-    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"item"</span> ;
-    <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.items[*]"</span> ;
-    <span class="hljs-symbol">rml:field</span> [
-      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"type"</span> ;
-      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.type"</span> ;
+  rml:field [
+    a rml:IterableField ;
+    rml:fieldName "item" ;
+    rml:iterator "$.items[*]" ;
+    rml:field [
+      a rml:ExpressionField ;
+      rml:fieldName "type" ;
+      rml:reference "$.type" ;
     ] ;
-    <span class="hljs-symbol">rml:field</span> [
-      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
-      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"weight"</span> ;
-      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.weight"</span> ;
+    rml:field [
+      a rml:ExpressionField ;
+      rml:fieldName "weight" ;
+      rml:reference "$.weight" ;
     ]
   ] ;
-  <span class="hljs-symbol">rml:structuralAnnotation</span> [
-    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ForeignKeyAnnotation;</span>
-    <span class="hljs-symbol">rml:onFields</span> (<span class="hljs-string">"name"</span>);
-    <span class="hljs-symbol">rml:targetView</span> <span class="hljs-symbol">:csvView;</span>
-    <span class="hljs-symbol">rml:targetFields</span> (<span class="hljs-string">"name"</span>)
+  rml:structuralAnnotation [
+    a rml:ForeignKeyAnnotation;
+    rml:onFields ("name");
+    rml:targetView :csvView;
+    rml:targetFields ("name")
   ].
 </code></pre>
 </aside>
-</aside>
-
-</section><section id="inclusion"><div class="header-wrapper"><h3 id="x6-7-inclusion"><bdi class="secno">6.7 </bdi>Inclusion</h3><a class="self-link" href="#inclusion" aria-label="Permalink for Section 6.7"></a></div>
+</aside></section><section id="inclusion"><div class="header-wrapper"><h3 id="x6-7-inclusion"><bdi class="secno">6.7 </bdi>Inclusion</h3><a class="self-link" href="#inclusion" aria-label="Permalink for Section 6.7"></a></div>
 <p>The <dfn data-lt="Inclusion annotation|Inclusion structural annotation" id="dfn-inclusion-annotation" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Inclusion structural annotation</dfn> (<code>rml:InclusionAnnotation</code>) is analogous to the notion of <i>inclusion dependency</i> in databases. Specifically, an <a data-link-type="dfn|abstract-op" href="#dfn-inclusion-annotation" class="internalDFN" id="ref-for-dfn-inclusion-annotation-2">Inclusion annotation</a> <a data-link-type="dfn|abstract-op" href="#dfn-on-fields" class="internalDFN" id="ref-for-dfn-on-fields-8">on fields</a>  <em>(f1, ..., fn)</em> , <a data-link-type="dfn|abstract-op" href="#dfn-target-view" class="internalDFN" id="ref-for-dfn-target-view-2">target view</a> <i>lv</i>, and <a data-link-type="dfn|abstract-op" href="#dfn-target-fields" class="internalDFN" id="ref-for-dfn-target-fields-2">target fields</a> <em>(tf1,...,tfn)</em> imposes the following condition:</p>
 <ul>
 <li>each NULL-free record sequence over the list of fields <em>(f1, ..., fn)</em> occurs also as a record sequence in <em>(tf1,...,tfn)</em>;</li>
@@ -1952,7 +1843,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annota
 <li>Exactly one <code>rml:targetView</code> property</li>
 <li>Exactly one <code>rml:targetFields</code> property.</li>
 </ul>
-<div class="note" role="note" id="issue-container-generatedID-3"><div role="heading" class="note-title marker" id="h-note-3" aria-level="4"><span>Note</span></div><aside class="">
+<div class="note" role="note" id="issue-container-generatedID-3"><div class="note-title marker" id="h-note-3"><span>Note</span></div><aside class="">
 Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annotation" class="internalDFN" id="ref-for-dfn-foreignkey-annotation-4">ForeignKey annotation</a> is also an <a data-link-type="dfn|abstract-op" href="#dfn-inclusion-annotation" class="internalDFN" id="ref-for-dfn-inclusion-annotation-3">Inclusion annotation</a>.
 </aside></div></section></section>
 
@@ -1961,11 +1852,11 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
 <section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-references"><bdi class="secno">A. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="a-1-normative-references"><bdi class="secno">A.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix A.1"></a></div>
     
     <dl class="bibliography"><dt id="bib-rfc2119">[RFC2119]</dt><dd>
-      <a href="https://www.rfc-editor.org/rfc/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>
+      <a href="https://www.rfc-editor.org/info/rfc2119/"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/info/rfc2119/">https://www.rfc-editor.org/info/rfc2119/</a>
     </dd><dt id="bib-rfc8174">[RFC8174]</dt><dd>
-      <a href="https://www.rfc-editor.org/rfc/rfc8174"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>
+      <a href="https://www.rfc-editor.org/info/rfc8174/"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/info/rfc8174/">https://www.rfc-editor.org/info/rfc8174/</a>
     </dd><dt id="bib-rfc9535">[RFC9535]</dt><dd>
-      <a href="https://www.rfc-editor.org/rfc/rfc9535"><cite>JSONPath: Query Expressions for JSON</cite></a>. S. Gössner, Ed.; G. Normington, Ed.; C. Bormann, Ed. IETF. February 2024. Proposed Standard. URL: <a href="https://www.rfc-editor.org/rfc/rfc9535">https://www.rfc-editor.org/rfc/rfc9535</a>
+      <a href="https://www.rfc-editor.org/info/rfc9535/"><cite>JSONPath: Query Expressions for JSON</cite></a>. S. Gössner, Ed.; G. Normington, Ed.; C. Bormann, Ed. IETF. February 2024. Proposed Standard. URL: <a href="https://www.rfc-editor.org/info/rfc9535/">https://www.rfc-editor.org/info/rfc9535/</a>
     </dd><dt id="bib-rml-core">[RML-Core]</dt><dd>
       <a href="https://w3id.org/rml/core/spec"><cite>RML-Core</cite></a>.  W3C. 16 February 2024. Draft Community Group Report. URL: <a href="https://w3id.org/rml/core/spec">https://w3id.org/rml/core/spec</a>
     </dd><dt id="bib-rml-io">[RML-IO]</dt><dd>
@@ -1980,6 +1871,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-logical-view" aria-label="Permalink for definition: logical view. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2018,6 +1910,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-logical-view-iteration-sequence" aria-label="Permalink for definition: logical view iteration sequence. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2034,6 +1927,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-logical-view-iteration" aria-label="Permalink for definition: logical view iteration. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2048,6 +1942,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-record" aria-label="Permalink for definition: record. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2066,6 +1961,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-iterable-record" aria-label="Permalink for definition: iterable record. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2082,6 +1978,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-expression-record" aria-label="Permalink for definition: expression record. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2098,6 +1995,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-record-key" aria-label="Permalink for definition: record key. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2114,6 +2012,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-index-key" aria-label="Permalink for definition: index key. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2130,6 +2029,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-logical-view-reference" aria-label="Permalink for definition: logical view reference. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2144,6 +2044,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-referenceable-key" aria-label="Permalink for definition: referenceable key. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2156,6 +2057,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-field" aria-label="Permalink for definition: field. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2180,6 +2082,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-expression-field" aria-label="Permalink for definition: expression field. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2198,6 +2101,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-iterable-field" aria-label="Permalink for definition: iterable field. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2214,6 +2118,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-parent" aria-label="Permalink for definition: parent. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2232,6 +2137,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-ancestors" aria-label="Permalink for definition: ancestors. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2242,6 +2148,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-parent-records" aria-label="Permalink for definition: parent records. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2254,6 +2161,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-declared-name" aria-label="Permalink for definition: declared name. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2274,6 +2182,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-absolute-name" aria-label="Permalink for definition: absolute name. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2288,6 +2197,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-logical-view-join" aria-label="Permalink for definition: logical view join. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2306,6 +2216,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-parent-logical-view" aria-label="Permalink for definition: parent logical view. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2322,6 +2233,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-leaf-expression-field" aria-label="Permalink for definition: leaf expression field. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2332,6 +2244,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-child-logical-view" aria-label="Permalink for definition: child logical view. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2346,6 +2259,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-join-property" aria-label="Permalink for definition: join property. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2358,6 +2272,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-left-join" aria-label="Permalink for definition: left join. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2370,6 +2285,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-inner-join" aria-label="Permalink for definition: inner join. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2382,6 +2298,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-structural-annotations" aria-label="Permalink for definition: Structural annotations. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2394,6 +2311,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-on-fields" aria-label="Permalink for definition: on fields. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2418,6 +2336,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-irisafe-annotation" aria-label="Permalink for definition: IriSafe structural annotation. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2430,6 +2349,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-primarykey-annotation" aria-label="Permalink for definition: PrimaryKey structural annotation. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2448,6 +2368,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-unique-annotation" aria-label="Permalink for definition: Unique structural annotation. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2464,6 +2385,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-notnull-annotation" aria-label="Permalink for definition: NotNull structural annotation. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2478,6 +2400,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-foreignkey-annotation" aria-label="Permalink for definition: ForeignKey structural annotation. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2494,6 +2417,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-target-view" aria-label="Permalink for definition: target view. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2508,6 +2432,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-target-fields" aria-label="Permalink for definition: target fields. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2522,6 +2447,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <div>
         <a class="self-link" href="#dfn-inclusion-annotation" aria-label="Permalink for definition: Inclusion structural annotation. Activate to close this dialog.">Permalink</a>
          
+        
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
@@ -2546,9 +2472,12 @@ function setupVarHighlighter() {
     .forEach(varElem => varElem.addEventListener("click", highlightListener));
 }
 
+/**
+ * @param {MouseEvent} ev
+ */
 function highlightListener(ev) {
   ev.stopPropagation();
-  const { target: varElem } = ev;
+  const varElem = /** @type {HTMLElement} */ (ev.target);
   const hightligtedElems = highlightVars(varElem);
   const resetListener = () => {
     const hlColor = getHighlightColor(varElem);
@@ -2571,6 +2500,9 @@ const HL_COLORS = new Map([
   ["respec-hl-c7", true],
 ]);
 
+/**
+ * @param {HTMLElement} target
+ */
 function getHighlightColor(target) {
   // return current colors if applicable
   const { value } = target.classList;
@@ -2585,9 +2517,15 @@ function getHighlightColor(target) {
   return [...HL_COLORS.keys()].find(c => HL_COLORS.get(c)) || "respec-hl-c1";
 }
 
+/**
+ * @param {HTMLElement} varElem
+ */
 function highlightVars(varElem) {
   const textContent = norm(varElem.textContent);
-  const parent = varElem.closest(".algorithm, section");
+  const parent = /** @type {HTMLElement} */ (
+    varElem.closest(".algorithm, section")
+  );
+  if (!parent) return [];
   const highlightColor = getHighlightColor(varElem);
 
   const varsToHighlight = [...parent.querySelectorAll("var")].filter(
@@ -2610,12 +2548,20 @@ function highlightVars(varElem) {
   return varsToHighlight;
 }
 
+/**
+ * @param {HTMLElement} el
+ * @param {string} highlightColor
+ */
 function removeHighlight(el, highlightColor) {
   el.classList.remove("respec-hl", highlightColor);
   // clean up empty class attributes so they don't come in export
   if (!el.classList.length) el.removeAttribute("class");
 }
 
+/**
+ * @param {HTMLElement} elem
+ * @param {string} highlightColor
+ */
 function addHighlight(elem, highlightColor) {
   elem.classList.add("respec-hl", highlightColor);
 }
@@ -2643,8 +2589,11 @@ function setupPanel() {
 }
 
 function panelListener() {
-  /** @type {HTMLElement} */
+  /** @type {HTMLElement | null} */
   let panel = null;
+  /**
+   * @param {KeyboardEvent|MouseEvent} event
+   */
   return event => {
     const { target, type } = event;
 
@@ -2652,24 +2601,34 @@ function panelListener() {
 
     // For keys, we only care about Enter key to activate the panel
     // otherwise it's activated via a click.
-    if (type === "keydown" && event.key !== "Enter") return;
+    if (
+      type === "keydown" &&
+      /** @type {KeyboardEvent} */ (event).key !== "Enter"
+    )
+      return;
 
     const action = deriveAction(event);
 
     switch (action) {
       case "show": {
         hidePanel(panel);
-        /** @type {HTMLElement} */
+        /** @type {HTMLElement | null} */
         const dfn = target.closest("dfn, .index-term");
+        if (!dfn?.id) break;
         panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
-        const coords = deriveCoordinates(event);
+        if (!panel) break;
+        const coords = deriveCoordinates(
+          /** @type {MouseEvent|KeyboardEvent} */ (event)
+        );
         displayPanel(dfn, panel, coords);
         break;
       }
       case "dock": {
-        panel.style.left = null;
-        panel.style.top = null;
-        panel.classList.add("docked");
+        if (panel) {
+          panel.style.left = "";
+          panel.style.top = "";
+          panel.classList.add("docked");
+        }
         break;
       }
       case "hide": {
@@ -2720,7 +2679,8 @@ function deriveAction(event) {
     if (hitALink) {
       return target.classList.contains("self-link") ? "hide" : "dock";
     }
-    const panel = target.closest(".dfn-panel");
+
+    const panel = /** @type {HTMLElement} */ (target.closest(".dfn-panel"));
     return panel.classList.contains("docked") ? "hide" : "none";
   }
   if (document.querySelector(".dfn-panel:not([hidden])")) {
@@ -2764,9 +2724,9 @@ function displayPanel(dfn, panel, { x, y }) {
     const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
     const newCaretOffset = left - newLeft;
     panel.style.left = `${newLeft}px`;
-    /** @type {HTMLElement} */
+    /** @type {HTMLElement | null} */
     const caret = panel.querySelector(".caret");
-    caret.style.left = `${newCaretOffset}px`;
+    if (caret) caret.style.left = `${newCaretOffset}px`;
   }
 
   // As it's a dialog, we trap focus.
@@ -2815,6 +2775,9 @@ function trapFocus(panel, dfn) {
 function createTrapListener(anchors, panel, dfn) {
   const lastIndex = anchors.length - 1;
   let currentIndex = 0;
+  /**
+   * @param {KeyboardEvent} event
+   */
   return event => {
     switch (event.key) {
       // Hitting "Tab" traps us in a nice loop around elements.
@@ -2844,10 +2807,10 @@ function createTrapListener(anchors, panel, dfn) {
   };
 }
 
-/** @param {HTMLElement} panel */
+/** @param {HTMLElement | null} panel */
 function hidePanel(panel) {
   if (!panel) return;
   panel.hidden = true;
   panel.classList.remove("docked");
 }
-})()</script><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
+})()</script><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script><protonpass-root-7cbe data-protonpass-role="root" data-protonpass-theme="os"></protonpass-root-7cbe></body></html>
