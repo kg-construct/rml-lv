@@ -333,29 +333,18 @@ rmlsh:InclusionAnnotationShape a sh:NodeShape;
 rmlsh:parentCyclesShape a sh:NodeShape ;
     sh:targetSubjectsOf rml:viewOn ;
     sh:targetSubjectsOf rml:field ;
-    sh:sparql [
-        a sh:SPARQLConstraint ;
+    sh:property [
         sh:message "There must be no cycles via rml:viewOn or rml:Field." ;
-        sh:select """
-            PREFIX rml: <http://w3id.org/rml/>
-            SELECT ?this
-            WHERE {
-              ?this (rml:viewOn|rml:field)+ ?this .
-            }
-        """ ;
+        sh:path [ sh:zeroOrMorePath [ sh:alternativePath ( [ sh:inversePath rml:viewOn ] [ sh:inversePath rml:field ] ) ] ] ;
+        sh:disjoint rml:viewOn ;
+        sh:disjoint rml:field ;
     ] .
 
 rmlsh:joinCyclesShape a sh:NodeShape ;
     sh:targetSubjectsOf rml:viewOn ;
-    sh:sparql [
-        a sh:SPARQLConstraint ;
+    sh:property [
         sh:message "There must be no cycles via rml:viewOn and rml:leftJoin or rml:innerJoin." ;
-        sh:select """
-            PREFIX rml: <http://w3id.org/rml/>
-            SELECT ?this
-            WHERE {
-              ?this a rml:LogicalView .
-              ?this ((rml:leftJoin|rml:innerJoin)/rml:parentLogicalView)+ ?this .
-            }
-        """ ;
+        sh:path ( [ sh:zeroOrMorePath ( [ sh:inversePath rml:parentLogicalView ] [ sh:alternativePath ( [ sh:inversePath rml:leftJoin ] [ sh:inversePath rml:innerJoin ] ) ] ) ] [ sh:inversePath rml:parentLogicalView ] ) ;
+        sh:disjoint rml:leftJoin ;
+        sh:disjoint rml:innerJoin ;
     ] .
