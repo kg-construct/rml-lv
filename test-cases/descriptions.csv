@@ -33,6 +33,7 @@ RMLLVTC0006c,Two Left Joins,Test two left joins in one logical view,no,people.js
 RMLLVTC0006d,Inner Join and Left Join,Test an inner join and a left join in one logical view,no,people.json,people.csv,people2.csv,output.nq,,,,,
 RMLLVTC0006e,Two Inner Joins,Test two left joins in one logical view,no,people.json,people.csv,people2.csv,output.nq,,,,,
 RMLLVTC0006f,Index Key of Field in Join,Test references to indexes of fields from a join,no,people.json,people.csv,,output.nq,,,,,
+RMLLVTC0006g,Outer Join,Test an outer join with unmatched child and parent logical iterations,no,people.json,people.csv,,output.nq,,,,,
 RMLLVTC0007a,Change Reference Formulations: CSV including JSON array,Test a change of reference formulations: csv source including json array,no,people.csv,,,output.nq,,,,,
 RMLLVTC0007b,Change Reference Formulations: CSV including JSON object,Test a change of reference formulations: csv source including json object,no,people.csv,,,output.nq,,,,,
 RMLLVTC0007c,Change Reference Formulations: JSON including CSV,Test a change of reference formulations: json source including csv data,no,people.json,,,output.nq,,,,,

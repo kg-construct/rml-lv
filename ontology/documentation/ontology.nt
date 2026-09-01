@@ -68,6 +68,14 @@ _:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/20
 <http://w3id.org/rml/leftJoin> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://w3id.org/rml/lv/> .
 <http://w3id.org/rml/leftJoin> <http://www.w3.org/2000/01/rdf-schema#label> "left join" .
 # 
+# http://w3id.org/rml/outerJoin
+<http://w3id.org/rml/outerJoin> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://w3id.org/rml/outerJoin> <http://www.w3.org/2000/01/rdf-schema#domain> <http://w3id.org/rml/LogicalView> .
+<http://w3id.org/rml/outerJoin> <http://www.w3.org/2000/01/rdf-schema#range> <http://w3id.org/rml/LogicalViewJoin> .
+<http://w3id.org/rml/outerJoin> <http://www.w3.org/2000/01/rdf-schema#comment> "An outer join of the logical view." .
+<http://w3id.org/rml/outerJoin> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://w3id.org/rml/lv/> .
+<http://w3id.org/rml/outerJoin> <http://www.w3.org/2000/01/rdf-schema#label> "outer join" .
+#
 # http://w3id.org/rml/onFields
 <http://w3id.org/rml/onFields> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <http://w3id.org/rml/onFields> <http://www.w3.org/2000/01/rdf-schema#domain> <http://w3id.org/rml/StructuralAnnotation> .

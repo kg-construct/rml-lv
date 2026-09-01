@@ -67,6 +67,15 @@
                                rdfs:label "left join" .
 
 
+###  http://w3id.org/rml/outerJoin
+<http://w3id.org/rml/outerJoin> rdf:type owl:ObjectProperty ;
+                                rdfs:domain <http://w3id.org/rml/LogicalView> ;
+                                rdfs:range <http://w3id.org/rml/LogicalViewJoin> ;
+                                rdfs:comment "An outer join of the logical view." ;
+                                rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
+                                rdfs:label "outer join" .
+
+
 ###  http://w3id.org/rml/onFields
 <http://w3id.org/rml/onFields> rdf:type owl:ObjectProperty ;
                                rdfs:domain <http://w3id.org/rml/StructuralAnnotation> ;
