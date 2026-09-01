@@ -61,6 +61,15 @@ rmlsh:LogicalViewShape a sh:NodeShape ;
         sh:nodeKind sh:BlankNodeOrIRI ;
     ] , [
         sh:description """
+        An outer join of the logical view.
+        """ ;
+        sh:message """
+        The value of a rml:outerJoin property for a rml:LogicalView must be a resource.
+        """ ;
+        sh:path rml:outerJoin ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
+    ] , [
+        sh:description """
         An inner join of the logical view.
         """ ;
         sh:message """
@@ -213,7 +222,7 @@ rmlsh:LogicalViewJoinShape a sh:NodeShape ;
     Furthermore, rml:Field requires what an rml:ExpressionMap requires.
     """ ;
     sh:targetClass rml:LogicalViewJoin ;
-    sh:targetObjectsOf rml:leftJoin , rml:innerJoin ;
+    sh:targetObjectsOf rml:leftJoin , rml:outerJoin , rml:innerJoin ;
     sh:property [
         sh:description """
         The parent logical view of the logical view join.
@@ -349,13 +358,13 @@ rmlsh:joinCyclesShape a sh:NodeShape ;
     sh:targetSubjectsOf rml:viewOn ;
     sh:sparql [
         a sh:SPARQLConstraint ;
-        sh:message "There must be no cycles via rml:viewOn and rml:leftJoin or rml:innerJoin." ;
+                sh:message "There must be no cycles via rml:viewOn and rml:leftJoin, rml:outerJoin, or rml:innerJoin." ;
         sh:select """
             PREFIX rml: <http://w3id.org/rml/>
             SELECT ?this
             WHERE {
               ?this a rml:LogicalView .
-              ?this ((rml:leftJoin|rml:innerJoin)/rml:parentLogicalView)+ ?this .
+              ?this ((rml:leftJoin|rml:outerJoin|rml:innerJoin)/rml:parentLogicalView)+ ?this .
             }
         """ ;
     ] .
