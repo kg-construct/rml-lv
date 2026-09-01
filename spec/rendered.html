@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en" dir="ltr"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 37.1.0">
+<meta name="generator" content="ReSpec 37.3.5">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -181,11 +181,11 @@ details.respec-tests-details>li{padding-left:1em}
 .self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
 aside.example .marker>a.self-link{color:inherit}
 .header-wrapper{display:flex;align-items:baseline}
-:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2):has(+a.self-link){position:relative;left:-.5em}
-:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.5}
-:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3,h4,h5,h6):not(:where(#toc>h2,#abstract>h2,#sotd>h2,.head>h2)):has(+a.self-link){position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(:where(#toch2))+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.8;text-decoration:none}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§"}
 :is(h2,h3)+a.self-link{top:-.2em}
-:is(h4,h5,h6)+a.self-link::before{color:#000}
+:is(h2,h3)+a.self-link::before{color:var(--heading-text)}
 @media (max-width:767px){
 dd{margin-left:0}
 }
@@ -195,14 +195,10 @@ dd{margin-left:0}
 body:has(input[name=color-scheme][value=light]:checked),head:not(:has(meta[name=color-scheme][content~=dark]))+body{color-scheme:light}
 body:has(input[name=color-scheme][value=dark]:checked){color-scheme:dark}
 </style>
+<meta id="ConnectiveDocSignExtentionInstalled" name="ConnectiveDocSignExtentionInstalled" data-extension-version="1.0.5">
 <meta name="color-scheme" content="light">
-<meta name="description" content="RML logical views is an extension of the RDF Mapping Language (RML) that increases the language's capability to
-construct RDF datasets from nested input data, to join data sources (also across data hierarchies),
-and to handle data sources that mix source formats,
-by allowing to specify a logical view: a flattened, source format-agnostic view
-over one or more existing data sources.
-Additionally, it provides a mechanism to express relationships between data sources,
-as well as additional information about their fields, through structural annotations.">
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/dark.css" disabled="" media="">
+<meta name="description" content="This document defines the RML-LV test cases to the determine the RML-LV specification conformance of tools.">
 <style>
 .hljs,body:has(input[name=color-scheme][value=light]:checked) .hljs,head:not(:has(meta[name=color-scheme][content~=dark]))+body .hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
 @media (prefers-color-scheme:dark){
@@ -276,12 +272,24 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "preProcess": [
     null
   ],
-  "doRdfa": "true",
-  "processVersion": 2024,
-  "specStatus": "CG-DRAFT",
-  "shortName": "rml-lv",
-  "copyrightStart": "2024",
-  "edDraftURI": "https://w3id.org/rml/lv/spec",
+  "authors": [
+    {
+      "name": "Pano Maria",
+      "company": "ModelDesk",
+      "url": "https://modeldesk.io",
+      "orcid": "https://orcid.org/0009-0000-2598-1894",
+      "companyURL": "https://modeldesk.io"
+    },
+    {
+      "name": "Els de Vleeschauwer",
+      "mailto": "els.devleeschauwer@ugent.be",
+      "company": "Ghent University &ndash; imec &ndash; IDLab",
+      "orcid": "https://orcid.org/0000-0002-8630-3947",
+      "companyURL": "https://idlab.technology/",
+      "url": "mailto:els.devleeschauwer@ugent.be"
+    }
+  ],
+  "edDraftURI": "https://w3id.org/rml/lv/test-cases/",
   "editors": [
     {
       "name": "Pano Maria",
@@ -299,71 +307,16 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "url": "mailto:els.devleeschauwer@ugent.be"
     }
   ],
-  "authors": [
-    {
-      "name": "Pano Maria",
-      "company": "ModelDesk",
-      "url": "https://modeldesk.io",
-      "orcid": "https://orcid.org/0009-0000-2598-1894",
-      "companyURL": "https://modeldesk.io"
-    },
-    {
-      "name": "Els de Vleeschauwer",
-      "mailto": "els.devleeschauwer@ugent.be",
-      "company": "Ghent University &ndash; imec &ndash; IDLab",
-      "orcid": "https://orcid.org/0000-0002-8630-3947",
-      "companyURL": "https://idlab.technology/",
-      "url": "mailto:els.devleeschauwer@ugent.be"
-    },
-    {
-      "name": "Davide Lanti",
-      "mailto": "dalanti@unibz.it",
-      "company": "Free University of Bozen-Bolzano",
-      "orcid": "https://orcid.org/0000-0003-1097-2965",
-      "companyURL": "https://www.unibz.it/",
-      "url": "mailto:dalanti@unibz.it"
-    }
-  ],
-  "group": "kg-construct",
-  "latestVersion": "https://w3id.org/rml/lv/spec/",
-  "issueBase": "https://github.com/kg-construct/rml-lv/issues",
-  "noRecTrack": "true",
-  "otherLinks": [
-    {
-      "key": "This Version",
-      "data": [
-        {
-          "value": "https://kg-construct.github.io/rml-lv/spec/docs/20260316/",
-          "href": "https://kg-construct.github.io/rml-lv/spec/docs/20260316/"
-        }
-      ]
-    },
-    {
-      "key": "Previous Version",
-      "data": [
-        {
-          "value": "https://kg-construct.github.io/rml-lv/spec/docs/20260108/",
-          "href": " https://kg-construct.github.io/rml-lv/spec/docs/20260108/"
-        }
-      ]
-    },
-    {
-      "key": "Website",
-      "data": [
-        {
-          "value": "https://github.com/kg-construct/rml-lv/",
-          "href": "https://github.com/kg-construct/rml-lv/"
-        }
-      ]
-    }
-  ],
+  "formerEditors": [],
+  "github": "https://github.com/kg-construct/rml-lv",
+  "license": "w3c-software-doc",
   "localBiblio": {
     "RML-Core": {
       "title": "RML-Core",
       "href": "https://w3id.org/rml/core/spec",
       "status": "Draft Community Group Report",
       "publisher": "W3C",
-      "date": "16 February 2024",
+      "date": "07 August 2024",
       "id": "rml-core"
     },
     "RML-IO": {
@@ -371,12 +324,20 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "href": "https://w3id.org/rml/io/spec",
       "status": "Draft Community Group Report",
       "publisher": "W3C",
-      "date": "27 September 2023",
+      "date": "12 March 2024",
       "id": "rml-io"
     }
   },
-  "publishISODate": "2026-07-13T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 13 July 2026"
+  "otherLinks": [],
+  "latestVersion": null,
+  "prevVersion": "https://kg-construct.github.io/rml-lv/test-cases/docs/20260303/",
+  "shortName": "RML-LV-Testcases",
+  "specStatus": "CG-DRAFT",
+  "copyrightStart": "2024",
+  "doJsonLd": true,
+  "group": "kg-construct",
+  "publishISODate": "2026-09-01T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 01 September 2026"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
 <body class="h-entry"><div class="head">
@@ -384,21 +345,21 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">RML Logical Views</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2026-07-13">13 July 2026</time>
+      <time class="dt-published" datetime="2026-09-01">01 September 2026</time>
     </p>
     <dl>
       
       <dt>Latest published version:</dt><dd>
-              <a href="https://w3id.org/rml/lv/spec/">https://w3id.org/rml/lv/spec/</a>
-            </dd>
-      <dt>Latest editor's draft:</dt><dd><a href="https://w3id.org/rml/lv/spec">https://w3id.org/rml/lv/spec</a></dd>
+                none
+              </dd>
+      <dt>Latest editor's draft:</dt><dd><a href="https://w3id.org/rml/lv/test-cases/">https://w3id.org/rml/lv/test-cases/</a></dd>
       
       
-      
+      <dt>Previous version:</dt><dd><a href="https://kg-construct.github.io/rml-lv/test-cases/docs/20260303/">https://kg-construct.github.io/rml-lv/test-cases/docs/20260303/</a></dd>
       
       <dt>
-              Editors:
-            </dt><dd class="editor p-author h-card vcard">
+                Editors:
+              </dt><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://modeldesk.io">Pano Maria</a><a class="p-name orcid" href="https://orcid.org/0009-0000-2598-1894"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
     <style>
 
@@ -425,8 +386,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </dd>
       
       <dt>
-              Authors:
-            </dt><dd class="editor p-author h-card vcard">
+                Authors:
+              </dt><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://modeldesk.io">Pano Maria</a><a class="p-name orcid" href="https://orcid.org/0009-0000-2598-1894"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
     <style>
 
@@ -450,53 +411,32 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <path d="M256 128c0 70.7-57.3 128-128 128S0 198.7 0 128 57.3 0 128 0s128 57.3 128 128z" fill="#a6ce39"></path>
     <path class="st1" d="M86.3 186.2H70.9V79.1h15.4v107.1zM108.9 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.6-56.8 53.6h-41.8V79.1zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7C191.7 111.2 178 93 148 93h-23.7v79.4zM88.7 56.8c0 5.5-4.5 10.1-10.1 10.1s-10.1-4.6-10.1-10.1c0-5.6 4.5-10.1 10.1-10.1s10.1 4.6 10.1 10.1z"></path>
   </svg></a> (<a class="p-org org h-org" href="https://idlab.technology/">Ghent University – imec – IDLab</a>)
-  </dd><dd class="editor p-author h-card vcard">
-    <a class="ed_mailto u-email email p-name" href="mailto:dalanti@unibz.it">Davide Lanti</a><a class="p-name orcid" href="https://orcid.org/0000-0003-1097-2965"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-    <style>
-
-      .st1 {
-        fill: #fff;
-      }
-    
-</style>
-    <path d="M256 128c0 70.7-57.3 128-128 128S0 198.7 0 128 57.3 0 128 0s128 57.3 128 128z" fill="#a6ce39"></path>
-    <path class="st1" d="M86.3 186.2H70.9V79.1h15.4v107.1zM108.9 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.6-56.8 53.6h-41.8V79.1zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7C191.7 111.2 178 93 148 93h-23.7v79.4zM88.7 56.8c0 5.5-4.5 10.1-10.1 10.1s-10.1-4.6-10.1-10.1c0-5.6 4.5-10.1 10.1-10.1s10.1 4.6 10.1 10.1z"></path>
-  </svg></a> (<a class="p-org org h-org" href="https://www.unibz.it/">Free University of Bozen-Bolzano</a>)
   </dd>
+      <dt>Feedback:</dt><dd>
+        <a href="https://github.com/kg-construct/rml-lv/">GitHub kg-construct/rml-lv</a>
+        (<a href="https://github.com/kg-construct/rml-lv/pulls/">pull requests</a>,
+        <a href="https://github.com/kg-construct/rml-lv/issues/new/choose">new issue</a>,
+        <a href="https://github.com/kg-construct/rml-lv/issues/">open issues</a>)
+      </dd>
       
-      <dt>This Version</dt><dd>
-    <a href="https://kg-construct.github.io/rml-lv/spec/docs/20260316/">https://kg-construct.github.io/rml-lv/spec/docs/20260316/</a>
-  </dd><dt>Previous Version</dt><dd>
-    <a href=" https://kg-construct.github.io/rml-lv/spec/docs/20260108/">https://kg-construct.github.io/rml-lv/spec/docs/20260108/</a>
-  </dd><dt>Website</dt><dd>
-    <a href="https://github.com/kg-construct/rml-lv/">https://github.com/kg-construct/rml-lv/</a>
-  </dd>
     </dl>
     
     <p class="copyright">
-          <a href="https://www.w3.org/policies/#copyright">Copyright</a>
-          ©
-          2024-2026
-          
-          the Contributors to the RML Logical Views
-          Specification, published by the
-          <a href="https://www.w3.org/groups/cg/kg-construct">Knowledge Graph Construction Community Group</a> under the
-          <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>. A human-readable
-                <a href="https://www.w3.org/community/about/agreements/cla-deed/">summary</a>
-                is available.
-              
-        </p>
+            <a href="https://www.w3.org/policies/#copyright">Copyright</a>
+            ©
+            2024-2026
+            
+            the Contributors to the RML Logical Views
+            Specification, published by the
+            <a href="https://www.w3.org/groups/cg/kg-construct">Knowledge Graph Construction Community Group</a> under the
+            <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>. A human-readable
+                    <a href="https://www.w3.org/community/about/agreements/cla-deed/">summary</a>
+                    is available.
+                  
+          </p>
     <hr title="Separator for header">
   </div>
-<section id="abstract" class="introductory"><h2 id="abstract">Abstract</h2><p>RML logical views is an extension of the RDF Mapping Language (RML) that increases the language's capability to
-construct RDF datasets from nested input data, to join data sources (also across data hierarchies),
-and to handle data sources that mix source formats,
-by allowing to specify a logical view: a flattened, source format-agnostic view
-over one or more existing data sources.
-Additionally, it provides a mechanism to express relationships between data sources,
-as well as additional information about their fields, through structural annotations.</p>
-<p>This document describes RML logical views through definitions and examples. </p>
-<p>The version of this document is <em>DRAFT</em>.</p>
+<section id="abstract" class="introductory"><h2>Abstract</h2><p>This document defines the RML-LV test cases to the determine the RML-LV specification conformance of tools.</p>
 </section>
 
 <section id="sotd" class="introductory"><h2>Status of This Document</h2><p>
@@ -504,17 +444,22 @@ as well as additional information about their fields, through structural annotat
       <a href="https://www.w3.org/groups/cg/kg-construct">Knowledge Graph Construction Community Group</a>. It is not a W3C Standard nor is it
       on the W3C Standards Track.
       
-            Please note that under the
-            <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>
-            there is a limited opt-out and other conditions apply.
-          
+              Please note that under the
+              <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>
+              there is a limited opt-out and other conditions apply.
+            
       Learn more about
       <a href="https://www.w3.org/community/">W3C Community and Business Groups</a>.
     </p>
     <p data-format="markdown"><p>This is an early draft,
 yet efforts are made to keep things stable.</p>
 </p>
-</section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">1. </bdi>Overview</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#conventions"><bdi class="secno">1.1 </bdi>Document conventions</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1.2 </bdi>Conformance</a></li></ol></li><li class="tocline"><a class="tocxref" href="#problem"><bdi class="secno">2. </bdi>Problem</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#nested-data-structures"><bdi class="secno">2.1 </bdi>Nested data structures</a></li><li class="tocline"><a class="tocxref" href="#mixed-data-formats"><bdi class="secno">2.2 </bdi>Mixed data formats</a></li><li class="tocline"><a class="tocxref" href="#joining-of-data-sources"><bdi class="secno">2.3 </bdi>Joining of data sources</a></li></ol></li><li class="tocline"><a class="tocxref" href="#logicalviews"><bdi class="secno">3. </bdi>Logical views</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#logicalviewiterator"><bdi class="secno">3.1 </bdi>Logical view iterator</a></li><li class="tocline"><a class="tocxref" href="#logicalviewexpressions"><bdi class="secno">3.2 </bdi>Logical view expressions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#fields"><bdi class="secno">4. </bdi>Fields</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#fieldparents"><bdi class="secno">4.1 </bdi>Field parents</a></li><li class="tocline"><a class="tocxref" href="#fieldnames"><bdi class="secno">4.2 </bdi>Field names</a></li><li class="tocline"><a class="tocxref" href="#fieldrecords"><bdi class="secno">4.3 </bdi>Field records</a></li><li class="tocline"><a class="tocxref" href="#fieldreferenceformulations"><bdi class="secno">4.4 </bdi>Field reference formulations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#viewjoins"><bdi class="secno">5. </bdi>Logical view joins</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#dfn-join-type"><bdi class="secno">5.1 </bdi>Join types</a></li><li class="tocline"><a class="tocxref" href="#logical-view-join-examples"><bdi class="secno">5.2 </bdi>Logical view join examples</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#left-join"><bdi class="secno">5.2.1 </bdi>Left join</a></li><li class="tocline"><a class="tocxref" href="#inner-join"><bdi class="secno">5.2.2 </bdi>Inner join</a></li><li class="tocline"><a class="tocxref" href="#two-left-joins"><bdi class="secno">5.2.3 </bdi>Two left joins</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#annotations"><bdi class="secno">6. </bdi>Structural Annotations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#invariance-principle"><bdi class="secno">6.1 </bdi>Invariance Principle</a></li><li class="tocline"><a class="tocxref" href="#irisafe"><bdi class="secno">6.2 </bdi>IriSafe</a></li><li class="tocline"><a class="tocxref" href="#primarykey"><bdi class="secno">6.3 </bdi>PrimaryKey</a></li><li class="tocline"><a class="tocxref" href="#unique"><bdi class="secno">6.4 </bdi>Unique</a></li><li class="tocline"><a class="tocxref" href="#notnull"><bdi class="secno">6.5 </bdi>NotNull</a></li><li class="tocline"><a class="tocxref" href="#foreignkey"><bdi class="secno">6.6 </bdi>ForeignKey</a></li><li class="tocline"><a class="tocxref" href="#inclusion"><bdi class="secno">6.7 </bdi>Inclusion</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">A.1 </bdi>Normative references</a></li></ol></li></ol></nav>
+<p>
+    <a href="https://github.com/kg-construct/rml-lv/issues/">GitHub Issues</a> are preferred for
+            discussion of this specification.
+          
+    
+  </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">1. </bdi>Overview</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#conventions"><bdi class="secno">1.1 </bdi>Document conventions</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1.2 </bdi>Conformance</a></li></ol></li><li class="tocline"><a class="tocxref" href="#problem"><bdi class="secno">2. </bdi>Problem</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#nested-data-structures"><bdi class="secno">2.1 </bdi>Nested data structures</a></li><li class="tocline"><a class="tocxref" href="#mixed-data-formats"><bdi class="secno">2.2 </bdi>Mixed data formats</a></li><li class="tocline"><a class="tocxref" href="#joining-of-data-sources"><bdi class="secno">2.3 </bdi>Joining of data sources</a></li></ol></li><li class="tocline"><a class="tocxref" href="#logicalviews"><bdi class="secno">3. </bdi>Logical views</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#logicalviewiterator"><bdi class="secno">3.1 </bdi>Logical view iterator</a></li><li class="tocline"><a class="tocxref" href="#logicalviewexpressions"><bdi class="secno">3.2 </bdi>Logical view expressions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#fields"><bdi class="secno">4. </bdi>Fields</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#fieldparents"><bdi class="secno">4.1 </bdi>Field parents</a></li><li class="tocline"><a class="tocxref" href="#fieldnames"><bdi class="secno">4.2 </bdi>Field names</a></li><li class="tocline"><a class="tocxref" href="#fieldrecords"><bdi class="secno">4.3 </bdi>Field records</a></li><li class="tocline"><a class="tocxref" href="#fieldreferenceformulations"><bdi class="secno">4.4 </bdi>Field reference formulations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#viewjoins"><bdi class="secno">5. </bdi>Logical view joins</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#dfn-join-type"><bdi class="secno">5.1 </bdi>Join types</a></li><li class="tocline"><a class="tocxref" href="#logical-view-join-examples"><bdi class="secno">5.2 </bdi>Logical view join examples</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#left-join"><bdi class="secno">5.2.1 </bdi>Left join</a></li><li class="tocline"><a class="tocxref" href="#outer-join"><bdi class="secno">5.2.2 </bdi>Outer join</a></li><li class="tocline"><a class="tocxref" href="#inner-join"><bdi class="secno">5.2.3 </bdi>Inner join</a></li><li class="tocline"><a class="tocxref" href="#two-left-joins"><bdi class="secno">5.2.4 </bdi>Two left joins</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#annotations"><bdi class="secno">6. </bdi>Structural Annotations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#invariance-principle"><bdi class="secno">6.1 </bdi>Invariance Principle</a></li><li class="tocline"><a class="tocxref" href="#irisafe"><bdi class="secno">6.2 </bdi>IriSafe</a></li><li class="tocline"><a class="tocxref" href="#primarykey"><bdi class="secno">6.3 </bdi>PrimaryKey</a></li><li class="tocline"><a class="tocxref" href="#unique"><bdi class="secno">6.4 </bdi>Unique</a></li><li class="tocline"><a class="tocxref" href="#notnull"><bdi class="secno">6.5 </bdi>NotNull</a></li><li class="tocline"><a class="tocxref" href="#foreignkey"><bdi class="secno">6.6 </bdi>ForeignKey</a></li><li class="tocline"><a class="tocxref" href="#inclusion"><bdi class="secno">6.7 </bdi>Inclusion</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">A.1 </bdi>Normative references</a></li></ol></li></ol></nav>
 
 <section id="overview-0"><div class="header-wrapper"><h2 id="overview"><bdi class="secno">1. </bdi>Overview</h2><a class="self-link" href="#overview" aria-label="Permalink for Section 1."></a></div><p><em>This section is non-normative.</em></p>
 <section id="document-conventions"><div class="header-wrapper"><h3 id="conventions"><bdi class="secno">1.1 </bdi>Document conventions</h3><a class="self-link" href="#conventions" aria-label="Permalink for Section 1.1"></a></div><p>We assume readers have basic familiarity with RDF and RML concepts.</p>
@@ -540,7 +485,7 @@ the following namespace prefix bindings unless otherwise stated:</p>
 <td><a href="http://example.org/">http://example.org/</a></td>
 </tr>
 </tbody></table>
-<p>The examples are contained in color-coded boxes. We use the Turtle syntax [<cite><a class="bibref" data-link-type="biblio" href="#bib-turtle" title="RDF 1.1 Turtle">turtle</a></cite>] to write RDF.</p>
+<p>The examples are contained in color-coded boxes. We use the Turtle syntax [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-turtle" title="Reference &quot;[turtle]&quot; not found." id="respec-offender-reference-turtle-not-found">turtle</a></cite>] to write RDF.</p>
 <aside class="ex-input">
 # This box contains an example input
 </aside><aside class="ex-mapping">
@@ -553,7 +498,7 @@ the following namespace prefix bindings unless otherwise stated:</p>
         The key words <em class="rfc2119">MAY</em> and <em class="rfc2119">MUST</em> in this document
         are to be interpreted as described in
         <a href="https://www.rfc-editor.org/info/bcp14">BCP 14</a>
-        [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">RFC2119</a></cite>] [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8174" title="Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words">RFC8174</a></cite>]
+        [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-rfc2119" title="Reference &quot;[RFC2119]&quot; not found." id="respec-offender-reference-rfc2119-not-found">RFC2119</a></cite>] [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-rfc8174" title="Reference &quot;[RFC8174]&quot; not found." id="respec-offender-reference-rfc8174-not-found">RFC8174</a></cite>]
         when, and only when, they appear in all
         capitals, as shown here.
       </p> </section></section>
@@ -567,7 +512,7 @@ For example, a <a href="https://w3id.org/rml/core/spec#dfn-triples-map">triples 
 Another example is a <a href="https://w3id.org/rml/core/spec#dfn-template-expression">template expression</a>, 
 which combines character strings and zero or more <a href="https://w3id.org/rml/core/spec#dfn-reference-expression">reference expressions</a> in declared order. 
 When mapping constructs produce multiple results, the combining mapping constructs will apply an <a href="https://w3id.org/rml/core/spec#dfn-n-ary-cartesian-product">n-ary Cartesian product</a> over the sets of results, maintaining the order of the mapping constructs. In the case of nested data structures, this may cause the generation of results that do not match the source hierarchy, i.e. do not follow the root-to-leaf paths in the source data, since values are combined irrespective of it.</p>
-<p>Furthermore, there is varying expressiveness in data source expression and query languages, and many languages have limited support for hierarchy traversal. For example, JSONPath has no operator to refer to an ancestor in the document hierarchy [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc9535" title="JSONPath: Query Expressions for JSON">RFC9535</a></cite>].</p>
+<p>Furthermore, there is varying expressiveness in data source expression and query languages, and many languages have limited support for hierarchy traversal. For example, JSONPath has no operator to refer to an ancestor in the document hierarchy [<cite><a class="bibref respec-offending-element" data-link-type="biblio" href="#bib-rfc9535" title="Reference &quot;[RFC9535]&quot; not found." id="respec-offender-reference-rfc9535-not-found">RFC9535</a></cite>].</p>
 <p>This limits the ability of <a href="https://kg-construct.github.io/rml-core/spec/docs/">RML-Core</a> to map nested data.</p>
 <aside class="example" id="ex-nesting-problem"><div class="marker">
     <a class="self-link" href="#ex-nesting-problem">Example<bdi> 1</bdi></a>
@@ -1266,25 +1211,104 @@ The <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="i
 <td><code>rml:ExpressionField</code></td>
 </tr>
 </tbody></table>
-<section id="join-types"><div class="header-wrapper"><h3 id="dfn-join-type"><bdi class="secno">5.1 </bdi>Join types</h3><a class="self-link" href="#dfn-join-type" aria-label="Permalink for Section 5.1"></a></div><p>The <dfn id="dfn-join-property" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">join property</dfn> specifies the join type of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-5">logical view join</a>, i.e. a <a data-link-type="dfn|abstract-op" href="#dfn-left-join" class="internalDFN" id="ref-for-dfn-left-join-1">left join</a> or an <a data-link-type="dfn|abstract-op" href="#dfn-inner-join" class="internalDFN" id="ref-for-dfn-inner-join-1">inner join</a>.</p>
-<p>A <dfn id="dfn-left-join" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">left join</dfn> (<code>rml:leftJoin</code>) is the equivalent of a left (outer) join in SQL, where the <a data-link-type="dfn|abstract-op" href="#dfn-child-logical-view" class="internalDFN" id="ref-for-dfn-child-logical-view-3">child logical view</a> is the left part of the join, and the <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="internalDFN" id="ref-for-dfn-parent-logical-view-3">parent logical view</a> is the right part of the join. If any of the <a href="https://w3id.org/rml/core/spec#dfn-join-condition">join conditions</a> evaluates to <code>false</code>, the fields from the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-6">logical view join</a> in the extended logical iteration contain a null value.</p>
-<p>An <dfn id="dfn-inner-join" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">inner join</dfn> (<code>rml:innerJoin</code>) is the equivalent of an inner join in SQL. If any of the <a href="https://w3id.org/rml/core/spec#dfn-join-condition">join conditions</a> evaluates to <code>false</code>, the logical iteration is removed from the <a data-link-type="dfn|abstract-op" href="#dfn-child-logical-view" class="internalDFN" id="ref-for-dfn-child-logical-view-4">child logical view</a>.</p>
+<section id="join-types"><div class="header-wrapper"><h3 id="dfn-join-type"><bdi class="secno">5.1 </bdi>Join types</h3><a class="self-link" href="#dfn-join-type" aria-label="Permalink for Section 5.1"></a></div><p>The <dfn id="dfn-join-property" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">join property</dfn> specifies the join type of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-5">logical view join</a>, i.e. a <a data-link-type="dfn|abstract-op" href="#dfn-left-join" class="internalDFN" id="ref-for-dfn-left-join-1">left join</a>, an <a data-link-type="dfn|abstract-op" href="#dfn-outer-join" class="internalDFN" id="ref-for-dfn-outer-join-1">outer join</a>, or an <a data-link-type="dfn|abstract-op" href="#dfn-inner-join" class="internalDFN" id="ref-for-dfn-inner-join-1">inner join</a>.</p>
+<p>A logical iteration is <dfn id="dfn-matched" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn" class="respec-offending-element" title="Found definition for &quot;matched&quot;, but nothing links to it. This is usually a spec bug!">matched</dfn> when there is at least one logical iteration in the other logical view for which all <a href="https://w3id.org/rml/core/spec#dfn-join-condition">join conditions</a> evaluate to <code>true</code>. For every matching pair, the fields from the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-6">logical view join</a> are evaluated on the parent logical iteration and added to the child logical iteration, producing an extended logical iteration.</p>
+<p>A logical iteration is <dfn id="dfn-unmatched" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn" class="respec-offending-element" title="Found definition for &quot;unmatched&quot;, but nothing links to it. This is usually a spec bug!">unmatched</dfn> when there is no logical iteration in the other logical view for which all <a href="https://w3id.org/rml/core/spec#dfn-join-condition">join conditions</a> evaluate to <code>true</code>.</p>
+<p>A <dfn id="dfn-left-join" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">left join</dfn> (<code>rml:leftJoin</code>) is the equivalent of a left (outer) join in SQL, where the <a data-link-type="dfn|abstract-op" href="#dfn-child-logical-view" class="internalDFN" id="ref-for-dfn-child-logical-view-3">child logical view</a> is the left part of the join, and the <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="internalDFN" id="ref-for-dfn-parent-logical-view-3">parent logical view</a> is the right part of the join. For an unmatched child logical iteration, the fields from the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-7">logical view join</a> in the extended logical iteration contain a null value.</p>
+<p>An <dfn id="dfn-outer-join" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">outer join</dfn> (<code>rml:outerJoin</code>) is the equivalent of a full outer join in SQL, where the <a data-link-type="dfn|abstract-op" href="#dfn-child-logical-view" class="internalDFN" id="ref-for-dfn-child-logical-view-4">child logical view</a> is the left part of the join, and the <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="internalDFN" id="ref-for-dfn-parent-logical-view-4">parent logical view</a> is the right part of the join. All logical iterations from both logical views are retained. For an unmatched child logical iteration, the fields from the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-8">logical view join</a> contain a null value. For an unmatched parent logical iteration, the fields from the <a data-link-type="dfn|abstract-op" href="#dfn-child-logical-view" class="internalDFN" id="ref-for-dfn-child-logical-view-5">child logical view</a> contain a null value.</p>
+<p>An <dfn id="dfn-inner-join" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">inner join</dfn> (<code>rml:innerJoin</code>) is the equivalent of an inner join in SQL. Unmatched child logical iterations are removed from the <a data-link-type="dfn|abstract-op" href="#dfn-child-logical-view" class="internalDFN" id="ref-for-dfn-child-logical-view-6">child logical view</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Domain</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>rml:leftJoin</code></td>
+<td><code>rml:LogicalView</code></td>
+<td><code>rml:LogicalViewJoin</code></td>
+</tr>
+<tr>
+<td><code>rml:outerJoin</code></td>
+<td><code>rml:LogicalViewJoin</code></td>
+<td><code>rml:LogicalViewJoin</code></td>
+</tr>
+<tr>
+<td><code>rml:innerJoin</code></td>
+<td><code>rml:LogicalViewJoin</code></td>
+<td><code>rml:LogicalViewJoin</code></td>
+</tr>
+</tbody></table>
 </section><section id="logical-view-join-examples"><div class="header-wrapper"><h3 id="x5-2-logical-view-join-examples"><bdi class="secno">5.2 </bdi>Logical view join examples</h3><a class="self-link" href="#logical-view-join-examples" aria-label="Permalink for Section 5.2"></a></div>
-<section id="left-join"><div class="header-wrapper"><h4 id="x5-2-1-left-join"><bdi class="secno">5.2.1 </bdi>Left join</h4><a class="self-link" href="#left-join" aria-label="Permalink for Section 5.2.1"></a></div>
-<aside class="example" id="ex-leftjoin"><div class="marker">
-    <a class="self-link" href="#ex-leftjoin">Example<bdi> 8</bdi></a>
-  </div><p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-16">logical view</a> with fields built with data from the logical source <code>:csvSource</code> is joined with the logical view from <a href="#ex-field-record-sequence" data-matched-text="[[[#ex-field-record-sequence]]]" class="box-ref">Example<bdi> 6</bdi></a>. 
-In case of a left join (as in the example), this results in 4 logical iterations in the logical view. 
-If an inner joins would have been used, the logical view would have only 3 logical iterations. </p>
+<p>The following logical sources and parent logical view are used by all join examples in this section. The logical source <code>:csvSource</code> supplies data for the <a data-link-type="dfn|abstract-op" href="#dfn-child-logical-view" class="internalDFN" id="ref-for-dfn-child-logical-view-7">child logical view</a>, while <code>:jsonSource</code> supplies data for the <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="internalDFN" id="ref-for-dfn-parent-logical-view-5">parent logical view</a> <code>:jsonView</code>.</p>
 <aside class="ex-input"><pre><code class="csv hljs" aria-busy="false">name,birthyear
 alice,1995
 bob,1999
 tobias,2005
 </code></pre>
+</aside><aside class="ex-input"><pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"alice"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"items"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span> <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"sword"</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"weight"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1500</span> <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span> <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"shield"</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"weight"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2500</span> <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"bob"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"items"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span> <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"flower"</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"weight"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">15</span> <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">"name"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"carol"</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">"items"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span> <span class="hljs-attr">"type"</span><span class="hljs-punctuation">:</span> <span class="hljs-string">"book"</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">"weight"</span><span class="hljs-punctuation">:</span> <span class="hljs-number">500</span> <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
 </aside><aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:csvSource a rml:LogicalSource ;
   rml:source :csvFile ;
   rml:referenceFormulation rml:CSV .
-  
+
+:jsonSource a rml:LogicalSource ;
+  rml:source :jsonFile ;
+  rml:referenceFormulation rml:JSONPath ;
+  rml:iterator "$.people[*]" .
+
+:jsonView a rml:LogicalView ;
+  rml:viewOn :jsonSource ;
+  rml:field [
+    a rml:ExpressionField ;
+    rml:fieldName "name" ;
+    rml:reference "$.name" ;
+  ] ;
+  rml:field [
+    a rml:IterableField ;
+    rml:fieldName "item" ;
+    rml:iterator "$.items[*]" ;
+    rml:field [
+      a rml:ExpressionField ;
+      rml:fieldName "type" ;
+      rml:reference "$.type" ;
+    ] ;
+    rml:field [
+      a rml:ExpressionField ;
+      rml:fieldName "weight" ;
+      rml:reference "$.weight" ;
+    ] ;
+  ] .
+</code></pre>
+</aside><section id="left-join"><div class="header-wrapper"><h4 id="x5-2-1-left-join"><bdi class="secno">5.2.1 </bdi>Left join</h4><a class="self-link" href="#left-join" aria-label="Permalink for Section 5.2.1"></a></div>
+<aside class="example" id="ex-leftjoin"><div class="marker">
+    <a class="self-link" href="#ex-leftjoin">Example<bdi> 8</bdi></a>
+  </div><p>This example applies a <a data-link-type="dfn|abstract-op" href="#dfn-left-join" class="internalDFN" id="ref-for-dfn-left-join-2">left join</a> between a <a data-link-type="dfn|abstract-op" href="#dfn-child-logical-view" class="internalDFN" id="ref-for-dfn-child-logical-view-8">child logical view</a> built from <code>:csvSource</code> and the <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="internalDFN" id="ref-for-dfn-parent-logical-view-6">parent logical view</a> <code>:jsonView</code>. The three matching pairs produce three logical iterations. The unmatched child logical iteration for <code>tobias</code> is retained with null values for the fields from the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-9">logical view join</a>, resulting in 4 logical iterations. The unmatched parent logical iteration for <code>carol</code> is not retained.</p>
+<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">
 :csvView a rml:LogicalView ;
   rml:viewOn :csvSource ;
   rml:field [
@@ -1378,10 +1402,136 @@ tobias,2005
         <td>null </td>
     </tr>
 </tbody></table></aside>
-</aside></section><section id="inner-join"><div class="header-wrapper"><h4 id="x5-2-2-inner-join"><bdi class="secno">5.2.2 </bdi>Inner join</h4><a class="self-link" href="#inner-join" aria-label="Permalink for Section 5.2.2"></a></div>
+</aside></section><section id="outer-join"><div class="header-wrapper"><h4 id="x5-2-2-outer-join"><bdi class="secno">5.2.2 </bdi>Outer join</h4><a class="self-link" href="#outer-join" aria-label="Permalink for Section 5.2.2"></a></div>
+<aside class="example" id="ex-outerjoin"><div class="marker">
+    <a class="self-link" href="#ex-outerjoin">Example<bdi> 9</bdi></a>
+  </div><p>This example applies an <a data-link-type="dfn|abstract-op" href="#dfn-outer-join" class="internalDFN" id="ref-for-dfn-outer-join-2">outer join</a> between a <a data-link-type="dfn|abstract-op" href="#dfn-child-logical-view" class="internalDFN" id="ref-for-dfn-child-logical-view-9">child logical view</a> built from <code>:csvSource</code> and the <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="internalDFN" id="ref-for-dfn-parent-logical-view-7">parent logical view</a> <code>:jsonView</code>. The three matching pairs produce three logical iterations. The unmatched child logical iteration for <code>tobias</code> and the unmatched parent logical iteration for <code>carol</code> are both retained with null values for the fields from the other logical view, resulting in 5 logical iterations.</p>
+<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:csvView a rml:LogicalView ;
+  rml:viewOn :csvSource ;
+  rml:field [
+    a rml:ExpressionField ;
+    rml:fieldName "name" ;
+    rml:reference "name" ;
+  ] ;
+  rml:field [
+    a rml:ExpressionField ;
+    rml:fieldName "birthyear" ;
+    rml:reference "birthyear" ;
+  ] ;
+  rml:outerJoin [
+    rml:parentLogicalView :jsonView ;
+    rml:joinCondition [
+      rml:parent "name" ;
+      rml:child "name" ;
+    ] ;
+    rml:field [
+      a rml:ExpressionField ;
+      rml:fieldName "p_name" ;
+      rml:reference "name" ;
+    ] ;
+    rml:field [
+      a rml:ExpressionField ;
+      rml:fieldName "item_type" ;
+      rml:reference "item.type" ;
+    ] ;
+    rml:field [
+      a rml:ExpressionField ;
+      rml:fieldName "item_weight" ;
+      rml:reference "item.weight" ;
+    ] ;
+  ] .
+</code></pre>
+</aside><aside class="ex-intermediate">
+<table>
+    <tbody><tr>
+        <th><u>#</u></th>
+        <th>&lt;it&gt;</th>
+        <th><u>name.#</u></th>
+        <th><u>name</u></th>
+        <th><u>birthyear.#</u></th>
+        <th><u>birthyear</u></th>
+        <th><u>p_name.#</u></th>
+        <th><u>p_name</u></th>
+        <th><u>item_type.#</u></th>
+        <th><u>item_type</u></th>
+        <th><u>item_weight.#</u></th>
+        <th><u>item_weight</u></th>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>(row)</td>
+        <td>0</td>
+        <td>alice</td>
+        <td>0</td>
+        <td>1995</td>
+        <td>0</td>
+        <td>alice</td>
+        <td>0</td>
+        <td>sword</td>
+        <td>0</td>
+        <td>1500</td>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>(row)</td>
+        <td>0</td>
+        <td>alice</td>
+        <td>0</td>
+        <td>1995</td>
+        <td>0</td>
+        <td>alice</td>
+        <td>1</td>
+        <td>shield</td>
+        <td>1</td>
+        <td>2500</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>(row)</td>
+        <td>0</td>
+        <td>bob</td>
+        <td>0</td>
+        <td>1999</td>
+        <td>0</td>
+        <td>bob</td>
+        <td>0</td>
+        <td>flower</td>
+        <td>0</td>
+        <td>15</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>(row)</td>
+        <td>0</td>
+        <td>tobias</td>
+        <td>0</td>
+        <td>2005</td>
+        <td>null</td>
+        <td>null</td>
+        <td>null</td>
+        <td>null</td>
+        <td>null</td>
+        <td>null</td>
+    </tr>
+    <tr>
+        <td>null</td>
+        <td>null</td>
+        <td>null</td>
+        <td>null</td>
+        <td>null</td>
+        <td>null</td>
+        <td>0</td>
+        <td>carol</td>
+        <td>0</td>
+        <td>book</td>
+        <td>0</td>
+        <td>500</td>
+    </tr>
+</tbody></table></aside>
+</aside></section><section id="inner-join"><div class="header-wrapper"><h4 id="x5-2-3-inner-join"><bdi class="secno">5.2.3 </bdi>Inner join</h4><a class="self-link" href="#inner-join" aria-label="Permalink for Section 5.2.3"></a></div>
 <aside class="example" id="ex-innerjoin"><div class="marker">
-    <a class="self-link" href="#ex-innerjoin">Example<bdi> 9</bdi></a>
-  </div><p>When an inner join is used, the resulting logical view has only 3 logical iterations.</p>
+    <a class="self-link" href="#ex-innerjoin">Example<bdi> 10</bdi></a>
+  </div><p>This example applies an <a data-link-type="dfn|abstract-op" href="#dfn-inner-join" class="internalDFN" id="ref-for-dfn-inner-join-2">inner join</a> between a <a data-link-type="dfn|abstract-op" href="#dfn-child-logical-view" class="internalDFN" id="ref-for-dfn-child-logical-view-10">child logical view</a> built from <code>:csvSource</code> and the <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="internalDFN" id="ref-for-dfn-parent-logical-view-8">parent logical view</a> <code>:jsonView</code>. The three matching pairs produce three logical iterations. The unmatched child logical iteration for <code>tobias</code> and the unmatched parent logical iteration for <code>carol</code> are not retained, resulting in 3 logical iterations.</p>
 <aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:csvView a rml:LogicalView ;
   rml:viewOn :csvSource ;
   rml:field [
@@ -1463,10 +1613,10 @@ tobias,2005
         <td>15 </td>
     </tr>
 </tbody></table></aside>
-</aside></section><section id="two-left-joins"><div class="header-wrapper"><h4 id="x5-2-3-two-left-joins"><bdi class="secno">5.2.3 </bdi>Two left joins</h4><a class="self-link" href="#two-left-joins" aria-label="Permalink for Section 5.2.3"></a></div>
+</aside></section><section id="two-left-joins"><div class="header-wrapper"><h4 id="x5-2-4-two-left-joins"><bdi class="secno">5.2.4 </bdi>Two left joins</h4><a class="self-link" href="#two-left-joins" aria-label="Permalink for Section 5.2.4"></a></div>
 <aside class="example" id="ex-twoleftjoins"><div class="marker">
-    <a class="self-link" href="#ex-twoleftjoins">Example<bdi> 10</bdi></a>
-  </div><p>In this example a second <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-7">logical view join</a> is added to the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-17">logical view</a> from <a href="#ex-leftjoin" data-matched-text="[[[#ex-leftjoin]]]" class="box-ref">Example<bdi> 8</bdi></a>. The <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="internalDFN" id="ref-for-dfn-parent-logical-view-4">parent logical view</a> of this second join is derived from logical source <code>:additionalCsvSource</code> with below input data.</p>
+    <a class="self-link" href="#ex-twoleftjoins">Example<bdi> 11</bdi></a>
+  </div><p>In this example a second <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-join" class="internalDFN" id="ref-for-dfn-logical-view-join-10">logical view join</a> is added to the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-16">logical view</a> from <a href="#ex-leftjoin" data-matched-text="[[[#ex-leftjoin]]]" class="box-ref">Example<bdi> 8</bdi></a>. The <a data-link-type="dfn|abstract-op" href="#dfn-parent-logical-view" class="internalDFN" id="ref-for-dfn-parent-logical-view-9">parent logical view</a> of this second join is derived from logical source <code>:additionalCsvSource</code> with below input data.</p>
 <aside class="ex-input"><pre><code class="csv hljs" aria-busy="false">name,id
 alice,123
 bob,456
@@ -1603,7 +1753,7 @@ tobias,789
 </aside></section></section></section>
 
 <section id="structural-annotations"><div class="header-wrapper"><h2 id="annotations"><bdi class="secno">6. </bdi>Structural Annotations</h2><a class="self-link" href="#annotations" aria-label="Permalink for Section 6."></a></div><p><dfn data-plurals="structural annotation" id="dfn-structural-annotations" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Structural annotations</dfn> provide a mechanism to express relationships between logical views, as well as additional information about fields.</p>
-<p>Each <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-18">logical view</a> <em class="rfc2119">MAY</em> have zero or more <a data-link-type="dfn|abstract-op" href="#dfn-structural-annotations" class="internalDFN" id="ref-for-dfn-structural-annotations-1">structural annotation</a> properties (<code>rml:structuralAnnotation</code>), connecting the logical view to a structural annotation object (i.e., of type <code>rml:StructuralAnnotation</code>).</p>
+<p>Each <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-17">logical view</a> <em class="rfc2119">MAY</em> have zero or more <a data-link-type="dfn|abstract-op" href="#dfn-structural-annotations" class="internalDFN" id="ref-for-dfn-structural-annotations-1">structural annotation</a> properties (<code>rml:structuralAnnotation</code>), connecting the logical view to a structural annotation object (i.e., of type <code>rml:StructuralAnnotation</code>).</p>
 <table>
 <thead>
 <tr>
@@ -1654,9 +1804,9 @@ tobias,789
 <li>no duplicate record sequences are present over the list of fields <em>(f1, ..., fn)</em>;</li>
 <li>No <code>NULL</code> value is admitted in any of the field <em>f1, ..., fn</em>.</li>
 </ul>
-<p>Each <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-19">logical view</a> <em class="rfc2119">MAY</em> specify AT MOST ONE <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annotation" class="internalDFN" id="ref-for-dfn-primarykey-annotation-2">PrimaryKey annotation</a>.</p>
+<p>Each <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-18">logical view</a> <em class="rfc2119">MAY</em> specify AT MOST ONE <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annotation" class="internalDFN" id="ref-for-dfn-primarykey-annotation-2">PrimaryKey annotation</a>.</p>
 <aside class="example" id="primary-key"><div class="marker">
-    <a class="self-link" href="#primary-key">Example<bdi> 11</bdi></a>
+    <a class="self-link" href="#primary-key">Example<bdi> 12</bdi></a>
   </div><p> Consider the following CSV file containing birthdays of people:</p>
 <aside class="ex-input"><pre><code class="csv hljs" aria-busy="false">name,birthyear
 alice,1995
@@ -1709,7 +1859,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annota
 <li>each NULL-free record sequence over the list of fields <em>(f1, ..., fn)</em> occurs also as a record sequence in <em>(tf1,...,tfn)</em>;</li>
 <li>Target view <i>lv</i> defines a <a data-link-type="dfn|abstract-op" href="#dfn-unique-annotation" class="internalDFN" id="ref-for-dfn-unique-annotation-4">Unique annotation</a> <a data-link-type="dfn|abstract-op" href="#dfn-on-fields" class="internalDFN" id="ref-for-dfn-on-fields-7">on fields</a> <em>(tf1,...,tfn)</em>.</li>
 </ul>
-<p>The <dfn id="dfn-target-view" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">target view</dfn> is a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-20">logical view</a> specified through the property <code>rml:targetView</code>, whereas the <dfn id="dfn-target-fields" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">target fields</dfn> are an RDF list of field names specified through the property <code>rml:targetFields</code>. These two properties are specified as follows:</p>
+<p>The <dfn id="dfn-target-view" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">target view</dfn> is a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-19">logical view</a> specified through the property <code>rml:targetView</code>, whereas the <dfn id="dfn-target-fields" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">target fields</dfn> are an RDF list of field names specified through the property <code>rml:targetFields</code>. These two properties are specified as follows:</p>
 <table>
 <thead>
 <tr>
@@ -1735,7 +1885,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annota
 <li>Exactly one <code>rml:targetFields</code> property.</li>
 </ul>
 <aside class="example" id="foreign-key"><div class="marker">
-    <a class="self-link" href="#foreign-key">Example<bdi> 12</bdi></a>
+    <a class="self-link" href="#foreign-key">Example<bdi> 13</bdi></a>
   </div><p>Consider the following JSON file containing information about warriors.</p>
 <aside class="ex-input"><pre><code class="json hljs" aria-busy="false"><span class="hljs-punctuation">{</span>
   <span class="hljs-attr">"people"</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
@@ -1766,18 +1916,18 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annota
 </code></pre>
 </aside><p>Now, assume that we know:</p>
 <ul>
-<li>Attribute <code>name</code> in the CSV of <a href="#primary-key" data-matched-text="[[[#primary-key]]]" class="box-ref">Example<bdi> 11</bdi></a> is "UNIQUE" and "NOT NULL";</li>
-<li>All warriors in our domain are contained in the JSON of <a href="#foreign-key" data-matched-text="[[[#foreign-key]]]" class="box-ref">Example<bdi> 12</bdi></a>.</li>
+<li>Attribute <code>name</code> in the CSV of <a href="#primary-key" data-matched-text="[[[#primary-key]]]" class="box-ref">Example<bdi> 12</bdi></a> is "UNIQUE" and "NOT NULL";</li>
+<li>All warriors in our domain are contained in the JSON of <a href="#foreign-key" data-matched-text="[[[#foreign-key]]]" class="box-ref">Example<bdi> 13</bdi></a>.</li>
 </ul>
 <p>The first constraint naturally corresponds to the notion of <code>PRIMARY KEY</code> from the world of relational databases. This fact could be valuable information for the RML engine, especially in the virtual setting. However, note that constraints cannot be expressed on CSV files.</p>
 <p>The second constraint naturally corresponds to a <code>FOREIGN KEY</code> constraint from the world of relational databases. However, as the involved values spread across different (and diverse) sources, it cannot be expressed as such. Also this one could provide valuable information for the RML engine.</p>
 <p>We can exploit the mechanism of structural annotations to inform the RML engine about the existence of such "relational-like" constraint. We here work out an example.</p>
-<p>First, we need to specify the logical sources. The logical source corresponding to the CSV of <a href="#primary-key" data-matched-text="[[[#primary-key]]]" class="box-ref">Example<bdi> 11</bdi></a>:</p>
+<p>First, we need to specify the logical sources. The logical source corresponding to the CSV of <a href="#primary-key" data-matched-text="[[[#primary-key]]]" class="box-ref">Example<bdi> 12</bdi></a>:</p>
 <aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:csvSource a rml:LogicalSource ;
   rml:source :csvFile ;
   rml:referenceFormulation rml:CSV .
 </code></pre>
-</aside><p>The logical source corresponding to the JSON of <a href="#foreign-key" data-matched-text="[[[#foreign-key]]]" class="box-ref">Example<bdi> 12</bdi></a>:</p>
+</aside><p>The logical source corresponding to the JSON of <a href="#foreign-key" data-matched-text="[[[#foreign-key]]]" class="box-ref">Example<bdi> 13</bdi></a>:</p>
 <aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:jsonSource a rml:LogicalSource ;
   rml:source :jsonFile ;
   rml:referenceFormulation rml:JSONPath ;
@@ -1837,7 +1987,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annota
 <ul>
 <li>each NULL-free record sequence over the list of fields <em>(f1, ..., fn)</em> occurs also as a record sequence in <em>(tf1,...,tfn)</em>;</li>
 </ul>
-<p>As for <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annotation" class="internalDFN" id="ref-for-dfn-foreignkey-annotation-3">ForeignKey annotation</a>, the <a data-link-type="dfn|abstract-op" href="#dfn-target-view" class="internalDFN" id="ref-for-dfn-target-view-3">target view</a> <em class="rfc2119">MUST</em> be a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-21">logical view</a> specified through the property <code>rml:targetView</code>, whereas the <def>target fields</def> <em class="rfc2119">MUST</em> be an RDF list of field names specified through the property <code>rml:targetFields</code>.</p>
+<p>As for <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annotation" class="internalDFN" id="ref-for-dfn-foreignkey-annotation-3">ForeignKey annotation</a>, the <a data-link-type="dfn|abstract-op" href="#dfn-target-view" class="internalDFN" id="ref-for-dfn-target-view-3">target view</a> <em class="rfc2119">MUST</em> be a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-20">logical view</a> specified through the property <code>rml:targetView</code>, whereas the <def>target fields</def> <em class="rfc2119">MUST</em> be an RDF list of field names specified through the property <code>rml:targetFields</code>.</p>
 <p>Therefore, each inclusion annotation <em class="rfc2119">MUST</em> specify (additionally to the inherited <code>rml:onFields</code> property):</p>
 <ul>
 <li>Exactly one <code>rml:targetView</code> property</li>
@@ -1849,20 +1999,21 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
 
 
 
+
 <section id="references" class="appendix"><div class="header-wrapper"><h2 id="a-references"><bdi class="secno">A. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix A."></a></div><section id="normative-references"><div class="header-wrapper"><h3 id="a-1-normative-references"><bdi class="secno">A.1 </bdi>Normative references</h3><a class="self-link" href="#normative-references" aria-label="Permalink for Appendix A.1"></a></div>
     
     <dl class="bibliography"><dt id="bib-rfc2119">[RFC2119]</dt><dd>
-      <a href="https://www.rfc-editor.org/info/rfc2119/"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://www.rfc-editor.org/info/rfc2119/">https://www.rfc-editor.org/info/rfc2119/</a>
+      <em class="respec-offending-element">Reference not found.</em>
     </dd><dt id="bib-rfc8174">[RFC8174]</dt><dd>
-      <a href="https://www.rfc-editor.org/info/rfc8174/"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://www.rfc-editor.org/info/rfc8174/">https://www.rfc-editor.org/info/rfc8174/</a>
+      <em class="respec-offending-element">Reference not found.</em>
     </dd><dt id="bib-rfc9535">[RFC9535]</dt><dd>
-      <a href="https://www.rfc-editor.org/info/rfc9535/"><cite>JSONPath: Query Expressions for JSON</cite></a>. S. Gössner, Ed.; G. Normington, Ed.; C. Bormann, Ed. IETF. February 2024. Proposed Standard. URL: <a href="https://www.rfc-editor.org/info/rfc9535/">https://www.rfc-editor.org/info/rfc9535/</a>
+      <em class="respec-offending-element">Reference not found.</em>
     </dd><dt id="bib-rml-core">[RML-Core]</dt><dd>
-      <a href="https://w3id.org/rml/core/spec"><cite>RML-Core</cite></a>.  W3C. 16 February 2024. Draft Community Group Report. URL: <a href="https://w3id.org/rml/core/spec">https://w3id.org/rml/core/spec</a>
+      <a href="https://w3id.org/rml/core/spec"><cite>RML-Core</cite></a>.  W3C. 07 August 2024. Draft Community Group Report. URL: <a href="https://w3id.org/rml/core/spec">https://w3id.org/rml/core/spec</a>
     </dd><dt id="bib-rml-io">[RML-IO]</dt><dd>
-      <a href="https://w3id.org/rml/io/spec"><cite>RML-IO</cite></a>.  W3C. 27 September 2023. Draft Community Group Report. URL: <a href="https://w3id.org/rml/io/spec">https://w3id.org/rml/io/spec</a>
+      <a href="https://w3id.org/rml/io/spec"><cite>RML-IO</cite></a>.  W3C. 12 March 2024. Draft Community Group Report. URL: <a href="https://w3id.org/rml/io/spec">https://w3id.org/rml/io/spec</a>
     </dd><dt id="bib-turtle">[turtle]</dt><dd>
-      <a href="https://www.w3.org/TR/turtle/"><cite>RDF 1.1 Turtle</cite></a>. Eric Prud'hommeaux; Gavin Carothers.  W3C. 25 February 2014. W3C Recommendation. URL: <a href="https://www.w3.org/TR/turtle/">https://www.w3.org/TR/turtle/</a>
+      <em class="respec-offending-element">Reference not found.</em>
     </dd></dl>
   </section></section><p role="navigation" id="back-to-top">
     <a href="#title"><abbr title="Back to Top">↑</abbr></a>
@@ -1892,17 +2043,15 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
     </li><li>
       <a href="#ref-for-dfn-logical-view-14" title="§ 5. Logical view joins">§ 5. Logical view joins</a> <a href="#ref-for-dfn-logical-view-15" title="Reference 2">(2)</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-16" title="§ 5.2.1 Left join">§ 5.2.1 Left join</a> 
+      <a href="#ref-for-dfn-logical-view-16" title="§ 5.2.4 Two left joins">§ 5.2.4 Two left joins</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-17" title="§ 5.2.3 Two left joins">§ 5.2.3 Two left joins</a> 
+      <a href="#ref-for-dfn-logical-view-17" title="§ 6. Structural Annotations">§ 6. Structural Annotations</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-18" title="§ 6. Structural Annotations">§ 6. Structural Annotations</a> 
+      <a href="#ref-for-dfn-logical-view-18" title="§ 6.3 PrimaryKey">§ 6.3 PrimaryKey</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-19" title="§ 6.3 PrimaryKey">§ 6.3 PrimaryKey</a> 
+      <a href="#ref-for-dfn-logical-view-19" title="§ 6.6 ForeignKey">§ 6.6 ForeignKey</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-20" title="§ 6.6 ForeignKey">§ 6.6 ForeignKey</a> 
-    </li><li>
-      <a href="#ref-for-dfn-logical-view-21" title="§ 6.7 Inclusion">§ 6.7 Inclusion</a> 
+      <a href="#ref-for-dfn-logical-view-20" title="§ 6.7 Inclusion">§ 6.7 Inclusion</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-logical-view-iteration-sequence" aria-label="Links in this document to definition: logical view iteration sequence">
@@ -2206,9 +2355,11 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
     </li><li>
       <a href="#ref-for-dfn-logical-view-join-2" title="§ 5. Logical view joins">§ 5. Logical view joins</a> <a href="#ref-for-dfn-logical-view-join-3" title="Reference 2">(2)</a> <a href="#ref-for-dfn-logical-view-join-4" title="Reference 3">(3)</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-join-5" title="§ 5.1 Join types">§ 5.1 Join types</a> <a href="#ref-for-dfn-logical-view-join-6" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-logical-view-join-5" title="§ 5.1 Join types">§ 5.1 Join types</a> <a href="#ref-for-dfn-logical-view-join-6" title="Reference 2">(2)</a> <a href="#ref-for-dfn-logical-view-join-7" title="Reference 3">(3)</a> <a href="#ref-for-dfn-logical-view-join-8" title="Reference 4">(4)</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-join-7" title="§ 5.2.3 Two left joins">§ 5.2.3 Two left joins</a> 
+      <a href="#ref-for-dfn-logical-view-join-9" title="§ 5.2.1 Left join">§ 5.2.1 Left join</a> 
+    </li><li>
+      <a href="#ref-for-dfn-logical-view-join-10" title="§ 5.2.4 Two left joins">§ 5.2.4 Two left joins</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-parent-logical-view" aria-label="Links in this document to definition: parent logical view">
@@ -2223,9 +2374,17 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
     <li>
       <a href="#ref-for-dfn-parent-logical-view-1" title="§ 5. Logical view joins">§ 5. Logical view joins</a> <a href="#ref-for-dfn-parent-logical-view-2" title="Reference 2">(2)</a> 
     </li><li>
-      <a href="#ref-for-dfn-parent-logical-view-3" title="§ 5.1 Join types">§ 5.1 Join types</a> 
+      <a href="#ref-for-dfn-parent-logical-view-3" title="§ 5.1 Join types">§ 5.1 Join types</a> <a href="#ref-for-dfn-parent-logical-view-4" title="Reference 2">(2)</a> 
     </li><li>
-      <a href="#ref-for-dfn-parent-logical-view-4" title="§ 5.2.3 Two left joins">§ 5.2.3 Two left joins</a> 
+      <a href="#ref-for-dfn-parent-logical-view-5" title="§ 5.2 Logical view join examples">§ 5.2 Logical view join examples</a> 
+    </li><li>
+      <a href="#ref-for-dfn-parent-logical-view-6" title="§ 5.2.1 Left join">§ 5.2.1 Left join</a> 
+    </li><li>
+      <a href="#ref-for-dfn-parent-logical-view-7" title="§ 5.2.2 Outer join">§ 5.2.2 Outer join</a> 
+    </li><li>
+      <a href="#ref-for-dfn-parent-logical-view-8" title="§ 5.2.3 Inner join">§ 5.2.3 Inner join</a> 
+    </li><li>
+      <a href="#ref-for-dfn-parent-logical-view-9" title="§ 5.2.4 Two left joins">§ 5.2.4 Two left joins</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-leaf-expression-field" aria-label="Links in this document to definition: leaf expression field">
@@ -2251,7 +2410,15 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
     <li>
       <a href="#ref-for-dfn-child-logical-view-1" title="§ 5. Logical view joins">§ 5. Logical view joins</a> <a href="#ref-for-dfn-child-logical-view-2" title="Reference 2">(2)</a> 
     </li><li>
-      <a href="#ref-for-dfn-child-logical-view-3" title="§ 5.1 Join types">§ 5.1 Join types</a> <a href="#ref-for-dfn-child-logical-view-4" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-child-logical-view-3" title="§ 5.1 Join types">§ 5.1 Join types</a> <a href="#ref-for-dfn-child-logical-view-4" title="Reference 2">(2)</a> <a href="#ref-for-dfn-child-logical-view-5" title="Reference 3">(3)</a> <a href="#ref-for-dfn-child-logical-view-6" title="Reference 4">(4)</a> 
+    </li><li>
+      <a href="#ref-for-dfn-child-logical-view-7" title="§ 5.2 Logical view join examples">§ 5.2 Logical view join examples</a> 
+    </li><li>
+      <a href="#ref-for-dfn-child-logical-view-8" title="§ 5.2.1 Left join">§ 5.2.1 Left join</a> 
+    </li><li>
+      <a href="#ref-for-dfn-child-logical-view-9" title="§ 5.2.2 Outer join">§ 5.2.2 Outer join</a> 
+    </li><li>
+      <a href="#ref-for-dfn-child-logical-view-10" title="§ 5.2.3 Inner join">§ 5.2.3 Inner join</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-join-property" aria-label="Links in this document to definition: join property">
@@ -2267,6 +2434,28 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <a href="#ref-for-dfn-join-property-1" title="§ 5. Logical view joins">§ 5. Logical view joins</a> 
     </li>
   </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-matched" aria-label="Links in this document to definition: matched">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-matched" aria-label="Permalink for definition: matched. Activate to close this dialog.">Permalink</a>
+         
+        
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-unmatched" aria-label="Links in this document to definition: unmatched">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-unmatched" aria-label="Permalink for definition: unmatched. Activate to close this dialog.">Permalink</a>
+         
+        
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-left-join" aria-label="Links in this document to definition: left join">
       <span class="caret"></span>
       <div>
@@ -2278,6 +2467,23 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <ul>
     <li>
       <a href="#ref-for-dfn-left-join-1" title="§ 5.1 Join types">§ 5.1 Join types</a> 
+    </li><li>
+      <a href="#ref-for-dfn-left-join-2" title="§ 5.2.1 Left join">§ 5.2.1 Left join</a> 
+    </li>
+  </ul>
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-outer-join" aria-label="Links in this document to definition: outer join">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-outer-join" aria-label="Permalink for definition: outer join. Activate to close this dialog.">Permalink</a>
+         
+        
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-outer-join-1" title="§ 5.1 Join types">§ 5.1 Join types</a> 
+    </li><li>
+      <a href="#ref-for-dfn-outer-join-2" title="§ 5.2.2 Outer join">§ 5.2.2 Outer join</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-inner-join" aria-label="Links in this document to definition: inner join">
@@ -2291,6 +2497,8 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
       <ul>
     <li>
       <a href="#ref-for-dfn-inner-join-1" title="§ 5.1 Join types">§ 5.1 Join types</a> 
+    </li><li>
+      <a href="#ref-for-dfn-inner-join-2" title="§ 5.2.3 Inner join">§ 5.2.3 Inner join</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-structural-annotations" aria-label="Links in this document to definition: Structural annotations">
@@ -2813,4 +3021,4 @@ function hidePanel(panel) {
   panel.hidden = true;
   panel.classList.remove("docked");
 }
-})()</script><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script><protonpass-root-c1a1 data-protonpass-role="root" data-protonpass-theme="os"></protonpass-root-c1a1></body></html>
+})()</script><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>

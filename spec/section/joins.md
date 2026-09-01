@@ -22,21 +22,27 @@ The [=parent logical view=] fulfills the role of the <a data-cite="RML-Core#pare
 
 ### Join types {#dfn-join-type}
 
-The <dfn>join property</dfn> specifies the join type of the [=logical view join=], i.e. a [=left join=] or an [=inner join=].
+The <dfn>join property</dfn> specifies the join type of the [=logical view join=], i.e. a [=left join=], an [=outer join=], or an [=inner join=].
 
-A <dfn>left join</dfn> (`rml:leftJoin`) is the equivalent of a left (outer) join in SQL, where the [=child logical view=] is the left part of the join, and the [=parent logical view=] is the right part of the join. If any of the <a data-cite="RML-Core#dfn-join-condition">join conditions</a> evaluates to `false`, the fields from the [=logical view join=] in the extended logical iteration contain a null value.
+A logical iteration is <dfn>matched</dfn> when there is at least one logical iteration in the other logical view for which all <a data-cite="RML-Core#dfn-join-condition">join conditions</a> evaluate to `true`. For every matching pair, the fields from the [=logical view join=] are evaluated on the parent logical iteration and added to the child logical iteration, producing an extended logical iteration.
 
-An <dfn>inner join</dfn> (`rml:innerJoin`) is the equivalent of an inner join in SQL. If any of the <a data-cite="RML-Core#dfn-join-condition">join conditions</a> evaluates to `false`, the logical iteration is removed from the [=child logical view=].
+A logical iteration is <dfn>unmatched</dfn> when there is no logical iteration in the other logical view for which all <a data-cite="RML-Core#dfn-join-condition">join conditions</a> evaluate to `true`.
+
+A <dfn>left join</dfn> (`rml:leftJoin`) is the equivalent of a left (outer) join in SQL, where the [=child logical view=] is the left part of the join, and the [=parent logical view=] is the right part of the join. For an unmatched child logical iteration, the fields from the [=logical view join=] in the extended logical iteration contain a null value.
+
+An <dfn>outer join</dfn> (`rml:outerJoin`) is the equivalent of a full outer join in SQL, where the [=child logical view=] is the left part of the join, and the [=parent logical view=] is the right part of the join. All logical iterations from both logical views are retained. For an unmatched child logical iteration, the fields from the [=logical view join=] contain a null value. For an unmatched parent logical iteration, the fields from the [=child logical view=] contain a null value.
+
+An <dfn>inner join</dfn> (`rml:innerJoin`) is the equivalent of an inner join in SQL. Unmatched child logical iterations are removed from the [=child logical view=].
+
+| Property                | Domain                | Range                 |
+|-------------------------|-----------------------|-----------------------|
+| `rml:leftJoin`          | `rml:LogicalView`     | `rml:LogicalViewJoin` |
+| `rml:outerJoin`         | `rml:LogicalViewJoin` | `rml:LogicalViewJoin` |
+| `rml:innerJoin`         | `rml:LogicalViewJoin` | `rml:LogicalViewJoin` |
 
 ### Logical view join examples
 
-#### Left join
-
-<aside class=example id=ex-leftjoin>
-
-In this example a [=logical view=] with fields built with data from the logical source `:csvSource` is joined with the logical view from [[[#ex-field-record-sequence]]]. 
-In case of a left join (as in the example), this results in 4 logical iterations in the logical view. 
-If an inner joins would have been used, the logical view would have only 3 logical iterations. 
+The following logical sources and parent logical view are used by all join examples in this section. The logical source `:csvSource` supplies data for the [=child logical view=], while `:jsonSource` supplies data for the [=parent logical view=] `:jsonView`.
 
 <aside class="ex-input">
 
@@ -49,13 +55,84 @@ tobias,2005
 
 </aside>
 
+<aside class="ex-input">
+
+```json
+{
+  "people": [
+    {
+      "name": "alice",
+      "items": [
+        { "type": "sword", "weight": 1500 },
+        { "type": "shield", "weight": 2500 }
+      ]
+    },
+    {
+      "name": "bob",
+      "items": [
+        { "type": "flower", "weight": 15 }
+      ]
+    },
+    {
+      "name": "carol",
+      "items": [
+        { "type": "book", "weight": 500 }
+      ]
+    }
+  ]
+}
+```
+
+</aside>
+
 <aside class=ex-mapping>
 
 ```turtle
 :csvSource a rml:LogicalSource ;
   rml:source :csvFile ;
   rml:referenceFormulation rml:CSV .
-  
+
+:jsonSource a rml:LogicalSource ;
+  rml:source :jsonFile ;
+  rml:referenceFormulation rml:JSONPath ;
+  rml:iterator "$.people[*]" .
+
+:jsonView a rml:LogicalView ;
+  rml:viewOn :jsonSource ;
+  rml:field [
+    a rml:ExpressionField ;
+    rml:fieldName "name" ;
+    rml:reference "$.name" ;
+  ] ;
+  rml:field [
+    a rml:IterableField ;
+    rml:fieldName "item" ;
+    rml:iterator "$.items[*]" ;
+    rml:field [
+      a rml:ExpressionField ;
+      rml:fieldName "type" ;
+      rml:reference "$.type" ;
+    ] ;
+    rml:field [
+      a rml:ExpressionField ;
+      rml:fieldName "weight" ;
+      rml:reference "$.weight" ;
+    ] ;
+  ] .
+```
+
+</aside>
+
+#### Left join
+
+<aside class=example id=ex-leftjoin>
+
+This example applies a [=left join=] between a [=child logical view=] built from `:csvSource` and the [=parent logical view=] `:jsonView`. The three matching pairs produce three logical iterations. The unmatched child logical iteration for `tobias` is retained with null values for the fields from the [=logical view join=], resulting in 4 logical iterations. The unmatched parent logical iteration for `carol` is not retained.
+
+<aside class=ex-mapping>
+
+```turtle
+
 :csvView a rml:LogicalView ;
   rml:viewOn :csvSource ;
   rml:field [
@@ -156,10 +233,149 @@ tobias,2005
 </aside>
 </aside>
 
+#### Outer join
+
+<aside class=example id=ex-outerjoin>
+
+This example applies an [=outer join=] between a [=child logical view=] built from `:csvSource` and the [=parent logical view=] `:jsonView`. The three matching pairs produce three logical iterations. The unmatched child logical iteration for `tobias` and the unmatched parent logical iteration for `carol` are both retained with null values for the fields from the other logical view, resulting in 5 logical iterations.
+
+<aside class=ex-mapping>
+
+```turtle
+:csvView a rml:LogicalView ;
+  rml:viewOn :csvSource ;
+  rml:field [
+    a rml:ExpressionField ;
+    rml:fieldName "name" ;
+    rml:reference "name" ;
+  ] ;
+  rml:field [
+    a rml:ExpressionField ;
+    rml:fieldName "birthyear" ;
+    rml:reference "birthyear" ;
+  ] ;
+  rml:outerJoin [
+    rml:parentLogicalView :jsonView ;
+    rml:joinCondition [
+      rml:parent "name" ;
+      rml:child "name" ;
+    ] ;
+    rml:field [
+      a rml:ExpressionField ;
+      rml:fieldName "p_name" ;
+      rml:reference "name" ;
+    ] ;
+    rml:field [
+      a rml:ExpressionField ;
+      rml:fieldName "item_type" ;
+      rml:reference "item.type" ;
+    ] ;
+    rml:field [
+      a rml:ExpressionField ;
+      rml:fieldName "item_weight" ;
+      rml:reference "item.weight" ;
+    ] ;
+  ] .
+```
+
+</aside>
+
+<aside class="ex-intermediate">
+<table>
+    <tr>
+        <th><u>#</u></th>
+        <th>&lt;it&gt;</th>
+        <th><u>name.#</u></th>
+        <th><u>name</u></th>
+        <th><u>birthyear.#</u></th>
+        <th><u>birthyear</u></th>
+        <th><u>p_name.#</u></th>
+        <th><u>p_name</u></th>
+        <th><u>item_type.#</u></th>
+        <th><u>item_type</u></th>
+        <th><u>item_weight.#</u></th>
+        <th><u>item_weight</u></th>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>(row)</td>
+        <td>0</td>
+        <td>alice</td>
+        <td>0</td>
+        <td>1995</td>
+        <td>0</td>
+        <td>alice</td>
+        <td>0</td>
+        <td>sword</td>
+        <td>0</td>
+        <td>1500</td>
+    </tr>
+    <tr>
+        <td>0</td>
+        <td>(row)</td>
+        <td>0</td>
+        <td>alice</td>
+        <td>0</td>
+        <td>1995</td>
+        <td>0</td>
+        <td>alice</td>
+        <td>1</td>
+        <td>shield</td>
+        <td>1</td>
+        <td>2500</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>(row)</td>
+        <td>0</td>
+        <td>bob</td>
+        <td>0</td>
+        <td>1999</td>
+        <td>0</td>
+        <td>bob</td>
+        <td>0</td>
+        <td>flower</td>
+        <td>0</td>
+        <td>15</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>(row)</td>
+        <td>0</td>
+        <td>tobias</td>
+        <td>0</td>
+        <td>2005</td>
+        <td>null</td>
+        <td>null</td>
+        <td>null</td>
+        <td>null</td>
+        <td>null</td>
+        <td>null</td>
+    </tr>
+    <tr>
+        <td>null</td>
+        <td>null</td>
+        <td>null</td>
+        <td>null</td>
+        <td>null</td>
+        <td>null</td>
+        <td>0</td>
+        <td>carol</td>
+        <td>0</td>
+        <td>book</td>
+        <td>0</td>
+        <td>500</td>
+    </tr>
+</table>
+
+</aside>
+</aside>
+
 #### Inner join
+
 <aside class=example id=ex-innerjoin>
 
-When an inner join is used, the resulting logical view has only 3 logical iterations.
+This example applies an [=inner join=] between a [=child logical view=] built from `:csvSource` and the [=parent logical view=] `:jsonView`. The three matching pairs produce three logical iterations. The unmatched child logical iteration for `tobias` and the unmatched parent logical iteration for `carol` are not retained, resulting in 3 logical iterations.
 
 <aside class=ex-mapping>
 
@@ -252,7 +468,6 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
 </aside>
 </aside>
 
-
 #### Two left joins
 
 <aside class=example id=ex-twoleftjoins>
@@ -266,6 +481,7 @@ alice,123
 bob,456
 tobias,789
 ```
+
 </aside>
 
 <aside class=ex-mapping>

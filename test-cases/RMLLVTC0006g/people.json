@@ -1,0 +1,23 @@
+{
+  "people": [
+    {
+      "name": "alice",
+      "items": [
+        "sword",
+        "shield"
+      ]
+    },
+    {
+      "name": "bob",
+      "items": [
+        "flower"
+      ]
+    },
+    {
+      "name": "carol",
+      "items": [
+        "book"
+      ]
+    }
+  ]
+}
