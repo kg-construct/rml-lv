@@ -334,7 +334,7 @@ rmlsh:parentCyclesShape a sh:NodeShape ;
     sh:targetSubjectsOf rml:viewOn ;
     sh:targetSubjectsOf rml:field ;
     sh:property [
-        sh:message "There must be no cycles via rml:viewOn or rml:Field." ;
+        sh:message "There must be no cycles via rml:viewOn or rml:field." ;
         sh:path [ sh:zeroOrMorePath [ sh:alternativePath ( [ sh:inversePath rml:viewOn ] [ sh:inversePath rml:field ] ) ] ] ;
         sh:disjoint rml:viewOn ;
         sh:disjoint rml:field ;
