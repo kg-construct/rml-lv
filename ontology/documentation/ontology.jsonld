@@ -282,10 +282,10 @@
     "@id" : "http://w3id.org/rml/LogicalViewJoin"
   } ]
 }, {
-  "@id" : "http://w3id.org/rml/outerJoin",
+  "@id" : "http://w3id.org/rml/fullJoin",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "An outer join of the logical view."
+    "@value" : "A full join of the logical view."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "http://w3id.org/rml/LogicalView"
@@ -294,7 +294,7 @@
     "@id" : "http://w3id.org/rml/lv/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "outer join"
+    "@value" : "full join"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://w3id.org/rml/LogicalViewJoin"

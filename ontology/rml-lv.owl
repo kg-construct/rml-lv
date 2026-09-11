@@ -79,10 +79,10 @@ rml:leftJoin rdf:type owl:ObjectProperty ;
              rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
 
-###  http://w3id.org/rml/outerJoin
-rml:outerJoin rdf:type owl:ObjectProperty ;
-              rdfs:label "outer join" ;
-              rdfs:comment "An outer join of the logical view." ;
+###  http://w3id.org/rml/fullJoin
+rml:fullJoin rdf:type owl:ObjectProperty ;
+              rdfs:label "full join" ;
+              rdfs:comment "A full join of the logical view." ;
               rdfs:domain rml:LogicalView ;
               rdfs:range rml:LogicalViewJoin ;
               rdfs:isDefinedBy <http://w3id.org/rml/lv/> .

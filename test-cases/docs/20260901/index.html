@@ -2756,8 +2756,8 @@ bob,1999
 </span></code></pre>
 </section>
 <section id="RMLLVTC0006g"><div class="header-wrapper"><h2 id="x30-rmllvtc0006g"><bdi class="secno">30. </bdi>RMLLVTC0006g</h2><a class="self-link" href="#RMLLVTC0006g" aria-label="Permalink for Section 30."></a></div>
-<p><strong>Title</strong>: Outer Join</p>
-<p><strong>Description</strong>: Test an outer join with unmatched child and parent logical iterations</p>
+<p><strong>Title</strong>: Full Join</p>
+<p><strong>Description</strong>: Test a full join with unmatched child and parent logical iterations</p>
 <p><strong>Error expected?</strong> No</p>
 <p><strong>Input</strong></p>
 <pre><code aria-busy="false" class="hljs json"><span class="hljs-punctuation">{</span>
@@ -2837,7 +2837,7 @@ tobias,2005
     rml:fieldName <span class="hljs-string">"birthyear"</span> ;
     rml:reference <span class="hljs-string">"birthyear"</span> ;
   ] ;
-  rml:outerJoin [
+  rml:fullJoin [
     rml:parentLogicalView :jsonView ;
     rml:joinCondition [
       rml:parent <span class="hljs-string">"name"</span> ;

@@ -22,7 +22,7 @@ The [=parent logical view=] fulfills the role of the <a data-cite="RML-Core#pare
 
 ### Join types {#dfn-join-type}
 
-The <dfn>join property</dfn> specifies the join type of the [=logical view join=], i.e. a [=left join=], an [=outer join=], or an [=inner join=].
+The <dfn>join property</dfn> specifies the join type of the [=logical view join=], i.e. a [=left join=], a [=full join=], or an [=inner join=].
 
 A logical iteration is <dfn>matched</dfn> when there is at least one logical iteration in the other logical view for which all <a data-cite="RML-Core#dfn-join-condition">join conditions</a> evaluate to `true`. For every matching pair, the fields from the [=logical view join=] are evaluated on the parent logical iteration and added to the child logical iteration, producing an extended logical iteration.
 
@@ -30,14 +30,14 @@ A logical iteration is <dfn>unmatched</dfn> when there is no logical iteration i
 
 A <dfn>left join</dfn> (`rml:leftJoin`) is the equivalent of a left (outer) join in SQL, where the [=child logical view=] is the left part of the join, and the [=parent logical view=] is the right part of the join. For an unmatched child logical iteration, the fields from the [=logical view join=] in the extended logical iteration contain a null value.
 
-An <dfn>outer join</dfn> (`rml:outerJoin`) is the equivalent of a full outer join in SQL, where the [=child logical view=] is the left part of the join, and the [=parent logical view=] is the right part of the join. All logical iterations from both logical views are retained. For an unmatched child logical iteration, the fields from the [=logical view join=] contain a null value. For an unmatched parent logical iteration, the fields from the [=child logical view=] contain a null value.
+An <dfn>full join</dfn> (`rml:fullJoin`) is the equivalent of a full (outer) join in SQL, where the [=child logical view=] is the left part of the join, and the [=parent logical view=] is the right part of the join. All logical iterations from both logical views are retained. For an unmatched child logical iteration, the fields from the [=logical view join=] contain a null value. For an unmatched parent logical iteration, the fields from the [=child logical view=] contain a null value.
 
 An <dfn>inner join</dfn> (`rml:innerJoin`) is the equivalent of an inner join in SQL. Unmatched child logical iterations are removed from the [=child logical view=].
 
 | Property                | Domain                | Range                 |
 |-------------------------|-----------------------|-----------------------|
 | `rml:leftJoin`          | `rml:LogicalView`     | `rml:LogicalViewJoin` |
-| `rml:outerJoin`         | `rml:LogicalViewJoin` | `rml:LogicalViewJoin` |
+| `rml:fullJoin`         | `rml:LogicalViewJoin` | `rml:LogicalViewJoin` |
 | `rml:innerJoin`         | `rml:LogicalViewJoin` | `rml:LogicalViewJoin` |
 
 ### Logical view join examples
@@ -233,11 +233,11 @@ This example applies a [=left join=] between a [=child logical view=] built from
 </aside>
 </aside>
 
-#### Outer join
+#### Full join
 
-<aside class=example id=ex-outerjoin>
+<aside class=example id=ex-fulljoin>
 
-This example applies an [=outer join=] between a [=child logical view=] built from `:csvSource` and the [=parent logical view=] `:jsonView`. The three matching pairs produce three logical iterations. The unmatched child logical iteration for `tobias` and the unmatched parent logical iteration for `carol` are both retained with null values for the fields from the other logical view, resulting in 5 logical iterations.
+This example applies a [=full join=] between a [=child logical view=] built from `:csvSource` and the [=parent logical view=] `:jsonView`. The three matching pairs produce three logical iterations. The unmatched child logical iteration for `tobias` and the unmatched parent logical iteration for `carol` are both retained with null values for the fields from the other logical view, resulting in 5 logical iterations.
 
 <aside class=ex-mapping>
 
@@ -254,7 +254,7 @@ This example applies an [=outer join=] between a [=child logical view=] built fr
     rml:fieldName "birthyear" ;
     rml:reference "birthyear" ;
   ] ;
-  rml:outerJoin [
+  rml:fullJoin [
     rml:parentLogicalView :jsonView ;
     rml:joinCondition [
       rml:parent "name" ;

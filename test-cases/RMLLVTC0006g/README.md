@@ -1,8 +1,8 @@
 ## RMLLVTC0006g
 
-**Title**: Outer Join
+**Title**: Full Join
 
-**Description**: Test an outer join with unmatched child and parent logical iterations
+**Description**: Test a full join with unmatched child and parent logical iterations
 
 **Error expected?** No
 
@@ -89,7 +89,7 @@ tobias,2005
     rml:fieldName "birthyear" ;
     rml:reference "birthyear" ;
   ] ;
-  rml:outerJoin [
+  rml:fullJoin [
     rml:parentLogicalView :jsonView ;
     rml:joinCondition [
       rml:parent "name" ;
