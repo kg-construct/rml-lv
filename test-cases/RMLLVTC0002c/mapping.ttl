@@ -23,6 +23,7 @@
     rml:fieldName "item" ;
     rml:iterator "$.items[*]" ;
     rml:field [
+      a rml:ExpressionField ;
       rml:fieldName "type" ;
       rml:reference "$.type" ;
     ] ;

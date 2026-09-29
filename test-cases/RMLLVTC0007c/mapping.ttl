@@ -32,7 +32,7 @@
         rml:reference "type" ;
       ] ;
       rml:field [
-        a rml:expressionField ;
+        a rml:ExpressionField ;
         rml:fieldName "weight" ;
         rml:reference "weight" ;
       ] ;
