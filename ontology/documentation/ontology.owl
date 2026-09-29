@@ -108,6 +108,19 @@
     
 
 
+    <!-- http://w3id.org/rml/fullJoin -->
+
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/rml/fullJoin">
+        <rdfs:domain rdf:resource="http://w3id.org/rml/LogicalView"/>
+        <rdfs:range rdf:resource="http://w3id.org/rml/LogicalViewJoin"/>
+        <rdfs:comment>A full join of the logical view.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://w3id.org/rml/lv/"/>
+        <rdfs:label>full join</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
     <!-- http://w3id.org/rml/onFields -->
 
 
