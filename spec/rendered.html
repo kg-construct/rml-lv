@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en" dir="ltr"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 37.1.0">
+<meta name="generator" content="ReSpec 37.4.1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -142,7 +142,7 @@ dfn{cursor:pointer}
 <script data-goatcounter="https://rml-fields.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
     
 <noscript>
-        &amp;lt;img src="https://rml-fields.goatcounter.com/count?p=/test-noscript"&amp;gt;
+        &lt;img src="https://rml-fields.goatcounter.com/count?p=/test-noscript"&gt;
     </noscript>
 
 <style id="respec-mainstyle">
@@ -181,11 +181,11 @@ details.respec-tests-details>li{padding-left:1em}
 .self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
 aside.example .marker>a.self-link{color:inherit}
 .header-wrapper{display:flex;align-items:baseline}
-:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2):has(+a.self-link){position:relative;left:-.5em}
-:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.5}
-:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3,h4,h5,h6):not(:where(#toc>h2,#abstract>h2,#sotd>h2,.head>h2)):has(+a.self-link){position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(:where(#toch2))+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.8;text-decoration:none}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§"}
 :is(h2,h3)+a.self-link{top:-.2em}
-:is(h4,h5,h6)+a.self-link::before{color:#000}
+:is(h2,h3)+a.self-link::before{color:var(--heading-text)}
 @media (max-width:767px){
 dd{margin-left:0}
 }
@@ -272,8 +272,13 @@ var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6p
 var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#222;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
 var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/redmer/highlightjs-turtle@v2.1.0/src/languages/turtle.js"></script>
 <script id="initialUserConfig" type="application/json">{
   "preProcess": [
+    null
+  ],
+  "postProcess": [
     null
   ],
   "doRdfa": "true",
@@ -375,30 +380,31 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "rml-io"
     }
   },
-  "publishISODate": "2026-07-13T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 13 July 2026"
+  "publishISODate": "2026-10-12T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 12 October 2026"
 }</script>
-<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft">
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/dark.css" disabled=""></head>
 <body class="h-entry"><div class="head">
     
     <h1 id="title" class="title">RML Logical Views</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2026-07-13">13 July 2026</time>
+      <time class="dt-published" datetime="2026-10-12">12 October 2026</time>
     </p>
     <dl>
       
       <dt>Latest published version:</dt><dd>
-              <a href="https://w3id.org/rml/lv/spec/">https://w3id.org/rml/lv/spec/</a>
-            </dd>
+                <a href="https://w3id.org/rml/lv/spec/">https://w3id.org/rml/lv/spec/</a>
+              </dd>
       <dt>Latest editor's draft:</dt><dd><a href="https://w3id.org/rml/lv/spec">https://w3id.org/rml/lv/spec</a></dd>
       
       
       
       
       <dt>
-              Editors:
-            </dt><dd class="editor p-author h-card vcard">
+                Editors:
+              </dt><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://modeldesk.io">Pano Maria</a><a class="p-name orcid" href="https://orcid.org/0009-0000-2598-1894"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
     <style>
 
@@ -425,8 +431,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </dd>
       
       <dt>
-              Authors:
-            </dt><dd class="editor p-author h-card vcard">
+                Authors:
+              </dt><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://modeldesk.io">Pano Maria</a><a class="p-name orcid" href="https://orcid.org/0009-0000-2598-1894"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
     <style>
 
@@ -474,18 +480,18 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     </dl>
     
     <p class="copyright">
-          <a href="https://www.w3.org/policies/#copyright">Copyright</a>
-          ©
-          2024-2026
-          
-          the Contributors to the RML Logical Views
-          Specification, published by the
-          <a href="https://www.w3.org/groups/cg/kg-construct">Knowledge Graph Construction Community Group</a> under the
-          <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>. A human-readable
-                <a href="https://www.w3.org/community/about/agreements/cla-deed/">summary</a>
-                is available.
-              
-        </p>
+            <a href="https://www.w3.org/policies/#copyright">Copyright</a>
+            ©
+            2024-2026
+            
+            the Contributors to the RML Logical Views
+            Specification, published by the
+            <a href="https://www.w3.org/groups/cg/kg-construct">Knowledge Graph Construction Community Group</a> under the
+            <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>. A human-readable
+                    <a href="https://www.w3.org/community/about/agreements/cla-deed/">summary</a>
+                    is available.
+                  
+          </p>
     <hr title="Separator for header">
   </div>
 <section id="abstract" class="introductory"><h2 id="abstract">Abstract</h2><p>RML logical views is an extension of the RDF Mapping Language (RML) that increases the language's capability to
@@ -504,10 +510,10 @@ as well as additional information about their fields, through structural annotat
       <a href="https://www.w3.org/groups/cg/kg-construct">Knowledge Graph Construction Community Group</a>. It is not a W3C Standard nor is it
       on the W3C Standards Track.
       
-            Please note that under the
-            <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>
-            there is a limited opt-out and other conditions apply.
-          
+              Please note that under the
+              <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>
+              there is a limited opt-out and other conditions apply.
+            
       Learn more about
       <a href="https://www.w3.org/community/">W3C Community and Business Groups</a>.
     </p>
@@ -600,12 +606,12 @@ It is not possible to declare the construction of below output triples from belo
   <span class="hljs-punctuation">]</span>
 <span class="hljs-punctuation">}</span>
 </code></pre>
-</aside><aside class="ex-output"><pre><code class="turtle hljs" aria-busy="false">:person/alice/item/sword :hasName "sword" ;
-  :hasWeight 1500 .
-:person/alice/item/shield :hasName "shield" ;
-  :hasWeight 2500 .
-:person/bob/item/flower :hasName "flower" ;
-  :hasWeight 15 .
+</aside><aside class="ex-output"><pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:person</span>/alice/item/sword <span class="hljs-symbol">:hasName</span> <span class="hljs-string">"sword"</span> ;
+  <span class="hljs-symbol">:hasWeight</span> <span class="hljs-number">1500</span> .
+<span class="hljs-symbol">:person</span>/alice/item/shield <span class="hljs-symbol">:hasName</span> <span class="hljs-string">"shield"</span> ;
+  <span class="hljs-symbol">:hasWeight</span> <span class="hljs-number">2500</span> .
+<span class="hljs-symbol">:person</span>/bob/item/flower <span class="hljs-symbol">:hasName</span> <span class="hljs-string">"flower"</span> ;
+  <span class="hljs-symbol">:hasWeight</span> <span class="hljs-number">15</span> .
 </code></pre>
 </aside>
 </aside></section><section id="mixed-data-formats"><div class="header-wrapper"><h3 id="x2-2-mixed-data-formats"><bdi class="secno">2.2 </bdi>Mixed data formats</h3><a class="self-link" href="#mixed-data-formats" aria-label="Permalink for Section 2.2"></a></div>
@@ -619,8 +625,8 @@ alice,"{""type"":""sword"",""weight"": 2500}"
 alice,"{""type"":""shield"",""weight"": 1500}"  
 bob,"{""type"":""flower"",""weight"": 15 }"  
 </code></pre>
-</aside><aside class="ex-output"><pre><code class="turtle hljs" aria-busy="false">:person/alice :hasItem "sword" , "shield" .
-:person/bob :hasItem "flower" . 
+</aside><aside class="ex-output"><pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:person</span>/alice <span class="hljs-symbol">:hasItem</span> <span class="hljs-string">"sword"</span> , <span class="hljs-string">"shield"</span> .
+<span class="hljs-symbol">:person</span>/bob <span class="hljs-symbol">:hasItem</span> <span class="hljs-string">"flower"</span> . 
 </code></pre>
 </aside>
 </aside></section><section id="joining-of-data-sources"><div class="header-wrapper"><h3 id="x2-3-joining-of-data-sources"><bdi class="secno">2.3 </bdi>Joining of data sources</h3><a class="self-link" href="#joining-of-data-sources" aria-label="Permalink for Section 2.3"></a></div>
@@ -640,8 +646,8 @@ alice,sword
 alice,shield
 bob,flower
 </code></pre>
-</aside><aside class="ex-output"><pre><code class="turtle hljs" aria-busy="false">:person/123 :hasItem "sword", "shield" . 
-:person/456 :hasItem "flower" .
+</aside><aside class="ex-output"><pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:person</span>/<span class="hljs-number">123</span> <span class="hljs-symbol">:hasItem</span> <span class="hljs-string">"sword"</span>, <span class="hljs-string">"shield"</span> . 
+<span class="hljs-symbol">:person</span>/<span class="hljs-number">456</span> <span class="hljs-symbol">:hasItem</span> <span class="hljs-string">"flower"</span> .
 </code></pre>
 </aside>
 </aside></section></section>
@@ -724,26 +730,26 @@ The <a href="https://w3id.org/rml/core/spec#dfn-natural-rdf-datatype">natural RD
 <p>When a non-existing or a non-referenceable key is referenced, RML processors should report an error. </p>
 <aside class="example" id="ex-field-in-triples-map"><div class="marker">
     <a class="self-link" href="#ex-field-in-triples-map">Example<bdi> 4</bdi></a>
-  </div><aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:jsonView a rml:LogicalView ;
-  rml:viewOn :jsonSource ;
-  rml:field [
-    a rml:ExpressionField ;
-    rml:fieldName "name" ;
-    rml:reference "$.name" ;
+  </div><aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonView</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
+  <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:jsonSource</span> ;
+  <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span> ;
+    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.name"</span> ;
   ] ;
-  rml:field [
-    a rml:IterableField ;
-    rml:fieldName "item" ;
-    rml:iterator "$.items[*]" ;
-    rml:field [
-      a rml:ExpressionField ;
-      rml:fieldName "type" ;
-      rml:reference "$.type" ;
+  <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:IterableField</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"item"</span> ;
+    <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.items[*]"</span> ;
+    <span class="hljs-symbol">rml:field</span> [
+      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"type"</span> ;
+      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.type"</span> ;
     ] ;
-    rml:field [
-      a rml:ExpressionField ;
-      rml:fieldName "weight" ;
-      rml:reference "$.weight" ;
+    <span class="hljs-symbol">rml:field</span> [
+      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"weight"</span> ;
+      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.weight"</span> ;
     ] ;
   ] .
 </code></pre>
@@ -821,57 +827,57 @@ The <a href="https://w3id.org/rml/core/spec#dfn-natural-rdf-datatype">natural RD
 </tbody></table></aside><div class="note" role="note" id="issue-container-generatedID-0"><div class="note-title marker" id="h-note-0"><span>Note</span></div><aside class="">
 Note that this tabular representation of the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration-sequence" class="internalDFN" id="ref-for-dfn-logical-view-iteration-sequence-3">logical view iteration sequence</a> is just one possible way of representing a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view-iteration-sequence" class="internalDFN" id="ref-for-dfn-logical-view-iteration-sequence-4">logical view iteration sequence</a>.
 The underlined keys represent <a data-link-type="dfn|abstract-op" href="#dfn-referenceable-key" class="internalDFN" id="ref-for-dfn-referenceable-key-2">referenceable keys</a>.
-</aside></div><aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:triplesMapPerson a rml:TriplesMap ;
-  rml:logicalSource :jsonView ;
-  rml:subjectMap [
-    rml:template "http://example.org/person/{name}" ;
+</aside></div><aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:triplesMapPerson</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:TriplesMap</span> ;
+  <span class="hljs-symbol">rml:logicalSource</span> <span class="hljs-symbol">:jsonView</span> ;
+  <span class="hljs-symbol">rml:subjectMap</span> [
+    <span class="hljs-symbol">rml:template</span> <span class="hljs-string">"http://example.org/person/{name}"</span> ;
   ] ;
-  rml:predicateObjectMap [
-    rml:predicate :hasName ;
-    rml:objectMap [
-      rml:reference "name" ;
+  <span class="hljs-symbol">rml:predicateObjectMap</span> [
+    <span class="hljs-symbol">rml:predicate</span> <span class="hljs-symbol">:hasName</span> ;
+    <span class="hljs-symbol">rml:objectMap</span> [
+      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"name"</span> ;
     ] ;
   ] ;
-  rml:predicateObjectMap [
-    rml:predicate :hasItem ;
-    rml:objectMap [
-      rml:parentTriplesMap :triplesMapItem ;
+  <span class="hljs-symbol">rml:predicateObjectMap</span> [
+    <span class="hljs-symbol">rml:predicate</span> <span class="hljs-symbol">:hasItem</span> ;
+    <span class="hljs-symbol">rml:objectMap</span> [
+      <span class="hljs-symbol">rml:parentTriplesMap</span> <span class="hljs-symbol">:triplesMapItem</span> ;
     ] ;
   ] .
 
-:triplesMapItem a rml:TriplesMap ;
-  rml:logicalSource :jsonView ;
-  rml:subjectMap [
-    rml:template "http://example.org/person/{name}/item/{item.#}" ;
+<span class="hljs-symbol">:triplesMapItem</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:TriplesMap</span> ;
+  <span class="hljs-symbol">rml:logicalSource</span> <span class="hljs-symbol">:jsonView</span> ;
+  <span class="hljs-symbol">rml:subjectMap</span> [
+    <span class="hljs-symbol">rml:template</span> <span class="hljs-string">"http://example.org/person/{name}/item/{item.#}"</span> ;
   ] ;
-  rml:predicateObjectMap [
-    rml:predicate :hasName ;
-    rml:objectMap [
-      rml:reference "item.type" ;
+  <span class="hljs-symbol">rml:predicateObjectMap</span> [
+    <span class="hljs-symbol">rml:predicate</span> <span class="hljs-symbol">:hasName</span> ;
+    <span class="hljs-symbol">rml:objectMap</span> [
+      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"item.type"</span> ;
     ] ;
   ] ;
-  rml:predicateObjectMap [
-    rml:predicate :hasWeight ;
-    rml:objectMap [
-      rml:reference "item.weight" ;
+  <span class="hljs-symbol">rml:predicateObjectMap</span> [
+    <span class="hljs-symbol">rml:predicate</span> <span class="hljs-symbol">:hasWeight</span> ;
+    <span class="hljs-symbol">rml:objectMap</span> [
+      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"item.weight"</span> ;
     ] ;
   ] .
 </code></pre>
-</aside><aside class="ex-output"><pre><code class="turtle hljs" aria-busy="false">&lt;http://example.org/person/alice&gt; :hasName "alice" ;
-  :hasItem &lt;http://example.org/person/alice/item/0&gt; ,
-           &lt;http://example.org/person/alice/item/1&gt; .
+</aside><aside class="ex-output"><pre><code class="turtle hljs" aria-busy="false"><span class="hljs-literal">&lt;http://example.org/person/alice&gt;</span> <span class="hljs-symbol">:hasName</span> <span class="hljs-string">"alice"</span> ;
+  <span class="hljs-symbol">:hasItem</span> <span class="hljs-literal">&lt;http://example.org/person/alice/item/0&gt;</span> ,
+           <span class="hljs-literal">&lt;http://example.org/person/alice/item/1&gt;</span> .
 
-&lt;http://example.org/person/bob&gt; :hasName "bob" ;
-  :hasItem &lt;http://example.org/person/bob/item/0&gt; .
+<span class="hljs-literal">&lt;http://example.org/person/bob&gt;</span> <span class="hljs-symbol">:hasName</span> <span class="hljs-string">"bob"</span> ;
+  <span class="hljs-symbol">:hasItem</span> <span class="hljs-literal">&lt;http://example.org/person/bob/item/0&gt;</span> .
 
-&lt;http://example.org/person/alice/item/0&gt; :hasName "sword" ;
-  :hasWeight 1500 .
+<span class="hljs-literal">&lt;http://example.org/person/alice/item/0&gt;</span> <span class="hljs-symbol">:hasName</span> <span class="hljs-string">"sword"</span> ;
+  <span class="hljs-symbol">:hasWeight</span> <span class="hljs-number">1500</span> .
 
-&lt;http://example.org/person/alice/item/1&gt; :hasName "shield" ;
-  :hasWeight 2500 .
+<span class="hljs-literal">&lt;http://example.org/person/alice/item/1&gt;</span> <span class="hljs-symbol">:hasName</span> <span class="hljs-string">"shield"</span> ;
+  <span class="hljs-symbol">:hasWeight</span> <span class="hljs-number">2500</span> .
 
-&lt;http://example.org/person/bob/item/0&gt; :hasName "flower" ;
-  :hasWeight 15 .
+<span class="hljs-literal">&lt;http://example.org/person/bob/item/0&gt;</span> <span class="hljs-symbol">:hasName</span> <span class="hljs-string">"flower"</span> ;
+  <span class="hljs-symbol">:hasWeight</span> <span class="hljs-number">15</span> .
 </code></pre>
 </aside></aside></section></section>
 
@@ -943,17 +949,17 @@ Otherwise, the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="inte
 <span class="hljs-punctuation">}</span>
 </code></pre>
 </aside>
-<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:jsonSource a rml:LogicalSource ;
-  rml:source :jsonFile ;
-  rml:referenceFormulation rml:JSONPath ;
-  rml:iterator "$.people[*]" .
+<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalSource</span> ;
+  <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:jsonFile</span> ;
+  <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:JSONPath</span> ;
+  <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.people[*]"</span> .
   
-:jsonView a rml:LogicalView ;
-  rml:viewOn :jsonSource ;
-  rml:field [
-    a rml:ExpressionField ;
-    rml:fieldName "name" ;
-    rml:reference "$.name" ;
+<span class="hljs-symbol">:jsonView</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
+  <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:jsonSource</span> ;
+  <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span> ;
+    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.name"</span> ;
   ] .
 </code></pre>
 </aside><aside class="ex-intermediate">
@@ -1015,26 +1021,26 @@ Otherwise, the <a data-link-type="dfn|abstract-op" href="#dfn-field" class="inte
 <aside class="example" id="ex-field-record-sequence"><div class="marker">
     <a class="self-link" href="#ex-field-record-sequence">Example<bdi> 6</bdi></a>
   </div><p>In this example a <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-25">field</a> with <a data-link-type="dfn|abstract-op" href="#dfn-declared-name" class="internalDFN" id="ref-for-dfn-declared-name-6">declared name</a> "item" is added to the <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-11">logical view</a> from <a href="#ex-fieldnames" data-matched-text="[[[#ex-fieldnames]]]" class="box-ref">Example<bdi> 5</bdi></a>. Additionally a nested <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-26">field</a> "type" and a nested <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-27">field</a> "weight" are added to the "item" <a data-link-type="dfn|abstract-op" href="#dfn-field" class="internalDFN" id="ref-for-dfn-field-28">field</a>.</p>
-<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:jsonView a rml:LogicalView ;
-  rml:viewOn :jsonSource ;
-  rml:field [
-    a rml:ExpressionField ;
-    rml:fieldName "name" ;
-    rml:reference "$.name" ;
+<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonView</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
+  <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:jsonSource</span> ;
+  <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span> ;
+    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.name"</span> ;
   ] ;
-  rml:field [
-    a rml:IterableField ;
-    rml:fieldName "item" ;
-    rml:iterator "$.items[*]" ;
-    rml:field [
-      a rml:ExpressionField ; 
-      rml:fieldName "type" ;
-      rml:reference "$.type" ;
+  <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:IterableField</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"item"</span> ;
+    <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.items[*]"</span> ;
+    <span class="hljs-symbol">rml:field</span> [
+      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ; 
+      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"type"</span> ;
+      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.type"</span> ;
     ] ;
-    rml:field [
-      a rml:ExpressionField ; 
-      rml:fieldName "weight" ;
-      rml:reference "$.weight" ;
+    <span class="hljs-symbol">rml:field</span> [
+      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ; 
+      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"weight"</span> ;
+      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.weight"</span> ;
     ] ;
   ] .
 </code></pre>
@@ -1136,29 +1142,29 @@ The nested fields with <a data-link-type="dfn|abstract-op" href="#dfn-declared-n
 <span class="hljs-punctuation">}</span>  
 </code></pre>
 </aside>
-<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:mixedJSONSource a rml:LogicalSource ;
-  rml:source :mixedJSONFile ;
-  rml:referenceFormulation rml:JSONPath ;
-  rml:iterator "$.people[*]" .
+<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:mixedJSONSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalSource</span> ;
+  <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:mixedJSONFile</span> ;
+  <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:JSONPath</span> ;
+  <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.people[*]"</span> .
 
-:mixedJSONView a rml:LogicalView ;
-  rml:viewOn :mixedJSONSource ;
-  rml:field [ 
-    a rml:ExpressionField ;
-    rml:fieldName "items" ;
-    rml:reference "$.items" ;
-    rml:field [ 
-      a rml:IterableField ; 
-      rml:referenceFormulation rml:CSV;
-      rml:field [ 
-        a rml:ExpressionField ; 
-        rml:fieldName "type" ;
-        rml:reference "type" ;
+<span class="hljs-symbol">:mixedJSONView</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
+  <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:mixedJSONSource</span> ;
+  <span class="hljs-symbol">rml:field</span> [ 
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"items"</span> ;
+    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.items"</span> ;
+    <span class="hljs-symbol">rml:field</span> [ 
+      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:IterableField</span> ; 
+      <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:CSV;</span>
+      <span class="hljs-symbol">rml:field</span> [ 
+        <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ; 
+        <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"type"</span> ;
+        <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"type"</span> ;
       ] ;
-      rml:field [ 
-        a rml:ExpressionField;
-        rml:fieldName "weight" ;
-        rml:reference "weight" ;
+      <span class="hljs-symbol">rml:field</span> [ 
+        <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField;</span>
+        <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"weight"</span> ;
+        <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"weight"</span> ;
       ] ;
     ] ; 
   ] .
@@ -1281,37 +1287,37 @@ alice,1995
 bob,1999
 tobias,2005
 </code></pre>
-</aside><aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:csvSource a rml:LogicalSource ;
-  rml:source :csvFile ;
-  rml:referenceFormulation rml:CSV .
+</aside><aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:csvSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalSource</span> ;
+  <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:csvFile</span> ;
+  <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:CSV</span> .
   
-:csvView a rml:LogicalView ;
-  rml:viewOn :csvSource ;
-  rml:field [
-    a rml:ExpressionField ; 
-    rml:fieldName "name" ;
-    rml:reference "name" ;
+<span class="hljs-symbol">:csvView</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
+  <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:csvSource</span> ;
+  <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ; 
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span> ;
+    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"name"</span> ;
   ] ;
-  rml:field [
-    a rml:ExpressionField ;
-    rml:fieldName "birthyear" ;
-    rml:reference "birthyear" ;
+  <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"birthyear"</span> ;
+    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"birthyear"</span> ;
   ] ;
-  rml:leftJoin [
-    rml:parentLogicalView :jsonView ;
-    rml:joinCondition [
-      rml:parent "name" ;
-      rml:child "name" ;
+  <span class="hljs-symbol">rml:leftJoin</span> [
+    <span class="hljs-symbol">rml:parentLogicalView</span> <span class="hljs-symbol">:jsonView</span> ;
+    <span class="hljs-symbol">rml:joinCondition</span> [
+      <span class="hljs-symbol">rml:parent</span> <span class="hljs-string">"name"</span> ;
+      <span class="hljs-symbol">rml:child</span> <span class="hljs-string">"name"</span> ;
     ] ; 
-    rml:field [
-      a rml:ExpressionField ; 
-      rml:fieldName "item_type" ;
-      rml:reference "item.type" ;
+    <span class="hljs-symbol">rml:field</span> [
+      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ; 
+      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"itemType"</span> ;
+      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"item.type"</span> ;
     ] ;
-    rml:field [
-      a rml:ExpressionField ;
-      rml:fieldName "item_weight" ;
-      rml:reference "item.weight" ;
+    <span class="hljs-symbol">rml:field</span> [
+      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"itemWeight"</span> ;
+      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"item.weight"</span> ;
     ] ;
   ] .
 </code></pre>
@@ -1324,10 +1330,10 @@ tobias,2005
         <th><u>name</u></th>
         <th><u>birthyear.#</u></th>
         <th><u>birthyear</u></th>
-        <th><u>item_type.#</u></th>
-        <th><u>item_type</u></th>
-        <th><u>item_weight.#</u></th>
-        <th><u>item_weight</u></th>
+        <th><u>itemType.#</u></th>
+        <th><u>itemType</u></th>
+        <th><u>itemWeight.#</u></th>
+        <th><u>itemWeight</u></th>
     </tr>
     <tr>
         <td>0</td>
@@ -1382,33 +1388,33 @@ tobias,2005
 <aside class="example" id="ex-innerjoin"><div class="marker">
     <a class="self-link" href="#ex-innerjoin">Example<bdi> 9</bdi></a>
   </div><p>When an inner join is used, the resulting logical view has only 3 logical iterations.</p>
-<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:csvView a rml:LogicalView ;
-  rml:viewOn :csvSource ;
-  rml:field [
-    a rml:ExpressionField ;
-    rml:fieldName "name" ;
-    rml:reference "name" ;
+<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:csvView</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
+  <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:csvSource</span> ;
+  <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span> ;
+    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"name"</span> ;
   ] ;
-  rml:field [
-    a rml:ExpressionField ;
-    rml:fieldName "birthyear" ;
-    rml:reference "birthyear" ;
+  <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"birthyear"</span> ;
+    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"birthyear"</span> ;
   ] ;
-  rml:innerJoin [
-    rml:parentLogicalView :jsonView
-    rml:joinCondition [
-      rml:parent "name" ;
-      rml:child "name" ;
+  <span class="hljs-symbol">rml:innerJoin</span> [
+    <span class="hljs-symbol">rml:parentLogicalView</span> <span class="hljs-symbol">:jsonView</span>
+    <span class="hljs-symbol">rml:joinCondition</span> [
+      <span class="hljs-symbol">rml:parent</span> <span class="hljs-string">"name"</span> ;
+      <span class="hljs-symbol">rml:child</span> <span class="hljs-string">"name"</span> ;
     ] ; 
-    rml:field [
-      a rml:ExpressionField ;
-      rml:fieldName "item_type" ;
-      rml:reference "item.type" ;
+    <span class="hljs-symbol">rml:field</span> [
+      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"itemType"</span> ;
+      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"item.type"</span> ;
     ] ;
-    rml:field [
-      a rml:ExpressionField ;
-      rml:fieldName "item_weight" ;
-      rml:reference "item.weight" ;
+    <span class="hljs-symbol">rml:field</span> [
+      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"itemWeight"</span> ;
+      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"item.weight"</span> ;
     ] ;
   ] .
 </code></pre>
@@ -1421,10 +1427,10 @@ tobias,2005
         <th><u>name</u></th>
         <th><u>birthyear.#</u></th>
         <th><u>birthyear</u></th>
-        <th><u>item_type.#</u></th>
-        <th><u>item_type</u></th>
-        <th><u>item_weight.#</u></th>
-        <th><u>item_weight</u></th>
+        <th><u>itemType.#</u></th>
+        <th><u>itemType</u></th>
+        <th><u>itemWeight.#</u></th>
+        <th><u>itemWeight</u></th>
     </tr>
     <tr>
         <td>0</td>
@@ -1472,58 +1478,58 @@ alice,123
 bob,456
 tobias,789
 </code></pre>
-</aside><aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:additionalCsvView a rml:LogicalView ;
-  rml:viewOn :additioncalCsvSource ;
-  rml:field [
-    a rml:ExpressionField ;
-    rml:fieldName "name" ;
-    rml:reference "name" ;
+</aside><aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:additionalCsvView</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
+  <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:additioncalCsvSource</span> ;
+  <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span> ;
+    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"name"</span> ;
   ] ;
-  rml:field [
-    a rml:ExpressionField ;
-    rml:fieldName "id" ;
-    rml:reference "id" ;
+  <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"id"</span> ;
+    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"id"</span> ;
   ] . 
 
-:csvView a rml:LogicalView ;
-  rml:viewOn :csvSource ;
-  rml:field [
-    a rml:ExpressionField ;
-    rml:fieldName "name" ;
-    rml:reference "name" ;
+<span class="hljs-symbol">:csvView</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
+  <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:csvSource</span> ;
+  <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span> ;
+    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"name"</span> ;
   ] ;
-  rml:field [
-    a rml:ExpressionField ;
-    rml:fieldName "birthyear" ;
-    rml:reference "birthyear" ;
+  <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"birthyear"</span> ;
+    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"birthyear"</span> ;
   ] ;
-  rml:leftJoin [
-    rml:parentLogicalView :jsonView ;
-    rml:joinCondition [
-      rml:parent "name" ;
-      rml:child "name" ;
+  <span class="hljs-symbol">rml:leftJoin</span> [
+    <span class="hljs-symbol">rml:parentLogicalView</span> <span class="hljs-symbol">:jsonView</span> ;
+    <span class="hljs-symbol">rml:joinCondition</span> [
+      <span class="hljs-symbol">rml:parent</span> <span class="hljs-string">"name"</span> ;
+      <span class="hljs-symbol">rml:child</span> <span class="hljs-string">"name"</span> ;
     ] ; 
-    rml:field [
-      a rml:ExpressionField ;
-      rml:fieldName "item_type" ;
-      rml:reference "item.type" ;
+    <span class="hljs-symbol">rml:field</span> [
+      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"itemType"</span> ;
+      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"item.type"</span> ;
     ] ;
-    rml:field [
-      a rml:ExpressionField ;
-      rml:fieldName "item_weight" ;
-      rml:reference "item.weight" ;
+    <span class="hljs-symbol">rml:field</span> [
+      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"itemWeight"</span> ;
+      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"item.weight"</span> ;
     ] ;
   ] ; 
-  rml:leftJoin [
-    rml:parentLogicalView :additionalCsvView ;
-    rml:joinCondition [
-      rml:parent "name" ;
-      rml:child "name" ;
+  <span class="hljs-symbol">rml:leftJoin</span> [
+    <span class="hljs-symbol">rml:parentLogicalView</span> <span class="hljs-symbol">:additionalCsvView</span> ;
+    <span class="hljs-symbol">rml:joinCondition</span> [
+      <span class="hljs-symbol">rml:parent</span> <span class="hljs-string">"name"</span> ;
+      <span class="hljs-symbol">rml:child</span> <span class="hljs-string">"name"</span> ;
     ] ; 
-    rml:field [
-      a rml:ExpressionField ;
-      rml:fieldName "id" ;
-      rml:reference "id" ;
+    <span class="hljs-symbol">rml:field</span> [
+      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"id"</span> ;
+      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"id"</span> ;
     ] ;
   ] .
 </code></pre>
@@ -1536,10 +1542,10 @@ tobias,789
         <th><u>name</u></th>
         <th><u>birthyear.#</u></th>
         <th><u>birthyear</u></th>
-        <th><u>item_type.#</u></th>
-        <th><u>item_type</u></th>
-        <th><u>item_weight.#</u></th>
-        <th><u>item_weight</u></th>
+        <th><u>itemType.#</u></th>
+        <th><u>itemType</u></th>
+        <th><u>itemWeight.#</u></th>
+        <th><u>itemWeight</u></th>
         <th><u>id.#</u></th>
         <th><u>id</u></th>
     </tr>
@@ -1670,26 +1676,26 @@ lukas, 1986
 </ul>
 <p>Such a constraint naturally corresponds to the notion of <code>PRIMARY KEY</code> from the world of relational databases. This fact could be valuable information for the RML engine, especially in the virtual setting. However, CSV files do not support the definition of constraints. This limitation can be addressed by using structural annotations to inform the RML engine about the presence of such constraints. We illustrate this approach with a concrete example below.  </p>
 <p>First, we specify the logical source corresponding to the CSV file:</p>
-<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:csvSource a rml:LogicalSource ;
-  rml:source :csvFile ;
-  rml:referenceFormulation rml:CSV .
+<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:csvSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalSource</span> ;
+  <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:csvFile</span> ;
+  <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:CSV</span> .
 </code></pre>
 </aside><p>We are now ready to specify our logical view and associated <code>rml:primaryKeyAnnotation</code>.</p>
-<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:csvSource a rml:LogicalView ;
-  rml:viewOn :csvSource ;
-  rml:field [
-    a rml:ExpressionField ;
-    rml:fieldName "name";
-    rml:reference "name"
+<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:csvSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
+  <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:csvSource</span> ;
+  <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span>;
+    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"name"</span>
  ];
- rml:field [
-    a rml:ExpressionField ;
-    rml:fieldName "birthday";
-    rml:reference "birthday"
+ <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"birthday"</span>;
+    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"birthday"</span>
  ];
- rml:structuralAnnotation [
-    a rml:primaryKeyAnnotation;
-    rml:onFields ("name")
+ <span class="hljs-symbol">rml:structuralAnnotation</span> [
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:primaryKeyAnnotation;</span>
+    <span class="hljs-symbol">rml:onFields</span> (<span class="hljs-string">"name"</span>)
  ].
 </code></pre>
 </aside>
@@ -1773,62 +1779,62 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annota
 <p>The second constraint naturally corresponds to a <code>FOREIGN KEY</code> constraint from the world of relational databases. However, as the involved values spread across different (and diverse) sources, it cannot be expressed as such. Also this one could provide valuable information for the RML engine.</p>
 <p>We can exploit the mechanism of structural annotations to inform the RML engine about the existence of such "relational-like" constraint. We here work out an example.</p>
 <p>First, we need to specify the logical sources. The logical source corresponding to the CSV of <a href="#primary-key" data-matched-text="[[[#primary-key]]]" class="box-ref">Example<bdi> 11</bdi></a>:</p>
-<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:csvSource a rml:LogicalSource ;
-  rml:source :csvFile ;
-  rml:referenceFormulation rml:CSV .
+<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:csvSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalSource</span> ;
+  <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:csvFile</span> ;
+  <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:CSV</span> .
 </code></pre>
 </aside><p>The logical source corresponding to the JSON of <a href="#foreign-key" data-matched-text="[[[#foreign-key]]]" class="box-ref">Example<bdi> 12</bdi></a>:</p>
-<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:jsonSource a rml:LogicalSource ;
-  rml:source :jsonFile ;
-  rml:referenceFormulation rml:JSONPath ;
-  rml:iterator "$.people[*]" .
+<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalSource</span> ;
+  <span class="hljs-symbol">rml:source</span> <span class="hljs-symbol">:jsonFile</span> ;
+  <span class="hljs-symbol">rml:referenceFormulation</span> <span class="hljs-symbol">rml:JSONPath</span> ;
+  <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.people[*]"</span> .
 </code></pre>
 </aside><p>We are now ready to specify our logical views, and associated structural annotations. The first logical view is the one corresponding to <code>:csvSource</code>.</p>
-<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:csvSource a rml:LogicalView ;
-  rml:viewOn :csvSource ;
-  rml:field [
-    a rml:ExpressionField ;
-    rml:fieldName "name";
-    rml:reference "name"
+<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:csvSource</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
+  <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:csvSource</span> ;
+  <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span>;
+    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"name"</span>
  ];
- rml:field [
-    a rml:ExpressionField ;
-    rml:fieldName "birthday";
-    rml:reference "birthday"
+ <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"birthday"</span>;
+    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"birthday"</span>
  ];
- rml:structuralAnnotation [
-    a rml:PrimaryKeyAnnotation;
-    rml:onFields ("name");
+ <span class="hljs-symbol">rml:structuralAnnotation</span> [
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:PrimaryKeyAnnotation;</span>
+    <span class="hljs-symbol">rml:onFields</span> (<span class="hljs-string">"name"</span>);
  ].
 </code></pre>
 </aside><p>Now, we declare the logical view corresponding to <code>:jsonSource</code>. Note that this view contains a <code>rml:ForeignKeyAnnotation</code>:</p>
-<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false">:jsonView a rml:LogicalView ;
-  rml:viewOn :jsonSource ;
-  rml:field [
-    a rml:ExpressionField ;
-    rml:fieldName "name" ;
-    rml:reference "$.name" ;
+<aside class="ex-mapping"><pre><code class="turtle hljs" aria-busy="false"><span class="hljs-symbol">:jsonView</span> <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:LogicalView</span> ;
+  <span class="hljs-symbol">rml:viewOn</span> <span class="hljs-symbol">:jsonSource</span> ;
+  <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"name"</span> ;
+    <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.name"</span> ;
   ] ;
-  rml:field [
-    a rml:IterableField ;
-    rml:fieldName "item" ;
-    rml:iterator "$.items[*]" ;
-    rml:field [
-      a rml:ExpressionField ;
-      rml:fieldName "type" ;
-      rml:reference "$.type" ;
+  <span class="hljs-symbol">rml:field</span> [
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:IterableField</span> ;
+    <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"item"</span> ;
+    <span class="hljs-symbol">rml:iterator</span> <span class="hljs-string">"$.items[*]"</span> ;
+    <span class="hljs-symbol">rml:field</span> [
+      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"type"</span> ;
+      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.type"</span> ;
     ] ;
-    rml:field [
-      a rml:ExpressionField ;
-      rml:fieldName "weight" ;
-      rml:reference "$.weight" ;
+    <span class="hljs-symbol">rml:field</span> [
+      <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ExpressionField</span> ;
+      <span class="hljs-symbol">rml:fieldName</span> <span class="hljs-string">"weight"</span> ;
+      <span class="hljs-symbol">rml:reference</span> <span class="hljs-string">"$.weight"</span> ;
     ]
   ] ;
-  rml:structuralAnnotation [
-    a rml:ForeignKeyAnnotation;
-    rml:onFields ("name");
-    rml:targetView :csvView;
-    rml:targetFields ("name")
+  <span class="hljs-symbol">rml:structuralAnnotation</span> [
+    <span class="hljs-built_in">a</span> <span class="hljs-symbol">rml:ForeignKeyAnnotation;</span>
+    <span class="hljs-symbol">rml:onFields</span> (<span class="hljs-string">"name"</span>);
+    <span class="hljs-symbol">rml:targetView</span> <span class="hljs-symbol">:csvView;</span>
+    <span class="hljs-symbol">rml:targetFields</span> (<span class="hljs-string">"name"</span>)
   ].
 </code></pre>
 </aside>
@@ -2813,4 +2819,4 @@ function hidePanel(panel) {
   panel.hidden = true;
   panel.classList.remove("docked");
 }
-})()</script><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script><protonpass-root-c1a1 data-protonpass-role="root" data-protonpass-theme="os"></protonpass-root-c1a1></body></html>
+})()</script><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>
