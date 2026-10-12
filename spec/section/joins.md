@@ -76,12 +76,12 @@ tobias,2005
     ] ; 
     rml:field [
       a rml:ExpressionField ; 
-      rml:fieldName "item_type" ;
+      rml:fieldName "itemType" ;
       rml:reference "item.type" ;
     ] ;
     rml:field [
       a rml:ExpressionField ;
-      rml:fieldName "item_weight" ;
+      rml:fieldName "itemWeight" ;
       rml:reference "item.weight" ;
     ] ;
   ] .
@@ -98,10 +98,10 @@ tobias,2005
         <th><u>name</u></th>
         <th><u>birthyear.#</u></th>
         <th><u>birthyear</u></th>
-        <th><u>item_type.#</u></th>
-        <th><u>item_type</u></th>
-        <th><u>item_weight.#</u></th>
-        <th><u>item_weight</u></th>
+        <th><u>itemType.#</u></th>
+        <th><u>itemType</u></th>
+        <th><u>itemWeight.#</u></th>
+        <th><u>itemWeight</u></th>
     </tr>
     <tr>
         <td>0</td>
@@ -184,12 +184,12 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
     ] ; 
     rml:field [
       a rml:ExpressionField ;
-      rml:fieldName "item_type" ;
+      rml:fieldName "itemType" ;
       rml:reference "item.type" ;
     ] ;
     rml:field [
       a rml:ExpressionField ;
-      rml:fieldName "item_weight" ;
+      rml:fieldName "itemWeight" ;
       rml:reference "item.weight" ;
     ] ;
   ] .
@@ -206,10 +206,10 @@ When an inner join is used, the resulting logical view has only 3 logical iterat
         <th><u>name</u></th>
         <th><u>birthyear.#</u></th>
         <th><u>birthyear</u></th>
-        <th><u>item_type.#</u></th>
-        <th><u>item_type</u></th>
-        <th><u>item_weight.#</u></th>
-        <th><u>item_weight</u></th>
+        <th><u>itemType.#</u></th>
+        <th><u>itemType</u></th>
+        <th><u>itemWeight.#</u></th>
+        <th><u>itemWeight</u></th>
     </tr>
     <tr>
         <td>0</td>
@@ -304,12 +304,12 @@ tobias,789
     ] ; 
     rml:field [
       a rml:ExpressionField ;
-      rml:fieldName "item_type" ;
+      rml:fieldName "itemType" ;
       rml:reference "item.type" ;
     ] ;
     rml:field [
       a rml:ExpressionField ;
-      rml:fieldName "item_weight" ;
+      rml:fieldName "itemWeight" ;
       rml:reference "item.weight" ;
     ] ;
   ] ; 
@@ -338,10 +338,10 @@ tobias,789
         <th><u>name</u></th>
         <th><u>birthyear.#</u></th>
         <th><u>birthyear</u></th>
-        <th><u>item_type.#</u></th>
-        <th><u>item_type</u></th>
-        <th><u>item_weight.#</u></th>
-        <th><u>item_weight</u></th>
+        <th><u>itemType.#</u></th>
+        <th><u>itemType</u></th>
+        <th><u>itemWeight.#</u></th>
+        <th><u>itemWeight</u></th>
         <th><u>id.#</u></th>
         <th><u>id</u></th>
     </tr>

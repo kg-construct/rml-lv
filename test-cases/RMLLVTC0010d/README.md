@@ -58,12 +58,12 @@ tobias,2005
   rml:viewOn :jsonSource;
   rml:field [
     a rml:ExpressionField;
-    rml:fieldName "json_first_name";
+    rml:fieldName "jsonFirstName";
     rml:reference "$.firstName";
   ];
   rml:field [
     a rml:ExpressionField;
-    rml:fieldName "json_last_name";
+    rml:fieldName "jsonLastName";
     rml:reference "$.lastName";
   ].
 
@@ -79,34 +79,34 @@ tobias,2005
   rml:viewOn :csvSource;
   rml:field [
     a rml:ExpressionField;
-    rml:fieldName "csv_name";
+    rml:fieldName "csvName";
     rml:reference "name";
   ];
   rml:field [
     a rml:ExpressionField;
-    rml:fieldName "csv_birthyear";
+    rml:fieldName "csvBirthyear";
     rml:reference "birthyear";
   ];
   rml:leftJoin [
     rml:parentLogicalView :jsonView;
     rml:joinCondition [
-      rml:parent "json_first_name";
-      rml:child "csv_name";
+      rml:parent "jsonFirstName";
+      rml:child "csvName";
     ];
     rml:field [
       a rml:ExpressionField;
-      rml:fieldName "json_full_name";
-      rml:template "{json_first_name} {json_last_name}";
+      rml:fieldName "jsonFullName";
+      rml:template "{jsonFirstName} {jsonLastName}";
     ];
   ].
 
 :triplesMapPerson a rml:TriplesMap;
   rml:logicalSource :csvView;
-  rml:subjectMap [ rml:template "http://example.org/person/{json_full_name}" ];
+  rml:subjectMap [ rml:template "http://example.org/person/{jsonFullName}" ];
   rml:predicateObjectMap [
     rml:predicate :hasBirthYear;
     rml:objectMap [
-      rml:reference "csv_birthyear";
+      rml:reference "csvBirthyear";
       rml:datatype xsd:gYear;
     ];
   ].

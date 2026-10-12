@@ -124,7 +124,7 @@ tobias,789
     ] ;
     rml:field [
       a rml:ExpressionField ;
-      rml:fieldName "json_item" ;
+      rml:fieldName "jsonItem" ;
       rml:reference "item" ;
     ] ;
   ] ;
@@ -136,7 +136,7 @@ tobias,789
     ] ;
     rml:field [
       a rml:ExpressionField ;
-      rml:fieldName "csv2_id" ;
+      rml:fieldName "csv2Id" ;
       rml:reference "id" ;
     ] ;
   ] .
@@ -145,7 +145,7 @@ tobias,789
 :triplesMapPerson a rml:TriplesMap ;
   rml:logicalSource :csvView ;
   rml:subjectMap [
-    rml:template "http://example.org/person/{csv2_id}" ;
+    rml:template "http://example.org/person/{csv2Id}" ;
   ] ;
   rml:predicateObjectMap [
     rml:predicate :hasBirthYear ;
@@ -157,7 +157,7 @@ tobias,789
   rml:predicateObjectMap [
     rml:predicate :hasItem ;
     rml:objectMap [
-      rml:template "http://example.org/person/{csv2_id}/item/{json_item}" ;
+      rml:template "http://example.org/person/{csv2Id}/item/{jsonItem}" ;
     ] ;
   ] .
 
