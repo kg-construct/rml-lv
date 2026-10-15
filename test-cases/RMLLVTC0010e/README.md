@@ -56,7 +56,7 @@ tobias,2005
   rml:viewOn :jsonSource;
   rml:field [
     a rml:ExpressionField;
-    rml:fieldName "json_name";
+    rml:fieldName "jsonName";
     rml:reference "$.name";
   ];
 .
@@ -73,19 +73,19 @@ tobias,2005
   rml:viewOn :csvSource;
   rml:field [
     a rml:ExpressionField;
-    rml:fieldName "csv_name";
+    rml:fieldName "csvName";
     rml:reference "name";
   ];
   rml:field [
     a rml:ExpressionField;
-    rml:fieldName "csv_birthyear";
+    rml:fieldName "csvBirthyear";
     rml:reference "birthyear";
   ];
   rml:innerJoin [
     rml:parentLogicalView :jsonView;
     rml:joinCondition [
-      rml:parentMap [ rml:reference "json_name" ];
-      rml:childMap [ rml:reference "csv_name" ];
+      rml:parentMap [ rml:reference "jsonName" ];
+      rml:childMap [ rml:reference "csvName" ];
     ];
     rml:field [
       a rml:ExpressionField;
@@ -96,7 +96,7 @@ tobias,2005
 
 :triplesMapPerson a rml:TriplesMap;
   rml:logicalSource :csvView;
-  rml:subjectMap [ rml:template "http://example.org/person/{csv_name}" ];
+  rml:subjectMap [ rml:template "http://example.org/person/{csvName}" ];
   rml:predicateObjectMap [
     rml:predicate :hasStatus;
     rml:objectMap [ rml:reference "status" ];

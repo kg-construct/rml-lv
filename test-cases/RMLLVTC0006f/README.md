@@ -93,7 +93,7 @@ bob,1999
     ] ;
     rml:field [
       a rml:ExpressionField ;
-      rml:fieldName "json_item" ;
+      rml:fieldName "jsonItem" ;
       rml:reference "item" ;
     ] ;
   ] .
@@ -114,7 +114,7 @@ bob,1999
   rml:predicateObjectMap [
     rml:predicate :hasItem ;
     rml:objectMap [
-      rml:template "http://example.org/person/{#}/item/{json_item.#}/{json_item}" ;
+      rml:template "http://example.org/person/{#}/item/{jsonItem.#}/{jsonItem}" ;
     ] ;
   ] .
 

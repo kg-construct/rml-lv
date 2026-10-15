@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en" dir="ltr"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 35.8.0">
+<meta name="generator" content="ReSpec 37.4.1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 dfn{cursor:pointer}
@@ -16,6 +16,7 @@ dfn{cursor:pointer}
 .dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
 .dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
 .dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel .marker.cddl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
 .dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
 .dfn-panel a[href]:hover{border-bottom-width:1px}
 .dfn-panel ul{padding:0}
@@ -117,13 +118,17 @@ a.bibref{text-decoration:none}
 .respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
 }
 #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+@media (prefers-color-scheme:dark){
+#references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
+}
+body:has(input[name=color-scheme][value=dark]:checked) #references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
 cite .bibref{font-style:italic}
 a[href].orcid{padding-left:4px;padding-right:4px}
 a[href].orcid>svg{margin-bottom:-2px}
 ol.tof,ul.tof{list-style:none outside none}
 .caption{margin-top:.5em;font-style:italic}
 #issue-summary>ul{column-count:2}
-#issue-summary li{list-style:none;display:inline-block}
+#issue-summary li{list-style:none}
 details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
 details.respec-tests-details>*{padding-right:2em}
 details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
@@ -133,24 +138,53 @@ details.respec-tests-details>li{padding-left:1em}
 .self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
 aside.example .marker>a.self-link{color:inherit}
 .header-wrapper{display:flex;align-items:baseline}
-:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2){position:relative;left:-.5em}
-:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.5}
-:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3,h4,h5,h6):not(:where(#toc>h2,#abstract>h2,#sotd>h2,.head>h2)):has(+a.self-link){position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(:where(#toch2))+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.8;text-decoration:none}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§"}
 :is(h2,h3)+a.self-link{top:-.2em}
-:is(h4,h5,h6)+a.self-link::before{color:#000}
+:is(h2,h3)+a.self-link::before{color:var(--heading-text)}
 @media (max-width:767px){
 dd{margin-left:0}
 }
 @media print{
 .removeOnSave{display:none}
 }
+body:has(input[name=color-scheme][value=light]:checked),head:not(:has(meta[name=color-scheme][content~=dark]))+body{color-scheme:light}
+body:has(input[name=color-scheme][value=dark]:checked){color-scheme:dark}
 </style>
 <meta name="color-scheme" content="light">
 <meta name="description" content="This document defines the RML-LV test cases to the determine the RML-LV specification conformance of tools.">
 <style>
-.hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
+.hljs,body:has(input[name=color-scheme][value=light]:checked) .hljs,head:not(:has(meta[name=color-scheme][content~=dark]))+body .hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
 @media (prefers-color-scheme:dark){
-.hljs{--base:#282c34;--mono-1:#abb2bf;--mono-2:#818896;--mono-3:#5c6370;--hue-1:#56b6c2;--hue-2:#61aeee;--hue-3:#c678dd;--hue-4:#98c379;--hue-5:#e06c75;--hue-5-2:#be5046;--hue-6:#d19a66;--hue-6-2:#e6c07b}
+.hljs{
+  --base: #282c34;
+  --mono-1: #abb2bf;
+  --mono-2: #818896;
+  --mono-3: #5c6370;
+  --hue-1: #56b6c2;
+  --hue-2: #61aeee;
+  --hue-3: #c678dd;
+  --hue-4: #98c379;
+  --hue-5: #e06c75;
+  --hue-5-2: #be5046;
+  --hue-6: #d19a66;
+  --hue-6-2: #e6c07b;
+}
+}
+body:has(input[name=color-scheme][value=dark]:checked) .hljs{
+  --base: #282c34;
+  --mono-1: #abb2bf;
+  --mono-2: #818896;
+  --mono-3: #5c6370;
+  --hue-1: #56b6c2;
+  --hue-2: #61aeee;
+  --hue-3: #c678dd;
+  --hue-4: #98c379;
+  --hue-5: #e06c75;
+  --hue-5-2: #be5046;
+  --hue-6: #d19a66;
+  --hue-6-2: #e6c07b;
 }
 .hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;color:var(--mono-1,#383a42);background:#fafafa;background:var(--base,#fafafa)}
 .hljs-comment,.hljs-quote{color:#717277;color:var(--mono-3,#717277);font-style:italic}
@@ -183,7 +217,7 @@ var.respec-hl{background:0 0;color:#000;box-shadow:unset}
 }
 </style>
 <style>
-var{position:relative;cursor:pointer}
+var[data-type]{position:relative}
 var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
 var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#222}
 var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#222;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
@@ -255,29 +289,32 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "copyrightStart": "2024",
   "doJsonLd": true,
   "group": "kg-construct",
-  "publishISODate": "2026-03-16T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 16 March 2026"
+  "publishISODate": "2026-10-12T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 12 October 2026"
 }</script>
-<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft"></head>
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft">
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/dark.css" disabled=""></head>
 
-<body data-new-gr-c-s-check-loaded="14.1277.0" data-gr-ext-installed="" class="h-entry informative"><div class="head">
+<body class="h-entry informative"><div class="head">
     
     <h1 id="title" class="title">RML-LV: Test Cases</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2026-03-16">16 March 2026</time>
+      <time class="dt-published" datetime="2026-10-12">12 October 2026</time>
     </p>
     <dl>
       
       <dt>Latest published version:</dt><dd>
-              none
-            </dd>
+                none
+              </dd>
       <dt>Latest editor's draft:</dt><dd><a href="https://w3id.org/rml/lv/test-cases/">https://w3id.org/rml/lv/test-cases/</a></dd>
       
       
       <dt>Previous version:</dt><dd><a href="https://kg-construct.github.io/rml-lv/test-cases/docs/20260303/">https://kg-construct.github.io/rml-lv/test-cases/docs/20260303/</a></dd>
       
-      <dt>Editors:</dt><dd class="editor p-author h-card vcard">
+      <dt>
+                Editors:
+              </dt><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://modeldesk.io">Pano Maria</a><a class="p-name orcid" href="https://orcid.org/0009-0000-2598-1894"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
     <style>
 
@@ -303,7 +340,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </svg></a> (<a class="p-org org h-org" href="https://idlab.technology/">Ghent University – imec – IDLab</a>)
   </dd>
       
-      <dt>Authors:</dt><dd class="editor p-author h-card vcard">
+      <dt>
+                Authors:
+              </dt><dd class="editor p-author h-card vcard">
     <a class="u-url url p-name fn" href="https://modeldesk.io">Pano Maria</a><a class="p-name orcid" href="https://orcid.org/0009-0000-2598-1894"><svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
     <style>
 
@@ -338,18 +377,18 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     </dl>
     
     <p class="copyright">
-          <a href="https://www.w3.org/policies/#copyright">Copyright</a>
-          ©
-          2024-2026
-          
-          the Contributors to the RML-LV: Test Cases
-          Specification, published by the
-          <a href="https://www.w3.org/groups/cg/kg-construct">Knowledge Graph Construction Community Group</a> under the
-          <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>. A human-readable
-                <a href="https://www.w3.org/community/about/agreements/cla-deed/">summary</a>
-                is available.
-              
-        </p>
+            <a href="https://www.w3.org/policies/#copyright">Copyright</a>
+            ©
+            2024-2026
+            
+            the Contributors to the RML-LV: Test Cases
+            Specification, published by the
+            <a href="https://www.w3.org/groups/cg/kg-construct">Knowledge Graph Construction Community Group</a> under the
+            <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>. A human-readable
+                    <a href="https://www.w3.org/community/about/agreements/cla-deed/">summary</a>
+                    is available.
+                  
+          </p>
     <hr title="Separator for header">
   </div>
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
@@ -363,16 +402,16 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       <a href="https://www.w3.org/groups/cg/kg-construct">Knowledge Graph Construction Community Group</a>. It is not a W3C Standard nor is it
       on the W3C Standards Track.
       
-            Please note that under the
-            <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>
-            there is a limited opt-out and other conditions apply.
-          
+              Please note that under the
+              <a href="https://www.w3.org/community/about/agreements/cla/">W3C Community Contributor License Agreement (CLA)</a>
+              there is a limited opt-out and other conditions apply.
+            
       Learn more about
       <a href="https://www.w3.org/community/">W3C Community and Business Groups</a>.
     </p><p>
     <a href="https://github.com/kg-construct/rml-lv/issues/">GitHub Issues</a> are preferred for
-          discussion of this specification.
-        
+            discussion of this specification.
+          
     
   </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#data-model"><bdi class="secno">2. </bdi>Data model</a></li><li class="tocline"><a class="tocxref" href="#test-cases"><bdi class="secno">3. </bdi>Test cases</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0000a"><bdi class="secno">4. </bdi>RMLLVTC0000a</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0000b"><bdi class="secno">5. </bdi>RMLLVTC0000b</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0000c"><bdi class="secno">6. </bdi>RMLLVTC0000c</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0001a"><bdi class="secno">7. </bdi>RMLLVTC0001a</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0001b"><bdi class="secno">8. </bdi>RMLLVTC0001b</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0001c"><bdi class="secno">9. </bdi>RMLLVTC0001c</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0001d"><bdi class="secno">10. </bdi>RMLLVTC0001d</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0002a"><bdi class="secno">11. </bdi>RMLLVTC0002a</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0002b"><bdi class="secno">12. </bdi>RMLLVTC0002b</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0002c"><bdi class="secno">13. </bdi>RMLLVTC0002c</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0003a"><bdi class="secno">14. </bdi>RMLLVTC0003a</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0003b"><bdi class="secno">15. </bdi>RMLLVTC0003b</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0003c"><bdi class="secno">16. </bdi>RMLLVTC0003c</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0004a"><bdi class="secno">17. </bdi>RMLLVTC0004a</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0004b"><bdi class="secno">18. </bdi>RMLLVTC0004b</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0004c"><bdi class="secno">19. </bdi>RMLLVTC0004c</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0004d"><bdi class="secno">20. </bdi>RMLLVTC0004d</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0005a"><bdi class="secno">21. </bdi>RMLLVTC0005a</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0005b"><bdi class="secno">22. </bdi>RMLLVTC0005b</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0005c"><bdi class="secno">23. </bdi>RMLLVTC0005c</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0006a"><bdi class="secno">24. </bdi>RMLLVTC0006a</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0006b"><bdi class="secno">25. </bdi>RMLLVTC0006b</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0006c"><bdi class="secno">26. </bdi>RMLLVTC0006c</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0006d"><bdi class="secno">27. </bdi>RMLLVTC0006d</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0006e"><bdi class="secno">28. </bdi>RMLLVTC0006e</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0006f"><bdi class="secno">29. </bdi>RMLLVTC0006f</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0007a"><bdi class="secno">30. </bdi>RMLLVTC0007a</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0007b"><bdi class="secno">31. </bdi>RMLLVTC0007b</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0007c"><bdi class="secno">32. </bdi>RMLLVTC0007c</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0008a"><bdi class="secno">33. </bdi>RMLLVTC0008a</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0008b"><bdi class="secno">34. </bdi>RMLLVTC0008b</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0008c"><bdi class="secno">35. </bdi>RMLLVTC0008c</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0008d"><bdi class="secno">36. </bdi>RMLLVTC0008d</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0009a"><bdi class="secno">37. </bdi>RMLLVTC0009a</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0009b"><bdi class="secno">38. </bdi>RMLLVTC0009b</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0009c"><bdi class="secno">39. </bdi>RMLLVTC0009c</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0010a"><bdi class="secno">40. </bdi>RMLLVTC0010a</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0010b"><bdi class="secno">41. </bdi>RMLLVTC0010b</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0010c"><bdi class="secno">42. </bdi>RMLLVTC0010c</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0010d"><bdi class="secno">43. </bdi>RMLLVTC0010d</a></li><li class="tocline"><a class="tocxref" href="#RMLLVTC0010e"><bdi class="secno">44. </bdi>RMLLVTC0010e</a></li></ol></nav>
 
@@ -1978,7 +2017,7 @@ tobias,2005
     ] <span class="hljs-string">;</span>
     <span class="hljs-string">rml:field</span> [
       <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField</span> <span class="hljs-string">;</span>
-      <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"json_item"</span> <span class="hljs-string">;</span>
+      <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"jsonItem"</span> <span class="hljs-string">;</span>
       <span class="hljs-string">rml:reference</span> <span class="hljs-string">"item"</span> <span class="hljs-string">;</span>
     ] <span class="hljs-string">;</span>
   ] <span class="hljs-string">.</span>
@@ -1999,7 +2038,7 @@ tobias,2005
   <span class="hljs-string">rml:predicateObjectMap</span> [
     <span class="hljs-string">rml:predicate</span> <span class="hljs-string">:hasItem</span> <span class="hljs-string">;</span>
     <span class="hljs-string">rml:objectMap</span> [
-      <span class="hljs-string">rml:template</span> <span class="hljs-string">"http://example.org/person/{name}/item/{json_item}"</span> <span class="hljs-string">;</span>
+      <span class="hljs-string">rml:template</span> <span class="hljs-string">"http://example.org/person/{name}/item/{jsonItem}"</span> <span class="hljs-string">;</span>
     ] <span class="hljs-string">;</span>
   ] <span class="hljs-string">.</span>
 </code></pre>
@@ -2096,7 +2135,7 @@ tobias,2005
     ] ;
     rml:field [
       a rml:ExpressionField ;
-      rml:fieldName <span class="hljs-string">"json_item"</span> ;
+      rml:fieldName <span class="hljs-string">"jsonItem"</span> ;
       rml:reference <span class="hljs-string">"item"</span> ;
     ] ;
   ] .
@@ -2117,7 +2156,7 @@ tobias,2005
   rml:predicateObjectMap [
     rml:predicate :hasItem ;
     rml:objectMap [
-      rml:template <span class="hljs-string">"http://example.org/person/{name}/item/{json_item}"</span> ;
+      rml:template <span class="hljs-string">"http://example.org/person/{name}/item/{jsonItem}"</span> ;
     ] ;
   ] .
 </code></pre>
@@ -2241,7 +2280,7 @@ tobias,789
     ] <span class="hljs-string">;</span>
     <span class="hljs-string">rml:field</span> [
       <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField</span> <span class="hljs-string">;</span>
-      <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"json_item"</span> <span class="hljs-string">;</span>
+      <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"jsonItem"</span> <span class="hljs-string">;</span>
       <span class="hljs-string">rml:reference</span> <span class="hljs-string">"item"</span> <span class="hljs-string">;</span>
     ] <span class="hljs-string">;</span>
   ] <span class="hljs-string">;</span>
@@ -2253,7 +2292,7 @@ tobias,789
     ] <span class="hljs-string">;</span>
     <span class="hljs-string">rml:field</span> [
       <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField</span> <span class="hljs-string">;</span>
-      <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"csv2_id"</span> <span class="hljs-string">;</span>
+      <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"csv2Id"</span> <span class="hljs-string">;</span>
       <span class="hljs-string">rml:reference</span> <span class="hljs-string">"id"</span> <span class="hljs-string">;</span>
     ] <span class="hljs-string">;</span>
   ] <span class="hljs-string">.</span>
@@ -2262,7 +2301,7 @@ tobias,789
 <span class="hljs-string">:triplesMapPerson</span> <span class="hljs-string">a</span> <span class="hljs-string">rml:TriplesMap</span> <span class="hljs-string">;</span>
   <span class="hljs-string">rml:logicalSource</span> <span class="hljs-string">:csvView</span> <span class="hljs-string">;</span>
   <span class="hljs-string">rml:subjectMap</span> [
-    <span class="hljs-string">rml:template</span> <span class="hljs-string">"http://example.org/person/{csv2_id}"</span> <span class="hljs-string">;</span>
+    <span class="hljs-string">rml:template</span> <span class="hljs-string">"http://example.org/person/{csv2Id}"</span> <span class="hljs-string">;</span>
   ] <span class="hljs-string">;</span>
   <span class="hljs-string">rml:predicateObjectMap</span> [
     <span class="hljs-string">rml:predicate</span> <span class="hljs-string">:hasBirthYear</span> <span class="hljs-string">;</span>
@@ -2274,7 +2313,7 @@ tobias,789
   <span class="hljs-string">rml:predicateObjectMap</span> [
     <span class="hljs-string">rml:predicate</span> <span class="hljs-string">:hasItem</span> <span class="hljs-string">;</span>
     <span class="hljs-string">rml:objectMap</span> [
-      <span class="hljs-string">rml:template</span> <span class="hljs-string">"http://example.org/person/{csv2_id}/item/{json_item}"</span> <span class="hljs-string">;</span>
+      <span class="hljs-string">rml:template</span> <span class="hljs-string">"http://example.org/person/{csv2Id}/item/{jsonItem}"</span> <span class="hljs-string">;</span>
     ] <span class="hljs-string">;</span>
   ] <span class="hljs-string">.</span>
 </code></pre>
@@ -2399,7 +2438,7 @@ tobias,789
     ] <span class="hljs-string">;</span>
     <span class="hljs-string">rml:field</span> [
       <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField</span> <span class="hljs-string">;</span>
-      <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"json_item"</span> <span class="hljs-string">;</span>
+      <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"jsonItem"</span> <span class="hljs-string">;</span>
       <span class="hljs-string">rml:reference</span> <span class="hljs-string">"item"</span> <span class="hljs-string">;</span>
     ] <span class="hljs-string">;</span>
   ] <span class="hljs-string">;</span>
@@ -2411,7 +2450,7 @@ tobias,789
     ] <span class="hljs-string">;</span>
     <span class="hljs-string">rml:field</span> [
       <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField</span> <span class="hljs-string">;</span>
-      <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"csv2_id"</span> <span class="hljs-string">;</span>
+      <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"csv2Id"</span> <span class="hljs-string">;</span>
       <span class="hljs-string">rml:reference</span> <span class="hljs-string">"id"</span> <span class="hljs-string">;</span>
     ] <span class="hljs-string">;</span>
   ] <span class="hljs-string">.</span>
@@ -2420,7 +2459,7 @@ tobias,789
 <span class="hljs-string">:triplesMapPerson</span> <span class="hljs-string">a</span> <span class="hljs-string">rml:TriplesMap</span> <span class="hljs-string">;</span>
   <span class="hljs-string">rml:logicalSource</span> <span class="hljs-string">:csvView</span> <span class="hljs-string">;</span>
   <span class="hljs-string">rml:subjectMap</span> [
-    <span class="hljs-string">rml:template</span> <span class="hljs-string">"http://example.org/person/{csv2_id}"</span> <span class="hljs-string">;</span>
+    <span class="hljs-string">rml:template</span> <span class="hljs-string">"http://example.org/person/{csv2Id}"</span> <span class="hljs-string">;</span>
   ] <span class="hljs-string">;</span>
   <span class="hljs-string">rml:predicateObjectMap</span> [
     <span class="hljs-string">rml:predicate</span> <span class="hljs-string">:hasBirthYear</span> <span class="hljs-string">;</span>
@@ -2432,7 +2471,7 @@ tobias,789
   <span class="hljs-string">rml:predicateObjectMap</span> [
     <span class="hljs-string">rml:predicate</span> <span class="hljs-string">:hasItem</span> <span class="hljs-string">;</span>
     <span class="hljs-string">rml:objectMap</span> [
-      <span class="hljs-string">rml:template</span> <span class="hljs-string">"http://example.org/person/{csv2_id}/item/{json_item}"</span> <span class="hljs-string">;</span>
+      <span class="hljs-string">rml:template</span> <span class="hljs-string">"http://example.org/person/{csv2Id}/item/{jsonItem}"</span> <span class="hljs-string">;</span>
     ] <span class="hljs-string">;</span>
   ] <span class="hljs-string">.</span>
 </code></pre>
@@ -2554,7 +2593,7 @@ alice,123
     ] ;
     rml:field [
       a rml:ExpressionField ;
-      rml:fieldName <span class="hljs-string">"json_item"</span> ;
+      rml:fieldName <span class="hljs-string">"jsonItem"</span> ;
       rml:reference <span class="hljs-string">"item"</span> ;
     ] ;
   ] ;
@@ -2566,7 +2605,7 @@ alice,123
     ] ;
     rml:field [
       a rml:ExpressionField ;
-      rml:fieldName <span class="hljs-string">"csv2_id"</span> ;
+      rml:fieldName <span class="hljs-string">"csv2Id"</span> ;
       rml:reference <span class="hljs-string">"id"</span> ;
     ] ;
   ] .
@@ -2575,7 +2614,7 @@ alice,123
 :triplesMapPerson a rml:TriplesMap ;
   rml:logicalSource :csvView ;
   rml:subjectMap [
-    rml:template <span class="hljs-string">"http://example.org/person/{csv2_id}"</span> ;
+    rml:template <span class="hljs-string">"http://example.org/person/{csv2Id}"</span> ;
   ] ;
   rml:predicateObjectMap [
     rml:predicate :hasBirthYear ;
@@ -2587,7 +2626,7 @@ alice,123
   rml:predicateObjectMap [
     rml:predicate :hasItem ;
     rml:objectMap [
-      rml:template <span class="hljs-string">"http://example.org/person/{csv2_id}/item/{json_item}"</span> ;
+      rml:template <span class="hljs-string">"http://example.org/person/{csv2Id}/item/{jsonItem}"</span> ;
     ] ;
   ] .
 </code></pre>
@@ -2681,7 +2720,7 @@ bob,1999
     ] ;
     rml:field [
       a rml:ExpressionField ;
-      rml:fieldName <span class="hljs-string">"json_item"</span> ;
+      rml:fieldName <span class="hljs-string">"jsonItem"</span> ;
       rml:reference <span class="hljs-string">"item"</span> ;
     ] ;
   ] .
@@ -2702,7 +2741,7 @@ bob,1999
   rml:predicateObjectMap [
     rml:predicate :hasItem ;
     rml:objectMap [
-      rml:template <span class="hljs-string">"http://example.org/person/{#}/item/{json_item.#}/{json_item}"</span> ;
+      rml:template <span class="hljs-string">"http://example.org/person/{#}/item/{jsonItem.#}/{jsonItem}"</span> ;
     ] ;
   ] .
 </code></pre>
@@ -3061,7 +3100,7 @@ tobias,2005
     ] <span class="hljs-string">;</span>
     <span class="hljs-string">rml:field</span> [
       <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField</span> <span class="hljs-string">;</span>
-      <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"csv_birthyear"</span> <span class="hljs-string">;</span>
+      <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"csvBirthyear"</span> <span class="hljs-string">;</span>
       <span class="hljs-string">rml:reference</span> <span class="hljs-string">"birthyear"</span> <span class="hljs-string">;</span>
     ] <span class="hljs-string">;</span>
   ] <span class="hljs-string">.</span>
@@ -3094,7 +3133,7 @@ tobias,2005
     ] <span class="hljs-string">;</span>
     <span class="hljs-string">rml:field</span> [
       <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField</span> <span class="hljs-string">;</span>
-      <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"json_item"</span> <span class="hljs-string">;</span>
+      <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"jsonItem"</span> <span class="hljs-string">;</span>
       <span class="hljs-string">rml:reference</span> <span class="hljs-string">"item"</span> <span class="hljs-string">;</span>
     ] <span class="hljs-string">;</span>
   ] <span class="hljs-string">.</span>
@@ -3115,7 +3154,7 @@ tobias,2005
   <span class="hljs-string">rml:predicateObjectMap</span> [
     <span class="hljs-string">rml:predicate</span> <span class="hljs-string">:hasItem</span> <span class="hljs-string">;</span>
     <span class="hljs-string">rml:objectMap</span> [
-      <span class="hljs-string">rml:template</span> <span class="hljs-string">"http://example.org/person/{name}/item/{json_item}"</span> <span class="hljs-string">;</span>
+      <span class="hljs-string">rml:template</span> <span class="hljs-string">"http://example.org/person/{name}/item/{jsonItem}"</span> <span class="hljs-string">;</span>
     ] <span class="hljs-string">;</span>
   ] <span class="hljs-string">.</span>
 </code></pre>
@@ -3610,12 +3649,12 @@ tobias,2005
   <span class="hljs-string">rml:viewOn</span> <span class="hljs-string">:jsonSource;</span>
   <span class="hljs-string">rml:field</span> [
     <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField;</span>
-    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"json_name"</span><span class="hljs-string">;</span>
+    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"jsonName"</span><span class="hljs-string">;</span>
     <span class="hljs-string">rml:reference</span> <span class="hljs-string">"$.name"</span><span class="hljs-string">;</span>
   ]<span class="hljs-string">;</span>
   <span class="hljs-string">rml:field</span> [
     <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField;</span>
-    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"json_item"</span><span class="hljs-string">;</span>
+    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"jsonItem"</span><span class="hljs-string">;</span>
     <span class="hljs-string">rml:reference</span> <span class="hljs-string">"$.items[*]"</span><span class="hljs-string">;</span>
   ]<span class="hljs-string">.</span>
 
@@ -3631,40 +3670,40 @@ tobias,2005
   <span class="hljs-string">rml:viewOn</span> <span class="hljs-string">:csvSource;</span>
   <span class="hljs-string">rml:field</span> [
     <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField;</span>
-    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"csv_name"</span><span class="hljs-string">;</span>
+    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"csvName"</span><span class="hljs-string">;</span>
     <span class="hljs-string">rml:reference</span> <span class="hljs-string">"name"</span><span class="hljs-string">;</span>
   ]<span class="hljs-string">;</span>
   <span class="hljs-string">rml:field</span> [
     <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField;</span>
-    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"csv_birthyear"</span><span class="hljs-string">;</span>
+    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"csvBirthyear"</span><span class="hljs-string">;</span>
     <span class="hljs-string">rml:reference</span> <span class="hljs-string">"birthyear"</span><span class="hljs-string">;</span>
   ]<span class="hljs-string">;</span>
   <span class="hljs-string">rml:leftJoin</span> [
     <span class="hljs-string">rml:parentLogicalView</span> <span class="hljs-string">:jsonView;</span>
     <span class="hljs-string">rml:joinCondition</span> [
-      <span class="hljs-string">rml:parentMap</span> [ <span class="hljs-string">rml:reference</span> <span class="hljs-string">"json_name"</span> ]<span class="hljs-string">;</span>
-      <span class="hljs-string">rml:childMap</span> [ <span class="hljs-string">rml:reference</span> <span class="hljs-string">"csv_name"</span> ]<span class="hljs-string">;</span>
+      <span class="hljs-string">rml:parentMap</span> [ <span class="hljs-string">rml:reference</span> <span class="hljs-string">"jsonName"</span> ]<span class="hljs-string">;</span>
+      <span class="hljs-string">rml:childMap</span> [ <span class="hljs-string">rml:reference</span> <span class="hljs-string">"csvName"</span> ]<span class="hljs-string">;</span>
     ]<span class="hljs-string">;</span>
     <span class="hljs-string">rml:field</span> [
       <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField;</span>
-      <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"json_item"</span><span class="hljs-string">;</span>
-      <span class="hljs-string">rml:reference</span> <span class="hljs-string">"json_item"</span><span class="hljs-string">;</span>
+      <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"jsonItem"</span><span class="hljs-string">;</span>
+      <span class="hljs-string">rml:reference</span> <span class="hljs-string">"jsonItem"</span><span class="hljs-string">;</span>
     ]<span class="hljs-string">;</span>
   ]<span class="hljs-string">.</span>
 
 <span class="hljs-string">:triplesMapPerson</span> <span class="hljs-string">a</span> <span class="hljs-string">rml:TriplesMap;</span>
   <span class="hljs-string">rml:logicalSource</span> <span class="hljs-string">:csvView;</span>
-  <span class="hljs-string">rml:subjectMap</span> [ <span class="hljs-string">rml:template</span> <span class="hljs-string">"http://example.org/person/{csv_name}"</span> ]<span class="hljs-string">;</span>
+  <span class="hljs-string">rml:subjectMap</span> [ <span class="hljs-string">rml:template</span> <span class="hljs-string">"http://example.org/person/{csvName}"</span> ]<span class="hljs-string">;</span>
   <span class="hljs-string">rml:predicateObjectMap</span> [
     <span class="hljs-string">rml:predicate</span> <span class="hljs-string">:hasBirthYear;</span>
     <span class="hljs-string">rml:objectMap</span> [
-      <span class="hljs-string">rml:reference</span> <span class="hljs-string">"csv_birthyear"</span><span class="hljs-string">;</span>
+      <span class="hljs-string">rml:reference</span> <span class="hljs-string">"csvBirthyear"</span><span class="hljs-string">;</span>
       <span class="hljs-string">rml:datatype</span> <span class="hljs-string">xsd:gYear;</span>
     ]<span class="hljs-string">;</span>
   ]<span class="hljs-string">;</span>
   <span class="hljs-string">rml:predicateObjectMap</span> [
     <span class="hljs-string">rml:predicate</span> <span class="hljs-string">:hasItem;</span>
-    <span class="hljs-string">rml:objectMap</span> [ <span class="hljs-string">rml:template</span> <span class="hljs-string">"http://example.org/person/{csv_name}/item/{json_item}"</span> ]<span class="hljs-string">;</span>
+    <span class="hljs-string">rml:objectMap</span> [ <span class="hljs-string">rml:template</span> <span class="hljs-string">"http://example.org/person/{csvName}/item/{jsonItem}"</span> ]<span class="hljs-string">;</span>
   ]<span class="hljs-string">.</span>
 
 </code></pre>
@@ -3730,17 +3769,17 @@ tobias,2005
   rml:viewOn :jsonSource;
   rml:field [
     a rml:ExpressionField;
-    rml:fieldName <span class="hljs-string">"json_name"</span>;
+    rml:fieldName <span class="hljs-string">"jsonName"</span>;
     rml:reference <span class="hljs-string">"$.name"</span>;
   ];
   rml:field [
     a rml:ExpressionField;
-    rml:fieldName <span class="hljs-string">"json_race"</span>;
+    rml:fieldName <span class="hljs-string">"jsonRace"</span>;
     rml:reference <span class="hljs-string">"$.race"</span>;
   ];
   rml:field [
     a rml:ExpressionField;
-    rml:fieldName <span class="hljs-string">"json_item"</span>;
+    rml:fieldName <span class="hljs-string">"jsonItem"</span>;
     rml:reference <span class="hljs-string">"$.items[*]"</span>;
   ].
 
@@ -3756,44 +3795,44 @@ tobias,2005
   rml:viewOn :csvSource;
   rml:field [
     a rml:ExpressionField;
-    rml:fieldName <span class="hljs-string">"csv_name"</span>;
+    rml:fieldName <span class="hljs-string">"csvName"</span>;
     rml:reference <span class="hljs-string">"name"</span>;
   ];
   rml:field [
     a rml:ExpressionField;
-    rml:fieldName <span class="hljs-string">"csv_birthyear"</span>;
+    rml:fieldName <span class="hljs-string">"csvBirthyear"</span>;
     rml:reference <span class="hljs-string">"birthyear"</span>;
   ];
   rml:innerJoin [
     rml:parentLogicalView :jsonView;
     rml:joinCondition [
-      rml:parentMap [ rml:reference <span class="hljs-string">"json_race"</span> ];
+      rml:parentMap [ rml:reference <span class="hljs-string">"jsonRace"</span> ];
       rml:childMap [ rml:constant <span class="hljs-string">"human"</span> ];
     ];
     rml:joinCondition [
-      rml:parentMap [ rml:reference <span class="hljs-string">"json_name"</span> ];
-      rml:childMap [ rml:reference <span class="hljs-string">"csv_name"</span> ];
+      rml:parentMap [ rml:reference <span class="hljs-string">"jsonName"</span> ];
+      rml:childMap [ rml:reference <span class="hljs-string">"csvName"</span> ];
     ];
     rml:field [
       a rml:ExpressionField;
-      rml:fieldName <span class="hljs-string">"json_item"</span>;
-      rml:reference <span class="hljs-string">"json_item"</span>;
+      rml:fieldName <span class="hljs-string">"jsonItem"</span>;
+      rml:reference <span class="hljs-string">"jsonItem"</span>;
     ];
   ].
 
 :triplesMapPerson a rml:TriplesMap;
   rml:logicalSource :csvView;
-  rml:subjectMap [ rml:template <span class="hljs-string">"http://example.org/person/{csv_name}"</span> ];
+  rml:subjectMap [ rml:template <span class="hljs-string">"http://example.org/person/{csvName}"</span> ];
   rml:predicateObjectMap [
     rml:predicate :hasBirthYear;
     rml:objectMap [
-      rml:reference <span class="hljs-string">"csv_birthyear"</span>;
+      rml:reference <span class="hljs-string">"csvBirthyear"</span>;
       rml:datatype xsd:gYear;
     ];
   ];
   rml:predicateObjectMap [
     rml:predicate :hasItem;
-    rml:objectMap [ rml:template <span class="hljs-string">"http://example.org/person/{csv_name}/item/{json_item}"</span> ];
+    rml:objectMap [ rml:template <span class="hljs-string">"http://example.org/person/{csvName}/item/{jsonItem}"</span> ];
   ].
 
 </code></pre>
@@ -3853,17 +3892,17 @@ tobias brown,2005
   <span class="hljs-string">rml:viewOn</span> <span class="hljs-string">:jsonSource;</span>
   <span class="hljs-string">rml:field</span> [
     <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField;</span>
-    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"json_first_name"</span><span class="hljs-string">;</span>
+    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"jsonFirstName"</span><span class="hljs-string">;</span>
     <span class="hljs-string">rml:reference</span> <span class="hljs-string">"$.firstName"</span><span class="hljs-string">;</span>
   ]<span class="hljs-string">;</span>
   <span class="hljs-string">rml:field</span> [
     <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField;</span>
-    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"json_last_name"</span><span class="hljs-string">;</span>
+    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"jsonLastName"</span><span class="hljs-string">;</span>
     <span class="hljs-string">rml:reference</span> <span class="hljs-string">"$.lastName"</span><span class="hljs-string">;</span>
   ]<span class="hljs-string">;</span>
   <span class="hljs-string">rml:field</span> [
     <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField;</span>
-    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"json_item"</span><span class="hljs-string">;</span>
+    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"jsonItem"</span><span class="hljs-string">;</span>
     <span class="hljs-string">rml:reference</span> <span class="hljs-string">"$.items[*]"</span><span class="hljs-string">;</span>
   ]<span class="hljs-string">.</span>
 
@@ -3879,40 +3918,40 @@ tobias brown,2005
   <span class="hljs-string">rml:viewOn</span> <span class="hljs-string">:csvSource;</span>
   <span class="hljs-string">rml:field</span> [
     <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField;</span>
-    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"csv_name"</span><span class="hljs-string">;</span>
+    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"csvName"</span><span class="hljs-string">;</span>
     <span class="hljs-string">rml:reference</span> <span class="hljs-string">"name"</span><span class="hljs-string">;</span>
   ]<span class="hljs-string">;</span>
   <span class="hljs-string">rml:field</span> [
     <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField;</span>
-    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"csv_birthyear"</span><span class="hljs-string">;</span>
+    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"csvBirthyear"</span><span class="hljs-string">;</span>
     <span class="hljs-string">rml:reference</span> <span class="hljs-string">"birthyear"</span><span class="hljs-string">;</span>
   ]<span class="hljs-string">;</span>
   <span class="hljs-string">rml:leftJoin</span> [
     <span class="hljs-string">rml:parentLogicalView</span> <span class="hljs-string">:jsonView;</span>
     <span class="hljs-string">rml:joinCondition</span> [
-      <span class="hljs-string">rml:parentMap</span> [ <span class="hljs-string">rml:template</span> <span class="hljs-string">"{json_first_name} {json_last_name}"</span> ]<span class="hljs-string">;</span>
-      <span class="hljs-string">rml:childMap</span> [ <span class="hljs-string">rml:reference</span> <span class="hljs-string">"csv_name"</span> ]<span class="hljs-string">;</span>
+      <span class="hljs-string">rml:parentMap</span> [ <span class="hljs-string">rml:template</span> <span class="hljs-string">"{jsonFirstName} {jsonLastName}"</span> ]<span class="hljs-string">;</span>
+      <span class="hljs-string">rml:childMap</span> [ <span class="hljs-string">rml:reference</span> <span class="hljs-string">"csvName"</span> ]<span class="hljs-string">;</span>
     ]<span class="hljs-string">;</span>
     <span class="hljs-string">rml:field</span> [
       <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField;</span>
-      <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"json_item"</span><span class="hljs-string">;</span>
-      <span class="hljs-string">rml:reference</span> <span class="hljs-string">"json_item"</span><span class="hljs-string">;</span>
+      <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"jsonItem"</span><span class="hljs-string">;</span>
+      <span class="hljs-string">rml:reference</span> <span class="hljs-string">"jsonItem"</span><span class="hljs-string">;</span>
     ]<span class="hljs-string">;</span>
   ]<span class="hljs-string">.</span>
 
 <span class="hljs-string">:triplesMapPerson</span> <span class="hljs-string">a</span> <span class="hljs-string">rml:TriplesMap;</span>
   <span class="hljs-string">rml:logicalSource</span> <span class="hljs-string">:csvView;</span>
-  <span class="hljs-string">rml:subjectMap</span> [ <span class="hljs-string">rml:template</span> <span class="hljs-string">"http://example.org/person/{csv_name}"</span> ]<span class="hljs-string">;</span>
+  <span class="hljs-string">rml:subjectMap</span> [ <span class="hljs-string">rml:template</span> <span class="hljs-string">"http://example.org/person/{csvName}"</span> ]<span class="hljs-string">;</span>
   <span class="hljs-string">rml:predicateObjectMap</span> [
     <span class="hljs-string">rml:predicate</span> <span class="hljs-string">:hasBirthYear;</span>
     <span class="hljs-string">rml:objectMap</span> [
-      <span class="hljs-string">rml:reference</span> <span class="hljs-string">"csv_birthyear"</span><span class="hljs-string">;</span>
+      <span class="hljs-string">rml:reference</span> <span class="hljs-string">"csvBirthyear"</span><span class="hljs-string">;</span>
       <span class="hljs-string">rml:datatype</span> <span class="hljs-string">xsd:gYear;</span>
     ]<span class="hljs-string">;</span>
   ]<span class="hljs-string">;</span>
   <span class="hljs-string">rml:predicateObjectMap</span> [
     <span class="hljs-string">rml:predicate</span> <span class="hljs-string">:hasItem;</span>
-    <span class="hljs-string">rml:objectMap</span> [ <span class="hljs-string">rml:template</span> <span class="hljs-string">"http://example.org/person/{csv_name}/item/{json_item}"</span> ]<span class="hljs-string">;</span>
+    <span class="hljs-string">rml:objectMap</span> [ <span class="hljs-string">rml:template</span> <span class="hljs-string">"http://example.org/person/{csvName}/item/{jsonItem}"</span> ]<span class="hljs-string">;</span>
   ]<span class="hljs-string">.</span>
 
 </code></pre>
@@ -3974,12 +4013,12 @@ tobias,2005
   <span class="hljs-string">rml:viewOn</span> <span class="hljs-string">:jsonSource;</span>
   <span class="hljs-string">rml:field</span> [
     <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField;</span>
-    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"json_first_name"</span><span class="hljs-string">;</span>
+    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"jsonFirstName"</span><span class="hljs-string">;</span>
     <span class="hljs-string">rml:reference</span> <span class="hljs-string">"$.firstName"</span><span class="hljs-string">;</span>
   ]<span class="hljs-string">;</span>
   <span class="hljs-string">rml:field</span> [
     <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField;</span>
-    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"json_last_name"</span><span class="hljs-string">;</span>
+    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"jsonLastName"</span><span class="hljs-string">;</span>
     <span class="hljs-string">rml:reference</span> <span class="hljs-string">"$.lastName"</span><span class="hljs-string">;</span>
   ]<span class="hljs-string">.</span>
 
@@ -3995,34 +4034,34 @@ tobias,2005
   <span class="hljs-string">rml:viewOn</span> <span class="hljs-string">:csvSource;</span>
   <span class="hljs-string">rml:field</span> [
     <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField;</span>
-    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"csv_name"</span><span class="hljs-string">;</span>
+    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"csvName"</span><span class="hljs-string">;</span>
     <span class="hljs-string">rml:reference</span> <span class="hljs-string">"name"</span><span class="hljs-string">;</span>
   ]<span class="hljs-string">;</span>
   <span class="hljs-string">rml:field</span> [
     <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField;</span>
-    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"csv_birthyear"</span><span class="hljs-string">;</span>
+    <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"csvBirthyear"</span><span class="hljs-string">;</span>
     <span class="hljs-string">rml:reference</span> <span class="hljs-string">"birthyear"</span><span class="hljs-string">;</span>
   ]<span class="hljs-string">;</span>
   <span class="hljs-string">rml:leftJoin</span> [
     <span class="hljs-string">rml:parentLogicalView</span> <span class="hljs-string">:jsonView;</span>
     <span class="hljs-string">rml:joinCondition</span> [
-      <span class="hljs-string">rml:parent</span> <span class="hljs-string">"json_first_name"</span><span class="hljs-string">;</span>
-      <span class="hljs-string">rml:child</span> <span class="hljs-string">"csv_name"</span><span class="hljs-string">;</span>
+      <span class="hljs-string">rml:parent</span> <span class="hljs-string">"jsonFirstName"</span><span class="hljs-string">;</span>
+      <span class="hljs-string">rml:child</span> <span class="hljs-string">"csvName"</span><span class="hljs-string">;</span>
     ]<span class="hljs-string">;</span>
     <span class="hljs-string">rml:field</span> [
       <span class="hljs-string">a</span> <span class="hljs-string">rml:ExpressionField;</span>
-      <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"json_full_name"</span><span class="hljs-string">;</span>
-      <span class="hljs-string">rml:template</span> <span class="hljs-string">"{json_first_name} {json_last_name}"</span><span class="hljs-string">;</span>
+      <span class="hljs-string">rml:fieldName</span> <span class="hljs-string">"jsonFullName"</span><span class="hljs-string">;</span>
+      <span class="hljs-string">rml:template</span> <span class="hljs-string">"{jsonFirstName} {jsonLastName}"</span><span class="hljs-string">;</span>
     ]<span class="hljs-string">;</span>
   ]<span class="hljs-string">.</span>
 
 <span class="hljs-string">:triplesMapPerson</span> <span class="hljs-string">a</span> <span class="hljs-string">rml:TriplesMap;</span>
   <span class="hljs-string">rml:logicalSource</span> <span class="hljs-string">:csvView;</span>
-  <span class="hljs-string">rml:subjectMap</span> [ <span class="hljs-string">rml:template</span> <span class="hljs-string">"http://example.org/person/{json_full_name}"</span> ]<span class="hljs-string">;</span>
+  <span class="hljs-string">rml:subjectMap</span> [ <span class="hljs-string">rml:template</span> <span class="hljs-string">"http://example.org/person/{jsonFullName}"</span> ]<span class="hljs-string">;</span>
   <span class="hljs-string">rml:predicateObjectMap</span> [
     <span class="hljs-string">rml:predicate</span> <span class="hljs-string">:hasBirthYear;</span>
     <span class="hljs-string">rml:objectMap</span> [
-      <span class="hljs-string">rml:reference</span> <span class="hljs-string">"csv_birthyear"</span><span class="hljs-string">;</span>
+      <span class="hljs-string">rml:reference</span> <span class="hljs-string">"csvBirthyear"</span><span class="hljs-string">;</span>
       <span class="hljs-string">rml:datatype</span> <span class="hljs-string">xsd:gYear;</span>
     ]<span class="hljs-string">;</span>
   ]<span class="hljs-string">.</span>
@@ -4080,7 +4119,7 @@ tobias,2005
   rml:viewOn :jsonSource;
   rml:field [
     a rml:ExpressionField;
-    rml:fieldName <span class="hljs-string">"json_name"</span>;
+    rml:fieldName <span class="hljs-string">"jsonName"</span>;
     rml:reference <span class="hljs-string">"$.name"</span>;
   ];
 .
@@ -4097,19 +4136,19 @@ tobias,2005
   rml:viewOn :csvSource;
   rml:field [
     a rml:ExpressionField;
-    rml:fieldName <span class="hljs-string">"csv_name"</span>;
+    rml:fieldName <span class="hljs-string">"csvName"</span>;
     rml:reference <span class="hljs-string">"name"</span>;
   ];
   rml:field [
     a rml:ExpressionField;
-    rml:fieldName <span class="hljs-string">"csv_birthyear"</span>;
+    rml:fieldName <span class="hljs-string">"csvBirthyear"</span>;
     rml:reference <span class="hljs-string">"birthyear"</span>;
   ];
   rml:innerJoin [
     rml:parentLogicalView :jsonView;
     rml:joinCondition [
-      rml:parentMap [ rml:reference <span class="hljs-string">"json_name"</span> ];
-      rml:childMap [ rml:reference <span class="hljs-string">"csv_name"</span> ];
+      rml:parentMap [ rml:reference <span class="hljs-string">"jsonName"</span> ];
+      rml:childMap [ rml:reference <span class="hljs-string">"csvName"</span> ];
     ];
     rml:field [
       a rml:ExpressionField;
@@ -4120,7 +4159,7 @@ tobias,2005
 
 :triplesMapPerson a rml:TriplesMap;
   rml:logicalSource :csvView;
-  rml:subjectMap [ rml:template <span class="hljs-string">"http://example.org/person/{csv_name}"</span> ];
+  rml:subjectMap [ rml:template <span class="hljs-string">"http://example.org/person/{csvName}"</span> ];
   rml:predicateObjectMap [
     rml:predicate :hasStatus;
     rml:objectMap [ rml:reference <span class="hljs-string">"status"</span> ];
@@ -4152,9 +4191,12 @@ function setupVarHighlighter() {
     .forEach(varElem => varElem.addEventListener("click", highlightListener));
 }
 
+/**
+ * @param {MouseEvent} ev
+ */
 function highlightListener(ev) {
   ev.stopPropagation();
-  const { target: varElem } = ev;
+  const varElem = /** @type {HTMLElement} */ (ev.target);
   const hightligtedElems = highlightVars(varElem);
   const resetListener = () => {
     const hlColor = getHighlightColor(varElem);
@@ -4177,6 +4219,9 @@ const HL_COLORS = new Map([
   ["respec-hl-c7", true],
 ]);
 
+/**
+ * @param {HTMLElement} target
+ */
 function getHighlightColor(target) {
   // return current colors if applicable
   const { value } = target.classList;
@@ -4191,9 +4236,15 @@ function getHighlightColor(target) {
   return [...HL_COLORS.keys()].find(c => HL_COLORS.get(c)) || "respec-hl-c1";
 }
 
+/**
+ * @param {HTMLElement} varElem
+ */
 function highlightVars(varElem) {
   const textContent = norm(varElem.textContent);
-  const parent = varElem.closest(".algorithm, section");
+  const parent = /** @type {HTMLElement} */ (
+    varElem.closest(".algorithm, section")
+  );
+  if (!parent) return [];
   const highlightColor = getHighlightColor(varElem);
 
   const varsToHighlight = [...parent.querySelectorAll("var")].filter(
@@ -4216,12 +4267,20 @@ function highlightVars(varElem) {
   return varsToHighlight;
 }
 
+/**
+ * @param {HTMLElement} el
+ * @param {string} highlightColor
+ */
 function removeHighlight(el, highlightColor) {
   el.classList.remove("respec-hl", highlightColor);
   // clean up empty class attributes so they don't come in export
   if (!el.classList.length) el.removeAttribute("class");
 }
 
+/**
+ * @param {HTMLElement} elem
+ * @param {string} highlightColor
+ */
 function addHighlight(elem, highlightColor) {
   elem.classList.add("respec-hl", highlightColor);
 }
@@ -4249,8 +4308,11 @@ function setupPanel() {
 }
 
 function panelListener() {
-  /** @type {HTMLElement} */
+  /** @type {HTMLElement | null} */
   let panel = null;
+  /**
+   * @param {KeyboardEvent|MouseEvent} event
+   */
   return event => {
     const { target, type } = event;
 
@@ -4258,24 +4320,34 @@ function panelListener() {
 
     // For keys, we only care about Enter key to activate the panel
     // otherwise it's activated via a click.
-    if (type === "keydown" && event.key !== "Enter") return;
+    if (
+      type === "keydown" &&
+      /** @type {KeyboardEvent} */ (event).key !== "Enter"
+    )
+      return;
 
     const action = deriveAction(event);
 
     switch (action) {
       case "show": {
         hidePanel(panel);
-        /** @type {HTMLElement} */
+        /** @type {HTMLElement | null} */
         const dfn = target.closest("dfn, .index-term");
+        if (!dfn?.id) break;
         panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
-        const coords = deriveCoordinates(event);
+        if (!panel) break;
+        const coords = deriveCoordinates(
+          /** @type {MouseEvent|KeyboardEvent} */ (event)
+        );
         displayPanel(dfn, panel, coords);
         break;
       }
       case "dock": {
-        panel.style.left = null;
-        panel.style.top = null;
-        panel.classList.add("docked");
+        if (panel) {
+          panel.style.left = "";
+          panel.style.top = "";
+          panel.classList.add("docked");
+        }
         break;
       }
       case "hide": {
@@ -4326,7 +4398,8 @@ function deriveAction(event) {
     if (hitALink) {
       return target.classList.contains("self-link") ? "hide" : "dock";
     }
-    const panel = target.closest(".dfn-panel");
+
+    const panel = /** @type {HTMLElement} */ (target.closest(".dfn-panel"));
     return panel.classList.contains("docked") ? "hide" : "none";
   }
   if (document.querySelector(".dfn-panel:not([hidden])")) {
@@ -4370,9 +4443,9 @@ function displayPanel(dfn, panel, { x, y }) {
     const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
     const newCaretOffset = left - newLeft;
     panel.style.left = `${newLeft}px`;
-    /** @type {HTMLElement} */
+    /** @type {HTMLElement | null} */
     const caret = panel.querySelector(".caret");
-    caret.style.left = `${newCaretOffset}px`;
+    if (caret) caret.style.left = `${newCaretOffset}px`;
   }
 
   // As it's a dialog, we trap focus.
@@ -4421,6 +4494,9 @@ function trapFocus(panel, dfn) {
 function createTrapListener(anchors, panel, dfn) {
   const lastIndex = anchors.length - 1;
   let currentIndex = 0;
+  /**
+   * @param {KeyboardEvent} event
+   */
   return event => {
     switch (event.key) {
       // Hitting "Tab" traps us in a nice loop around elements.
@@ -4450,10 +4526,10 @@ function createTrapListener(anchors, panel, dfn) {
   };
 }
 
-/** @param {HTMLElement} panel */
+/** @param {HTMLElement | null} panel */
 function hidePanel(panel) {
   if (!panel) return;
   panel.hidden = true;
   panel.classList.remove("docked");
 }
-})()</script><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
+})()</script><script src="https://www.w3.org/scripts/TR/2021/fixup.js"></script></body></html>

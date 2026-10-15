@@ -1,5 +1,8 @@
 async function loadTurtle() {
   //this is the function you call in 'preProcess', to load the highlighter
+  // ReSpec >= v36 no longer exposes the AMD `require`, so the worker can't be reached:
+  // skip loading the Turtle highlighter instead of breaking the whole pipeline.
+  if (typeof require !== "function") return;
   const worker = await new Promise(resolve => {
     require(["core/worker"], ({ worker }) => resolve(worker));
   });
@@ -20,9 +23,38 @@ async function loadTurtle() {
   });
 }
 
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = src;
+    script.onload = resolve;
+    script.onerror = () => reject(new Error(`Failed to load ${src}`));
+    document.head.appendChild(script);
+  });
+}
+
+async function highlightTurtle() {
+  // ReSpec >= v36 can't load extra highlight languages (see loadTurtle), so the Turtle
+  // blocks are highlighted here, in the page itself, after ReSpec is done.
+  const blocks = document.querySelectorAll("pre code.turtle, pre.turtle:not(:has(code))");
+  if (!blocks.length) return;
+  if (!window.hljs) {
+    await loadScript("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js");
+  }
+  if (!hljs.getLanguage("turtle")) {
+    await loadScript("https://cdn.jsdelivr.net/gh/redmer/highlightjs-turtle@v2.1.0/src/languages/turtle.js");
+    hljs.registerLanguage("turtle", hljsDefineTurtle);
+  }
+  for (const block of blocks) {
+    block.innerHTML = hljs.highlight(block.textContent, { language: "turtle" }).value;
+    block.classList.add("hljs");
+  }
+}
+
 var respecConfig = {
   // check https://respec.org/docs/ for the meaning of these keys
   preProcess: [loadTurtle],
+  postProcess: [highlightTurtle],
   authors: [
      {
               name: "Pano Maria",

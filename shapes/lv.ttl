@@ -98,13 +98,14 @@ rmlsh:FieldShape a sh:NodeShape ;
         The name of the field.
         """ ;
         sh:message """
-        Exactly one rml:fieldName property must be specified for a rml:Field, with a string as its value.
+        Exactly one rml:fieldName property must be specified for a rml:Field, with a string as its value. Only alphanumeric characters are allowed.
         """ ;
         sh:path rml:fieldName ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
         sh:nodeKind sh:Literal ;
+        sh:pattern "^[A-Za-z0-9]+$" ;
     ] , [
         sh:description """
         A child field of the field.

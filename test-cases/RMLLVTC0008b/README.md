@@ -72,7 +72,7 @@ tobias,2005
     ] ;
     rml:field [
       a rml:ExpressionField ;
-      rml:fieldName "csv_birthyear" ;
+      rml:fieldName "csvBirthyear" ;
       rml:reference "birthyear" ;
     ] ;
   ] .
@@ -105,7 +105,7 @@ tobias,2005
     ] ;
     rml:field [
       a rml:ExpressionField ;
-      rml:fieldName "json_item" ;
+      rml:fieldName "jsonItem" ;
       rml:reference "item" ;
     ] ;
   ] .
@@ -126,7 +126,7 @@ tobias,2005
   rml:predicateObjectMap [
     rml:predicate :hasItem ;
     rml:objectMap [
-      rml:template "http://example.org/person/{name}/item/{json_item}" ;
+      rml:template "http://example.org/person/{name}/item/{jsonItem}" ;
     ] ;
   ] .
 
