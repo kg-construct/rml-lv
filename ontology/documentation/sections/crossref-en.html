@@ -6,12 +6,12 @@ This section provides details for each class and property defined by RML Logical
   <li><a href="#ExpressionField" title="http://w3id.org/rml/ExpressionField">Expression Field</a></li>
   <li><a href="#Field" title="http://w3id.org/rml/Field">Field</a></li>
   <li><a href="#ForeignKeyAnnotation" title="http://w3id.org/rml/ForeignKeyAnnotation">Foreign Key Annotation</a></li>
-  <li><a href="#InclusionDependencyAnnotation" title="http://w3id.org/rml/InclusionDependencyAnnotation">Inclusion Dependency Annotation</a></li>
-  <li><a href="#IRISafeAnnotation" title="http://w3id.org/rml/IRISafeAnnotation">IRI Safe Annotation</a></li>
+  <li><a href="#InclusionAnnotation" title="http://w3id.org/rml/InclusionAnnotation">Inclusion Annotation</a></li>
+  <li><a href="#IriSafeAnnotation" title="http://w3id.org/rml/IriSafeAnnotation">IRI Safe Annotation</a></li>
   <li><a href="#IterableField" title="http://w3id.org/rml/IterableField">Iterable Field</a></li>
   <li><a href="#LogicalView" title="http://w3id.org/rml/LogicalView">Logical View</a></li>
   <li><a href="#LogicalViewJoin" title="http://w3id.org/rml/LogicalViewJoin">Logical View Join</a></li>
-  <li><a href="#NonNullableAnnotation" title="http://w3id.org/rml/NonNullableAnnotation">Non Nullable Annotation</a></li>
+  <li><a href="#NotNullAnnotation" title="http://w3id.org/rml/NotNullAnnotation">Not Null Annotation</a></li>
   <li><a href="#PrimaryKeyAnnotation" title="http://w3id.org/rml/PrimaryKeyAnnotation">Primary Key Annotation</a></li>
   <li><a href="#StructuralAnnotation" title="http://w3id.org/rml/StructuralAnnotation">Structural Annotation</a></li>
   <li><a href="#UniqueAnnotation" title="http://w3id.org/rml/UniqueAnnotation">Unique Annotation</a></li>
@@ -93,13 +93,13 @@ This section provides details for each class and property defined by RML Logical
     has super-classes
    </dt>
    <dd>
-    <a href="#InclusionDependencyAnnotation" title="http://w3id.org/rml/InclusionDependencyAnnotation">Inclusion Dependency Annotation</a> <sup class="type-c" title="class">c</sup>
+    <a href="#InclusionAnnotation" title="http://w3id.org/rml/InclusionAnnotation">Inclusion Annotation</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
- <div class="entity" id="InclusionDependencyAnnotation">
-  <h3>Inclusion Dependency Annotation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> http://w3id.org/rml/InclusionDependencyAnnotation</p>
+ <div class="entity" id="InclusionAnnotation">
+  <h3>Inclusion Annotation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/InclusionAnnotation</p>
   <div class="comment">
    <span class="markdown">An inclusion dependency annotation is analogous to the notion of inclusion dependency in databases.</span>
   </div>
@@ -132,9 +132,9 @@ This section provides details for each class and property defined by RML Logical
    </dd>
   </dl>
  </div>
- <div class="entity" id="IRISafeAnnotation">
+ <div class="entity" id="IriSafeAnnotation">
   <h3>IRI Safe Annotation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> http://w3id.org/rml/IRISafeAnnotation</p>
+  <p><strong>IRI:</strong> http://w3id.org/rml/IriSafeAnnotation</p>
   <div class="comment">
    <span class="markdown">A IRI safe annotation indicates that the field content is IRI safe.</span>
   </div>
@@ -242,9 +242,9 @@ This section provides details for each class and property defined by RML Logical
    </dd>
   </dl>
  </div>
- <div class="entity" id="NonNullableAnnotation">
-  <h3>Non Nullable Annotation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> http://w3id.org/rml/NonNullableAnnotation</p>
+ <div class="entity" id="NotNullAnnotation">
+  <h3>Not Null Annotation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/NotNullAnnotation</p>
   <div class="comment">
    <span class="markdown">A non nullable annotation is analogous to the notion of NOT NULL constraints in databases.</span>
   </div>
@@ -290,7 +290,7 @@ This section provides details for each class and property defined by RML Logical
     has super-classes
    </dt>
    <dd>
-    <a href="#NonNullableAnnotation" title="http://w3id.org/rml/NonNullableAnnotation">Non Nullable Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#UniqueAnnotation" title="http://w3id.org/rml/UniqueAnnotation">Unique Annotation</a> <sup class="type-c" title="class">c</sup>
+    <a href="#NotNullAnnotation" title="http://w3id.org/rml/NotNullAnnotation">Not Null Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#UniqueAnnotation" title="http://w3id.org/rml/UniqueAnnotation">Unique Annotation</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
@@ -313,7 +313,7 @@ This section provides details for each class and property defined by RML Logical
     has sub-classes
    </dt>
    <dd>
-    <a href="#IRISafeAnnotation" title="http://w3id.org/rml/IRISafeAnnotation">IRI Safe Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#InclusionDependencyAnnotation" title="http://w3id.org/rml/InclusionDependencyAnnotation">Inclusion Dependency Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#NonNullableAnnotation" title="http://w3id.org/rml/NonNullableAnnotation">Non Nullable Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#UniqueAnnotation" title="http://w3id.org/rml/UniqueAnnotation">Unique Annotation</a> <sup class="type-c" title="class">c</sup>
+    <a href="#IriSafeAnnotation" title="http://w3id.org/rml/IriSafeAnnotation">IRI Safe Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#InclusionAnnotation" title="http://w3id.org/rml/InclusionAnnotation">Inclusion Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#NotNullAnnotation" title="http://w3id.org/rml/NotNullAnnotation">Not Null Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#UniqueAnnotation" title="http://w3id.org/rml/UniqueAnnotation">Unique Annotation</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in domain of
@@ -608,7 +608,7 @@ This section provides details for each class and property defined by RML Logical
      has domain
     </dt>
     <dd>
-     <a href="#InclusionDependencyAnnotation" title="http://w3id.org/rml/InclusionDependencyAnnotation">Inclusion Dependency Annotation</a> <sup class="type-c" title="class">c</sup>
+     <a href="#InclusionAnnotation" title="http://w3id.org/rml/InclusionAnnotation">Inclusion Annotation</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range
