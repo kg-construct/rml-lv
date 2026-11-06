@@ -12,9 +12,9 @@ Following [=structural annotations=] MAY be defined:
 - [=Unique annotation=] (`rml:UniqueAnnotation`)
 - [=ForeignKey annotation=] (`rml:ForeignKeyAnnotation`)
 - [=NotNull annotation=] (`rml:NotNullAnnotation`)
-- [=IriSafe annotation=] (`rml:IriSafeAnnotation`)
+- [=IRISafe annotation=] (`rml:IRISafeAnnotation`)
 - [=PrimaryKey annotation=] (`rml:PrimaryKeyAnnotation`)
-- [=Inclusion annotation=] (`rml:InclusionAnnotation`)
+- [=InclusionDependency annotation=] (`rml:InclusionDependencyAnnotation`)
 
 All structural annotations of a logical view <i>lv</i> MUST have an <dfn>on fields</dfn> property (`rml:onFields`), linking the structural annotation to a list of field names occurring in <i>lv</i>. Intuitively, property [=on fields=] specifies the fields in <i>lv</i> that are involved by the structural annotation. The semantics of this involvement depends on the specific annotation.
 
@@ -30,9 +30,9 @@ Structural annotations provide additional information about the data that might 
 
 We emphasize that RML engines might exploit structural annotations, as they could totally ignore them. It is responsibility of the user to make sure that the annotations provided are indeed correct (that is, the data complies with the annotations). Sanity checks MAY be provided by the RML engines themselves, but this is not mandatory. Note that providing wrong annotations to an engine that takes annotations into account, for instance for applying optimizations, could result in a violation of the invariance principle, with unpredictable results.
 
-### IriSafe
+### IRISafe
 
-An <dfn data-lt="IriSafe annotation">IriSafe structural annotation</dfn> (`rml:IriSafeAnnotation`) [=on fields=] _F_ indicates that the content of each field in _F_ is [IRI safe](https://www.w3.org/TR/r2rml/#dfn-iri-safe), that is, each field in _F_ does not contain any character that is not in the [`iunreserved` production](http://tools.ietf.org/html/rfc3987#section-2.2) in [RFC3987](http://tools.ietf.org/html/rfc3987).
+An <dfn data-lt="IRISafe annotation">IRISafe structural annotation</dfn> (`rml:IRISafeAnnotation`) [=on fields=] _F_ indicates that the content of each field in _F_ is [IRI safe](https://www.w3.org/TR/r2rml/#dfn-iri-safe), that is, each field in _F_ does not contain any character that is not in the [`iunreserved` production](http://tools.ietf.org/html/rfc3987#section-2.2) in [RFC3987](http://tools.ietf.org/html/rfc3987).
 
 ### PrimaryKey
 
@@ -267,19 +267,19 @@ Now, we declare the logical view corresponding to `:jsonSource`. Note that this 
 </aside>
 </aside>
 
-### Inclusion
+### InclusionDependency
 
-The <dfn data-lt="Inclusion annotation">Inclusion structural annotation</dfn> (`rml:InclusionAnnotation`) is analogous to the notion of <i>inclusion dependency</i> in databases. Specifically, an [=Inclusion annotation=] [=on fields=]  _(f1, ..., fn)_ , [=target view=] <i>lv</i>, and [=target fields=] _(tf1,...,tfn)_ imposes the following condition:
+The <dfn data-lt="InclusionDependency annotation">InclusionDependency structural annotation</dfn> (`rml:InclusionDependencyAnnotation`) is analogous to the notion of <i>inclusion dependency</i> in databases. Specifically, an [=InclusionDependency annotation=] [=on fields=]  _(f1, ..., fn)_ , [=target view=] <i>lv</i>, and [=target fields=] _(tf1,...,tfn)_ imposes the following condition:
 
 - each NULL-free record sequence over the list of fields _(f1, ..., fn)_ occurs also as a record sequence in _(tf1,...,tfn)_;
 
 As for [=ForeignKey annotation=], the [=target view=] MUST be a [=logical view=] specified through the property `rml:targetView`, whereas the <def>target fields</def> MUST be an RDF list of field names specified through the property `rml:targetFields`.
 
-Therefore, each inclusion annotation MUST specify (additionally to the inherited `rml:onFields` property):
+Therefore, each InclusionDependency annotation MUST specify (additionally to the inherited `rml:onFields` property):
 
 - Exactly one `rml:targetView` property
 - Exactly one `rml:targetFields` property.
 
 <aside class="note">
-Note that every [=ForeignKey annotation=] is also an [=Inclusion annotation=].
+Note that every [=ForeignKey annotation=] is also an [=InclusionDependency annotation=].
 </aside>

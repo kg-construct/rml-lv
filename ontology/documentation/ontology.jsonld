@@ -151,7 +151,7 @@
     "@value" : "Logical View Join"
   } ]
 }, {
-  "@id" : "http://w3id.org/rml/NonNullableAnnotation",
+  "@id" : "http://w3id.org/rml/NotNullAnnotation",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@value" : "A non nullable annotation is analogous to the notion of NOT NULL constraints in databases."
@@ -160,7 +160,7 @@
     "@id" : "http://w3id.org/rml/lv/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "Non Nullable Annotation"
+    "@value" : "Not Null Annotation"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://w3id.org/rml/StructuralAnnotation"
@@ -178,7 +178,7 @@
     "@value" : "Primary Key Annotation"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://w3id.org/rml/NonNullableAnnotation"
+    "@id" : "http://w3id.org/rml/NotNullAnnotation"
   }, {
     "@id" : "http://w3id.org/rml/UniqueAnnotation"
   } ]
@@ -390,7 +390,7 @@
   "@id" : "http://w3id.org/rml/targetFields",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "The property targetFields specifies the Fields target of the InclusionAnnotation."
+    "@value" : "The property targetFields specifies the Fields target of the InclusionDependencyAnnotation."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "http://w3id.org/rml/StructuralAnnotation"
@@ -408,7 +408,7 @@
   "@id" : "http://w3id.org/rml/targetView",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "The property targetFields specifies the Fields target of the InclusionAnnotation."
+    "@value" : "The property targetFields specifies the Fields target of the InclusionDependencyAnnotation."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "http://w3id.org/rml/InclusionDependencyAnnotation"

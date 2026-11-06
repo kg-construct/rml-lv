@@ -101,7 +101,7 @@
 <http://w3id.org/rml/targetFields> rdf:type owl:ObjectProperty ;
                                    rdfs:domain <http://w3id.org/rml/StructuralAnnotation> ;
                                    rdfs:range rdf:List ;
-                                   rdfs:comment "The property targetFields specifies the Fields target of the InclusionAnnotation." ;
+                                   rdfs:comment "The property targetFields specifies the Fields target of the InclusionDependencyAnnotation." ;
                                    rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
                                    rdfs:label "target fields" .
 
@@ -110,7 +110,7 @@
 <http://w3id.org/rml/targetView> rdf:type owl:ObjectProperty ;
                                  rdfs:domain <http://w3id.org/rml/InclusionDependencyAnnotation> ;
                                  rdfs:range <http://w3id.org/rml/LogicalView> ;
-                                 rdfs:comment "The property targetFields specifies the Fields target of the InclusionAnnotation." ;
+                                 rdfs:comment "The property targetFields specifies the Fields target of the InclusionDependencyAnnotation." ;
                                  rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
                                  rdfs:label "target view" .
 
@@ -213,17 +213,17 @@
                                       rdfs:label "Logical View Join" .
 
 
-###  http://w3id.org/rml/NonNullableAnnotation
-<http://w3id.org/rml/NonNullableAnnotation> rdf:type owl:Class ;
+###  http://w3id.org/rml/NotNullAnnotation
+<http://w3id.org/rml/NotNullAnnotation> rdf:type owl:Class ;
                                             rdfs:subClassOf <http://w3id.org/rml/StructuralAnnotation> ;
                                             rdfs:comment "A non nullable annotation is analogous to the notion of NOT NULL constraints in databases." ;
                                             rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
-                                            rdfs:label "Non Nullable Annotation" .
+                                            rdfs:label "Not Null Annotation" .
 
 
 ###  http://w3id.org/rml/PrimaryKeyAnnotation
 <http://w3id.org/rml/PrimaryKeyAnnotation> rdf:type owl:Class ;
-                                           rdfs:subClassOf <http://w3id.org/rml/NonNullableAnnotation> ,
+                                           rdfs:subClassOf <http://w3id.org/rml/NotNullAnnotation> ,
                                                            <http://w3id.org/rml/UniqueAnnotation> ;
                                            rdfs:comment "A primary key annotation is analogous to the notion of a primary key constraints in databases." ;
                                            rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
