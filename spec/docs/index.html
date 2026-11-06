@@ -47,7 +47,7 @@ dfn{cursor:pointer}
 <title>RML Logical Views</title>
     
     
-<link rel="stylesheet" type="text/css" href="./20261012/resources/css/extras.css">
+<link rel="stylesheet" type="text/css" href="./20261106/resources/css/extras.css">
     
     
 <style type="text/css">
@@ -380,8 +380,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "rml-io"
     }
   },
-  "publishISODate": "2026-10-12T00:00:00.000Z",
-  "generatedSubtitle": "Draft Community Group Report 12 October 2026"
+  "publishISODate": "2026-11-06T00:00:00.000Z",
+  "generatedSubtitle": "Draft Community Group Report 06 November 2026"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/cg-draft">
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/dark.css" disabled=""></head>
@@ -390,7 +390,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <h1 id="title" class="title">RML Logical Views</h1> 
     <p id="w3c-state">
       <a href="https://www.w3.org/standards/types#reports">Draft Community Group Report</a>
-      <time class="dt-published" datetime="2026-10-12">12 October 2026</time>
+      <time class="dt-published" datetime="2026-11-06">06 November 2026</time>
     </p>
     <dl>
       
@@ -520,7 +520,7 @@ as well as additional information about their fields, through structural annotat
     <p data-format="markdown"><p>This is an early draft,
 yet efforts are made to keep things stable.</p>
 </p>
-</section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">1. </bdi>Overview</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#conventions"><bdi class="secno">1.1 </bdi>Document conventions</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1.2 </bdi>Conformance</a></li></ol></li><li class="tocline"><a class="tocxref" href="#problem"><bdi class="secno">2. </bdi>Problem</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#nested-data-structures"><bdi class="secno">2.1 </bdi>Nested data structures</a></li><li class="tocline"><a class="tocxref" href="#mixed-data-formats"><bdi class="secno">2.2 </bdi>Mixed data formats</a></li><li class="tocline"><a class="tocxref" href="#joining-of-data-sources"><bdi class="secno">2.3 </bdi>Joining of data sources</a></li></ol></li><li class="tocline"><a class="tocxref" href="#logicalviews"><bdi class="secno">3. </bdi>Logical views</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#logicalviewiterator"><bdi class="secno">3.1 </bdi>Logical view iterator</a></li><li class="tocline"><a class="tocxref" href="#logicalviewexpressions"><bdi class="secno">3.2 </bdi>Logical view expressions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#fields"><bdi class="secno">4. </bdi>Fields</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#fieldparents"><bdi class="secno">4.1 </bdi>Field parents</a></li><li class="tocline"><a class="tocxref" href="#fieldnames"><bdi class="secno">4.2 </bdi>Field names</a></li><li class="tocline"><a class="tocxref" href="#fieldrecords"><bdi class="secno">4.3 </bdi>Field records</a></li><li class="tocline"><a class="tocxref" href="#fieldreferenceformulations"><bdi class="secno">4.4 </bdi>Field reference formulations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#viewjoins"><bdi class="secno">5. </bdi>Logical view joins</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#dfn-join-type"><bdi class="secno">5.1 </bdi>Join types</a></li><li class="tocline"><a class="tocxref" href="#logical-view-join-examples"><bdi class="secno">5.2 </bdi>Logical view join examples</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#left-join"><bdi class="secno">5.2.1 </bdi>Left join</a></li><li class="tocline"><a class="tocxref" href="#inner-join"><bdi class="secno">5.2.2 </bdi>Inner join</a></li><li class="tocline"><a class="tocxref" href="#two-left-joins"><bdi class="secno">5.2.3 </bdi>Two left joins</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#annotations"><bdi class="secno">6. </bdi>Structural Annotations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#invariance-principle"><bdi class="secno">6.1 </bdi>Invariance Principle</a></li><li class="tocline"><a class="tocxref" href="#irisafe"><bdi class="secno">6.2 </bdi>IriSafe</a></li><li class="tocline"><a class="tocxref" href="#primarykey"><bdi class="secno">6.3 </bdi>PrimaryKey</a></li><li class="tocline"><a class="tocxref" href="#unique"><bdi class="secno">6.4 </bdi>Unique</a></li><li class="tocline"><a class="tocxref" href="#notnull"><bdi class="secno">6.5 </bdi>NotNull</a></li><li class="tocline"><a class="tocxref" href="#foreignkey"><bdi class="secno">6.6 </bdi>ForeignKey</a></li><li class="tocline"><a class="tocxref" href="#inclusion"><bdi class="secno">6.7 </bdi>Inclusion</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">A.1 </bdi>Normative references</a></li></ol></li></ol></nav>
+</section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#overview"><bdi class="secno">1. </bdi>Overview</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#conventions"><bdi class="secno">1.1 </bdi>Document conventions</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">1.2 </bdi>Conformance</a></li></ol></li><li class="tocline"><a class="tocxref" href="#problem"><bdi class="secno">2. </bdi>Problem</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#nested-data-structures"><bdi class="secno">2.1 </bdi>Nested data structures</a></li><li class="tocline"><a class="tocxref" href="#mixed-data-formats"><bdi class="secno">2.2 </bdi>Mixed data formats</a></li><li class="tocline"><a class="tocxref" href="#joining-of-data-sources"><bdi class="secno">2.3 </bdi>Joining of data sources</a></li></ol></li><li class="tocline"><a class="tocxref" href="#logicalviews"><bdi class="secno">3. </bdi>Logical views</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#logicalviewiterator"><bdi class="secno">3.1 </bdi>Logical view iterator</a></li><li class="tocline"><a class="tocxref" href="#logicalviewexpressions"><bdi class="secno">3.2 </bdi>Logical view expressions</a></li></ol></li><li class="tocline"><a class="tocxref" href="#fields"><bdi class="secno">4. </bdi>Fields</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#fieldparents"><bdi class="secno">4.1 </bdi>Field parents</a></li><li class="tocline"><a class="tocxref" href="#fieldnames"><bdi class="secno">4.2 </bdi>Field names</a></li><li class="tocline"><a class="tocxref" href="#fieldrecords"><bdi class="secno">4.3 </bdi>Field records</a></li><li class="tocline"><a class="tocxref" href="#fieldreferenceformulations"><bdi class="secno">4.4 </bdi>Field reference formulations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#viewjoins"><bdi class="secno">5. </bdi>Logical view joins</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#dfn-join-type"><bdi class="secno">5.1 </bdi>Join types</a></li><li class="tocline"><a class="tocxref" href="#logical-view-join-examples"><bdi class="secno">5.2 </bdi>Logical view join examples</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#left-join"><bdi class="secno">5.2.1 </bdi>Left join</a></li><li class="tocline"><a class="tocxref" href="#inner-join"><bdi class="secno">5.2.2 </bdi>Inner join</a></li><li class="tocline"><a class="tocxref" href="#two-left-joins"><bdi class="secno">5.2.3 </bdi>Two left joins</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#annotations"><bdi class="secno">6. </bdi>Structural Annotations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#invariance-principle"><bdi class="secno">6.1 </bdi>Invariance Principle</a></li><li class="tocline"><a class="tocxref" href="#irisafe"><bdi class="secno">6.2 </bdi>IRISafe</a></li><li class="tocline"><a class="tocxref" href="#primarykey"><bdi class="secno">6.3 </bdi>PrimaryKey</a></li><li class="tocline"><a class="tocxref" href="#unique"><bdi class="secno">6.4 </bdi>Unique</a></li><li class="tocline"><a class="tocxref" href="#notnull"><bdi class="secno">6.5 </bdi>NotNull</a></li><li class="tocline"><a class="tocxref" href="#foreignkey"><bdi class="secno">6.6 </bdi>ForeignKey</a></li><li class="tocline"><a class="tocxref" href="#inclusiondependency"><bdi class="secno">6.7 </bdi>InclusionDependency</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">A. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">A.1 </bdi>Normative references</a></li></ol></li></ol></nav>
 
 <section id="overview-0"><div class="header-wrapper"><h2 id="overview"><bdi class="secno">1. </bdi>Overview</h2><a class="self-link" href="#overview" aria-label="Permalink for Section 1."></a></div><p><em>This section is non-normative.</em></p>
 <section id="document-conventions"><div class="header-wrapper"><h3 id="conventions"><bdi class="secno">1.1 </bdi>Document conventions</h3><a class="self-link" href="#conventions" aria-label="Permalink for Section 1.1"></a></div><p>We assume readers have basic familiarity with RDF and RML concepts.</p>
@@ -1629,9 +1629,9 @@ tobias,789
 <li><a data-link-type="dfn|abstract-op" href="#dfn-unique-annotation" class="internalDFN" id="ref-for-dfn-unique-annotation-1">Unique annotation</a> (<code>rml:UniqueAnnotation</code>)</li>
 <li><a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annotation" class="internalDFN" id="ref-for-dfn-foreignkey-annotation-1">ForeignKey annotation</a> (<code>rml:ForeignKeyAnnotation</code>)</li>
 <li><a data-link-type="dfn|abstract-op" href="#dfn-notnull-annotation" class="internalDFN" id="ref-for-dfn-notnull-annotation-1">NotNull annotation</a> (<code>rml:NotNullAnnotation</code>)</li>
-<li><a data-link-type="dfn|abstract-op" href="#dfn-irisafe-annotation" class="internalDFN" id="ref-for-dfn-irisafe-annotation-1">IriSafe annotation</a> (<code>rml:IriSafeAnnotation</code>)</li>
+<li><a data-link-type="dfn|abstract-op" href="#dfn-irisafe-annotation" class="internalDFN" id="ref-for-dfn-irisafe-annotation-1">IRISafe annotation</a> (<code>rml:IRISafeAnnotation</code>)</li>
 <li><a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annotation" class="internalDFN" id="ref-for-dfn-primarykey-annotation-1">PrimaryKey annotation</a> (<code>rml:PrimaryKeyAnnotation</code>)</li>
-<li><a data-link-type="dfn|abstract-op" href="#dfn-inclusion-annotation" class="internalDFN" id="ref-for-dfn-inclusion-annotation-1">Inclusion annotation</a> (<code>rml:InclusionAnnotation</code>)</li>
+<li><a data-link-type="dfn|abstract-op" href="#dfn-inclusiondependency-annotation" class="internalDFN" id="ref-for-dfn-inclusiondependency-annotation-1">InclusionDependency annotation</a> (<code>rml:InclusionDependencyAnnotation</code>)</li>
 </ul>
 <p>All structural annotations of a logical view <i>lv</i> <em class="rfc2119">MUST</em> have an <dfn id="dfn-on-fields" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">on fields</dfn> property (<code>rml:onFields</code>), linking the structural annotation to a list of field names occurring in <i>lv</i>. Intuitively, property <a data-link-type="dfn|abstract-op" href="#dfn-on-fields" class="internalDFN" id="ref-for-dfn-on-fields-1">on fields</a> specifies the fields in <i>lv</i> that are involved by the structural annotation. The semantics of this involvement depends on the specific annotation.</p>
 <table>
@@ -1652,8 +1652,8 @@ tobias,789
 <p>Structural annotations provide additional information about the data that might be used by the RML processor to optimize the KG construction process. If this additional information is incorrect, then the RML processor might either fail or produce wrong results. When using structural annotations, users should make sure that the following invariance principle is satisfied:</p>
 <p><i>For any source instances, the RDF graph produced by the RML engine using an <a href="https://w3id.org/rml/core/spec#dfn-rml-mapping">RML mapping</a> with annotations, and the same  <a href="https://w3id.org/rml/core/spec#dfn-rml-mapping">RML mapping</a> where annotations have been removed, <em class="rfc2119">MUST</em> be the same.</i></p>
 <p>We emphasize that RML engines might exploit structural annotations, as they could totally ignore them. It is responsibility of the user to make sure that the annotations provided are indeed correct (that is, the data complies with the annotations). Sanity checks <em class="rfc2119">MAY</em> be provided by the RML engines themselves, but this is not mandatory. Note that providing wrong annotations to an engine that takes annotations into account, for instance for applying optimizations, could result in a violation of the invariance principle, with unpredictable results.</p>
-</section><section id="irisafe"><div class="header-wrapper"><h3 id="x6-2-irisafe"><bdi class="secno">6.2 </bdi>IriSafe</h3><a class="self-link" href="#irisafe" aria-label="Permalink for Section 6.2"></a></div>
-<p>An <dfn data-lt="IriSafe annotation|IriSafe structural annotation" id="dfn-irisafe-annotation" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">IriSafe structural annotation</dfn> (<code>rml:IriSafeAnnotation</code>) <a data-link-type="dfn|abstract-op" href="#dfn-on-fields" class="internalDFN" id="ref-for-dfn-on-fields-2">on fields</a> <em>F</em> indicates that the content of each field in <em>F</em> is <a href="https://www.w3.org/TR/r2rml/#dfn-iri-safe">IRI safe</a>, that is, each field in <em>F</em> does not contain any character that is not in the <a href="http://tools.ietf.org/html/rfc3987#section-2.2"><code>iunreserved</code> production</a> in <a href="http://tools.ietf.org/html/rfc3987">RFC3987</a>.</p>
+</section><section id="irisafe"><div class="header-wrapper"><h3 id="x6-2-irisafe"><bdi class="secno">6.2 </bdi>IRISafe</h3><a class="self-link" href="#irisafe" aria-label="Permalink for Section 6.2"></a></div>
+<p>An <dfn data-lt="IRISafe annotation|IRISafe structural annotation" id="dfn-irisafe-annotation" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">IRISafe structural annotation</dfn> (<code>rml:IRISafeAnnotation</code>) <a data-link-type="dfn|abstract-op" href="#dfn-on-fields" class="internalDFN" id="ref-for-dfn-on-fields-2">on fields</a> <em>F</em> indicates that the content of each field in <em>F</em> is <a href="https://www.w3.org/TR/r2rml/#dfn-iri-safe">IRI safe</a>, that is, each field in <em>F</em> does not contain any character that is not in the <a href="http://tools.ietf.org/html/rfc3987#section-2.2"><code>iunreserved</code> production</a> in <a href="http://tools.ietf.org/html/rfc3987">RFC3987</a>.</p>
 </section><section id="primarykey"><div class="header-wrapper"><h3 id="x6-3-primarykey"><bdi class="secno">6.3 </bdi>PrimaryKey</h3><a class="self-link" href="#primarykey" aria-label="Permalink for Section 6.3"></a></div>
 <p>A <dfn data-lt="PrimaryKey annotation|PrimaryKey structural annotation" id="dfn-primarykey-annotation" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">PrimaryKey structural annotation</dfn>  (<code>rml:PrimaryKeyAnnotation</code>) <a data-link-type="dfn|abstract-op" href="#dfn-on-fields" class="internalDFN" id="ref-for-dfn-on-fields-3">on fields</a>  <em>(f1, ..., fn)</em>  imposes two conditions:</p>
 <ul>
@@ -1838,19 +1838,19 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-primarykey-annota
   ].
 </code></pre>
 </aside>
-</aside></section><section id="inclusion"><div class="header-wrapper"><h3 id="x6-7-inclusion"><bdi class="secno">6.7 </bdi>Inclusion</h3><a class="self-link" href="#inclusion" aria-label="Permalink for Section 6.7"></a></div>
-<p>The <dfn data-lt="Inclusion annotation|Inclusion structural annotation" id="dfn-inclusion-annotation" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Inclusion structural annotation</dfn> (<code>rml:InclusionAnnotation</code>) is analogous to the notion of <i>inclusion dependency</i> in databases. Specifically, an <a data-link-type="dfn|abstract-op" href="#dfn-inclusion-annotation" class="internalDFN" id="ref-for-dfn-inclusion-annotation-2">Inclusion annotation</a> <a data-link-type="dfn|abstract-op" href="#dfn-on-fields" class="internalDFN" id="ref-for-dfn-on-fields-8">on fields</a>  <em>(f1, ..., fn)</em> , <a data-link-type="dfn|abstract-op" href="#dfn-target-view" class="internalDFN" id="ref-for-dfn-target-view-2">target view</a> <i>lv</i>, and <a data-link-type="dfn|abstract-op" href="#dfn-target-fields" class="internalDFN" id="ref-for-dfn-target-fields-2">target fields</a> <em>(tf1,...,tfn)</em> imposes the following condition:</p>
+</aside></section><section id="inclusiondependency"><div class="header-wrapper"><h3 id="x6-7-inclusiondependency"><bdi class="secno">6.7 </bdi>InclusionDependency</h3><a class="self-link" href="#inclusiondependency" aria-label="Permalink for Section 6.7"></a></div>
+<p>The <dfn data-lt="InclusionDependency annotation|InclusionDependency structural annotation" id="dfn-inclusiondependency-annotation" tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">InclusionDependency structural annotation</dfn> (<code>rml:InclusionDependencyAnnotation</code>) is analogous to the notion of <i>inclusion dependency</i> in databases. Specifically, an <a data-link-type="dfn|abstract-op" href="#dfn-inclusiondependency-annotation" class="internalDFN" id="ref-for-dfn-inclusiondependency-annotation-2">InclusionDependency annotation</a> <a data-link-type="dfn|abstract-op" href="#dfn-on-fields" class="internalDFN" id="ref-for-dfn-on-fields-8">on fields</a>  <em>(f1, ..., fn)</em> , <a data-link-type="dfn|abstract-op" href="#dfn-target-view" class="internalDFN" id="ref-for-dfn-target-view-2">target view</a> <i>lv</i>, and <a data-link-type="dfn|abstract-op" href="#dfn-target-fields" class="internalDFN" id="ref-for-dfn-target-fields-2">target fields</a> <em>(tf1,...,tfn)</em> imposes the following condition:</p>
 <ul>
 <li>each NULL-free record sequence over the list of fields <em>(f1, ..., fn)</em> occurs also as a record sequence in <em>(tf1,...,tfn)</em>;</li>
 </ul>
 <p>As for <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annotation" class="internalDFN" id="ref-for-dfn-foreignkey-annotation-3">ForeignKey annotation</a>, the <a data-link-type="dfn|abstract-op" href="#dfn-target-view" class="internalDFN" id="ref-for-dfn-target-view-3">target view</a> <em class="rfc2119">MUST</em> be a <a data-link-type="dfn|abstract-op" href="#dfn-logical-view" class="internalDFN" id="ref-for-dfn-logical-view-21">logical view</a> specified through the property <code>rml:targetView</code>, whereas the <def>target fields</def> <em class="rfc2119">MUST</em> be an RDF list of field names specified through the property <code>rml:targetFields</code>.</p>
-<p>Therefore, each inclusion annotation <em class="rfc2119">MUST</em> specify (additionally to the inherited <code>rml:onFields</code> property):</p>
+<p>Therefore, each InclusionDependency annotation <em class="rfc2119">MUST</em> specify (additionally to the inherited <code>rml:onFields</code> property):</p>
 <ul>
 <li>Exactly one <code>rml:targetView</code> property</li>
 <li>Exactly one <code>rml:targetFields</code> property.</li>
 </ul>
 <div class="note" role="note" id="issue-container-generatedID-3"><div class="note-title marker" id="h-note-3"><span>Note</span></div><aside class="">
-Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annotation" class="internalDFN" id="ref-for-dfn-foreignkey-annotation-4">ForeignKey annotation</a> is also an <a data-link-type="dfn|abstract-op" href="#dfn-inclusion-annotation" class="internalDFN" id="ref-for-dfn-inclusion-annotation-3">Inclusion annotation</a>.
+Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annotation" class="internalDFN" id="ref-for-dfn-foreignkey-annotation-4">ForeignKey annotation</a> is also an <a data-link-type="dfn|abstract-op" href="#dfn-inclusiondependency-annotation" class="internalDFN" id="ref-for-dfn-inclusiondependency-annotation-3">InclusionDependency annotation</a>.
 </aside></div></section></section>
 
 
@@ -1908,7 +1908,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
     </li><li>
       <a href="#ref-for-dfn-logical-view-20" title="§ 6.6 ForeignKey">§ 6.6 ForeignKey</a> 
     </li><li>
-      <a href="#ref-for-dfn-logical-view-21" title="§ 6.7 Inclusion">§ 6.7 Inclusion</a> 
+      <a href="#ref-for-dfn-logical-view-21" title="§ 6.7 InclusionDependency">§ 6.7 InclusionDependency</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-logical-view-iteration-sequence" aria-label="Links in this document to definition: logical view iteration sequence">
@@ -2324,7 +2324,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
     <li>
       <a href="#ref-for-dfn-on-fields-1" title="§ 6. Structural Annotations">§ 6. Structural Annotations</a> 
     </li><li>
-      <a href="#ref-for-dfn-on-fields-2" title="§ 6.2 IriSafe">§ 6.2 IriSafe</a> 
+      <a href="#ref-for-dfn-on-fields-2" title="§ 6.2 IRISafe">§ 6.2 IRISafe</a> 
     </li><li>
       <a href="#ref-for-dfn-on-fields-3" title="§ 6.3 PrimaryKey">§ 6.3 PrimaryKey</a> 
     </li><li>
@@ -2334,13 +2334,13 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
     </li><li>
       <a href="#ref-for-dfn-on-fields-6" title="§ 6.6 ForeignKey">§ 6.6 ForeignKey</a> <a href="#ref-for-dfn-on-fields-7" title="Reference 2">(2)</a> 
     </li><li>
-      <a href="#ref-for-dfn-on-fields-8" title="§ 6.7 Inclusion">§ 6.7 Inclusion</a> 
+      <a href="#ref-for-dfn-on-fields-8" title="§ 6.7 InclusionDependency">§ 6.7 InclusionDependency</a> 
     </li>
   </ul>
-    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-irisafe-annotation" aria-label="Links in this document to definition: IriSafe structural annotation">
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-irisafe-annotation" aria-label="Links in this document to definition: IRISafe structural annotation">
       <span class="caret"></span>
       <div>
-        <a class="self-link" href="#dfn-irisafe-annotation" aria-label="Permalink for definition: IriSafe structural annotation. Activate to close this dialog.">Permalink</a>
+        <a class="self-link" href="#dfn-irisafe-annotation" aria-label="Permalink for definition: IRISafe structural annotation. Activate to close this dialog.">Permalink</a>
          
         
       </div>
@@ -2415,7 +2415,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
     </li><li>
       <a href="#ref-for-dfn-foreignkey-annotation-2" title="§ 6.6 ForeignKey">§ 6.6 ForeignKey</a> 
     </li><li>
-      <a href="#ref-for-dfn-foreignkey-annotation-3" title="§ 6.7 Inclusion">§ 6.7 Inclusion</a> <a href="#ref-for-dfn-foreignkey-annotation-4" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-foreignkey-annotation-3" title="§ 6.7 InclusionDependency">§ 6.7 InclusionDependency</a> <a href="#ref-for-dfn-foreignkey-annotation-4" title="Reference 2">(2)</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-target-view" aria-label="Links in this document to definition: target view">
@@ -2430,7 +2430,7 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
     <li>
       <a href="#ref-for-dfn-target-view-1" title="§ 6.6 ForeignKey">§ 6.6 ForeignKey</a> 
     </li><li>
-      <a href="#ref-for-dfn-target-view-2" title="§ 6.7 Inclusion">§ 6.7 Inclusion</a> <a href="#ref-for-dfn-target-view-3" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-target-view-2" title="§ 6.7 InclusionDependency">§ 6.7 InclusionDependency</a> <a href="#ref-for-dfn-target-view-3" title="Reference 2">(2)</a> 
     </li>
   </ul>
     </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-target-fields" aria-label="Links in this document to definition: target fields">
@@ -2445,22 +2445,22 @@ Note that every <a data-link-type="dfn|abstract-op" href="#dfn-foreignkey-annota
     <li>
       <a href="#ref-for-dfn-target-fields-1" title="§ 6.6 ForeignKey">§ 6.6 ForeignKey</a> 
     </li><li>
-      <a href="#ref-for-dfn-target-fields-2" title="§ 6.7 Inclusion">§ 6.7 Inclusion</a> 
+      <a href="#ref-for-dfn-target-fields-2" title="§ 6.7 InclusionDependency">§ 6.7 InclusionDependency</a> 
     </li>
   </ul>
-    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-inclusion-annotation" aria-label="Links in this document to definition: Inclusion structural annotation">
+    </div><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-inclusiondependency-annotation" aria-label="Links in this document to definition: InclusionDependency structural annotation">
       <span class="caret"></span>
       <div>
-        <a class="self-link" href="#dfn-inclusion-annotation" aria-label="Permalink for definition: Inclusion structural annotation. Activate to close this dialog.">Permalink</a>
+        <a class="self-link" href="#dfn-inclusiondependency-annotation" aria-label="Permalink for definition: InclusionDependency structural annotation. Activate to close this dialog.">Permalink</a>
          
         
       </div>
       <p><b>Referenced in:</b></p>
       <ul>
     <li>
-      <a href="#ref-for-dfn-inclusion-annotation-1" title="§ 6. Structural Annotations">§ 6. Structural Annotations</a> 
+      <a href="#ref-for-dfn-inclusiondependency-annotation-1" title="§ 6. Structural Annotations">§ 6. Structural Annotations</a> 
     </li><li>
-      <a href="#ref-for-dfn-inclusion-annotation-2" title="§ 6.7 Inclusion">§ 6.7 Inclusion</a> <a href="#ref-for-dfn-inclusion-annotation-3" title="Reference 2">(2)</a> 
+      <a href="#ref-for-dfn-inclusiondependency-annotation-2" title="§ 6.7 InclusionDependency">§ 6.7 InclusionDependency</a> <a href="#ref-for-dfn-inclusiondependency-annotation-3" title="Reference 2">(2)</a> 
     </li>
   </ul>
     </div><script id="respec-highlight-vars">(() => {

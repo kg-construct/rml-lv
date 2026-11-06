@@ -101,16 +101,16 @@
 <http://w3id.org/rml/targetFields> rdf:type owl:ObjectProperty ;
                                    rdfs:domain <http://w3id.org/rml/StructuralAnnotation> ;
                                    rdfs:range rdf:List ;
-                                   rdfs:comment "The property targetFields specifies the Fields target of the InclusionAnnotation." ;
+                                   rdfs:comment "The property targetFields specifies the Fields target of the InclusionDependencyAnnotation." ;
                                    rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
                                    rdfs:label "target fields" .
 
 
 ###  http://w3id.org/rml/targetView
 <http://w3id.org/rml/targetView> rdf:type owl:ObjectProperty ;
-                                 rdfs:domain <http://w3id.org/rml/InclusionAnnotation> ;
+                                 rdfs:domain <http://w3id.org/rml/InclusionDependencyAnnotation> ;
                                  rdfs:range <http://w3id.org/rml/LogicalView> ;
-                                 rdfs:comment "The property targetFields specifies the Fields target of the InclusionAnnotation." ;
+                                 rdfs:comment "The property targetFields specifies the Fields target of the InclusionDependencyAnnotation." ;
                                  rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
                                  rdfs:label "target view" .
 
@@ -163,26 +163,26 @@
 
 ###  http://w3id.org/rml/ForeignKeyAnnotation
 <http://w3id.org/rml/ForeignKeyAnnotation> rdf:type owl:Class ;
-                                           rdfs:subClassOf <http://w3id.org/rml/InclusionAnnotation> ;
+                                           rdfs:subClassOf <http://w3id.org/rml/InclusionDependencyAnnotation> ;
                                            rdfs:comment "A foreign key annotation is analogous to the notion of foreign key constraint in databases." ;
                                            rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
                                            rdfs:label "Foreign Key Annotation" .
 
 
-###  http://w3id.org/rml/IriSafeAnnotation
-<http://w3id.org/rml/IriSafeAnnotation> rdf:type owl:Class ;
+###  http://w3id.org/rml/IRISafeAnnotation
+<http://w3id.org/rml/IRISafeAnnotation> rdf:type owl:Class ;
                                         rdfs:subClassOf <http://w3id.org/rml/StructuralAnnotation> ;
                                         rdfs:comment "A IRI safe annotation indicates that the field content is IRI safe." ;
                                         rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
                                         rdfs:label "IRI Safe Annotation" .
 
 
-###  http://w3id.org/rml/InclusionAnnotation
-<http://w3id.org/rml/InclusionAnnotation> rdf:type owl:Class ;
+###  http://w3id.org/rml/InclusionDependencyAnnotation
+<http://w3id.org/rml/InclusionDependencyAnnotation> rdf:type owl:Class ;
                                                     rdfs:subClassOf <http://w3id.org/rml/StructuralAnnotation> ;
                                                     rdfs:comment "An inclusion dependency annotation is analogous to the notion of inclusion dependency in databases." ;
                                                     rdfs:isDefinedBy <http://w3id.org/rml/lv/> ;
-                                                    rdfs:label "Inclusion Annotation" .
+                                                    rdfs:label "Inclusion Dependency Annotation" .
 
 
 ###  http://w3id.org/rml/Iterable

@@ -156,7 +156,7 @@
     <owl:ObjectProperty rdf:about="http://w3id.org/rml/targetFields">
         <rdfs:domain rdf:resource="http://w3id.org/rml/StructuralAnnotation"/>
         <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-        <rdfs:comment>The property targetFields specifies the Fields target of the InclusionAnnotation.</rdfs:comment>
+        <rdfs:comment>The property targetFields specifies the Fields target of the InclusionDependencyAnnotation.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://w3id.org/rml/lv/"/>
         <rdfs:label>target fields</rdfs:label>
     </owl:ObjectProperty>
@@ -167,9 +167,9 @@
 
 
     <owl:ObjectProperty rdf:about="http://w3id.org/rml/targetView">
-        <rdfs:domain rdf:resource="http://w3id.org/rml/InclusionAnnotation"/>
+        <rdfs:domain rdf:resource="http://w3id.org/rml/InclusionDependencyAnnotation"/>
         <rdfs:range rdf:resource="http://w3id.org/rml/LogicalView"/>
-        <rdfs:comment>The property targetFields specifies the Fields target of the InclusionAnnotation.</rdfs:comment>
+        <rdfs:comment>The property targetFields specifies the Fields target of the InclusionDependencyAnnotation.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://w3id.org/rml/lv/"/>
         <rdfs:label>target view</rdfs:label>
     </owl:ObjectProperty>
@@ -261,7 +261,7 @@
 
 
     <owl:Class rdf:about="http://w3id.org/rml/ForeignKeyAnnotation">
-        <rdfs:subClassOf rdf:resource="http://w3id.org/rml/InclusionAnnotation"/>
+        <rdfs:subClassOf rdf:resource="http://w3id.org/rml/InclusionDependencyAnnotation"/>
         <rdfs:comment>A foreign key annotation is analogous to the notion of foreign key constraint in databases.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://w3id.org/rml/lv/"/>
         <rdfs:label>Foreign Key Annotation</rdfs:label>
@@ -269,10 +269,10 @@
     
 
 
-    <!-- http://w3id.org/rml/IriSafeAnnotation -->
+    <!-- http://w3id.org/rml/IRISafeAnnotation -->
 
 
-    <owl:Class rdf:about="http://w3id.org/rml/IriSafeAnnotation">
+    <owl:Class rdf:about="http://w3id.org/rml/IRISafeAnnotation">
         <rdfs:subClassOf rdf:resource="http://w3id.org/rml/StructuralAnnotation"/>
         <rdfs:comment>A IRI safe annotation indicates that the field content is IRI safe.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://w3id.org/rml/lv/"/>
@@ -281,14 +281,14 @@
     
 
 
-    <!-- http://w3id.org/rml/InclusionAnnotation -->
+    <!-- http://w3id.org/rml/InclusionDependencyAnnotation -->
 
 
-    <owl:Class rdf:about="http://w3id.org/rml/InclusionAnnotation">
+    <owl:Class rdf:about="http://w3id.org/rml/InclusionDependencyAnnotation">
         <rdfs:subClassOf rdf:resource="http://w3id.org/rml/StructuralAnnotation"/>
         <rdfs:comment>An inclusion dependency annotation is analogous to the notion of inclusion dependency in databases.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://w3id.org/rml/lv/"/>
-        <rdfs:label>Inclusion Annotation</rdfs:label>
+        <rdfs:label>Inclusion Dependency Annotation</rdfs:label>
     </owl:Class>
     
 

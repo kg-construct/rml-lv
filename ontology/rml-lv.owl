@@ -111,7 +111,7 @@ rml:structuralAnnotation rdf:type owl:ObjectProperty ;
 ###  http://w3id.org/rml/targetFields
 rml:targetFields rdf:type owl:ObjectProperty ;
               rdfs:label "target fields" ;
-              rdfs:comment "The property targetFields specifies the Fields target of the InclusionAnnotation." ;
+              rdfs:comment "The property targetFields specifies the Fields target of the InclusionDependencyAnnotation." ;
               rdfs:domain rml:StructuralAnnotation ;
               rdfs:range rdf:List ;
               rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
@@ -120,8 +120,8 @@ rml:targetFields rdf:type owl:ObjectProperty ;
 ###  http://w3id.org/rml/targetView
 rml:targetView rdf:type owl:ObjectProperty ;
             rdfs:label "target view" ;
-            rdfs:comment "The property targetFields specifies the Fields target of the InclusionAnnotation." ;
-            rdfs:domain rml:InclusionAnnotation ;
+            rdfs:comment "The property targetFields specifies the Fields target of the InclusionDependencyAnnotation." ;
+            rdfs:domain rml:InclusionDependencyAnnotation ;
             rdfs:range rml:LogicalView ;
             rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
@@ -184,21 +184,21 @@ rml:LogicalViewJoin rdf:type owl:Class ;
 rml:ForeignKeyAnnotation rdf:type owl:Class ;
                       rdfs:label "Foreign Key Annotation" ;
                       rdfs:comment "A foreign key annotation is analogous to the notion of foreign key constraint in databases." ;
-                      rdfs:subClassOf rml:InclusionAnnotation ;
+                      rdfs:subClassOf rml:InclusionDependencyAnnotation ;
                       rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
 
-###  http://w3id.org/rml/IriSafeAnnotation
-rml:IriSafeAnnotation rdf:type owl:Class ;
+###  http://w3id.org/rml/IRISafeAnnotation
+rml:IRISafeAnnotation rdf:type owl:Class ;
                    rdfs:label "IRI Safe Annotation" ;
                    rdfs:comment "A IRI safe annotation indicates that the field content is IRI safe." ;
                    rdfs:subClassOf rml:StructuralAnnotation ;
                    rdfs:isDefinedBy <http://w3id.org/rml/lv/> .
 
 
-###  http://w3id.org/rml/InclusionAnnotation
-rml:InclusionAnnotation rdf:type owl:Class ;
-                               rdfs:label "Inclusion Annotation" ;
+###  http://w3id.org/rml/InclusionDependencyAnnotation
+rml:InclusionDependencyAnnotation rdf:type owl:Class ;
+                               rdfs:label "Inclusion Dependency Annotation" ;
                                rdfs:comment "An inclusion dependency annotation is analogous to the notion of inclusion dependency in databases." ;
                                rdfs:subClassOf rml:StructuralAnnotation ;
                                rdfs:isDefinedBy <http://w3id.org/rml/lv/> .

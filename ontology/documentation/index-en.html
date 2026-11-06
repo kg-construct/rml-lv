@@ -107,8 +107,8 @@ This section provides details for each class and property defined by RML Logical
   <li><a href="#ExpressionField" title="http://w3id.org/rml/ExpressionField">Expression Field</a></li>
   <li><a href="#Field" title="http://w3id.org/rml/Field">Field</a></li>
   <li><a href="#ForeignKeyAnnotation" title="http://w3id.org/rml/ForeignKeyAnnotation">Foreign Key Annotation</a></li>
-  <li><a href="#InclusionAnnotation" title="http://w3id.org/rml/InclusionAnnotation">Inclusion Annotation</a></li>
-  <li><a href="#IriSafeAnnotation" title="http://w3id.org/rml/IriSafeAnnotation">IRI Safe Annotation</a></li>
+  <li><a href="#InclusionDependencyAnnotation" title="http://w3id.org/rml/InclusionDependencyAnnotation">Inclusion Dependency Annotation</a></li>
+  <li><a href="#IRISafeAnnotation" title="http://w3id.org/rml/IRISafeAnnotation">IRI Safe Annotation</a></li>
   <li><a href="#IterableField" title="http://w3id.org/rml/IterableField">Iterable Field</a></li>
   <li><a href="#LogicalView" title="http://w3id.org/rml/LogicalView">Logical View</a></li>
   <li><a href="#LogicalViewJoin" title="http://w3id.org/rml/LogicalViewJoin">Logical View Join</a></li>
@@ -194,13 +194,13 @@ This section provides details for each class and property defined by RML Logical
     has super-classes
    </dt>
    <dd>
-    <a href="#InclusionAnnotation" title="http://w3id.org/rml/InclusionAnnotation">Inclusion Annotation</a> <sup class="type-c" title="class">c</sup>
+    <a href="#InclusionDependencyAnnotation" title="http://w3id.org/rml/InclusionDependencyAnnotation">Inclusion Dependency Annotation</a> <sup class="type-c" title="class">c</sup>
    </dd>
   </dl>
  </div>
- <div class="entity" id="InclusionAnnotation">
-  <h3>Inclusion Annotation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> http://w3id.org/rml/InclusionAnnotation</p>
+ <div class="entity" id="InclusionDependencyAnnotation">
+  <h3>Inclusion Dependency Annotation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://w3id.org/rml/InclusionDependencyAnnotation</p>
   <div class="comment">
    <span class="markdown">An inclusion dependency annotation is analogous to the notion of inclusion dependency in databases.</span>
   </div>
@@ -233,9 +233,9 @@ This section provides details for each class and property defined by RML Logical
    </dd>
   </dl>
  </div>
- <div class="entity" id="IriSafeAnnotation">
+ <div class="entity" id="IRISafeAnnotation">
   <h3>IRI Safe Annotation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
-  <p><strong>IRI:</strong> http://w3id.org/rml/IriSafeAnnotation</p>
+  <p><strong>IRI:</strong> http://w3id.org/rml/IRISafeAnnotation</p>
   <div class="comment">
    <span class="markdown">A IRI safe annotation indicates that the field content is IRI safe.</span>
   </div>
@@ -414,7 +414,7 @@ This section provides details for each class and property defined by RML Logical
     has sub-classes
    </dt>
    <dd>
-    <a href="#IriSafeAnnotation" title="http://w3id.org/rml/IriSafeAnnotation">IRI Safe Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#InclusionAnnotation" title="http://w3id.org/rml/InclusionAnnotation">Inclusion Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#NotNullAnnotation" title="http://w3id.org/rml/NotNullAnnotation">Not Null Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#UniqueAnnotation" title="http://w3id.org/rml/UniqueAnnotation">Unique Annotation</a> <sup class="type-c" title="class">c</sup>
+    <a href="#IRISafeAnnotation" title="http://w3id.org/rml/IRISafeAnnotation">IRI Safe Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#InclusionDependencyAnnotation" title="http://w3id.org/rml/InclusionDependencyAnnotation">Inclusion Dependency Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#NotNullAnnotation" title="http://w3id.org/rml/NotNullAnnotation">Not Null Annotation</a> <sup class="type-c" title="class">c</sup>, <a href="#UniqueAnnotation" title="http://w3id.org/rml/UniqueAnnotation">Unique Annotation</a> <sup class="type-c" title="class">c</sup>
    </dd>
    <dt>
     is in domain of
@@ -662,7 +662,7 @@ This section provides details for each class and property defined by RML Logical
   <h3>target fields<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://w3id.org/rml/targetFields</p>
   <div class="comment">
-   <span class="markdown">The property targetFields specifies the Fields target of the InclusionAnnotation.</span>
+   <span class="markdown">The property targetFields specifies the Fields target of the InclusionDependencyAnnotation.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -693,7 +693,7 @@ This section provides details for each class and property defined by RML Logical
   <h3>target view<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
   <p><strong>IRI:</strong> http://w3id.org/rml/targetView</p>
   <div class="comment">
-   <span class="markdown">The property targetFields specifies the Fields target of the InclusionAnnotation.</span>
+   <span class="markdown">The property targetFields specifies the Fields target of the InclusionDependencyAnnotation.</span>
   </div>
   <dl class="definedBy">
    <dt>
@@ -709,7 +709,7 @@ This section provides details for each class and property defined by RML Logical
      has domain
     </dt>
     <dd>
-     <a href="#InclusionAnnotation" title="http://w3id.org/rml/InclusionAnnotation">Inclusion Annotation</a> <sup class="type-c" title="class">c</sup>
+     <a href="#InclusionDependencyAnnotation" title="http://w3id.org/rml/InclusionDependencyAnnotation">Inclusion Dependency Annotation</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range

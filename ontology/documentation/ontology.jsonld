@@ -71,10 +71,10 @@
     "@value" : "Foreign Key Annotation"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://w3id.org/rml/InclusionAnnotation"
+    "@id" : "http://w3id.org/rml/InclusionDependencyAnnotation"
   } ]
 }, {
-  "@id" : "http://w3id.org/rml/IriSafeAnnotation",
+  "@id" : "http://w3id.org/rml/IRISafeAnnotation",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@value" : "A IRI safe annotation indicates that the field content is IRI safe."
@@ -89,7 +89,7 @@
     "@id" : "http://w3id.org/rml/StructuralAnnotation"
   } ]
 }, {
-  "@id" : "http://w3id.org/rml/InclusionAnnotation",
+  "@id" : "http://w3id.org/rml/InclusionDependencyAnnotation",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@value" : "An inclusion dependency annotation is analogous to the notion of inclusion dependency in databases."
@@ -98,7 +98,7 @@
     "@id" : "http://w3id.org/rml/lv/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "Inclusion Annotation"
+    "@value" : "Inclusion Dependency Annotation"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
     "@id" : "http://w3id.org/rml/StructuralAnnotation"
@@ -390,7 +390,7 @@
   "@id" : "http://w3id.org/rml/targetFields",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "The property targetFields specifies the Fields target of the InclusionAnnotation."
+    "@value" : "The property targetFields specifies the Fields target of the InclusionDependencyAnnotation."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
     "@id" : "http://w3id.org/rml/StructuralAnnotation"
@@ -408,10 +408,10 @@
   "@id" : "http://w3id.org/rml/targetView",
   "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "The property targetFields specifies the Fields target of the InclusionAnnotation."
+    "@value" : "The property targetFields specifies the Fields target of the InclusionDependencyAnnotation."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://w3id.org/rml/InclusionAnnotation"
+    "@id" : "http://w3id.org/rml/InclusionDependencyAnnotation"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#isDefinedBy" : [ {
     "@id" : "http://w3id.org/rml/lv/"
